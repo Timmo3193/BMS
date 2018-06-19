@@ -1,0 +1,3 @@
+Include Define Debug Mode (probably in prj header file
+Ticket ClearCase-like system
+Fix errors on HW pages so that intial compile can be completed

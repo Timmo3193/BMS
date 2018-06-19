@@ -1,0 +1,6 @@
+C:\Users\Timmo\Documents\GitHub\BMS\BMS_Workspace\BMS_Master.cydsn\BMS_Master.cyprj|0a66f816-47f5-4303-83a6-b3fffb6c9e76
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|847951bc-1641-4acc-b020-85674b707a5c
+C:\Users\Timmo\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|85f4059c-22dc-450d-a303-949067f860e9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|ff6dd1e4-aa6d-4318-9be6-e6d393f8d2ea
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|77e808d4-5402-4b7f-b815-af7c6ce55e8e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|926e9874-c3c7-4fbb-8787-3335f52facc7

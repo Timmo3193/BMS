@@ -1,0 +1,15 @@
+--------------- Build Started: 06/19/2018 15:48:06 Project: BMS_Master, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\Timmo\AppData\Local\Cypress Semiconductor\PSoC Creator\4.2" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Timmo\Documents\GitHub\BMS\BMS_Workspace\BMS_Master.cydsn\BMS_Master.cyprj -d CY8C5888LTI-LP097 -s C:\Users\Timmo\Documents\GitHub\BMS\BMS_Workspace\BMS_Master.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0050: error: Terminal "miso" requires connection when it is visible.
+ * C:\Users\Timmo\Documents\GitHub\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Signal: Net_6)
+ * C:\Users\Timmo\Documents\GitHub\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Shape_1.10)
+ADD: sdb.M0050: error: Terminal "clock" requires connection when it is visible.
+ * C:\Users\Timmo\Documents\GitHub\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Signal: Net_7)
+ * C:\Users\Timmo\Documents\GitHub\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Shape_1.12)
+ADD: sdb.M0059: error: Error in component: Vehiicle_CAN. The BUS_CLK clock is undefined or was changed. For proper bit timing calculation, launch the CAN configuration dialog and select the appropriate values in the Timing tab.
+ * C:\Users\Timmo\Documents\GitHub\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Instance:Vehiicle_CAN)
+ADD: sdb.M0060: warning: Warning in component: Vehiicle_CAN. The BUS_CLK clock accuracy should be 0.5% or better. Please, use an external XTAL or external clock source to meet the CAN accurate clocking requirements.
+ * C:\Users\Timmo\Documents\GitHub\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Instance:Vehiicle_CAN)
+Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
+--------------- Build Failed: 06/19/2018 15:48:10 ---------------

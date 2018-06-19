@@ -14,7 +14,7 @@
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-
+    InitializeComms();
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
 
     for(;;)
@@ -22,5 +22,33 @@ int main(void)
         /* Place your application code here. */
     }
 }
+
+
+void initializeComms(void)
+{
+    //Start CAN Bus
+    Vehicle_CAN_Start();
+    //Enable Interupts?
+    
+    //Start SPI
+    SPICAN_Start();
+    
+    #ifdef DEBUG_MODE
+        UART_DBG_Start();
+    #endif
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
 
 /* [] END OF FILE */
