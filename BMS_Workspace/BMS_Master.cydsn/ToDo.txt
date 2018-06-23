@@ -1,3 +1,9 @@
 Include Define Debug Mode (probably in prj header file
 Ticket ClearCase-like system
 Fix errors on HW pages so that intial compile can be completed
+
+Analog inputs done through on board ADC and Mux? or HW
+Normalize all values against reading
+Seperate ECU into new project
+
+

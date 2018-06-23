@@ -14,7 +14,7 @@
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-    InitializeComms();
+    void initializeComms();
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
 
     for(;;)
@@ -32,7 +32,7 @@ void initializeComms(void)
     
     //Start SPI
     SPICAN_Start();
-    
+  
     #ifdef DEBUG_MODE
         UART_DBG_Start();
     #endif

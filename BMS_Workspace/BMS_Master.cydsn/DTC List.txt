@@ -1,0 +1,29 @@
+
+//a - Alert
+
+a010_BrakePressureFrontOC
+a011_BrakePressureFrontSC
+a012_BrakePressureRearOC
+a013_BrakePressureRearSC
+
+
+
+
+//f - Fatal
+
+//-- Brake Faults f01x --//
+f010_Brake1InputOC
+f011_Brake1InputSC
+f012_Brake2InputOC
+f013_Brake2InputSC
+
+
+
+//-- Throttle Faults f02x --//
+f020_Throttle1OC
+f021_Throttle1SC
+f022_Throttle2OC
+f023_Throttle2SC
+
+
+
