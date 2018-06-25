@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
-  <block name="aiECU_PyroRear" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="aiECU_PyroFront" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="doTHM_PumpEn" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="aiTHM_CoolantOutlet" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="aiTHM_CoolantInlet" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="aiBMS_VoltageSense" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="aiECU_Throttle1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="doTHM_FanEn" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="doECU_BrakeLight" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="aiECU_Throttle2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="aiECU_BrakeInput2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="SPICAN" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-    <block name="VirtualMux_3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="ZeroTerminal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="VirtualMux_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="BSPIM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  </block>
+  <block name="doECU_BrakeLight" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="diBMS_RelayPosFdbk" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="aiECU_Throttle1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="aiECU_PyroFront" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="aiECU_PyroRear" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="doTHM_FanEn" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="doTHM_PumpEn" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="doBMS_RelayPreCharge" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="aiBMS_PackVoltage" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="diBMS_RelayNegFdbk" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="doBMS_RelayPosDrive" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="aiBMS_OutputVoltage" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="doBMS_RelayNegDrive" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="RxUART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="UART_DBG" BASE="0x0" SIZE="0x0" desc="UART" visible="true" hidden="false">
     <block name="IntClock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="BUART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <register name="RX_UART_DBG_RX_ADDRESS1" address="0x40006422" bitWidth="8" desc="RX Address1 Register" hidden="false" />
-    <register name="RX_UART_DBG_RX_ADDRESS2" address="0x40006432" bitWidth="8" desc="RX Address2 Register" hidden="false" />
-    <register name="RX_UART_DBG_RX_DATA" address="0x40006442" bitWidth="8" desc="RX Data Register" hidden="false" />
-    <register name="TX_UART_DBG_TX_DATA" address="0x40006444" bitWidth="8" desc="TX Data Register" hidden="false" />
-    <register name="RX_UART_DBG_RX_STATUS" address="0x40006461" bitWidth="8" desc="RX status register" hidden="false">
+    <register name="RX_UART_DBG_RX_ADDRESS1" address="0x40006426" bitWidth="8" desc="RX Address1 Register" hidden="false" />
+    <register name="RX_UART_DBG_RX_ADDRESS2" address="0x40006436" bitWidth="8" desc="RX Address2 Register" hidden="false" />
+    <register name="RX_UART_DBG_RX_DATA" address="0x40006446" bitWidth="8" desc="RX Data Register" hidden="false" />
+    <register name="RX_UART_DBG_RX_STATUS" address="0x40006466" bitWidth="8" desc="RX status register" hidden="false">
       <field name="UART_DBG_RX_STS_MRKSPC" from="0" to="0" access="R" resetVal="" desc="" hidden="false" />
       <field name="UART_DBG_RX_STS_BREAK" from="1" to="1" access="R" resetVal="" desc="" hidden="false" />
       <field name="UART_DBG_RX_STS_PAR_ERROR" from="2" to="2" access="R" resetVal="" desc="" hidden="false" />
@@ -37,16 +33,25 @@
       <field name="UART_DBG_RX_STS_FIFO_NOTEMPTY" from="5" to="5" access="R" resetVal="" desc="" hidden="false" />
       <field name="UART_DBG_RX_STS_ADDR_MATCH" from="6" to="6" access="R" resetVal="" desc="" hidden="false" />
     </register>
-    <register name="TX_UART_DBG_TX_STATUS" address="0x40006462" bitWidth="8" desc="TX status register" hidden="false">
+    <register name="TX_UART_DBG_TX_DATA" address="0x40006545" bitWidth="8" desc="TX Data Register" hidden="false" />
+    <register name="TX_UART_DBG_TX_STATUS" address="0x40006566" bitWidth="8" desc="TX status register" hidden="false">
       <field name="UART_DBG_TX_STS_COMPLETE" from="0" to="0" access="R" resetVal="" desc="" hidden="false" />
       <field name="UART_DBG_TX_STS_FIFO_EMPTY" from="1" to="1" access="R" resetVal="" desc="" hidden="false" />
       <field name="UART_DBG_TX_STS_FIFO_FULL" from="2" to="2" access="R" resetVal="" desc="" hidden="false" />
       <field name="UART_DBG_TX_STS_FIFO_NOT_FULL" from="3" to="3" access="R" resetVal="" desc="" hidden="false" />
     </register>
   </block>
-  <block name="RxUART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="RX_CAN" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Clock_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="TxUART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="TX_CAN" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="RX_CAN" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="SPICAN" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+    <block name="VirtualMux_3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="ZeroTerminal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="VirtualMux_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="BSPIM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  </block>
   <block name="Vehicle_CAN" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="CanIP" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="Clock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -332,10 +337,12 @@
       <field name="DATA_LOW" from="31" to="0" access="RW" resetVal="" desc="Lower Data Bytes" hidden="false" />
     </register>
   </block>
+  <block name="aiTHM_CoolantOutlet" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="aiECU_BrakeInput2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="aiBMS_VoltageSense" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="aiTHM_CoolantInlet" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="aiECU_BrakePressureRear" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="aiECU_BrakePressureFront" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="aiECU_BrakeInput1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="TxUART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Clock_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Pin_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="aiECU_BrakeInput1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="aiECU_BrakePressureFront" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
 </blockRegMap>

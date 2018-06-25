@@ -11,18 +11,6 @@
 <CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256 type_name="CyDesigner.Common.ProjMgmt.Model.CyConfigDependencies" version="1">
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" xml_contents_version="2">
 <CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
-<file name=".\CortexM3\ARM_GCC_541\Debug\DriverControls.o">
-<dep name=".\DriverControls.c" />
-<dep name=".\DriverControls.h" />
-<dep name=".\global.h" />
-</file>
-<file name=".\DriverControls.c" />
-<file name=".\DriverControls.h" />
-<file name=".\global.h" />
-<file name=".\CortexM3\ARM_GCC_541\Debug\DTC.o">
-<dep name=".\DTC.c" />
-</file>
-<file name=".\DTC.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\Clock_1.o">
 <dep name=".\Generated_Source\PSoC5\Clock_1.c" />
 <dep name=".\Generated_Source\PSoC5\Clock_1.h" />
@@ -315,6 +303,32 @@
 <dep name=".\cyapicallbacks.h" />
 </file>
 <file name=".\Generated_Source\PSoC5\Vehicle_CAN_TX_RX_func.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\aiBMS_OutputVoltage.o">
+<dep name=".\Generated_Source\PSoC5\aiBMS_OutputVoltage.c" />
+<dep name=".\Generated_Source\PSoC5\aiBMS_OutputVoltage.h" />
+<dep name=".\Generated_Source\PSoC5\aiBMS_OutputVoltage_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\aiBMS_OutputVoltage.c" />
+<file name=".\Generated_Source\PSoC5\aiBMS_OutputVoltage.h" />
+<file name=".\Generated_Source\PSoC5\aiBMS_OutputVoltage_aliases.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\aiBMS_PackVoltage.o">
+<dep name=".\Generated_Source\PSoC5\aiBMS_PackVoltage.c" />
+<dep name=".\Generated_Source\PSoC5\aiBMS_PackVoltage.h" />
+<dep name=".\Generated_Source\PSoC5\aiBMS_PackVoltage_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\aiBMS_PackVoltage.c" />
+<file name=".\Generated_Source\PSoC5\aiBMS_PackVoltage.h" />
+<file name=".\Generated_Source\PSoC5\aiBMS_PackVoltage_aliases.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\aiBMS_VoltageSense.o">
 <dep name=".\Generated_Source\PSoC5\aiBMS_VoltageSense.c" />
 <dep name=".\Generated_Source\PSoC5\aiBMS_VoltageSense.h" />
@@ -511,6 +525,71 @@
 <dep name=".\Generated_Source\PSoC5\cyutils.c" />
 </file>
 <file name=".\Generated_Source\PSoC5\cyutils.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\diBMS_RelayNegFdbk.o">
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\diBMS_RelayNegFdbk.c" />
+<dep name=".\Generated_Source\PSoC5\diBMS_RelayNegFdbk.h" />
+<dep name=".\Generated_Source\PSoC5\diBMS_RelayNegFdbk_aliases.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\diBMS_RelayNegFdbk.c" />
+<file name=".\Generated_Source\PSoC5\diBMS_RelayNegFdbk.h" />
+<file name=".\Generated_Source\PSoC5\diBMS_RelayNegFdbk_aliases.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\diBMS_RelayPosFdbk.o">
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\diBMS_RelayPosFdbk.c" />
+<dep name=".\Generated_Source\PSoC5\diBMS_RelayPosFdbk.h" />
+<dep name=".\Generated_Source\PSoC5\diBMS_RelayPosFdbk_aliases.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\diBMS_RelayPosFdbk.c" />
+<file name=".\Generated_Source\PSoC5\diBMS_RelayPosFdbk.h" />
+<file name=".\Generated_Source\PSoC5\diBMS_RelayPosFdbk_aliases.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\doBMS_RelayNegDrive.o">
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayNegDrive.c" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayNegDrive.h" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayNegDrive_aliases.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\doBMS_RelayNegDrive.c" />
+<file name=".\Generated_Source\PSoC5\doBMS_RelayNegDrive.h" />
+<file name=".\Generated_Source\PSoC5\doBMS_RelayNegDrive_aliases.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\doBMS_RelayPosDrive.o">
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayPosDrive.c" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayPosDrive.h" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayPosDrive_aliases.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\doBMS_RelayPosDrive.c" />
+<file name=".\Generated_Source\PSoC5\doBMS_RelayPosDrive.h" />
+<file name=".\Generated_Source\PSoC5\doBMS_RelayPosDrive_aliases.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\doBMS_RelayPreCharge.o">
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayPreCharge.c" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayPreCharge.h" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayPreCharge_aliases.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\doBMS_RelayPreCharge.c" />
+<file name=".\Generated_Source\PSoC5\doBMS_RelayPreCharge.h" />
+<file name=".\Generated_Source\PSoC5\doBMS_RelayPreCharge_aliases.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\doECU_BrakeLight.o">
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
@@ -550,6 +629,16 @@
 <file name=".\Generated_Source\PSoC5\doTHM_PumpEn.c" />
 <file name=".\Generated_Source\PSoC5\doTHM_PumpEn.h" />
 <file name=".\Generated_Source\PSoC5\doTHM_PumpEn_aliases.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\RelayControl.o">
+<dep name=".\DTC.h" />
+<dep name=".\RelayControl.c" />
+<dep name=".\RelayControl.h" />
+<dep name=".\mainState.h" />
+</file>
+<file name=".\DTC.h" />
+<file name=".\RelayControl.c" />
+<file name=".\RelayControl.h" />
+<file name=".\mainState.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\main.o">
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
@@ -574,6 +663,10 @@
 <dep name=".\Generated_Source\PSoC5\UART_DBG.h" />
 <dep name=".\Generated_Source\PSoC5\UART_DBG_IntClock.h" />
 <dep name=".\Generated_Source\PSoC5\Vehicle_CAN.h" />
+<dep name=".\Generated_Source\PSoC5\aiBMS_OutputVoltage.h" />
+<dep name=".\Generated_Source\PSoC5\aiBMS_OutputVoltage_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\aiBMS_PackVoltage.h" />
+<dep name=".\Generated_Source\PSoC5\aiBMS_PackVoltage_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\aiBMS_VoltageSense.h" />
 <dep name=".\Generated_Source\PSoC5\aiBMS_VoltageSense_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\aiECU_BrakeInput1.h" />
@@ -604,6 +697,16 @@
 <dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
 <dep name=".\Generated_Source\PSoC5\cypins.h" />
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\diBMS_RelayNegFdbk.h" />
+<dep name=".\Generated_Source\PSoC5\diBMS_RelayNegFdbk_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\diBMS_RelayPosFdbk.h" />
+<dep name=".\Generated_Source\PSoC5\diBMS_RelayPosFdbk_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayNegDrive.h" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayNegDrive_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayPosDrive.h" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayPosDrive_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayPreCharge.h" />
+<dep name=".\Generated_Source\PSoC5\doBMS_RelayPreCharge_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\doECU_BrakeLight.h" />
 <dep name=".\Generated_Source\PSoC5\doECU_BrakeLight_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\doTHM_FanEn.h" />
@@ -631,6 +734,18 @@
 <file name=".\Generated_Source\PSoC5\cydevicegnu.inc" />
 <file name=".\Generated_Source\PSoC5\cydevicegnu_trm.inc" />
 <file name=".\Generated_Source\PSoC5\cyfittergnu.inc" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\DriverControls.o">
+<dep name=".\DriverControls.c" />
+<dep name=".\DriverControls.h" />
+<dep name=".\global.h" />
+</file>
+<file name=".\DriverControls.c" />
+<file name=".\DriverControls.h" />
+<file name=".\global.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\DTC.o">
+<dep name=".\DTC.c" />
+</file>
+<file name=".\DTC.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\aiECU_CoolantInlet.o">
 <dep name=".\Generated_Source\PSoC5\aiECU_CoolantInlet.c" />
 <dep name=".\Generated_Source\PSoC5\aiECU_CoolantInlet.h" />
@@ -673,6 +788,7 @@
 <dep name=".\CortexM3\ARM_GCC_541\Debug\mainState.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\DriverControls.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\DTC.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\RelayControl.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\main.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\cymetadata.o" />
@@ -715,6 +831,13 @@
 <dep name=".\CortexM3\ARM_GCC_541\Debug\doTHM_PumpEn.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\doTHM_FanEn.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\doECU_BrakeLight.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\diBMS_RelayPosFdbk.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\doBMS_RelayPosDrive.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\diBMS_RelayNegFdbk.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\doBMS_RelayNegDrive.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\aiBMS_OutputVoltage.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\aiBMS_PackVoltage.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\doBMS_RelayPreCharge.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\BMS_Master.a" />
 <dep name="${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" />
 </file>
@@ -777,6 +900,14 @@
 <name_val_pair name="Generated_Source\PSoC5\doTHM_PumpEn.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="Generated_Source\PSoC5\doTHM_FanEn.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="Generated_Source\PSoC5\doECU_BrakeLight.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="RelayControl.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\diBMS_RelayPosFdbk.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\doBMS_RelayPosDrive.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\diBMS_RelayNegFdbk.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\doBMS_RelayNegDrive.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\aiBMS_OutputVoltage.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\aiBMS_PackVoltage.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\doBMS_RelayPreCharge.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\Timmo\AppData\Local\Cypress Semiconductor\PSoC Creator\4.2&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\BMS_Master.cyprj -d CY8C5888LTI-LP097 -s C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -1134,6 +1265,27 @@
 <v>Generated_Source\PSoC5\doECU_BrakeLight_aliases.h</v>
 <v>Generated_Source\PSoC5\doECU_BrakeLight.c</v>
 <v>Generated_Source\PSoC5\doECU_BrakeLight.h</v>
+<v>Generated_Source\PSoC5\diBMS_RelayPosFdbk_aliases.h</v>
+<v>Generated_Source\PSoC5\diBMS_RelayPosFdbk.c</v>
+<v>Generated_Source\PSoC5\diBMS_RelayPosFdbk.h</v>
+<v>Generated_Source\PSoC5\doBMS_RelayPosDrive_aliases.h</v>
+<v>Generated_Source\PSoC5\doBMS_RelayPosDrive.c</v>
+<v>Generated_Source\PSoC5\doBMS_RelayPosDrive.h</v>
+<v>Generated_Source\PSoC5\diBMS_RelayNegFdbk_aliases.h</v>
+<v>Generated_Source\PSoC5\diBMS_RelayNegFdbk.c</v>
+<v>Generated_Source\PSoC5\diBMS_RelayNegFdbk.h</v>
+<v>Generated_Source\PSoC5\doBMS_RelayNegDrive_aliases.h</v>
+<v>Generated_Source\PSoC5\doBMS_RelayNegDrive.c</v>
+<v>Generated_Source\PSoC5\doBMS_RelayNegDrive.h</v>
+<v>Generated_Source\PSoC5\aiBMS_OutputVoltage_aliases.h</v>
+<v>Generated_Source\PSoC5\aiBMS_OutputVoltage.c</v>
+<v>Generated_Source\PSoC5\aiBMS_OutputVoltage.h</v>
+<v>Generated_Source\PSoC5\aiBMS_PackVoltage_aliases.h</v>
+<v>Generated_Source\PSoC5\aiBMS_PackVoltage.c</v>
+<v>Generated_Source\PSoC5\aiBMS_PackVoltage.h</v>
+<v>Generated_Source\PSoC5\doBMS_RelayPreCharge_aliases.h</v>
+<v>Generated_Source\PSoC5\doBMS_RelayPreCharge.c</v>
+<v>Generated_Source\PSoC5\doBMS_RelayPreCharge.h</v>
 </gen_list>
 <warp_dep>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif</v>
@@ -1143,7 +1295,7 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="131742107760954967" />
+<deps_time v="131742778684064074" />
 <top_block v="TopDesign" />
 <last_generation v="0" />
 <pdl_path v="" />
@@ -1153,9 +1305,14 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="131742122504823051" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="131742779010495577" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
+</dataGuid>
+<dataGuid v="504337dd-7d07-4bc7-9057-90e60cf6c469">
+<CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469 type_name="CyDesigner.Common.Debugger.CyBreakpointList" version="1">
+<debugger_breakpoint_list />
+</CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469>
 </dataGuid>
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>

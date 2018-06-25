@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="BMS_Workspace\BMS_Master\Source Files\modules\BMS\RelayControl.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="BMS_Workspace\BMS_Master\Source Files\modules\ECU">
 <ExpandedNodeIds>
 <v>BMS_Workspace</v>
 <v>BMS_Workspace\BMS_Master</v>
@@ -32,16 +32,36 @@
 <v>BMS_Workspace\BMS_Master\Source Files</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\BMS</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\IsolationMonitor.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\IsolationMonitor.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\mainState.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\mainState.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\PowerLimit.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\PowerLimit.h</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\RelayControl.c</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\RelayControl.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\SOC.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\SOC.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\TempSense.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\TempSense.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\Thermal.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\Thermal.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\CAN.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\CAN.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\SPI.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\SPI.h</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\DIAG</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\DIAG\DTC.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\DIAG\DTC.h</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\ECU</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\ECU\DriverControls.c</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\ECU\DriverControls.h</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\mainState</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\mainState\mainState.c</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\mainState\mainState.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Slave.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Slave.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Vehicle.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Vehicle.h</v>
 <v>BMS_Workspace\BMS_Master\Source Files\DTC List.txt</v>
 <v>BMS_Workspace\BMS_Master\Source Files\global.h</v>
 <v>BMS_Workspace\BMS_Master\Source Files\main.c</v>
@@ -49,31 +69,36 @@
 <v>BMS_Workspace\BMS_Master\Generated_Source</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>BMS_Workspace</v>
-<v>BMS_Workspace\BMS_Master</v>
-<v>BMS_Workspace\BMS_Master\TopDesign</v>
-<v>BMS_Workspace\BMS_Master\BMS_Master.cydwr</v>
-<v>BMS_Workspace\BMS_Master\Header Files</v>
-<v>BMS_Workspace\BMS_Master\Header Files\cyapicallbacks.h</v>
-<v>BMS_Workspace\BMS_Master\Source Files</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\IsolationMonitor.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\IsolationMonitor.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\mainState.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\mainState.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\PowerLimit.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\PowerLimit.h</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\RelayControl.c</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\RelayControl.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\SOC.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\SOC.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\TempSense.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\TempSense.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\Thermal.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\Thermal.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\CAN.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\CAN.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\SPI.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\SPI.h</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\DIAG</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\DIAG\DTC.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\DIAG\DTC.h</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\ECU</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\ECU\DriverControls.c</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\ECU\DriverControls.h</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\mainState</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\mainState\mainState.c</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\mainState\mainState.h</v>
-<v>BMS_Workspace\BMS_Master\Source Files\DTC List.txt</v>
-<v>BMS_Workspace\BMS_Master\Source Files\global.h</v>
-<v>BMS_Workspace\BMS_Master\Source Files\main.c</v>
-<v>BMS_Workspace\BMS_Master\Source Files\ToDo.txt</v>
-<v>BMS_Workspace\BMS_Master\Generated_Source</v>
-<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Slave.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Slave.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Vehicle.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Vehicle.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -98,6 +123,8 @@
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiBMS_OutputVoltage.lst</v>
+<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiBMS_PackVoltage.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiBMS_VoltageSense.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiECU_BrakeInput1.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiECU_BrakeInput2.lst</v>
@@ -121,6 +148,11 @@
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\diBMS_RelayNegFdbk.lst</v>
+<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\diBMS_RelayPosFdbk.lst</v>
+<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\doBMS_RelayNegDrive.lst</v>
+<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\doBMS_RelayPosDrive.lst</v>
+<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\doBMS_RelayPreCharge.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\doECU_BrakeLight.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\doTHM_FanEn.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\doTHM_PumpEn.lst</v>
@@ -129,6 +161,7 @@
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\mainState.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_1.lst</v>
+<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\RelayControl.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\RX_CAN.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\SPICAN.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\SPICAN_INT.lst</v>
@@ -157,6 +190,8 @@
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiBMS_OutputVoltage.lst</v>
+<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiBMS_PackVoltage.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiBMS_VoltageSense.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiECU_BrakeInput1.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiECU_BrakeInput2.lst</v>
@@ -179,8 +214,6 @@
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\doECU_BrakeLight.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -226,15 +259,30 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\BMS_Master.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\BMS_Master.cydsn\main.c" />
-<name v=".\BMS_Master.cydsn\DriverControls.c" />
-<name v=".\BMS_Master.cydsn\DriverControls.h" />
-<name v=".\BMS_Master.cydsn\DTC.c" />
-<name v=".\BMS_Master.cydsn\DTC List.txt" />
-<name v=".\BMS_Master.cydsn\ToDo.txt" />
 <name v=".\BMS_Master.cydsn\global.h" />
 <name v=".\BMS_Master.cydsn\RelayControl.c" />
 <name v=".\BMS_Master.cydsn\RelayControl.h" />
+<name v=".\BMS_Master.cydsn\DTC.h" />
+<name v=".\BMS_Master.cydsn\mainState.h" />
+<name v=".\BMS_Master.cydsn\mainState.c" />
+<name v=".\BMS_Master.cydsn\TempSense.c" />
+<name v=".\BMS_Master.cydsn\TempSense.h" />
+<name v=".\BMS_Master.cydsn\BMS_to_Vehicle.c" />
+<name v=".\BMS_Master.cydsn\BMS_to_Vehicle.h" />
+<name v=".\BMS_Master.cydsn\BMS_to_Slave.c" />
+<name v=".\BMS_Master.cydsn\BMS_to_Slave.h" />
+<name v=".\BMS_Master.cydsn\IsolationMonitor.c" />
+<name v=".\BMS_Master.cydsn\IsolationMonitor.h" />
+<name v=".\BMS_Master.cydsn\SOC.c" />
+<name v=".\BMS_Master.cydsn\SOC.h" />
+<name v=".\BMS_Master.cydsn\Thermal.c" />
+<name v=".\BMS_Master.cydsn\Thermal.h" />
+<name v=".\BMS_Master.cydsn\PowerLimit.c" />
+<name v=".\BMS_Master.cydsn\PowerLimit.h" />
+<name v=".\BMS_Master.cydsn\CAN.c" />
+<name v=".\BMS_Master.cydsn\CAN.h" />
+<name v=".\BMS_Master.cydsn\SPI.c" />
+<name v=".\BMS_Master.cydsn\SPI.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -242,7 +290,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="989, 453" SelectedTabbedMdiWindow="1ac1f4ea-f7ee-47e8-bd0b-efdbd1531250"><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch" Guid="572b2547-921e-4652-adea-2094ac716775" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\main.c" Guid="6c635a85-06d1-4a12-b877-44d29a6dcf05" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\DriverControls.c" Guid="dd87fffe-03b8-4065-a340-659ac160556d" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\DriverControls.h" Guid="3cef55b7-7e8a-4dd4-b11b-b4fc377ae2b4" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\DTC.c" Guid="24ca6e0b-3daa-4d8c-8980-af7bb49e94ca" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\DTC List.txt" Guid="313e6d9b-cfbb-4430-a9d6-01e8783fd7b5" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\ToDo.txt" Guid="7e45810f-f88a-45f8-ae39-4584703dc031" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\global.h" Guid="a4b8c86f-0fce-4bf3-864c-1c675488b796" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\RelayControl.c" Guid="1ac1f4ea-f7ee-47e8-bd0b-efdbd1531250" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\RelayControl.h" Guid="233dc4ba-9eba-473d-99bf-2e191cfbe6b5" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="863, 523" SelectedTabbedMdiWindow="afffe52d-7982-4b89-bbb5-f97033ab696a"><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch" Guid="572b2547-921e-4652-adea-2094ac716775" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\global.h" Guid="a4b8c86f-0fce-4bf3-864c-1c675488b796" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\RelayControl.c" Guid="1ac1f4ea-f7ee-47e8-bd0b-efdbd1531250" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\RelayControl.h" Guid="233dc4ba-9eba-473d-99bf-2e191cfbe6b5" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\DTC.h" Guid="58c1bd71-69ee-4b2d-8139-042906f6f7a4" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\mainState.h" Guid="50f2d9f7-05e5-4e55-868a-8f0020bc2391" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\mainState.c" Guid="0850147a-9dfc-4c2a-8d70-219ddcec7936" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TempSense.c" Guid="b6f27e31-d9d9-49bc-9ed5-8649fd4040ea" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="e233ae64-a9b3-4a50-a2c7-d63774a80943" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TempSense.h" Guid="753c4137-9c11-4c5c-b8d0-b708da0ba02f" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\BMS_to_Vehicle.c" Guid="e57e5b6c-1c7d-4222-859a-7f8aba5763f6" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\BMS_to_Vehicle.h" Guid="23c32040-56f6-419d-b861-24f296e08c6a" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\BMS_to_Slave.c" Guid="19980773-9711-47b9-a5aa-f423ee780ce7" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\BMS_to_Slave.h" Guid="89e139d3-29fe-484c-846e-dd19780362f0" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\IsolationMonitor.c" Guid="00084cbc-c4b2-4581-bfe6-eeda5d5485c4" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\IsolationMonitor.h" Guid="cbc8cb48-2a88-4b29-b76b-fdbccf398623" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\SOC.c" Guid="114bb946-302b-48dd-ba3a-421d26410d43" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\SOC.h" Guid="00826442-dd79-4fea-a16a-9c9e2e06942d" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\Thermal.c" Guid="3850990e-aa60-4d56-a72e-0be30f1608e8" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\Thermal.h" Guid="3b3fb29e-e382-4fbb-851c-b201d1f190e6" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\PowerLimit.c" Guid="f12bc4fb-46af-4521-bb7c-dae5e3b4274f" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\PowerLimit.h" Guid="5ce479bd-9406-48f3-acce-6a325efff7ca" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\CAN.c" Guid="a8f2a426-d7dd-4b1b-b3e4-8d453b00bca6" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\CAN.h" Guid="60549c7b-f354-4187-b806-c79fee96cf2e" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\SPI.c" Guid="ed996458-d794-45e7-9912-c7929f43259d" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\SPI.h" Guid="afffe52d-7982-4b89-bbb5-f97033ab696a" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

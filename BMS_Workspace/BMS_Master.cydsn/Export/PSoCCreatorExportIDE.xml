@@ -42,6 +42,9 @@
           <File BuildType="BUILD" Toolchain="">DriverControls.c</File>
           <File BuildType="BUILD" Toolchain="">DriverControls.h</File>
           <File BuildType="BUILD" Toolchain="">DTC.c</File>
+          <File BuildType="BUILD" Toolchain="">DTC.h</File>
+          <File BuildType="BUILD" Toolchain="">RelayControl.c</File>
+          <File BuildType="BUILD" Toolchain="">RelayControl.h</File>
           <File BuildType="BUILD" Toolchain="">global.h</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
         </Files>
@@ -167,6 +170,27 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doECU_BrakeLight_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doECU_BrakeLight.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doECU_BrakeLight.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\diBMS_RelayPosFdbk_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\diBMS_RelayPosFdbk.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\diBMS_RelayPosFdbk.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doBMS_RelayPosDrive_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doBMS_RelayPosDrive.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doBMS_RelayPosDrive.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\diBMS_RelayNegFdbk_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\diBMS_RelayNegFdbk.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\diBMS_RelayNegFdbk.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doBMS_RelayNegDrive_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doBMS_RelayNegDrive.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doBMS_RelayNegDrive.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiBMS_OutputVoltage_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiBMS_OutputVoltage.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiBMS_OutputVoltage.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiBMS_PackVoltage_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiBMS_PackVoltage.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiBMS_PackVoltage.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doBMS_RelayPreCharge_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doBMS_RelayPreCharge.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doBMS_RelayPreCharge.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\Export\ARM_GCC_Generic">

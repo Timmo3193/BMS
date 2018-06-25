@@ -10,6 +10,21 @@
  * ========================================
 */
 
+/* 
+initialize
+wait for enable command
+Check Slaves are OK status
+Perform isolation check?
+attempt to close relays
+
+//Periodic:
+Recieve CAN
+Transmit CAN
+Perform Fast tasks (eg 10Hz)
+Perform Slow tasks (eg 100Hz)
+//---> Every 10 Hz, scheduler should cycle all tasks. 100Hz can just increment a counter.
+
+*/
 
 
 

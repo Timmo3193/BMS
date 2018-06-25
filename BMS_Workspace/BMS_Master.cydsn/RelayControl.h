@@ -10,9 +10,26 @@
  * ========================================
 */
 
+#define PRECHARGE_DELTA_V       10 //Volts
+
+
+//Defining the Relay Enumeration Values
+enum RelayState_E { 
+    RELAY_CLOSED,
+    RELAY_CLOSING,
+    RELAY_OPEN,
+    RELAY_OPENING,
+    RELAY_FAULT,
+    RELAY_UNKNOWN 
+};
+
+
+
 
 void ClosePosRelay();
+enum RelayState_E  PosRelayFeedback();
 void CloseNegRelay();
+enum RelayState_E  NegRelayFeedback();
 void PerformPrecharge();
 
 
