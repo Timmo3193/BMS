@@ -1,0 +1,878 @@
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"IVT-S.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Configure_IVT,"ax",%progbits
+  20              		.align	2
+  21              		.global	Configure_IVT
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Configure_IVT, %function
+  25              	Configure_IVT:
+  26              	.LFB0:
+  27              		.file 1 "IVT-S.c"
+   1:IVT-S.c       **** /* ========================================
+   2:IVT-S.c       ****  *
+   3:IVT-S.c       ****  * Copyright YOUR COMPANY, THE YEAR
+   4:IVT-S.c       ****  * All Rights Reserved
+   5:IVT-S.c       ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:IVT-S.c       ****  *
+   7:IVT-S.c       ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:IVT-S.c       ****  * WHICH IS THE PROPERTY OF your company.
+   9:IVT-S.c       ****  *
+  10:IVT-S.c       ****  * ========================================
+  11:IVT-S.c       **** */
+  12:IVT-S.c       **** 
+  13:IVT-S.c       **** #include "IVT-S.h"
+  14:IVT-S.c       **** 
+  15:IVT-S.c       **** 
+  16:IVT-S.c       **** int iBat = 0;
+  17:IVT-S.c       **** int vBat = 0;
+  18:IVT-S.c       **** 
+  19:IVT-S.c       **** 
+  20:IVT-S.c       **** 
+  21:IVT-S.c       **** //-------------------------------------------------------------
+  22:IVT-S.c       **** 
+  23:IVT-S.c       **** Configure_IVT()
+  24:IVT-S.c       **** {
+  28              		.loc 1 24 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33 0000 7047     		bx	lr
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 2
+
+
+  34              		.cfi_endproc
+  35              	.LFE0:
+  36              		.size	Configure_IVT, .-Configure_IVT
+  37 0002 00BF     		.section	.text.GetCurrent,"ax",%progbits
+  38              		.align	2
+  39              		.global	GetCurrent
+  40              		.thumb
+  41              		.thumb_func
+  42              		.type	GetCurrent, %function
+  43              	GetCurrent:
+  44              	.LFB1:
+  25:IVT-S.c       **** 	//Insert Configuration Code here
+  26:IVT-S.c       **** 	//
+  27:IVT-S.c       **** 
+  28:IVT-S.c       **** }
+  29:IVT-S.c       **** 
+  30:IVT-S.c       **** //-------------------------------------------------------------
+  31:IVT-S.c       **** 
+  32:IVT-S.c       **** GetCurrent()
+  33:IVT-S.c       **** {
+  45              		.loc 1 33 0
+  46              		.cfi_startproc
+  47              		@ args = 0, pretend = 0, frame = 0
+  48              		@ frame_needed = 0, uses_anonymous_args = 0
+  49              		.loc 1 33 0
+  50 0000 08B5     		push	{r3, lr}
+  51              		.cfi_def_cfa_offset 8
+  52              		.cfi_offset 3, -8
+  53              		.cfi_offset 14, -4
+  34:IVT-S.c       **** 	//Recieve Current from IVT-S
+  35:IVT-S.c       **** 	iBat = Get_IVT_I();
+  54              		.loc 1 35 0
+  55 0002 FFF7FEFF 		bl	Get_IVT_I
+  56              	.LVL0:
+  57 0006 0A4B     		ldr	r3, .L7
+  58 0008 1860     		str	r0, [r3]
+  36:IVT-S.c       **** 	//Check that current is in acceptable range
+  37:IVT-S.c       **** 	if ( iBat > CURRENT_MAX )
+  59              		.loc 1 37 0
+  60 000a B0F57A7F 		cmp	r0, #1000
+  61 000e 02DD     		ble	.L3
+  62              	.LBB2:
+  38:IVT-S.c       **** 	{
+  39:IVT-S.c       **** 		SetDTC_f030_PackPosOvercurrent();
+  63              		.loc 1 39 0
+  64 0010 FFF7FEFF 		bl	SetDTC_f030_PackPosOvercurrent
+  65              	.LVL1:
+  66              	.LBE2:
+  67 0014 09E0     		b	.L4
+  68              	.L3:
+  40:IVT-S.c       **** 	}
+  41:IVT-S.c       **** 	else if ( iBat < CURRENT_MIN )
+  69              		.loc 1 41 0
+  70 0016 10F57A7F 		cmn	r0, #1000
+  71 001a 02DA     		bge	.L5
+  72              	.LBB3:
+  42:IVT-S.c       **** 	{
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 3
+
+
+  43:IVT-S.c       **** 		SetDTC_f031_PackNegOvercurrent();
+  73              		.loc 1 43 0
+  74 001c FFF7FEFF 		bl	SetDTC_f031_PackNegOvercurrent
+  75              	.LVL2:
+  76              	.LBE3:
+  77 0020 03E0     		b	.L4
+  78              	.L5:
+  79              	.LBB4:
+  44:IVT-S.c       **** 	}
+  45:IVT-S.c       **** 	else
+  46:IVT-S.c       **** 	{
+  47:IVT-S.c       **** 		ClearDTC_f030_PackPosOvercurrent();
+  80              		.loc 1 47 0
+  81 0022 FFF7FEFF 		bl	ClearDTC_f030_PackPosOvercurrent
+  82              	.LVL3:
+  48:IVT-S.c       **** 		ClearDTC_f031_PackNegOvercurrent();
+  83              		.loc 1 48 0
+  84 0026 FFF7FEFF 		bl	ClearDTC_f031_PackNegOvercurrent
+  85              	.LVL4:
+  86              	.L4:
+  87              	.LBE4:
+  49:IVT-S.c       **** 	}
+  50:IVT-S.c       **** 
+  51:IVT-S.c       **** 	return iBat;
+  52:IVT-S.c       **** 
+  53:IVT-S.c       **** }
+  88              		.loc 1 53 0
+  89 002a 014B     		ldr	r3, .L7
+  90 002c 1868     		ldr	r0, [r3]
+  91 002e 08BD     		pop	{r3, pc}
+  92              	.L8:
+  93              		.align	2
+  94              	.L7:
+  95 0030 00000000 		.word	.LANCHOR0
+  96              		.cfi_endproc
+  97              	.LFE1:
+  98              		.size	GetCurrent, .-GetCurrent
+  99              		.section	.text.GetVoltage,"ax",%progbits
+ 100              		.align	2
+ 101              		.global	GetVoltage
+ 102              		.thumb
+ 103              		.thumb_func
+ 104              		.type	GetVoltage, %function
+ 105              	GetVoltage:
+ 106              	.LFB2:
+  54:IVT-S.c       **** 
+  55:IVT-S.c       **** //-------------------------------------------------------------
+  56:IVT-S.c       **** 
+  57:IVT-S.c       **** GetVoltage()
+  58:IVT-S.c       **** {
+ 107              		.loc 1 58 0
+ 108              		.cfi_startproc
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111 0000 08B5     		push	{r3, lr}
+ 112              		.cfi_def_cfa_offset 8
+ 113              		.cfi_offset 3, -8
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 4
+
+
+ 114              		.cfi_offset 14, -4
+  59:IVT-S.c       **** 	vBat = Get_IVT_Vbat();
+ 115              		.loc 1 59 0
+ 116 0002 FFF7FEFF 		bl	Get_IVT_Vbat
+ 117              	.LVL5:
+ 118 0006 084B     		ldr	r3, .L13
+ 119 0008 5860     		str	r0, [r3, #4]
+  60:IVT-S.c       **** 	//Check that Voltage is in acceptable range
+  61:IVT-S.c       **** 	if( vBat > VOLTAGE_MAX )
+ 120              		.loc 1 61 0
+ 121 000a B0F5487F 		cmp	r0, #800
+ 122 000e 02DD     		ble	.L10
+ 123              	.LBB5:
+  62:IVT-S.c       **** 	{
+  63:IVT-S.c       **** 		SetDTC_a040_PackOverV();
+ 124              		.loc 1 63 0
+ 125 0010 FFF7FEFF 		bl	SetDTC_a040_PackOverV
+ 126              	.LVL6:
+ 127              	.LBE5:
+ 128 0014 04E0     		b	.L11
+ 129              	.L10:
+  64:IVT-S.c       **** 	}
+  65:IVT-S.c       **** 	else if ( vBat < VOLTAGE_MIN )
+ 130              		.loc 1 65 0
+ 131 0016 B0F5C87F 		cmp	r0, #400
+ 132 001a 01DA     		bge	.L11
+ 133              	.LBB6:
+  66:IVT-S.c       **** 	{
+  67:IVT-S.c       **** 		SetDTC_a041_PackUnderV();
+ 134              		.loc 1 67 0
+ 135 001c FFF7FEFF 		bl	SetDTC_a041_PackUnderV
+ 136              	.LVL7:
+ 137              	.L11:
+ 138              	.LBE6:
+  68:IVT-S.c       **** 	}
+  69:IVT-S.c       **** 
+  70:IVT-S.c       **** 	return vBat;
+  71:IVT-S.c       **** 
+  72:IVT-S.c       **** }
+ 139              		.loc 1 72 0
+ 140 0020 014B     		ldr	r3, .L13
+ 141 0022 5868     		ldr	r0, [r3, #4]
+ 142 0024 08BD     		pop	{r3, pc}
+ 143              	.L14:
+ 144 0026 00BF     		.align	2
+ 145              	.L13:
+ 146 0028 00000000 		.word	.LANCHOR0
+ 147              		.cfi_endproc
+ 148              	.LFE2:
+ 149              		.size	GetVoltage, .-GetVoltage
+ 150              		.global	vBat
+ 151              		.global	iBat
+ 152              		.comm	IVT_ModeSelect_E,1,1
+ 153              		.bss
+ 154              		.align	2
+ 155              		.set	.LANCHOR0,. + 0
+ 156              		.type	iBat, %object
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 5
+
+
+ 157              		.size	iBat, 4
+ 158              	iBat:
+ 159 0000 00000000 		.space	4
+ 160              		.type	vBat, %object
+ 161              		.size	vBat, 4
+ 162              	vBat:
+ 163 0004 00000000 		.space	4
+ 164              		.text
+ 165              	.Letext0:
+ 166              		.file 2 "IVT-S.h"
+ 167              		.section	.debug_info,"",%progbits
+ 168              	.Ldebug_info0:
+ 169 0000 39020000 		.4byte	0x239
+ 170 0004 0400     		.2byte	0x4
+ 171 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 172 000a 04       		.byte	0x4
+ 173 000b 01       		.uleb128 0x1
+ 174 000c 24000000 		.4byte	.LASF17
+ 175 0010 0C       		.byte	0xc
+ 176 0011 B4010000 		.4byte	.LASF18
+ 177 0015 D1000000 		.4byte	.LASF19
+ 178 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 179 001d 00000000 		.4byte	0
+ 180 0021 00000000 		.4byte	.Ldebug_line0
+ 181 0025 02       		.uleb128 0x2
+ 182 0026 0D020000 		.4byte	.LASF20
+ 183 002a 01       		.byte	0x1
+ 184 002b 48000000 		.4byte	0x48
+ 185 002f 02       		.byte	0x2
+ 186 0030 18       		.byte	0x18
+ 187 0031 48000000 		.4byte	0x48
+ 188 0035 03       		.uleb128 0x3
+ 189 0036 51010000 		.4byte	.LASF0
+ 190 003a 00       		.byte	0
+ 191 003b 03       		.uleb128 0x3
+ 192 003c BC010000 		.4byte	.LASF1
+ 193 0040 01       		.byte	0x1
+ 194 0041 03       		.uleb128 0x3
+ 195 0042 D0010000 		.4byte	.LASF2
+ 196 0046 02       		.byte	0x2
+ 197 0047 00       		.byte	0
+ 198 0048 04       		.uleb128 0x4
+ 199 0049 01       		.byte	0x1
+ 200 004a 08       		.byte	0x8
+ 201 004b 43010000 		.4byte	.LASF3
+ 202 004f 05       		.uleb128 0x5
+ 203 0050 04       		.byte	0x4
+ 204 0051 05       		.byte	0x5
+ 205 0052 696E7400 		.ascii	"int\000"
+ 206 0056 06       		.uleb128 0x6
+ 207 0057 00000000 		.4byte	.LASF21
+ 208 005b 01       		.byte	0x1
+ 209 005c 17       		.byte	0x17
+ 210 005d 00000000 		.4byte	.LFB0
+ 211 0061 02000000 		.4byte	.LFE0-.LFB0
+ 212 0065 01       		.uleb128 0x1
+ 213 0066 9C       		.byte	0x9c
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 6
+
+
+ 214 0067 07       		.uleb128 0x7
+ 215 0068 A9010000 		.4byte	.LASF9
+ 216 006c 01       		.byte	0x1
+ 217 006d 20       		.byte	0x20
+ 218 006e 4F000000 		.4byte	0x4f
+ 219 0072 00000000 		.4byte	.LFB1
+ 220 0076 34000000 		.4byte	.LFE1-.LFB1
+ 221 007a 01       		.uleb128 0x1
+ 222 007b 9C       		.byte	0x9c
+ 223 007c 2D010000 		.4byte	0x12d
+ 224 0080 08       		.uleb128 0x8
+ 225 0081 C6010000 		.4byte	.LASF4
+ 226 0085 01       		.byte	0x1
+ 227 0086 23       		.byte	0x23
+ 228 0087 4F000000 		.4byte	0x4f
+ 229 008b 91000000 		.4byte	0x91
+ 230 008f 09       		.uleb128 0x9
+ 231 0090 00       		.byte	0
+ 232 0091 0A       		.uleb128 0xa
+ 233 0092 10000000 		.4byte	.LBB2
+ 234 0096 04000000 		.4byte	.LBE2-.LBB2
+ 235 009a B9000000 		.4byte	0xb9
+ 236 009e 08       		.uleb128 0x8
+ 237 009f B2000000 		.4byte	.LASF5
+ 238 00a3 01       		.byte	0x1
+ 239 00a4 27       		.byte	0x27
+ 240 00a5 4F000000 		.4byte	0x4f
+ 241 00a9 AF000000 		.4byte	0xaf
+ 242 00ad 09       		.uleb128 0x9
+ 243 00ae 00       		.byte	0
+ 244 00af 0B       		.uleb128 0xb
+ 245 00b0 14000000 		.4byte	.LVL1
+ 246 00b4 E4010000 		.4byte	0x1e4
+ 247 00b8 00       		.byte	0
+ 248 00b9 0A       		.uleb128 0xa
+ 249 00ba 1C000000 		.4byte	.LBB3
+ 250 00be 04000000 		.4byte	.LBE3-.LBB3
+ 251 00c2 E1000000 		.4byte	0xe1
+ 252 00c6 08       		.uleb128 0x8
+ 253 00c7 D7010000 		.4byte	.LASF6
+ 254 00cb 01       		.byte	0x1
+ 255 00cc 2B       		.byte	0x2b
+ 256 00cd 4F000000 		.4byte	0x4f
+ 257 00d1 D7000000 		.4byte	0xd7
+ 258 00d5 09       		.uleb128 0x9
+ 259 00d6 00       		.byte	0
+ 260 00d7 0B       		.uleb128 0xb
+ 261 00d8 20000000 		.4byte	.LVL2
+ 262 00dc EF010000 		.4byte	0x1ef
+ 263 00e0 00       		.byte	0
+ 264 00e1 0A       		.uleb128 0xa
+ 265 00e2 22000000 		.4byte	.LBB4
+ 266 00e6 08000000 		.4byte	.LBE4-.LBB4
+ 267 00ea 23010000 		.4byte	0x123
+ 268 00ee 08       		.uleb128 0x8
+ 269 00ef 7B010000 		.4byte	.LASF7
+ 270 00f3 01       		.byte	0x1
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 7
+
+
+ 271 00f4 2F       		.byte	0x2f
+ 272 00f5 4F000000 		.4byte	0x4f
+ 273 00f9 FF000000 		.4byte	0xff
+ 274 00fd 09       		.uleb128 0x9
+ 275 00fe 00       		.byte	0
+ 276 00ff 08       		.uleb128 0x8
+ 277 0100 5A010000 		.4byte	.LASF8
+ 278 0104 01       		.byte	0x1
+ 279 0105 30       		.byte	0x30
+ 280 0106 4F000000 		.4byte	0x4f
+ 281 010a 10010000 		.4byte	0x110
+ 282 010e 09       		.uleb128 0x9
+ 283 010f 00       		.byte	0
+ 284 0110 0B       		.uleb128 0xb
+ 285 0111 26000000 		.4byte	.LVL3
+ 286 0115 FA010000 		.4byte	0x1fa
+ 287 0119 0B       		.uleb128 0xb
+ 288 011a 2A000000 		.4byte	.LVL4
+ 289 011e 05020000 		.4byte	0x205
+ 290 0122 00       		.byte	0
+ 291 0123 0B       		.uleb128 0xb
+ 292 0124 06000000 		.4byte	.LVL0
+ 293 0128 10020000 		.4byte	0x210
+ 294 012c 00       		.byte	0
+ 295 012d 07       		.uleb128 0x7
+ 296 012e 22010000 		.4byte	.LASF10
+ 297 0132 01       		.byte	0x1
+ 298 0133 39       		.byte	0x39
+ 299 0134 4F000000 		.4byte	0x4f
+ 300 0138 00000000 		.4byte	.LFB2
+ 301 013c 2C000000 		.4byte	.LFE2-.LFB2
+ 302 0140 01       		.uleb128 0x1
+ 303 0141 9C       		.byte	0x9c
+ 304 0142 B1010000 		.4byte	0x1b1
+ 305 0146 08       		.uleb128 0x8
+ 306 0147 9C010000 		.4byte	.LASF11
+ 307 014b 01       		.byte	0x1
+ 308 014c 3B       		.byte	0x3b
+ 309 014d 4F000000 		.4byte	0x4f
+ 310 0151 57010000 		.4byte	0x157
+ 311 0155 09       		.uleb128 0x9
+ 312 0156 00       		.byte	0
+ 313 0157 0A       		.uleb128 0xa
+ 314 0158 10000000 		.4byte	.LBB5
+ 315 015c 04000000 		.4byte	.LBE5-.LBB5
+ 316 0160 7F010000 		.4byte	0x17f
+ 317 0164 08       		.uleb128 0x8
+ 318 0165 0E000000 		.4byte	.LASF12
+ 319 0169 01       		.byte	0x1
+ 320 016a 3F       		.byte	0x3f
+ 321 016b 4F000000 		.4byte	0x4f
+ 322 016f 75010000 		.4byte	0x175
+ 323 0173 09       		.uleb128 0x9
+ 324 0174 00       		.byte	0
+ 325 0175 0B       		.uleb128 0xb
+ 326 0176 14000000 		.4byte	.LVL6
+ 327 017a 1B020000 		.4byte	0x21b
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 8
+
+
+ 328 017e 00       		.byte	0
+ 329 017f 0A       		.uleb128 0xa
+ 330 0180 1C000000 		.4byte	.LBB6
+ 331 0184 04000000 		.4byte	.LBE6-.LBB6
+ 332 0188 A7010000 		.4byte	0x1a7
+ 333 018c 08       		.uleb128 0x8
+ 334 018d F6010000 		.4byte	.LASF13
+ 335 0191 01       		.byte	0x1
+ 336 0192 43       		.byte	0x43
+ 337 0193 4F000000 		.4byte	0x4f
+ 338 0197 9D010000 		.4byte	0x19d
+ 339 019b 09       		.uleb128 0x9
+ 340 019c 00       		.byte	0
+ 341 019d 0B       		.uleb128 0xb
+ 342 019e 20000000 		.4byte	.LVL7
+ 343 01a2 26020000 		.4byte	0x226
+ 344 01a6 00       		.byte	0
+ 345 01a7 0B       		.uleb128 0xb
+ 346 01a8 06000000 		.4byte	.LVL5
+ 347 01ac 31020000 		.4byte	0x231
+ 348 01b0 00       		.byte	0
+ 349 01b1 0C       		.uleb128 0xc
+ 350 01b2 2D010000 		.4byte	.LASF14
+ 351 01b6 02       		.byte	0x2
+ 352 01b7 1C       		.byte	0x1c
+ 353 01b8 25000000 		.4byte	0x25
+ 354 01bc 05       		.uleb128 0x5
+ 355 01bd 03       		.byte	0x3
+ 356 01be 00000000 		.4byte	IVT_ModeSelect_E
+ 357 01c2 0C       		.uleb128 0xc
+ 358 01c3 1D010000 		.4byte	.LASF15
+ 359 01c7 01       		.byte	0x1
+ 360 01c8 10       		.byte	0x10
+ 361 01c9 4F000000 		.4byte	0x4f
+ 362 01cd 05       		.uleb128 0x5
+ 363 01ce 03       		.byte	0x3
+ 364 01cf 00000000 		.4byte	iBat
+ 365 01d3 0C       		.uleb128 0xc
+ 366 01d4 3E010000 		.4byte	.LASF16
+ 367 01d8 01       		.byte	0x1
+ 368 01d9 11       		.byte	0x11
+ 369 01da 4F000000 		.4byte	0x4f
+ 370 01de 05       		.uleb128 0x5
+ 371 01df 03       		.byte	0x3
+ 372 01e0 00000000 		.4byte	vBat
+ 373 01e4 0D       		.uleb128 0xd
+ 374 01e5 B2000000 		.4byte	.LASF5
+ 375 01e9 B2000000 		.4byte	.LASF5
+ 376 01ed 01       		.byte	0x1
+ 377 01ee 27       		.byte	0x27
+ 378 01ef 0D       		.uleb128 0xd
+ 379 01f0 D7010000 		.4byte	.LASF6
+ 380 01f4 D7010000 		.4byte	.LASF6
+ 381 01f8 01       		.byte	0x1
+ 382 01f9 2B       		.byte	0x2b
+ 383 01fa 0D       		.uleb128 0xd
+ 384 01fb 7B010000 		.4byte	.LASF7
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 9
+
+
+ 385 01ff 7B010000 		.4byte	.LASF7
+ 386 0203 01       		.byte	0x1
+ 387 0204 2F       		.byte	0x2f
+ 388 0205 0D       		.uleb128 0xd
+ 389 0206 5A010000 		.4byte	.LASF8
+ 390 020a 5A010000 		.4byte	.LASF8
+ 391 020e 01       		.byte	0x1
+ 392 020f 30       		.byte	0x30
+ 393 0210 0D       		.uleb128 0xd
+ 394 0211 C6010000 		.4byte	.LASF4
+ 395 0215 C6010000 		.4byte	.LASF4
+ 396 0219 01       		.byte	0x1
+ 397 021a 23       		.byte	0x23
+ 398 021b 0D       		.uleb128 0xd
+ 399 021c 0E000000 		.4byte	.LASF12
+ 400 0220 0E000000 		.4byte	.LASF12
+ 401 0224 01       		.byte	0x1
+ 402 0225 3F       		.byte	0x3f
+ 403 0226 0D       		.uleb128 0xd
+ 404 0227 F6010000 		.4byte	.LASF13
+ 405 022b F6010000 		.4byte	.LASF13
+ 406 022f 01       		.byte	0x1
+ 407 0230 43       		.byte	0x43
+ 408 0231 0D       		.uleb128 0xd
+ 409 0232 9C010000 		.4byte	.LASF11
+ 410 0236 9C010000 		.4byte	.LASF11
+ 411 023a 01       		.byte	0x1
+ 412 023b 3B       		.byte	0x3b
+ 413 023c 00       		.byte	0
+ 414              		.section	.debug_abbrev,"",%progbits
+ 415              	.Ldebug_abbrev0:
+ 416 0000 01       		.uleb128 0x1
+ 417 0001 11       		.uleb128 0x11
+ 418 0002 01       		.byte	0x1
+ 419 0003 25       		.uleb128 0x25
+ 420 0004 0E       		.uleb128 0xe
+ 421 0005 13       		.uleb128 0x13
+ 422 0006 0B       		.uleb128 0xb
+ 423 0007 03       		.uleb128 0x3
+ 424 0008 0E       		.uleb128 0xe
+ 425 0009 1B       		.uleb128 0x1b
+ 426 000a 0E       		.uleb128 0xe
+ 427 000b 55       		.uleb128 0x55
+ 428 000c 17       		.uleb128 0x17
+ 429 000d 11       		.uleb128 0x11
+ 430 000e 01       		.uleb128 0x1
+ 431 000f 10       		.uleb128 0x10
+ 432 0010 17       		.uleb128 0x17
+ 433 0011 00       		.byte	0
+ 434 0012 00       		.byte	0
+ 435 0013 02       		.uleb128 0x2
+ 436 0014 04       		.uleb128 0x4
+ 437 0015 01       		.byte	0x1
+ 438 0016 03       		.uleb128 0x3
+ 439 0017 0E       		.uleb128 0xe
+ 440 0018 0B       		.uleb128 0xb
+ 441 0019 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 10
+
+
+ 442 001a 49       		.uleb128 0x49
+ 443 001b 13       		.uleb128 0x13
+ 444 001c 3A       		.uleb128 0x3a
+ 445 001d 0B       		.uleb128 0xb
+ 446 001e 3B       		.uleb128 0x3b
+ 447 001f 0B       		.uleb128 0xb
+ 448 0020 01       		.uleb128 0x1
+ 449 0021 13       		.uleb128 0x13
+ 450 0022 00       		.byte	0
+ 451 0023 00       		.byte	0
+ 452 0024 03       		.uleb128 0x3
+ 453 0025 28       		.uleb128 0x28
+ 454 0026 00       		.byte	0
+ 455 0027 03       		.uleb128 0x3
+ 456 0028 0E       		.uleb128 0xe
+ 457 0029 1C       		.uleb128 0x1c
+ 458 002a 0B       		.uleb128 0xb
+ 459 002b 00       		.byte	0
+ 460 002c 00       		.byte	0
+ 461 002d 04       		.uleb128 0x4
+ 462 002e 24       		.uleb128 0x24
+ 463 002f 00       		.byte	0
+ 464 0030 0B       		.uleb128 0xb
+ 465 0031 0B       		.uleb128 0xb
+ 466 0032 3E       		.uleb128 0x3e
+ 467 0033 0B       		.uleb128 0xb
+ 468 0034 03       		.uleb128 0x3
+ 469 0035 0E       		.uleb128 0xe
+ 470 0036 00       		.byte	0
+ 471 0037 00       		.byte	0
+ 472 0038 05       		.uleb128 0x5
+ 473 0039 24       		.uleb128 0x24
+ 474 003a 00       		.byte	0
+ 475 003b 0B       		.uleb128 0xb
+ 476 003c 0B       		.uleb128 0xb
+ 477 003d 3E       		.uleb128 0x3e
+ 478 003e 0B       		.uleb128 0xb
+ 479 003f 03       		.uleb128 0x3
+ 480 0040 08       		.uleb128 0x8
+ 481 0041 00       		.byte	0
+ 482 0042 00       		.byte	0
+ 483 0043 06       		.uleb128 0x6
+ 484 0044 2E       		.uleb128 0x2e
+ 485 0045 00       		.byte	0
+ 486 0046 3F       		.uleb128 0x3f
+ 487 0047 19       		.uleb128 0x19
+ 488 0048 03       		.uleb128 0x3
+ 489 0049 0E       		.uleb128 0xe
+ 490 004a 3A       		.uleb128 0x3a
+ 491 004b 0B       		.uleb128 0xb
+ 492 004c 3B       		.uleb128 0x3b
+ 493 004d 0B       		.uleb128 0xb
+ 494 004e 11       		.uleb128 0x11
+ 495 004f 01       		.uleb128 0x1
+ 496 0050 12       		.uleb128 0x12
+ 497 0051 06       		.uleb128 0x6
+ 498 0052 40       		.uleb128 0x40
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 11
+
+
+ 499 0053 18       		.uleb128 0x18
+ 500 0054 9742     		.uleb128 0x2117
+ 501 0056 19       		.uleb128 0x19
+ 502 0057 00       		.byte	0
+ 503 0058 00       		.byte	0
+ 504 0059 07       		.uleb128 0x7
+ 505 005a 2E       		.uleb128 0x2e
+ 506 005b 01       		.byte	0x1
+ 507 005c 3F       		.uleb128 0x3f
+ 508 005d 19       		.uleb128 0x19
+ 509 005e 03       		.uleb128 0x3
+ 510 005f 0E       		.uleb128 0xe
+ 511 0060 3A       		.uleb128 0x3a
+ 512 0061 0B       		.uleb128 0xb
+ 513 0062 3B       		.uleb128 0x3b
+ 514 0063 0B       		.uleb128 0xb
+ 515 0064 49       		.uleb128 0x49
+ 516 0065 13       		.uleb128 0x13
+ 517 0066 11       		.uleb128 0x11
+ 518 0067 01       		.uleb128 0x1
+ 519 0068 12       		.uleb128 0x12
+ 520 0069 06       		.uleb128 0x6
+ 521 006a 40       		.uleb128 0x40
+ 522 006b 18       		.uleb128 0x18
+ 523 006c 9742     		.uleb128 0x2117
+ 524 006e 19       		.uleb128 0x19
+ 525 006f 01       		.uleb128 0x1
+ 526 0070 13       		.uleb128 0x13
+ 527 0071 00       		.byte	0
+ 528 0072 00       		.byte	0
+ 529 0073 08       		.uleb128 0x8
+ 530 0074 2E       		.uleb128 0x2e
+ 531 0075 01       		.byte	0x1
+ 532 0076 3F       		.uleb128 0x3f
+ 533 0077 19       		.uleb128 0x19
+ 534 0078 03       		.uleb128 0x3
+ 535 0079 0E       		.uleb128 0xe
+ 536 007a 3A       		.uleb128 0x3a
+ 537 007b 0B       		.uleb128 0xb
+ 538 007c 3B       		.uleb128 0x3b
+ 539 007d 0B       		.uleb128 0xb
+ 540 007e 49       		.uleb128 0x49
+ 541 007f 13       		.uleb128 0x13
+ 542 0080 3C       		.uleb128 0x3c
+ 543 0081 19       		.uleb128 0x19
+ 544 0082 01       		.uleb128 0x1
+ 545 0083 13       		.uleb128 0x13
+ 546 0084 00       		.byte	0
+ 547 0085 00       		.byte	0
+ 548 0086 09       		.uleb128 0x9
+ 549 0087 18       		.uleb128 0x18
+ 550 0088 00       		.byte	0
+ 551 0089 00       		.byte	0
+ 552 008a 00       		.byte	0
+ 553 008b 0A       		.uleb128 0xa
+ 554 008c 0B       		.uleb128 0xb
+ 555 008d 01       		.byte	0x1
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 12
+
+
+ 556 008e 11       		.uleb128 0x11
+ 557 008f 01       		.uleb128 0x1
+ 558 0090 12       		.uleb128 0x12
+ 559 0091 06       		.uleb128 0x6
+ 560 0092 01       		.uleb128 0x1
+ 561 0093 13       		.uleb128 0x13
+ 562 0094 00       		.byte	0
+ 563 0095 00       		.byte	0
+ 564 0096 0B       		.uleb128 0xb
+ 565 0097 898201   		.uleb128 0x4109
+ 566 009a 00       		.byte	0
+ 567 009b 11       		.uleb128 0x11
+ 568 009c 01       		.uleb128 0x1
+ 569 009d 31       		.uleb128 0x31
+ 570 009e 13       		.uleb128 0x13
+ 571 009f 00       		.byte	0
+ 572 00a0 00       		.byte	0
+ 573 00a1 0C       		.uleb128 0xc
+ 574 00a2 34       		.uleb128 0x34
+ 575 00a3 00       		.byte	0
+ 576 00a4 03       		.uleb128 0x3
+ 577 00a5 0E       		.uleb128 0xe
+ 578 00a6 3A       		.uleb128 0x3a
+ 579 00a7 0B       		.uleb128 0xb
+ 580 00a8 3B       		.uleb128 0x3b
+ 581 00a9 0B       		.uleb128 0xb
+ 582 00aa 49       		.uleb128 0x49
+ 583 00ab 13       		.uleb128 0x13
+ 584 00ac 3F       		.uleb128 0x3f
+ 585 00ad 19       		.uleb128 0x19
+ 586 00ae 02       		.uleb128 0x2
+ 587 00af 18       		.uleb128 0x18
+ 588 00b0 00       		.byte	0
+ 589 00b1 00       		.byte	0
+ 590 00b2 0D       		.uleb128 0xd
+ 591 00b3 2E       		.uleb128 0x2e
+ 592 00b4 00       		.byte	0
+ 593 00b5 3F       		.uleb128 0x3f
+ 594 00b6 19       		.uleb128 0x19
+ 595 00b7 3C       		.uleb128 0x3c
+ 596 00b8 19       		.uleb128 0x19
+ 597 00b9 6E       		.uleb128 0x6e
+ 598 00ba 0E       		.uleb128 0xe
+ 599 00bb 03       		.uleb128 0x3
+ 600 00bc 0E       		.uleb128 0xe
+ 601 00bd 3A       		.uleb128 0x3a
+ 602 00be 0B       		.uleb128 0xb
+ 603 00bf 3B       		.uleb128 0x3b
+ 604 00c0 0B       		.uleb128 0xb
+ 605 00c1 00       		.byte	0
+ 606 00c2 00       		.byte	0
+ 607 00c3 00       		.byte	0
+ 608              		.section	.debug_aranges,"",%progbits
+ 609 0000 2C000000 		.4byte	0x2c
+ 610 0004 0200     		.2byte	0x2
+ 611 0006 00000000 		.4byte	.Ldebug_info0
+ 612 000a 04       		.byte	0x4
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 13
+
+
+ 613 000b 00       		.byte	0
+ 614 000c 0000     		.2byte	0
+ 615 000e 0000     		.2byte	0
+ 616 0010 00000000 		.4byte	.LFB0
+ 617 0014 02000000 		.4byte	.LFE0-.LFB0
+ 618 0018 00000000 		.4byte	.LFB1
+ 619 001c 34000000 		.4byte	.LFE1-.LFB1
+ 620 0020 00000000 		.4byte	.LFB2
+ 621 0024 2C000000 		.4byte	.LFE2-.LFB2
+ 622 0028 00000000 		.4byte	0
+ 623 002c 00000000 		.4byte	0
+ 624              		.section	.debug_ranges,"",%progbits
+ 625              	.Ldebug_ranges0:
+ 626 0000 00000000 		.4byte	.LFB0
+ 627 0004 02000000 		.4byte	.LFE0
+ 628 0008 00000000 		.4byte	.LFB1
+ 629 000c 34000000 		.4byte	.LFE1
+ 630 0010 00000000 		.4byte	.LFB2
+ 631 0014 2C000000 		.4byte	.LFE2
+ 632 0018 00000000 		.4byte	0
+ 633 001c 00000000 		.4byte	0
+ 634              		.section	.debug_line,"",%progbits
+ 635              	.Ldebug_line0:
+ 636 0000 6B000000 		.section	.debug_str,"MS",%progbits,1
+ 636      02002900 
+ 636      00000201 
+ 636      FB0E0D00 
+ 636      01010101 
+ 637              	.LASF21:
+ 638 0000 436F6E66 		.ascii	"Configure_IVT\000"
+ 638      69677572 
+ 638      655F4956 
+ 638      5400
+ 639              	.LASF12:
+ 640 000e 53657444 		.ascii	"SetDTC_a040_PackOverV\000"
+ 640      54435F61 
+ 640      3034305F 
+ 640      5061636B 
+ 640      4F766572 
+ 641              	.LASF17:
+ 642 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 642      43313120 
+ 642      352E342E 
+ 642      31203230 
+ 642      31363036 
+ 643 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 643      20726576 
+ 643      6973696F 
+ 643      6E203233 
+ 643      37373135 
+ 644 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 644      66756E63 
+ 644      74696F6E 
+ 644      2D736563 
+ 644      74696F6E 
+ 645              	.LASF5:
+ 646 00b2 53657444 		.ascii	"SetDTC_f030_PackPosOvercurrent\000"
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 14
+
+
+ 646      54435F66 
+ 646      3033305F 
+ 646      5061636B 
+ 646      506F734F 
+ 647              	.LASF19:
+ 648 00d1 433A5C55 		.ascii	"C:\\Users\\Timmo\\Documents\\GitHub\\Software\\BMS\\"
+ 648      73657273 
+ 648      5C54696D 
+ 648      6D6F5C44 
+ 648      6F63756D 
+ 649 00fe 424D535F 		.ascii	"BMS_Workspace\\BMS_Master.cydsn\000"
+ 649      576F726B 
+ 649      73706163 
+ 649      655C424D 
+ 649      535F4D61 
+ 650              	.LASF15:
+ 651 011d 69426174 		.ascii	"iBat\000"
+ 651      00
+ 652              	.LASF10:
+ 653 0122 47657456 		.ascii	"GetVoltage\000"
+ 653      6F6C7461 
+ 653      676500
+ 654              	.LASF14:
+ 655 012d 4956545F 		.ascii	"IVT_ModeSelect_E\000"
+ 655      4D6F6465 
+ 655      53656C65 
+ 655      63745F45 
+ 655      00
+ 656              	.LASF16:
+ 657 013e 76426174 		.ascii	"vBat\000"
+ 657      00
+ 658              	.LASF3:
+ 659 0143 756E7369 		.ascii	"unsigned char\000"
+ 659      676E6564 
+ 659      20636861 
+ 659      7200
+ 660              	.LASF0:
+ 661 0151 44495341 		.ascii	"DISABLED\000"
+ 661      424C4544 
+ 661      00
+ 662              	.LASF8:
+ 663 015a 436C6561 		.ascii	"ClearDTC_f031_PackNegOvercurrent\000"
+ 663      72445443 
+ 663      5F663033 
+ 663      315F5061 
+ 663      636B4E65 
+ 664              	.LASF7:
+ 665 017b 436C6561 		.ascii	"ClearDTC_f030_PackPosOvercurrent\000"
+ 665      72445443 
+ 665      5F663033 
+ 665      305F5061 
+ 665      636B506F 
+ 666              	.LASF11:
+ 667 019c 4765745F 		.ascii	"Get_IVT_Vbat\000"
+ 667      4956545F 
+ 667      56626174 
+ 667      00
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccK2FeGj.s 			page 15
+
+
+ 668              	.LASF9:
+ 669 01a9 47657443 		.ascii	"GetCurrent\000"
+ 669      75727265 
+ 669      6E7400
+ 670              	.LASF18:
+ 671 01b4 4956542D 		.ascii	"IVT-S.c\000"
+ 671      532E6300 
+ 672              	.LASF1:
+ 673 01bc 54524947 		.ascii	"TRIGGERED\000"
+ 673      47455245 
+ 673      4400
+ 674              	.LASF4:
+ 675 01c6 4765745F 		.ascii	"Get_IVT_I\000"
+ 675      4956545F 
+ 675      4900
+ 676              	.LASF2:
+ 677 01d0 4359434C 		.ascii	"CYCLIC\000"
+ 677      494300
+ 678              	.LASF6:
+ 679 01d7 53657444 		.ascii	"SetDTC_f031_PackNegOvercurrent\000"
+ 679      54435F66 
+ 679      3033315F 
+ 679      5061636B 
+ 679      4E65674F 
+ 680              	.LASF13:
+ 681 01f6 53657444 		.ascii	"SetDTC_a041_PackUnderV\000"
+ 681      54435F61 
+ 681      3034315F 
+ 681      5061636B 
+ 681      556E6465 
+ 682              	.LASF20:
+ 683 020d 4956545F 		.ascii	"IVT_Mode_E\000"
+ 683      4D6F6465 
+ 683      5F4500
+ 684              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

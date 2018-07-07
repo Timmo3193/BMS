@@ -426,6 +426,21 @@
                     if ((Vehicle_CAN_RX_MAILBOX_TYPE & shift) != 0u)
                     {
                         /* RX Full mailboxes handler */
+                        switch(mailboxNumber)
+                        {
+                            case 0u : Vehicle_CAN_ReceiveMsg0();
+                            break;
+                            case 1u : Vehicle_CAN_ReceiveMsg1();
+                            break;
+                            case 2u : Vehicle_CAN_ReceiveMsg2();
+                            break;
+                            case 3u : Vehicle_CAN_ReceiveMsg3();
+                            break;
+                            case 4u : Vehicle_CAN_ReceiveMsg4();
+                            break;
+                            default:
+                            break;
+                        }
                     }
                     else
                     {

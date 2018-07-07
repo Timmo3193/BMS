@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: aiECU_BrakePressureFront.c  
+* File Name: Timer_En.c  
 * Version 2.20
 *
 * Description:
@@ -15,15 +15,15 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "aiECU_BrakePressureFront.h"
+#include "Timer_En.h"
 
 /* APIs are not generated for P15[7:6] on PSoC 5 */
 #if !(CY_PSOC5A &&\
-	 aiECU_BrakePressureFront__PORT == 15 && ((aiECU_BrakePressureFront__MASK & 0xC0) != 0))
+	 Timer_En__PORT == 15 && ((Timer_En__MASK & 0xC0) != 0))
 
 
 /*******************************************************************************
-* Function Name: aiECU_BrakePressureFront_Write
+* Function Name: Timer_En_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -52,17 +52,17 @@
 *  this function.
 *
 * \funcusage
-*  \snippet aiECU_BrakePressureFront_SUT.c usage_aiECU_BrakePressureFront_Write
+*  \snippet Timer_En_SUT.c usage_Timer_En_Write
 *******************************************************************************/
-void aiECU_BrakePressureFront_Write(uint8 value)
+void Timer_En_Write(uint8 value)
 {
-    uint8 staticBits = (aiECU_BrakePressureFront_DR & (uint8)(~aiECU_BrakePressureFront_MASK));
-    aiECU_BrakePressureFront_DR = staticBits | ((uint8)(value << aiECU_BrakePressureFront_SHIFT) & aiECU_BrakePressureFront_MASK);
+    uint8 staticBits = (Timer_En_DR & (uint8)(~Timer_En_MASK));
+    Timer_En_DR = staticBits | ((uint8)(value << Timer_En_SHIFT) & Timer_En_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: aiECU_BrakePressureFront_SetDriveMode
+* Function Name: Timer_En_SetDriveMode
 ****************************************************************************//**
 *
 * \brief Sets the drive mode for each of the Pins component's pins.
@@ -85,16 +85,16 @@ void aiECU_BrakePressureFront_Write(uint8 value)
 *  APIs (primary method) or disable interrupts around this function.
 *
 * \funcusage
-*  \snippet aiECU_BrakePressureFront_SUT.c usage_aiECU_BrakePressureFront_SetDriveMode
+*  \snippet Timer_En_SUT.c usage_Timer_En_SetDriveMode
 *******************************************************************************/
-void aiECU_BrakePressureFront_SetDriveMode(uint8 mode)
+void Timer_En_SetDriveMode(uint8 mode)
 {
-	CyPins_SetPinDriveMode(aiECU_BrakePressureFront_0, mode);
+	CyPins_SetPinDriveMode(Timer_En_0, mode);
 }
 
 
 /*******************************************************************************
-* Function Name: aiECU_BrakePressureFront_Read
+* Function Name: Timer_En_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -108,16 +108,16 @@ void aiECU_BrakePressureFront_SetDriveMode(uint8 mode)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet aiECU_BrakePressureFront_SUT.c usage_aiECU_BrakePressureFront_Read  
+*  \snippet Timer_En_SUT.c usage_Timer_En_Read  
 *******************************************************************************/
-uint8 aiECU_BrakePressureFront_Read(void)
+uint8 Timer_En_Read(void)
 {
-    return (aiECU_BrakePressureFront_PS & aiECU_BrakePressureFront_MASK) >> aiECU_BrakePressureFront_SHIFT;
+    return (Timer_En_PS & Timer_En_MASK) >> Timer_En_SHIFT;
 }
 
 
 /*******************************************************************************
-* Function Name: aiECU_BrakePressureFront_ReadDataReg
+* Function Name: Timer_En_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -126,8 +126,8 @@ uint8 aiECU_BrakePressureFront_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred aiECU_BrakePressureFront_Read() API because the 
-* aiECU_BrakePressureFront_ReadDataReg() reads the data register instead of the status 
+* preferred Timer_En_Read() API because the 
+* Timer_En_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -136,19 +136,19 @@ uint8 aiECU_BrakePressureFront_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet aiECU_BrakePressureFront_SUT.c usage_aiECU_BrakePressureFront_ReadDataReg 
+*  \snippet Timer_En_SUT.c usage_Timer_En_ReadDataReg 
 *******************************************************************************/
-uint8 aiECU_BrakePressureFront_ReadDataReg(void)
+uint8 Timer_En_ReadDataReg(void)
 {
-    return (aiECU_BrakePressureFront_DR & aiECU_BrakePressureFront_MASK) >> aiECU_BrakePressureFront_SHIFT;
+    return (Timer_En_DR & Timer_En_MASK) >> Timer_En_SHIFT;
 }
 
 
 /* If interrupt is connected for this Pins component */ 
-#if defined(aiECU_BrakePressureFront_INTSTAT) 
+#if defined(Timer_En_INTSTAT) 
 
     /*******************************************************************************
-    * Function Name: aiECU_BrakePressureFront_SetInterruptMode
+    * Function Name: Timer_En_SetInterruptMode
     ****************************************************************************//**
     *
     * \brief Configures the interrupt mode for each of the Pins component's
@@ -161,12 +161,12 @@ uint8 aiECU_BrakePressureFront_ReadDataReg(void)
     * \param position
     *  The pin position as listed in the Pins component. You may OR these to be 
     *  able to configure the interrupt mode of multiple pins within a Pins 
-    *  component. Or you may use aiECU_BrakePressureFront_INTR_ALL to configure the
+    *  component. Or you may use Timer_En_INTR_ALL to configure the
     *  interrupt mode of all the pins in the Pins component.       
-    *  - aiECU_BrakePressureFront_0_INTR       (First pin in the list)
-    *  - aiECU_BrakePressureFront_1_INTR       (Second pin in the list)
+    *  - Timer_En_0_INTR       (First pin in the list)
+    *  - Timer_En_1_INTR       (Second pin in the list)
     *  - ...
-    *  - aiECU_BrakePressureFront_INTR_ALL     (All pins in Pins component)
+    *  - Timer_En_INTR_ALL     (All pins in Pins component)
     *
     * \param mode
     *  Interrupt mode for the selected pins. Valid options are documented in
@@ -182,19 +182,19 @@ uint8 aiECU_BrakePressureFront_ReadDataReg(void)
     *  port.
     *
     * \funcusage
-    *  \snippet aiECU_BrakePressureFront_SUT.c usage_aiECU_BrakePressureFront_SetInterruptMode
+    *  \snippet Timer_En_SUT.c usage_Timer_En_SetInterruptMode
     *******************************************************************************/
-    void aiECU_BrakePressureFront_SetInterruptMode(uint16 position, uint16 mode)
+    void Timer_En_SetInterruptMode(uint16 position, uint16 mode)
     {
-		if((position & aiECU_BrakePressureFront_0_INTR) != 0u) 
+		if((position & Timer_En_0_INTR) != 0u) 
 		{ 
-			 aiECU_BrakePressureFront_0_INTTYPE_REG = (uint8)mode; 
+			 Timer_En_0_INTTYPE_REG = (uint8)mode; 
 		}
     }
     
     
     /*******************************************************************************
-    * Function Name: aiECU_BrakePressureFront_ClearInterrupt
+    * Function Name: Timer_En_ClearInterrupt
     ****************************************************************************//**
     *
     * \brief Clears any active interrupts attached with the component and returns 
@@ -211,11 +211,11 @@ uint8 aiECU_BrakePressureFront_ReadDataReg(void)
     *  those associated with the Pins component.
     *
     * \funcusage
-    *  \snippet aiECU_BrakePressureFront_SUT.c usage_aiECU_BrakePressureFront_ClearInterrupt
+    *  \snippet Timer_En_SUT.c usage_Timer_En_ClearInterrupt
     *******************************************************************************/
-    uint8 aiECU_BrakePressureFront_ClearInterrupt(void)
+    uint8 Timer_En_ClearInterrupt(void)
     {
-        return (aiECU_BrakePressureFront_INTSTAT & aiECU_BrakePressureFront_MASK) >> aiECU_BrakePressureFront_SHIFT;
+        return (Timer_En_INTSTAT & Timer_En_MASK) >> Timer_En_SHIFT;
     }
 
 #endif /* If Interrupts Are Enabled for this Pins component */ 

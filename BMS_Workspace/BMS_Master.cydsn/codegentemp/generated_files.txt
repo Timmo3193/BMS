@@ -44,18 +44,12 @@
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\Pin_1_aliases.h" value="HEADER;;;;;Pin_1" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\Pin_1.c" value="SOURCE_C;CortexM3;;;;Pin_1" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\Pin_1.h" value="HEADER;;;;;Pin_1" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_BrakePressureRear_aliases.h" value="HEADER;;;;;aiECU_BrakePressureRear" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_BrakePressureRear.c" value="SOURCE_C;CortexM3;;;;aiECU_BrakePressureRear" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_BrakePressureRear.h" value="HEADER;;;;;aiECU_BrakePressureRear" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_BrakePressureFront_aliases.h" value="HEADER;;;;;aiECU_BrakePressureFront" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_BrakePressureFront.c" value="SOURCE_C;CortexM3;;;;aiECU_BrakePressureFront" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_BrakePressureFront.h" value="HEADER;;;;;aiECU_BrakePressureFront" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_BrakeInput1_aliases.h" value="HEADER;;;;;aiECU_BrakeInput1" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_BrakeInput1.c" value="SOURCE_C;CortexM3;;;;aiECU_BrakeInput1" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_BrakeInput1.h" value="HEADER;;;;;aiECU_BrakeInput1" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_BrakeInput2_aliases.h" value="HEADER;;;;;aiECU_BrakeInput2" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_BrakeInput2.c" value="SOURCE_C;CortexM3;;;;aiECU_BrakeInput2" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_BrakeInput2.h" value="HEADER;;;;;aiECU_BrakeInput2" />
+  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\Timer_En_aliases.h" value="HEADER;;;;;Timer_En" />
+  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\Timer_En.c" value="SOURCE_C;CortexM3;;;;Timer_En" />
+  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\Timer_En.h" value="HEADER;;;;;Timer_En" />
+  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\Global_Timer.c" value="SOURCE_C;CortexM3;;;;Global_Timer" />
+  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\Global_Timer.h" value="HEADER;;;;;Global_Timer" />
+  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\Global_Timer_PM.c" value="SOURCE_C;CortexM3;;;;Global_Timer" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiTHM_CoolantOutlet_aliases.h" value="HEADER;;;;;aiTHM_CoolantOutlet" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiTHM_CoolantOutlet.c" value="SOURCE_C;CortexM3;;;;aiTHM_CoolantOutlet" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiTHM_CoolantOutlet.h" value="HEADER;;;;;aiTHM_CoolantOutlet" />
@@ -77,15 +71,6 @@
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\doTHM_FanEn_aliases.h" value="HEADER;;;;;doTHM_FanEn" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\doTHM_FanEn.c" value="SOURCE_C;CortexM3;;;;doTHM_FanEn" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\doTHM_FanEn.h" value="HEADER;;;;;doTHM_FanEn" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\doECU_BrakeLight_aliases.h" value="HEADER;;;;;doECU_BrakeLight" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\doECU_BrakeLight.c" value="SOURCE_C;CortexM3;;;;doECU_BrakeLight" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\doECU_BrakeLight.h" value="HEADER;;;;;doECU_BrakeLight" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_Throttle2_aliases.h" value="HEADER;;;;;aiECU_Throttle2" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_Throttle2.c" value="SOURCE_C;CortexM3;;;;aiECU_Throttle2" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_Throttle2.h" value="HEADER;;;;;aiECU_Throttle2" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_Throttle1_aliases.h" value="HEADER;;;;;aiECU_Throttle1" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_Throttle1.c" value="SOURCE_C;CortexM3;;;;aiECU_Throttle1" />
-  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\aiECU_Throttle1.h" value="HEADER;;;;;aiECU_Throttle1" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\diBMS_RelayPosFdbk_aliases.h" value="HEADER;;;;;diBMS_RelayPosFdbk" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\diBMS_RelayPosFdbk.c" value="SOURCE_C;CortexM3;;;;diBMS_RelayPosFdbk" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\diBMS_RelayPosFdbk.h" value="HEADER;;;;;diBMS_RelayPosFdbk" />

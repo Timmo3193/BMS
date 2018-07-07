@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 1
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 1
   28:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /*******************************************************************************
   29:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     * FUNCTION NAME:   Vehicle_CAN_ArbLostIsr
   30:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     ********************************************************************************
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 2
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 2
 
 
   31:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 1
   85:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         /* Clear Overload Error flag */
   86:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         Vehicle_CAN_INT_SR_REG.byte[0u] = Vehicle_CAN_OVERLOAD_ERROR_MASK;
   87:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 3
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 3
 
 
   88:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         /* `#START OVER_LOAD_ERROR_ISR` */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 1
  142:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     *  in Customizer.
  143:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     *
  144:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     * Parameters:
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 4
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 4
 
 
  145:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     *  None.
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 1
  199:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         #ifdef Vehicle_CAN_ACK_ERROR_ISR_CALLBACK
  200:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_AckErrorIsr_Callback();
  201:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         #endif /* Vehicle_CAN_ACK_ERROR_ISR_CALLBACK */
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 5
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 5
 
 
  202:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     }
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 1
  256:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     * Reentrant:
  257:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     *  Depends on Customer code.
  258:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     *
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 6
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 6
 
 
  259:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     *******************************************************************************/
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 1
   40              		.loc 1 300 0
   41 0008 FFF7FEFF 		bl	Vehicle_CAN_GlobalIntDisable
   42              	.LVL0:
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 7
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 7
 
 
  301:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 1
  336:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         /* Clear Receive Message Lost flag */
  337:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         Vehicle_CAN_INT_SR_REG.byte[1u] = Vehicle_CAN_RX_MSG_LOST_MASK;
  338:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 8
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 8
 
 
  339:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         /* `#START MESSAGE_LOST_ISR` */
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 1
  393:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     *  Message interrupt flag and call appropriate handlers for Basic and Full
  394:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     *  interrupt based mailboxes. Only generated if Receive Message Interrupt
  395:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     *  enable in Customizer. Recommended setting to enable this interrupt.
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 9
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 9
 
 
  396:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     *
@@ -509,7 +509,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 1
  410:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         Vehicle_CAN_INT_SR_REG.byte[1u] = Vehicle_CAN_RX_MESSAGE_MASK;
   73              		.loc 1 410 0
   74 0002 1022     		movs	r2, #16
-  75 0004 0C4B     		ldr	r3, .L10
+  75 0004 184B     		ldr	r3, .L17
   76 0006 5A70     		strb	r2, [r3, #1]
   77              	.LVL3:
  407:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
@@ -527,1063 +527,1199 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 1
  420:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         for (mailboxNumber = 0u; mailboxNumber < Vehicle_CAN_NUMBER_OF_RX_MAILBOXES; mailboxNumber+
   80              		.loc 1 420 0
   81 000a 0024     		movs	r4, #0
-  82 000c 10E0     		b	.L6
+  82 000c 29E0     		b	.L6
   83              	.LVL4:
-  84              	.L8:
+  84              	.L15:
  421:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
  422:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             if ((CY_GET_REG16((reg16 *) &Vehicle_CAN_BUF_SR_REG.byte[0u]) & shift) != 0u)
   85              		.loc 1 422 0
-  86 000e 0B4B     		ldr	r3, .L10+4
+  86 000e 174B     		ldr	r3, .L17+4
   87 0010 1B88     		ldrh	r3, [r3]
   88 0012 1D42     		tst	r5, r3
-  89 0014 08D0     		beq	.L7
+  89 0014 21D0     		beq	.L7
  423:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             {
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 10
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 10
 
 
  424:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                 if ((Vehicle_CAN_RX[mailboxNumber].rxcmd.byte[0u] & Vehicle_CAN_RX_INT_ENABLE_MASK)
   90              		.loc 1 424 0
   91 0016 6301     		lsls	r3, r4, #5
-  92 0018 094A     		ldr	r2, .L10+8
+  92 0018 154A     		ldr	r2, .L17+8
   93 001a 9B5C     		ldrb	r3, [r3, r2]	@ zero_extendqisi2
   94 001c 13F0200F 		tst	r3, #32
-  95 0020 02D0     		beq	.L7
+  95 0020 1BD0     		beq	.L7
  425:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                 {
  426:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                     if ((Vehicle_CAN_RX_MAILBOX_TYPE & shift) != 0u)
+  96              		.loc 1 426 0
+  97 0022 15F01F0F 		tst	r5, #31
+  98 0026 15D0     		beq	.L8
  427:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                     {
  428:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                         /* RX Full mailboxes handler */
- 429:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                     }
- 430:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                     else
- 431:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                     {
- 432:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                         /* RX Basic mailbox handler */
- 433:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                         Vehicle_CAN_ReceiveMsg(mailboxNumber);
-  96              		.loc 1 433 0
-  97 0022 2046     		mov	r0, r4
-  98 0024 FFF7FEFF 		bl	Vehicle_CAN_ReceiveMsg
-  99              	.LVL5:
- 100              	.L7:
- 434:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                     }
- 435:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                 }
- 436:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             }
- 437:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             shift <<= 1u;
- 101              		.loc 1 437 0 discriminator 2
- 102 0028 6D00     		lsls	r5, r5, #1
- 103              	.LVL6:
- 104 002a ADB2     		uxth	r5, r5
- 105              	.LVL7:
+ 429:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                         switch(mailboxNumber)
+  99              		.loc 1 429 0
+ 100 0028 042C     		cmp	r4, #4
+ 101 002a 16D8     		bhi	.L7
+ 102 002c DFE804F0 		tbb	[pc, r4]
+ 103              	.L10:
+ 104 0030 03       		.byte	(.L9-.L10)/2
+ 105 0031 06       		.byte	(.L11-.L10)/2
+ 106 0032 09       		.byte	(.L12-.L10)/2
+ 107 0033 0C       		.byte	(.L13-.L10)/2
+ 108 0034 0F       		.byte	(.L14-.L10)/2
+ 109 0035 00       		.p2align 1
+ 110              	.L9:
+ 430:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                         {
+ 431:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                             case 0u : Vehicle_CAN_ReceiveMsg0();
+ 111              		.loc 1 431 0
+ 112 0036 FFF7FEFF 		bl	Vehicle_CAN_ReceiveMsg0
+ 113              	.LVL5:
+ 432:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                             break;
+ 114              		.loc 1 432 0
+ 115 003a 0EE0     		b	.L7
+ 116              	.L11:
+ 433:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                             case 1u : Vehicle_CAN_ReceiveMsg1();
+ 117              		.loc 1 433 0
+ 118 003c FFF7FEFF 		bl	Vehicle_CAN_ReceiveMsg1
+ 119              	.LVL6:
+ 434:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                             break;
+ 120              		.loc 1 434 0
+ 121 0040 0BE0     		b	.L7
+ 122              	.L12:
+ 435:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                             case 2u : Vehicle_CAN_ReceiveMsg2();
+ 123              		.loc 1 435 0
+ 124 0042 FFF7FEFF 		bl	Vehicle_CAN_ReceiveMsg2
+ 125              	.LVL7:
+ 436:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                             break;
+ 126              		.loc 1 436 0
+ 127 0046 08E0     		b	.L7
+ 128              	.L13:
+ 437:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                             case 3u : Vehicle_CAN_ReceiveMsg3();
+ 129              		.loc 1 437 0
+ 130 0048 FFF7FEFF 		bl	Vehicle_CAN_ReceiveMsg3
+ 131              	.LVL8:
+ 438:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                             break;
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 11
+
+
+ 132              		.loc 1 438 0
+ 133 004c 05E0     		b	.L7
+ 134              	.L14:
+ 439:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                             case 4u : Vehicle_CAN_ReceiveMsg4();
+ 135              		.loc 1 439 0
+ 136 004e FFF7FEFF 		bl	Vehicle_CAN_ReceiveMsg4
+ 137              	.LVL9:
+ 440:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                             break;
+ 138              		.loc 1 440 0
+ 139 0052 02E0     		b	.L7
+ 140              	.L8:
+ 441:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                             default:
+ 442:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                             break;
+ 443:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                         }
+ 444:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                     }
+ 445:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                     else
+ 446:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                     {
+ 447:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                         /* RX Basic mailbox handler */
+ 448:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                         Vehicle_CAN_ReceiveMsg(mailboxNumber);
+ 141              		.loc 1 448 0
+ 142 0054 2046     		mov	r0, r4
+ 143 0056 FFF7FEFF 		bl	Vehicle_CAN_ReceiveMsg
+ 144              	.LVL10:
+ 145              	.L7:
+ 449:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                     }
+ 450:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****                 }
+ 451:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             }
+ 452:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             shift <<= 1u;
+ 146              		.loc 1 452 0 discriminator 2
+ 147 005a 6D00     		lsls	r5, r5, #1
+ 148              	.LVL11:
+ 149 005c ADB2     		uxth	r5, r5
+ 150              	.LVL12:
  420:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
- 106              		.loc 1 420 0 discriminator 2
- 107 002c 0134     		adds	r4, r4, #1
- 108              	.LVL8:
- 109 002e E4B2     		uxtb	r4, r4
- 110              	.LVL9:
- 111              	.L6:
+ 151              		.loc 1 420 0 discriminator 2
+ 152 005e 0134     		adds	r4, r4, #1
+ 153              	.LVL13:
+ 154 0060 E4B2     		uxtb	r4, r4
+ 155              	.LVL14:
+ 156              	.L6:
  420:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
- 112              		.loc 1 420 0 is_stmt 0 discriminator 1
- 113 0030 0F2C     		cmp	r4, #15
- 114 0032 ECD9     		bls	.L8
- 438:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
- 439:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     }
- 115              		.loc 1 439 0 is_stmt 1
- 116 0034 38BD     		pop	{r3, r4, r5, pc}
- 117              	.LVL10:
- 118              	.L11:
- 119 0036 00BF     		.align	2
- 120              	.L10:
- 121 0038 00A00040 		.word	1073782784
- 122 003c 08A00040 		.word	1073782792
- 123 0040 A0A00040 		.word	1073782944
- 124              		.cfi_endproc
- 125              	.LFE1:
- 126              		.size	Vehicle_CAN_MsgRXIsr, .-Vehicle_CAN_MsgRXIsr
- 127              		.section	.text.Vehicle_CAN_ISR,"ax",%progbits
- 128              		.align	2
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 11
+ 157              		.loc 1 420 0 is_stmt 0 discriminator 1
+ 158 0062 0F2C     		cmp	r4, #15
+ 159 0064 D3D9     		bls	.L15
+ 453:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
+ 454:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     }
+ 160              		.loc 1 454 0 is_stmt 1
+ 161 0066 38BD     		pop	{r3, r4, r5, pc}
+ 162              	.LVL15:
+ 163              	.L18:
+ 164              		.align	2
+ 165              	.L17:
+ 166 0068 00A00040 		.word	1073782784
+ 167 006c 08A00040 		.word	1073782792
+ 168 0070 A0A00040 		.word	1073782944
+ 169              		.cfi_endproc
+ 170              	.LFE1:
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 12
 
 
- 129              		.global	Vehicle_CAN_ISR
- 130              		.thumb
- 131              		.thumb_func
- 132              		.type	Vehicle_CAN_ISR, %function
- 133              	Vehicle_CAN_ISR:
- 134              	.LFB2:
- 440:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** #endif /* Vehicle_CAN_RX_MESSAGE */
- 441:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
- 442:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
- 443:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** /*******************************************************************************
- 444:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** * Function Name: Vehicle_CAN_ISR
- 445:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** ********************************************************************************
- 446:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *
- 447:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** * Summary:
- 448:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *  This ISR is executed when CAN Core generates and interrupt on one of events:
- 449:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *  Arb_lost, Overload, Bit_err, Stuff_err, Ack_err, Form_err, Crc_err,
- 450:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *  Buss_off, Rx_msg_lost, Tx_msg or Rx_msg. The interrupt sources depends
- 451:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *  on the Customizer inputs.
- 452:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *
- 453:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** * Parameters:
- 454:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *  None.
- 455:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *
- 456:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** * Return:
- 457:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *  None.
- 458:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *
- 459:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *******************************************************************************/
- 460:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** CY_ISR(Vehicle_CAN_ISR)
- 461:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** {
- 135              		.loc 1 461 0
- 136              		.cfi_startproc
- 137              		@ args = 0, pretend = 0, frame = 0
- 138              		@ frame_needed = 0, uses_anonymous_args = 0
- 139 0000 08B5     		push	{r3, lr}
- 140              		.cfi_def_cfa_offset 8
- 141              		.cfi_offset 3, -8
- 142              		.cfi_offset 14, -4
- 462:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #ifdef Vehicle_CAN_ISR_INTERRUPT_CALLBACK
- 463:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         Vehicle_CAN_ISR_InterruptCallback();
- 464:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_ISR_INTERRUPT_CALLBACK */
- 465:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     
- 466:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Place your Interrupt code here. */
- 467:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* `#START CAN_ISR` */
- 468:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
- 469:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* `#END` */
- 470:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     
- 471:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Arbitration */
- 472:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_ARB_LOST && (Vehicle_CAN_ARB_LOST_USE_HELPER || \
- 473:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
- 474:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[0u] & Vehicle_CAN_ARBITRATION_LOST_MASK) != 0u)
- 475:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
- 476:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_ArbLostIsr();
- 477:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
- 478:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_ARB_LOST && Vehicle_CAN_ARB_LOST_USE_HELPER */
- 479:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
- 480:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Overload Error */
- 481:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_OVERLOAD && (Vehicle_CAN_OVERLOAD_USE_HELPER || \
- 482:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 12
+ 171              		.size	Vehicle_CAN_MsgRXIsr, .-Vehicle_CAN_MsgRXIsr
+ 172              		.section	.text.Vehicle_CAN_ISR,"ax",%progbits
+ 173              		.align	2
+ 174              		.global	Vehicle_CAN_ISR
+ 175              		.thumb
+ 176              		.thumb_func
+ 177              		.type	Vehicle_CAN_ISR, %function
+ 178              	Vehicle_CAN_ISR:
+ 179              	.LFB2:
+ 455:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** #endif /* Vehicle_CAN_RX_MESSAGE */
+ 456:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
+ 457:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
+ 458:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** /*******************************************************************************
+ 459:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** * Function Name: Vehicle_CAN_ISR
+ 460:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** ********************************************************************************
+ 461:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *
+ 462:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** * Summary:
+ 463:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *  This ISR is executed when CAN Core generates and interrupt on one of events:
+ 464:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *  Arb_lost, Overload, Bit_err, Stuff_err, Ack_err, Form_err, Crc_err,
+ 465:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *  Buss_off, Rx_msg_lost, Tx_msg or Rx_msg. The interrupt sources depends
+ 466:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *  on the Customizer inputs.
+ 467:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *
+ 468:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** * Parameters:
+ 469:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *  None.
+ 470:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *
+ 471:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** * Return:
+ 472:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *  None.
+ 473:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *
+ 474:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** *******************************************************************************/
+ 475:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** CY_ISR(Vehicle_CAN_ISR)
+ 476:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** {
+ 180              		.loc 1 476 0
+ 181              		.cfi_startproc
+ 182              		@ args = 0, pretend = 0, frame = 0
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 184 0000 08B5     		push	{r3, lr}
+ 185              		.cfi_def_cfa_offset 8
+ 186              		.cfi_offset 3, -8
+ 187              		.cfi_offset 14, -4
+ 477:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #ifdef Vehicle_CAN_ISR_INTERRUPT_CALLBACK
+ 478:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         Vehicle_CAN_ISR_InterruptCallback();
+ 479:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_ISR_INTERRUPT_CALLBACK */
+ 480:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     
+ 481:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Place your Interrupt code here. */
+ 482:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* `#START CAN_ISR` */
+ 483:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
+ 484:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* `#END` */
+ 485:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     
+ 486:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Arbitration */
+ 487:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_ARB_LOST && (Vehicle_CAN_ARB_LOST_USE_HELPER || \
+ 488:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
+ 489:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[0u] & Vehicle_CAN_ARBITRATION_LOST_MASK) != 0u)
+ 490:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
+ 491:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_ArbLostIsr();
+ 492:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
+ 493:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_ARB_LOST && Vehicle_CAN_ARB_LOST_USE_HELPER */
+ 494:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 13
 
 
- 483:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[0u] & Vehicle_CAN_OVERLOAD_ERROR_MASK) != 0u)
- 484:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
- 485:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_OvrLdErrorIsr();
- 486:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
- 487:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_OVERLOAD && Vehicle_CAN_OVERLOAD_USE_HELPER */
- 488:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
- 489:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Bit Error */
- 490:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_BIT_ERR && (Vehicle_CAN_BIT_ERR_USE_HELPER || \
- 491:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
- 492:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[0u] & Vehicle_CAN_BIT_ERROR_MASK) != 0u)
- 493:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
- 494:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_BitErrorIsr();
- 495:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
- 496:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_BIT_ERR && Vehicle_CAN_BIT_ERR_USE_HELPER */
- 497:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
- 498:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Bit Staff Error */
- 499:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_STUFF_ERR && (Vehicle_CAN_STUFF_ERR_USE_HELPER || \
- 500:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
- 501:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[0u] & Vehicle_CAN_STUFF_ERROR_MASK) != 0u)
- 502:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
- 503:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_BitStuffErrorIsr();
- 504:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
- 505:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_STUFF_ERR && Vehicle_CAN_STUFF_ERR_USE_HELPER */
- 506:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
- 507:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* ACK Error */
- 508:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_ACK_ERR && (Vehicle_CAN_ACK_ERR_USE_HELPER || \
- 509:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
- 510:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[0u] & Vehicle_CAN_ACK_ERROR_MASK) != 0u)
- 511:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
- 512:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_AckErrorIsr();
- 513:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
- 514:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_ACK_ERR && Vehicle_CAN_ACK_ERR_USE_HELPER */
- 515:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
- 516:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Form(msg) Error */
- 517:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_FORM_ERR && (Vehicle_CAN_FORM_ERR_USE_HELPER || \
- 518:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
- 519:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[0u] & Vehicle_CAN_FORM_ERROR_MASK) != 0u)
- 520:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
- 521:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_MsgErrorIsr();
- 522:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
- 523:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_FORM_ERR && Vehicle_CAN_FORM_ERR_USE_HELPER */
- 524:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
- 525:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* CRC Error */
- 526:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_CRC_ERR && (Vehicle_CAN_CRC_ERR_USE_HELPER || \
- 527:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
- 528:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[1u] & Vehicle_CAN_CRC_ERROR_MASK) != 0u)
- 529:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
- 530:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_CrcErrorIsr();
- 531:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
- 532:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_CRC_ERR && Vehicle_CAN_CRC_ERR_USE_HELPER */
- 533:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
- 534:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Bus Off state */
- 535:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_BUS_OFF && (Vehicle_CAN_BUS_OFF_USE_HELPER || \
- 536:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
- 537:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[1u] & Vehicle_CAN_BUS_OFF_MASK) != 0u)
- 143              		.loc 1 537 0
- 144 0002 074B     		ldr	r3, .L16
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 13
+ 495:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Overload Error */
+ 496:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_OVERLOAD && (Vehicle_CAN_OVERLOAD_USE_HELPER || \
+ 497:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
+ 498:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[0u] & Vehicle_CAN_OVERLOAD_ERROR_MASK) != 0u)
+ 499:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
+ 500:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_OvrLdErrorIsr();
+ 501:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
+ 502:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_OVERLOAD && Vehicle_CAN_OVERLOAD_USE_HELPER */
+ 503:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
+ 504:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Bit Error */
+ 505:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_BIT_ERR && (Vehicle_CAN_BIT_ERR_USE_HELPER || \
+ 506:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
+ 507:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[0u] & Vehicle_CAN_BIT_ERROR_MASK) != 0u)
+ 508:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
+ 509:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_BitErrorIsr();
+ 510:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
+ 511:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_BIT_ERR && Vehicle_CAN_BIT_ERR_USE_HELPER */
+ 512:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
+ 513:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Bit Staff Error */
+ 514:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_STUFF_ERR && (Vehicle_CAN_STUFF_ERR_USE_HELPER || \
+ 515:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
+ 516:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[0u] & Vehicle_CAN_STUFF_ERROR_MASK) != 0u)
+ 517:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
+ 518:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_BitStuffErrorIsr();
+ 519:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
+ 520:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_STUFF_ERR && Vehicle_CAN_STUFF_ERR_USE_HELPER */
+ 521:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
+ 522:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* ACK Error */
+ 523:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_ACK_ERR && (Vehicle_CAN_ACK_ERR_USE_HELPER || \
+ 524:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
+ 525:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[0u] & Vehicle_CAN_ACK_ERROR_MASK) != 0u)
+ 526:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
+ 527:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_AckErrorIsr();
+ 528:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
+ 529:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_ACK_ERR && Vehicle_CAN_ACK_ERR_USE_HELPER */
+ 530:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
+ 531:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Form(msg) Error */
+ 532:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_FORM_ERR && (Vehicle_CAN_FORM_ERR_USE_HELPER || \
+ 533:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
+ 534:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[0u] & Vehicle_CAN_FORM_ERROR_MASK) != 0u)
+ 535:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
+ 536:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_MsgErrorIsr();
+ 537:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
+ 538:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_FORM_ERR && Vehicle_CAN_FORM_ERR_USE_HELPER */
+ 539:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
+ 540:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* CRC Error */
+ 541:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_CRC_ERR && (Vehicle_CAN_CRC_ERR_USE_HELPER || \
+ 542:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
+ 543:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[1u] & Vehicle_CAN_CRC_ERROR_MASK) != 0u)
+ 544:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
+ 545:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_CrcErrorIsr();
+ 546:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
+ 547:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_CRC_ERR && Vehicle_CAN_CRC_ERR_USE_HELPER */
+ 548:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
+ 549:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Bus Off state */
+ 550:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_BUS_OFF && (Vehicle_CAN_BUS_OFF_USE_HELPER || \
+ 551:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 14
 
 
- 145 0004 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
- 146 0006 13F0020F 		tst	r3, #2
- 147 000a 01D0     		beq	.L13
- 538:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
- 539:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_BusOffIsr();
- 148              		.loc 1 539 0
- 149 000c FFF7FEFF 		bl	Vehicle_CAN_BusOffIsr
- 150              	.LVL11:
- 151              	.L13:
- 540:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
- 541:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_BUS_OFF && Vehicle_CAN_BUS_OFF_USE_HELPER */
- 542:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
- 543:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Message Lost */
- 544:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_RX_MSG_LOST && (Vehicle_CAN_RX_MSG_LOST_USE_HELPER || \
- 545:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
- 546:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[1u] & Vehicle_CAN_RX_MSG_LOST_MASK) != 0u)
- 547:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
- 548:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_MsgLostIsr();
- 549:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
- 550:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_RX_MSG_LOST && Vehicle_CAN_RX_MSG_LOST_USE_HELPER */
- 551:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
- 552:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* TX Message Send */
- 553:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_TX_MESSAGE && (Vehicle_CAN_TX_MESSAGE_USE_HELPER || \
- 554:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
- 555:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[1u] & Vehicle_CAN_TX_MESSAGE_MASK) != 0u)
- 556:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
- 557:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_MsgTXIsr();
- 558:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
- 559:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_TX_MESSAGE && Vehicle_CAN_TX_MESSAGE_USE_HELPER */
- 560:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
- 561:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* RX Message Available */
- 562:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_RX_MESSAGE && (Vehicle_CAN_RX_MESSAGE_USE_HELPER || \
- 563:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
- 564:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[1u] & Vehicle_CAN_RX_MESSAGE_MASK) != 0u)
- 152              		.loc 1 564 0
- 153 0010 034B     		ldr	r3, .L16
- 154 0012 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
- 155 0014 13F0100F 		tst	r3, #16
- 156 0018 01D0     		beq	.L12
- 565:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
- 566:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_MsgRXIsr();
- 157              		.loc 1 566 0
- 158 001a FFF7FEFF 		bl	Vehicle_CAN_MsgRXIsr
- 159              	.LVL12:
- 160              	.L12:
- 161 001e 08BD     		pop	{r3, pc}
- 162              	.L17:
- 163              		.align	2
- 164              	.L16:
- 165 0020 00A00040 		.word	1073782784
- 166              		.cfi_endproc
- 167              	.LFE2:
- 168              		.size	Vehicle_CAN_ISR, .-Vehicle_CAN_ISR
- 169              		.text
- 170              	.Letext0:
- 171              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
- 172              		.file 3 "Generated_Source\\PSoC5\\Vehicle_CAN.h"
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 14
+ 552:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[1u] & Vehicle_CAN_BUS_OFF_MASK) != 0u)
+ 188              		.loc 1 552 0
+ 189 0002 074B     		ldr	r3, .L23
+ 190 0004 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 191 0006 13F0020F 		tst	r3, #2
+ 192 000a 01D0     		beq	.L20
+ 553:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
+ 554:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_BusOffIsr();
+ 193              		.loc 1 554 0
+ 194 000c FFF7FEFF 		bl	Vehicle_CAN_BusOffIsr
+ 195              	.LVL16:
+ 196              	.L20:
+ 555:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
+ 556:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_BUS_OFF && Vehicle_CAN_BUS_OFF_USE_HELPER */
+ 557:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
+ 558:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* Message Lost */
+ 559:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_RX_MSG_LOST && (Vehicle_CAN_RX_MSG_LOST_USE_HELPER || \
+ 560:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
+ 561:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[1u] & Vehicle_CAN_RX_MSG_LOST_MASK) != 0u)
+ 562:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
+ 563:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_MsgLostIsr();
+ 564:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
+ 565:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_RX_MSG_LOST && Vehicle_CAN_RX_MSG_LOST_USE_HELPER */
+ 566:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
+ 567:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* TX Message Send */
+ 568:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_TX_MESSAGE && (Vehicle_CAN_TX_MESSAGE_USE_HELPER || \
+ 569:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
+ 570:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[1u] & Vehicle_CAN_TX_MESSAGE_MASK) != 0u)
+ 571:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
+ 572:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_MsgTXIsr();
+ 573:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         }
+ 574:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #endif /* Vehicle_CAN_TX_MESSAGE && Vehicle_CAN_TX_MESSAGE_USE_HELPER */
+ 575:Generated_Source\PSoC5/Vehicle_CAN_INT.c **** 
+ 576:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     /* RX Message Available */
+ 577:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****     #if (Vehicle_CAN_RX_MESSAGE && (Vehicle_CAN_RX_MESSAGE_USE_HELPER || \
+ 578:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         (!Vehicle_CAN_ADVANCED_INTERRUPT_CFG)))
+ 579:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         if ((Vehicle_CAN_INT_SR_REG.byte[1u] & Vehicle_CAN_RX_MESSAGE_MASK) != 0u)
+ 197              		.loc 1 579 0
+ 198 0010 034B     		ldr	r3, .L23
+ 199 0012 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 200 0014 13F0100F 		tst	r3, #16
+ 201 0018 01D0     		beq	.L19
+ 580:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****         {
+ 581:Generated_Source\PSoC5/Vehicle_CAN_INT.c ****             Vehicle_CAN_MsgRXIsr();
+ 202              		.loc 1 581 0
+ 203 001a FFF7FEFF 		bl	Vehicle_CAN_MsgRXIsr
+ 204              	.LVL17:
+ 205              	.L19:
+ 206 001e 08BD     		pop	{r3, pc}
+ 207              	.L24:
+ 208              		.align	2
+ 209              	.L23:
+ 210 0020 00A00040 		.word	1073782784
+ 211              		.cfi_endproc
+ 212              	.LFE2:
+ 213              		.size	Vehicle_CAN_ISR, .-Vehicle_CAN_ISR
+ 214              		.text
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 15
 
 
- 173              		.section	.debug_info,"",%progbits
- 174              	.Ldebug_info0:
- 175 0000 52020000 		.4byte	0x252
- 176 0004 0400     		.2byte	0x4
- 177 0006 00000000 		.4byte	.Ldebug_abbrev0
- 178 000a 04       		.byte	0x4
- 179 000b 01       		.uleb128 0x1
- 180 000c 47010000 		.4byte	.LASF37
- 181 0010 0C       		.byte	0xc
- 182 0011 4A020000 		.4byte	.LASF38
- 183 0015 7F020000 		.4byte	.LASF39
- 184 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 185 001d 00000000 		.4byte	0
- 186 0021 00000000 		.4byte	.Ldebug_line0
- 187 0025 02       		.uleb128 0x2
- 188 0026 01       		.byte	0x1
- 189 0027 06       		.byte	0x6
- 190 0028 73020000 		.4byte	.LASF0
- 191 002c 02       		.uleb128 0x2
- 192 002d 01       		.byte	0x1
- 193 002e 08       		.byte	0x8
- 194 002f 84000000 		.4byte	.LASF1
- 195 0033 02       		.uleb128 0x2
- 196 0034 02       		.byte	0x2
- 197 0035 05       		.byte	0x5
- 198 0036 25020000 		.4byte	.LASF2
- 199 003a 02       		.uleb128 0x2
- 200 003b 02       		.byte	0x2
- 201 003c 07       		.byte	0x7
- 202 003d 37000000 		.4byte	.LASF3
- 203 0041 02       		.uleb128 0x2
- 204 0042 04       		.byte	0x4
- 205 0043 05       		.byte	0x5
- 206 0044 35020000 		.4byte	.LASF4
- 207 0048 02       		.uleb128 0x2
- 208 0049 04       		.byte	0x4
- 209 004a 07       		.byte	0x7
- 210 004b B9000000 		.4byte	.LASF5
- 211 004f 02       		.uleb128 0x2
- 212 0050 08       		.byte	0x8
- 213 0051 05       		.byte	0x5
- 214 0052 E5010000 		.4byte	.LASF6
- 215 0056 02       		.uleb128 0x2
- 216 0057 08       		.byte	0x8
- 217 0058 07       		.byte	0x7
- 218 0059 02010000 		.4byte	.LASF7
- 219 005d 03       		.uleb128 0x3
- 220 005e 04       		.byte	0x4
- 221 005f 05       		.byte	0x5
- 222 0060 696E7400 		.ascii	"int\000"
- 223 0064 02       		.uleb128 0x2
- 224 0065 04       		.byte	0x4
- 225 0066 07       		.byte	0x7
- 226 0067 DF000000 		.4byte	.LASF8
- 227 006b 04       		.uleb128 0x4
- 228 006c CB000000 		.4byte	.LASF9
- 229 0070 02       		.byte	0x2
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 15
+ 215              	.Letext0:
+ 216              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 217              		.file 3 "Generated_Source\\PSoC5\\Vehicle_CAN.h"
+ 218              		.section	.debug_info,"",%progbits
+ 219              	.Ldebug_info0:
+ 220 0000 BB020000 		.4byte	0x2bb
+ 221 0004 0400     		.2byte	0x4
+ 222 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 223 000a 04       		.byte	0x4
+ 224 000b 01       		.uleb128 0x1
+ 225 000c 5F010000 		.4byte	.LASF42
+ 226 0010 0C       		.byte	0xc
+ 227 0011 62020000 		.4byte	.LASF43
+ 228 0015 97020000 		.4byte	.LASF44
+ 229 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 230 001d 00000000 		.4byte	0
+ 231 0021 00000000 		.4byte	.Ldebug_line0
+ 232 0025 02       		.uleb128 0x2
+ 233 0026 01       		.byte	0x1
+ 234 0027 06       		.byte	0x6
+ 235 0028 8B020000 		.4byte	.LASF0
+ 236 002c 02       		.uleb128 0x2
+ 237 002d 01       		.byte	0x1
+ 238 002e 08       		.byte	0x8
+ 239 002f 9C000000 		.4byte	.LASF1
+ 240 0033 02       		.uleb128 0x2
+ 241 0034 02       		.byte	0x2
+ 242 0035 05       		.byte	0x5
+ 243 0036 3D020000 		.4byte	.LASF2
+ 244 003a 02       		.uleb128 0x2
+ 245 003b 02       		.byte	0x2
+ 246 003c 07       		.byte	0x7
+ 247 003d 4F000000 		.4byte	.LASF3
+ 248 0041 02       		.uleb128 0x2
+ 249 0042 04       		.byte	0x4
+ 250 0043 05       		.byte	0x5
+ 251 0044 4D020000 		.4byte	.LASF4
+ 252 0048 02       		.uleb128 0x2
+ 253 0049 04       		.byte	0x4
+ 254 004a 07       		.byte	0x7
+ 255 004b D1000000 		.4byte	.LASF5
+ 256 004f 02       		.uleb128 0x2
+ 257 0050 08       		.byte	0x8
+ 258 0051 05       		.byte	0x5
+ 259 0052 FD010000 		.4byte	.LASF6
+ 260 0056 02       		.uleb128 0x2
+ 261 0057 08       		.byte	0x8
+ 262 0058 07       		.byte	0x7
+ 263 0059 1A010000 		.4byte	.LASF7
+ 264 005d 03       		.uleb128 0x3
+ 265 005e 04       		.byte	0x4
+ 266 005f 05       		.byte	0x5
+ 267 0060 696E7400 		.ascii	"int\000"
+ 268 0064 02       		.uleb128 0x2
+ 269 0065 04       		.byte	0x4
+ 270 0066 07       		.byte	0x7
+ 271 0067 F7000000 		.4byte	.LASF8
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 16
 
 
- 230 0071 E401     		.2byte	0x1e4
- 231 0073 2C000000 		.4byte	0x2c
- 232 0077 04       		.uleb128 0x4
- 233 0078 D8000000 		.4byte	.LASF10
- 234 007c 02       		.byte	0x2
- 235 007d E501     		.2byte	0x1e5
- 236 007f 3A000000 		.4byte	0x3a
- 237 0083 02       		.uleb128 0x2
- 238 0084 04       		.byte	0x4
- 239 0085 04       		.byte	0x4
- 240 0086 7E000000 		.4byte	.LASF11
- 241 008a 02       		.uleb128 0x2
- 242 008b 08       		.byte	0x8
- 243 008c 04       		.byte	0x4
- 244 008d D1000000 		.4byte	.LASF12
- 245 0091 02       		.uleb128 0x2
- 246 0092 01       		.byte	0x1
- 247 0093 08       		.byte	0x8
- 248 0094 F3010000 		.4byte	.LASF13
- 249 0098 04       		.uleb128 0x4
- 250 0099 97000000 		.4byte	.LASF14
- 251 009d 02       		.byte	0x2
- 252 009e 8E02     		.2byte	0x28e
- 253 00a0 A4000000 		.4byte	0xa4
- 254 00a4 05       		.uleb128 0x5
- 255 00a5 6B000000 		.4byte	0x6b
- 256 00a9 04       		.uleb128 0x4
- 257 00aa 00000000 		.4byte	.LASF15
- 258 00ae 02       		.byte	0x2
- 259 00af 8F02     		.2byte	0x28f
- 260 00b1 B5000000 		.4byte	0xb5
- 261 00b5 05       		.uleb128 0x5
- 262 00b6 77000000 		.4byte	0x77
- 263 00ba 02       		.uleb128 0x2
- 264 00bb 08       		.byte	0x8
- 265 00bc 04       		.byte	0x4
- 266 00bd 3E020000 		.4byte	.LASF16
- 267 00c1 02       		.uleb128 0x2
- 268 00c2 04       		.byte	0x4
- 269 00c3 07       		.byte	0x7
- 270 00c4 D5010000 		.4byte	.LASF17
- 271 00c8 06       		.uleb128 0x6
- 272 00c9 08       		.byte	0x8
- 273 00ca 03       		.byte	0x3
- 274 00cb 75       		.byte	0x75
- 275 00cc DD000000 		.4byte	0xdd
- 276 00d0 07       		.uleb128 0x7
- 277 00d1 5B000000 		.4byte	.LASF19
- 278 00d5 03       		.byte	0x3
- 279 00d6 77       		.byte	0x77
- 280 00d7 ED000000 		.4byte	0xed
- 281 00db 00       		.byte	0
- 282 00dc 00       		.byte	0
- 283 00dd 08       		.uleb128 0x8
- 284 00de 98000000 		.4byte	0x98
- 285 00e2 ED000000 		.4byte	0xed
- 286 00e6 09       		.uleb128 0x9
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 16
+ 272 006b 04       		.uleb128 0x4
+ 273 006c E3000000 		.4byte	.LASF9
+ 274 0070 02       		.byte	0x2
+ 275 0071 E401     		.2byte	0x1e4
+ 276 0073 2C000000 		.4byte	0x2c
+ 277 0077 04       		.uleb128 0x4
+ 278 0078 F0000000 		.4byte	.LASF10
+ 279 007c 02       		.byte	0x2
+ 280 007d E501     		.2byte	0x1e5
+ 281 007f 3A000000 		.4byte	0x3a
+ 282 0083 02       		.uleb128 0x2
+ 283 0084 04       		.byte	0x4
+ 284 0085 04       		.byte	0x4
+ 285 0086 96000000 		.4byte	.LASF11
+ 286 008a 02       		.uleb128 0x2
+ 287 008b 08       		.byte	0x8
+ 288 008c 04       		.byte	0x4
+ 289 008d E9000000 		.4byte	.LASF12
+ 290 0091 02       		.uleb128 0x2
+ 291 0092 01       		.byte	0x1
+ 292 0093 08       		.byte	0x8
+ 293 0094 0B020000 		.4byte	.LASF13
+ 294 0098 04       		.uleb128 0x4
+ 295 0099 AF000000 		.4byte	.LASF14
+ 296 009d 02       		.byte	0x2
+ 297 009e 8E02     		.2byte	0x28e
+ 298 00a0 A4000000 		.4byte	0xa4
+ 299 00a4 05       		.uleb128 0x5
+ 300 00a5 6B000000 		.4byte	0x6b
+ 301 00a9 04       		.uleb128 0x4
+ 302 00aa 00000000 		.4byte	.LASF15
+ 303 00ae 02       		.byte	0x2
+ 304 00af 8F02     		.2byte	0x28f
+ 305 00b1 B5000000 		.4byte	0xb5
+ 306 00b5 05       		.uleb128 0x5
+ 307 00b6 77000000 		.4byte	0x77
+ 308 00ba 02       		.uleb128 0x2
+ 309 00bb 08       		.byte	0x8
+ 310 00bc 04       		.byte	0x4
+ 311 00bd 56020000 		.4byte	.LASF16
+ 312 00c1 02       		.uleb128 0x2
+ 313 00c2 04       		.byte	0x4
+ 314 00c3 07       		.byte	0x7
+ 315 00c4 ED010000 		.4byte	.LASF17
+ 316 00c8 06       		.uleb128 0x6
+ 317 00c9 08       		.byte	0x8
+ 318 00ca 03       		.byte	0x3
+ 319 00cb 75       		.byte	0x75
+ 320 00cc DD000000 		.4byte	0xdd
+ 321 00d0 07       		.uleb128 0x7
+ 322 00d1 73000000 		.4byte	.LASF19
+ 323 00d5 03       		.byte	0x3
+ 324 00d6 77       		.byte	0x77
+ 325 00d7 ED000000 		.4byte	0xed
+ 326 00db 00       		.byte	0
+ 327 00dc 00       		.byte	0
+ 328 00dd 08       		.uleb128 0x8
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 17
 
 
- 287 00e7 C1000000 		.4byte	0xc1
- 288 00eb 07       		.byte	0x7
- 289 00ec 00       		.byte	0
- 290 00ed 05       		.uleb128 0x5
- 291 00ee DD000000 		.4byte	0xdd
- 292 00f2 0A       		.uleb128 0xa
- 293 00f3 12000000 		.4byte	.LASF18
- 294 00f7 03       		.byte	0x3
- 295 00f8 78       		.byte	0x78
- 296 00f9 C8000000 		.4byte	0xc8
- 297 00fd 06       		.uleb128 0x6
- 298 00fe 04       		.byte	0x4
- 299 00ff 03       		.byte	0x3
- 300 0100 7B       		.byte	0x7b
- 301 0101 12010000 		.4byte	0x112
- 302 0105 07       		.uleb128 0x7
- 303 0106 5B000000 		.4byte	.LASF19
- 304 010a 03       		.byte	0x3
- 305 010b 7D       		.byte	0x7d
- 306 010c 22010000 		.4byte	0x122
- 307 0110 00       		.byte	0
- 308 0111 00       		.byte	0
- 309 0112 08       		.uleb128 0x8
- 310 0113 98000000 		.4byte	0x98
- 311 0117 22010000 		.4byte	0x122
- 312 011b 09       		.uleb128 0x9
- 313 011c C1000000 		.4byte	0xc1
- 314 0120 03       		.byte	0x3
- 315 0121 00       		.byte	0
- 316 0122 05       		.uleb128 0x5
- 317 0123 12010000 		.4byte	0x112
- 318 0127 0A       		.uleb128 0xa
- 319 0128 2E010000 		.4byte	.LASF20
- 320 012c 03       		.byte	0x3
- 321 012d 7E       		.byte	0x7e
- 322 012e FD000000 		.4byte	0xfd
- 323 0132 06       		.uleb128 0x6
- 324 0133 20       		.byte	0x20
- 325 0134 03       		.byte	0x3
- 326 0135 A0       		.byte	0xa0
- 327 0136 8F010000 		.4byte	0x18f
- 328 013a 07       		.uleb128 0x7
- 329 013b 41010000 		.4byte	.LASF21
- 330 013f 03       		.byte	0x3
- 331 0140 A2       		.byte	0xa2
- 332 0141 27010000 		.4byte	0x127
- 333 0145 00       		.byte	0
- 334 0146 07       		.uleb128 0x7
- 335 0147 92000000 		.4byte	.LASF22
- 336 014b 03       		.byte	0x3
- 337 014c A3       		.byte	0xa3
- 338 014d 27010000 		.4byte	0x127
- 339 0151 04       		.byte	0x4
- 340 0152 07       		.uleb128 0x7
- 341 0153 60000000 		.4byte	.LASF23
- 342 0157 03       		.byte	0x3
- 343 0158 A4       		.byte	0xa4
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 17
+ 329 00de 98000000 		.4byte	0x98
+ 330 00e2 ED000000 		.4byte	0xed
+ 331 00e6 09       		.uleb128 0x9
+ 332 00e7 C1000000 		.4byte	0xc1
+ 333 00eb 07       		.byte	0x7
+ 334 00ec 00       		.byte	0
+ 335 00ed 05       		.uleb128 0x5
+ 336 00ee DD000000 		.4byte	0xdd
+ 337 00f2 0A       		.uleb128 0xa
+ 338 00f3 2A000000 		.4byte	.LASF18
+ 339 00f7 03       		.byte	0x3
+ 340 00f8 78       		.byte	0x78
+ 341 00f9 C8000000 		.4byte	0xc8
+ 342 00fd 06       		.uleb128 0x6
+ 343 00fe 04       		.byte	0x4
+ 344 00ff 03       		.byte	0x3
+ 345 0100 7B       		.byte	0x7b
+ 346 0101 12010000 		.4byte	0x112
+ 347 0105 07       		.uleb128 0x7
+ 348 0106 73000000 		.4byte	.LASF19
+ 349 010a 03       		.byte	0x3
+ 350 010b 7D       		.byte	0x7d
+ 351 010c 22010000 		.4byte	0x122
+ 352 0110 00       		.byte	0
+ 353 0111 00       		.byte	0
+ 354 0112 08       		.uleb128 0x8
+ 355 0113 98000000 		.4byte	0x98
+ 356 0117 22010000 		.4byte	0x122
+ 357 011b 09       		.uleb128 0x9
+ 358 011c C1000000 		.4byte	0xc1
+ 359 0120 03       		.byte	0x3
+ 360 0121 00       		.byte	0
+ 361 0122 05       		.uleb128 0x5
+ 362 0123 12010000 		.4byte	0x112
+ 363 0127 0A       		.uleb128 0xa
+ 364 0128 46010000 		.4byte	.LASF20
+ 365 012c 03       		.byte	0x3
+ 366 012d 7E       		.byte	0x7e
+ 367 012e FD000000 		.4byte	0xfd
+ 368 0132 06       		.uleb128 0x6
+ 369 0133 20       		.byte	0x20
+ 370 0134 03       		.byte	0x3
+ 371 0135 A0       		.byte	0xa0
+ 372 0136 8F010000 		.4byte	0x18f
+ 373 013a 07       		.uleb128 0x7
+ 374 013b 59010000 		.4byte	.LASF21
+ 375 013f 03       		.byte	0x3
+ 376 0140 A2       		.byte	0xa2
+ 377 0141 27010000 		.4byte	0x127
+ 378 0145 00       		.byte	0
+ 379 0146 07       		.uleb128 0x7
+ 380 0147 AA000000 		.4byte	.LASF22
+ 381 014b 03       		.byte	0x3
+ 382 014c A3       		.byte	0xa3
+ 383 014d 27010000 		.4byte	0x127
+ 384 0151 04       		.byte	0x4
+ 385 0152 07       		.uleb128 0x7
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 18
 
 
- 344 0159 F2000000 		.4byte	0xf2
- 345 015d 08       		.byte	0x8
- 346 015e 07       		.uleb128 0x7
- 347 015f 0C000000 		.4byte	.LASF24
- 348 0163 03       		.byte	0x3
- 349 0164 A5       		.byte	0xa5
- 350 0165 27010000 		.4byte	0x127
- 351 0169 10       		.byte	0x10
- 352 016a 07       		.uleb128 0x7
- 353 016b 2F020000 		.4byte	.LASF25
- 354 016f 03       		.byte	0x3
- 355 0170 A6       		.byte	0xa6
- 356 0171 27010000 		.4byte	0x127
- 357 0175 14       		.byte	0x14
- 358 0176 07       		.uleb128 0x7
- 359 0177 DE010000 		.4byte	.LASF26
- 360 017b 03       		.byte	0x3
- 361 017c A7       		.byte	0xa7
- 362 017d 27010000 		.4byte	0x127
- 363 0181 18       		.byte	0x18
- 364 0182 07       		.uleb128 0x7
- 365 0183 67000000 		.4byte	.LASF27
- 366 0187 03       		.byte	0x3
- 367 0188 A8       		.byte	0xa8
- 368 0189 27010000 		.4byte	0x127
- 369 018d 1C       		.byte	0x1c
- 370 018e 00       		.byte	0
- 371 018f 0A       		.uleb128 0xa
- 372 0190 0F020000 		.4byte	.LASF28
- 373 0194 03       		.byte	0x3
- 374 0195 A9       		.byte	0xa9
- 375 0196 32010000 		.4byte	0x132
- 376 019a 0B       		.uleb128 0xb
- 377 019b EC000000 		.4byte	.LASF29
- 378 019f 01       		.byte	0x1
- 379 01a0 2801     		.2byte	0x128
- 380 01a2 00000000 		.4byte	.LFB0
- 381 01a6 18000000 		.4byte	.LFE0-.LFB0
- 382 01aa 01       		.uleb128 0x1
- 383 01ab 9C       		.byte	0x9c
- 384 01ac C3010000 		.4byte	0x1c3
- 385 01b0 0C       		.uleb128 0xc
- 386 01b1 0C000000 		.4byte	.LVL0
- 387 01b5 33020000 		.4byte	0x233
- 388 01b9 0C       		.uleb128 0xc
- 389 01ba 10000000 		.4byte	.LVL1
- 390 01be 3E020000 		.4byte	0x23e
- 391 01c2 00       		.byte	0
- 392 01c3 0B       		.uleb128 0xb
- 393 01c4 19010000 		.4byte	.LASF30
- 394 01c8 01       		.byte	0x1
- 395 01c9 9401     		.2byte	0x194
- 396 01cb 00000000 		.4byte	.LFB1
- 397 01cf 44000000 		.4byte	.LFE1-.LFB1
- 398 01d3 01       		.uleb128 0x1
- 399 01d4 9C       		.byte	0x9c
- 400 01d5 0A020000 		.4byte	0x20a
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 18
+ 386 0153 78000000 		.4byte	.LASF23
+ 387 0157 03       		.byte	0x3
+ 388 0158 A4       		.byte	0xa4
+ 389 0159 F2000000 		.4byte	0xf2
+ 390 015d 08       		.byte	0x8
+ 391 015e 07       		.uleb128 0x7
+ 392 015f 24000000 		.4byte	.LASF24
+ 393 0163 03       		.byte	0x3
+ 394 0164 A5       		.byte	0xa5
+ 395 0165 27010000 		.4byte	0x127
+ 396 0169 10       		.byte	0x10
+ 397 016a 07       		.uleb128 0x7
+ 398 016b 47020000 		.4byte	.LASF25
+ 399 016f 03       		.byte	0x3
+ 400 0170 A6       		.byte	0xa6
+ 401 0171 27010000 		.4byte	0x127
+ 402 0175 14       		.byte	0x14
+ 403 0176 07       		.uleb128 0x7
+ 404 0177 F6010000 		.4byte	.LASF26
+ 405 017b 03       		.byte	0x3
+ 406 017c A7       		.byte	0xa7
+ 407 017d 27010000 		.4byte	0x127
+ 408 0181 18       		.byte	0x18
+ 409 0182 07       		.uleb128 0x7
+ 410 0183 7F000000 		.4byte	.LASF27
+ 411 0187 03       		.byte	0x3
+ 412 0188 A8       		.byte	0xa8
+ 413 0189 27010000 		.4byte	0x127
+ 414 018d 1C       		.byte	0x1c
+ 415 018e 00       		.byte	0
+ 416 018f 0A       		.uleb128 0xa
+ 417 0190 27020000 		.4byte	.LASF28
+ 418 0194 03       		.byte	0x3
+ 419 0195 A9       		.byte	0xa9
+ 420 0196 32010000 		.4byte	0x132
+ 421 019a 0B       		.uleb128 0xb
+ 422 019b 04010000 		.4byte	.LASF29
+ 423 019f 01       		.byte	0x1
+ 424 01a0 2801     		.2byte	0x128
+ 425 01a2 00000000 		.4byte	.LFB0
+ 426 01a6 18000000 		.4byte	.LFE0-.LFB0
+ 427 01aa 01       		.uleb128 0x1
+ 428 01ab 9C       		.byte	0x9c
+ 429 01ac C3010000 		.4byte	0x1c3
+ 430 01b0 0C       		.uleb128 0xc
+ 431 01b1 0C000000 		.4byte	.LVL0
+ 432 01b5 60020000 		.4byte	0x260
+ 433 01b9 0C       		.uleb128 0xc
+ 434 01ba 10000000 		.4byte	.LVL1
+ 435 01be 6B020000 		.4byte	0x26b
+ 436 01c2 00       		.byte	0
+ 437 01c3 0B       		.uleb128 0xb
+ 438 01c4 31010000 		.4byte	.LASF30
+ 439 01c8 01       		.byte	0x1
+ 440 01c9 9401     		.2byte	0x194
+ 441 01cb 00000000 		.4byte	.LFB1
+ 442 01cf 74000000 		.4byte	.LFE1-.LFB1
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 19
 
 
- 401 01d9 0D       		.uleb128 0xd
- 402 01da 29000000 		.4byte	.LASF31
- 403 01de 01       		.byte	0x1
- 404 01df 9601     		.2byte	0x196
- 405 01e1 6B000000 		.4byte	0x6b
- 406 01e5 00000000 		.4byte	.LLST0
- 407 01e9 0D       		.uleb128 0xd
- 408 01ea 06000000 		.4byte	.LASF32
- 409 01ee 01       		.byte	0x1
- 410 01ef 9701     		.2byte	0x197
- 411 01f1 77000000 		.4byte	0x77
- 412 01f5 2A000000 		.4byte	.LLST1
- 413 01f9 0E       		.uleb128 0xe
- 414 01fa 28000000 		.4byte	.LVL5
- 415 01fe 49020000 		.4byte	0x249
- 416 0202 0F       		.uleb128 0xf
- 417 0203 01       		.uleb128 0x1
- 418 0204 50       		.byte	0x50
- 419 0205 02       		.uleb128 0x2
- 420 0206 74       		.byte	0x74
- 421 0207 00       		.sleb128 0
- 422 0208 00       		.byte	0
- 423 0209 00       		.byte	0
- 424 020a 0B       		.uleb128 0xb
- 425 020b 6E000000 		.4byte	.LASF33
- 426 020f 01       		.byte	0x1
- 427 0210 CC01     		.2byte	0x1cc
- 428 0212 00000000 		.4byte	.LFB2
- 429 0216 24000000 		.4byte	.LFE2-.LFB2
- 430 021a 01       		.uleb128 0x1
- 431 021b 9C       		.byte	0x9c
- 432 021c 33020000 		.4byte	0x233
- 433 0220 0C       		.uleb128 0xc
- 434 0221 10000000 		.4byte	.LVL11
- 435 0225 9A010000 		.4byte	0x19a
- 436 0229 0C       		.uleb128 0xc
- 437 022a 1E000000 		.4byte	.LVL12
- 438 022e C3010000 		.4byte	0x1c3
- 439 0232 00       		.byte	0
- 440 0233 10       		.uleb128 0x10
- 441 0234 9C000000 		.4byte	.LASF34
- 442 0238 9C000000 		.4byte	.LASF34
- 443 023c 03       		.byte	0x3
- 444 023d C9       		.byte	0xc9
- 445 023e 10       		.uleb128 0x10
- 446 023f 4A000000 		.4byte	.LASF35
- 447 0243 4A000000 		.4byte	.LASF35
- 448 0247 03       		.byte	0x3
- 449 0248 C6       		.byte	0xc6
- 450 0249 11       		.uleb128 0x11
- 451 024a F8010000 		.4byte	.LASF36
- 452 024e F8010000 		.4byte	.LASF36
- 453 0252 03       		.byte	0x3
- 454 0253 1A01     		.2byte	0x11a
- 455 0255 00       		.byte	0
- 456              		.section	.debug_abbrev,"",%progbits
- 457              	.Ldebug_abbrev0:
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 19
+ 443 01d3 01       		.uleb128 0x1
+ 444 01d4 9C       		.byte	0x9c
+ 445 01d5 37020000 		.4byte	0x237
+ 446 01d9 0D       		.uleb128 0xd
+ 447 01da 41000000 		.4byte	.LASF31
+ 448 01de 01       		.byte	0x1
+ 449 01df 9601     		.2byte	0x196
+ 450 01e1 6B000000 		.4byte	0x6b
+ 451 01e5 00000000 		.4byte	.LLST0
+ 452 01e9 0D       		.uleb128 0xd
+ 453 01ea 06000000 		.4byte	.LASF32
+ 454 01ee 01       		.byte	0x1
+ 455 01ef 9701     		.2byte	0x197
+ 456 01f1 77000000 		.4byte	0x77
+ 457 01f5 2A000000 		.4byte	.LLST1
+ 458 01f9 0C       		.uleb128 0xc
+ 459 01fa 3A000000 		.4byte	.LVL5
+ 460 01fe 76020000 		.4byte	0x276
+ 461 0202 0C       		.uleb128 0xc
+ 462 0203 40000000 		.4byte	.LVL6
+ 463 0207 82020000 		.4byte	0x282
+ 464 020b 0C       		.uleb128 0xc
+ 465 020c 46000000 		.4byte	.LVL7
+ 466 0210 8E020000 		.4byte	0x28e
+ 467 0214 0C       		.uleb128 0xc
+ 468 0215 4C000000 		.4byte	.LVL8
+ 469 0219 9A020000 		.4byte	0x29a
+ 470 021d 0C       		.uleb128 0xc
+ 471 021e 52000000 		.4byte	.LVL9
+ 472 0222 A6020000 		.4byte	0x2a6
+ 473 0226 0E       		.uleb128 0xe
+ 474 0227 5A000000 		.4byte	.LVL10
+ 475 022b B2020000 		.4byte	0x2b2
+ 476 022f 0F       		.uleb128 0xf
+ 477 0230 01       		.uleb128 0x1
+ 478 0231 50       		.byte	0x50
+ 479 0232 02       		.uleb128 0x2
+ 480 0233 74       		.byte	0x74
+ 481 0234 00       		.sleb128 0
+ 482 0235 00       		.byte	0
+ 483 0236 00       		.byte	0
+ 484 0237 0B       		.uleb128 0xb
+ 485 0238 86000000 		.4byte	.LASF33
+ 486 023c 01       		.byte	0x1
+ 487 023d DB01     		.2byte	0x1db
+ 488 023f 00000000 		.4byte	.LFB2
+ 489 0243 24000000 		.4byte	.LFE2-.LFB2
+ 490 0247 01       		.uleb128 0x1
+ 491 0248 9C       		.byte	0x9c
+ 492 0249 60020000 		.4byte	0x260
+ 493 024d 0C       		.uleb128 0xc
+ 494 024e 10000000 		.4byte	.LVL16
+ 495 0252 9A010000 		.4byte	0x19a
+ 496 0256 0C       		.uleb128 0xc
+ 497 0257 1E000000 		.4byte	.LVL17
+ 498 025b C3010000 		.4byte	0x1c3
+ 499 025f 00       		.byte	0
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 20
 
 
- 458 0000 01       		.uleb128 0x1
- 459 0001 11       		.uleb128 0x11
- 460 0002 01       		.byte	0x1
- 461 0003 25       		.uleb128 0x25
- 462 0004 0E       		.uleb128 0xe
- 463 0005 13       		.uleb128 0x13
- 464 0006 0B       		.uleb128 0xb
- 465 0007 03       		.uleb128 0x3
- 466 0008 0E       		.uleb128 0xe
- 467 0009 1B       		.uleb128 0x1b
- 468 000a 0E       		.uleb128 0xe
- 469 000b 55       		.uleb128 0x55
- 470 000c 17       		.uleb128 0x17
- 471 000d 11       		.uleb128 0x11
- 472 000e 01       		.uleb128 0x1
- 473 000f 10       		.uleb128 0x10
- 474 0010 17       		.uleb128 0x17
- 475 0011 00       		.byte	0
- 476 0012 00       		.byte	0
- 477 0013 02       		.uleb128 0x2
- 478 0014 24       		.uleb128 0x24
- 479 0015 00       		.byte	0
- 480 0016 0B       		.uleb128 0xb
- 481 0017 0B       		.uleb128 0xb
- 482 0018 3E       		.uleb128 0x3e
- 483 0019 0B       		.uleb128 0xb
- 484 001a 03       		.uleb128 0x3
- 485 001b 0E       		.uleb128 0xe
- 486 001c 00       		.byte	0
- 487 001d 00       		.byte	0
- 488 001e 03       		.uleb128 0x3
- 489 001f 24       		.uleb128 0x24
- 490 0020 00       		.byte	0
- 491 0021 0B       		.uleb128 0xb
- 492 0022 0B       		.uleb128 0xb
- 493 0023 3E       		.uleb128 0x3e
- 494 0024 0B       		.uleb128 0xb
- 495 0025 03       		.uleb128 0x3
- 496 0026 08       		.uleb128 0x8
- 497 0027 00       		.byte	0
- 498 0028 00       		.byte	0
- 499 0029 04       		.uleb128 0x4
- 500 002a 16       		.uleb128 0x16
- 501 002b 00       		.byte	0
- 502 002c 03       		.uleb128 0x3
- 503 002d 0E       		.uleb128 0xe
- 504 002e 3A       		.uleb128 0x3a
- 505 002f 0B       		.uleb128 0xb
- 506 0030 3B       		.uleb128 0x3b
- 507 0031 05       		.uleb128 0x5
- 508 0032 49       		.uleb128 0x49
- 509 0033 13       		.uleb128 0x13
- 510 0034 00       		.byte	0
- 511 0035 00       		.byte	0
- 512 0036 05       		.uleb128 0x5
- 513 0037 35       		.uleb128 0x35
- 514 0038 00       		.byte	0
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 20
+ 500 0260 10       		.uleb128 0x10
+ 501 0261 B4000000 		.4byte	.LASF34
+ 502 0265 B4000000 		.4byte	.LASF34
+ 503 0269 03       		.byte	0x3
+ 504 026a C9       		.byte	0xc9
+ 505 026b 10       		.uleb128 0x10
+ 506 026c 62000000 		.4byte	.LASF35
+ 507 0270 62000000 		.4byte	.LASF35
+ 508 0274 03       		.byte	0x3
+ 509 0275 C6       		.byte	0xc6
+ 510 0276 11       		.uleb128 0x11
+ 511 0277 E3020000 		.4byte	.LASF36
+ 512 027b E3020000 		.4byte	.LASF36
+ 513 027f 03       		.byte	0x3
+ 514 0280 3501     		.2byte	0x135
+ 515 0282 11       		.uleb128 0x11
+ 516 0283 FB020000 		.4byte	.LASF37
+ 517 0287 FB020000 		.4byte	.LASF37
+ 518 028b 03       		.byte	0x3
+ 519 028c 3801     		.2byte	0x138
+ 520 028e 11       		.uleb128 0x11
+ 521 028f 13030000 		.4byte	.LASF38
+ 522 0293 13030000 		.4byte	.LASF38
+ 523 0297 03       		.byte	0x3
+ 524 0298 3B01     		.2byte	0x13b
+ 525 029a 11       		.uleb128 0x11
+ 526 029b 2B030000 		.4byte	.LASF39
+ 527 029f 2B030000 		.4byte	.LASF39
+ 528 02a3 03       		.byte	0x3
+ 529 02a4 3E01     		.2byte	0x13e
+ 530 02a6 11       		.uleb128 0x11
+ 531 02a7 0C000000 		.4byte	.LASF40
+ 532 02ab 0C000000 		.4byte	.LASF40
+ 533 02af 03       		.byte	0x3
+ 534 02b0 4101     		.2byte	0x141
+ 535 02b2 11       		.uleb128 0x11
+ 536 02b3 10020000 		.4byte	.LASF41
+ 537 02b7 10020000 		.4byte	.LASF41
+ 538 02bb 03       		.byte	0x3
+ 539 02bc 1A01     		.2byte	0x11a
+ 540 02be 00       		.byte	0
+ 541              		.section	.debug_abbrev,"",%progbits
+ 542              	.Ldebug_abbrev0:
+ 543 0000 01       		.uleb128 0x1
+ 544 0001 11       		.uleb128 0x11
+ 545 0002 01       		.byte	0x1
+ 546 0003 25       		.uleb128 0x25
+ 547 0004 0E       		.uleb128 0xe
+ 548 0005 13       		.uleb128 0x13
+ 549 0006 0B       		.uleb128 0xb
+ 550 0007 03       		.uleb128 0x3
+ 551 0008 0E       		.uleb128 0xe
+ 552 0009 1B       		.uleb128 0x1b
+ 553 000a 0E       		.uleb128 0xe
+ 554 000b 55       		.uleb128 0x55
+ 555 000c 17       		.uleb128 0x17
+ 556 000d 11       		.uleb128 0x11
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 21
 
 
- 515 0039 49       		.uleb128 0x49
- 516 003a 13       		.uleb128 0x13
- 517 003b 00       		.byte	0
- 518 003c 00       		.byte	0
- 519 003d 06       		.uleb128 0x6
- 520 003e 13       		.uleb128 0x13
- 521 003f 01       		.byte	0x1
- 522 0040 0B       		.uleb128 0xb
- 523 0041 0B       		.uleb128 0xb
- 524 0042 3A       		.uleb128 0x3a
- 525 0043 0B       		.uleb128 0xb
- 526 0044 3B       		.uleb128 0x3b
- 527 0045 0B       		.uleb128 0xb
- 528 0046 01       		.uleb128 0x1
- 529 0047 13       		.uleb128 0x13
- 530 0048 00       		.byte	0
- 531 0049 00       		.byte	0
- 532 004a 07       		.uleb128 0x7
- 533 004b 0D       		.uleb128 0xd
- 534 004c 00       		.byte	0
- 535 004d 03       		.uleb128 0x3
- 536 004e 0E       		.uleb128 0xe
- 537 004f 3A       		.uleb128 0x3a
- 538 0050 0B       		.uleb128 0xb
- 539 0051 3B       		.uleb128 0x3b
- 540 0052 0B       		.uleb128 0xb
- 541 0053 49       		.uleb128 0x49
- 542 0054 13       		.uleb128 0x13
- 543 0055 38       		.uleb128 0x38
- 544 0056 0B       		.uleb128 0xb
- 545 0057 00       		.byte	0
- 546 0058 00       		.byte	0
- 547 0059 08       		.uleb128 0x8
- 548 005a 01       		.uleb128 0x1
- 549 005b 01       		.byte	0x1
- 550 005c 49       		.uleb128 0x49
- 551 005d 13       		.uleb128 0x13
- 552 005e 01       		.uleb128 0x1
- 553 005f 13       		.uleb128 0x13
- 554 0060 00       		.byte	0
- 555 0061 00       		.byte	0
- 556 0062 09       		.uleb128 0x9
- 557 0063 21       		.uleb128 0x21
- 558 0064 00       		.byte	0
- 559 0065 49       		.uleb128 0x49
- 560 0066 13       		.uleb128 0x13
- 561 0067 2F       		.uleb128 0x2f
- 562 0068 0B       		.uleb128 0xb
- 563 0069 00       		.byte	0
- 564 006a 00       		.byte	0
- 565 006b 0A       		.uleb128 0xa
- 566 006c 16       		.uleb128 0x16
- 567 006d 00       		.byte	0
- 568 006e 03       		.uleb128 0x3
- 569 006f 0E       		.uleb128 0xe
- 570 0070 3A       		.uleb128 0x3a
- 571 0071 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 21
+ 557 000e 01       		.uleb128 0x1
+ 558 000f 10       		.uleb128 0x10
+ 559 0010 17       		.uleb128 0x17
+ 560 0011 00       		.byte	0
+ 561 0012 00       		.byte	0
+ 562 0013 02       		.uleb128 0x2
+ 563 0014 24       		.uleb128 0x24
+ 564 0015 00       		.byte	0
+ 565 0016 0B       		.uleb128 0xb
+ 566 0017 0B       		.uleb128 0xb
+ 567 0018 3E       		.uleb128 0x3e
+ 568 0019 0B       		.uleb128 0xb
+ 569 001a 03       		.uleb128 0x3
+ 570 001b 0E       		.uleb128 0xe
+ 571 001c 00       		.byte	0
+ 572 001d 00       		.byte	0
+ 573 001e 03       		.uleb128 0x3
+ 574 001f 24       		.uleb128 0x24
+ 575 0020 00       		.byte	0
+ 576 0021 0B       		.uleb128 0xb
+ 577 0022 0B       		.uleb128 0xb
+ 578 0023 3E       		.uleb128 0x3e
+ 579 0024 0B       		.uleb128 0xb
+ 580 0025 03       		.uleb128 0x3
+ 581 0026 08       		.uleb128 0x8
+ 582 0027 00       		.byte	0
+ 583 0028 00       		.byte	0
+ 584 0029 04       		.uleb128 0x4
+ 585 002a 16       		.uleb128 0x16
+ 586 002b 00       		.byte	0
+ 587 002c 03       		.uleb128 0x3
+ 588 002d 0E       		.uleb128 0xe
+ 589 002e 3A       		.uleb128 0x3a
+ 590 002f 0B       		.uleb128 0xb
+ 591 0030 3B       		.uleb128 0x3b
+ 592 0031 05       		.uleb128 0x5
+ 593 0032 49       		.uleb128 0x49
+ 594 0033 13       		.uleb128 0x13
+ 595 0034 00       		.byte	0
+ 596 0035 00       		.byte	0
+ 597 0036 05       		.uleb128 0x5
+ 598 0037 35       		.uleb128 0x35
+ 599 0038 00       		.byte	0
+ 600 0039 49       		.uleb128 0x49
+ 601 003a 13       		.uleb128 0x13
+ 602 003b 00       		.byte	0
+ 603 003c 00       		.byte	0
+ 604 003d 06       		.uleb128 0x6
+ 605 003e 13       		.uleb128 0x13
+ 606 003f 01       		.byte	0x1
+ 607 0040 0B       		.uleb128 0xb
+ 608 0041 0B       		.uleb128 0xb
+ 609 0042 3A       		.uleb128 0x3a
+ 610 0043 0B       		.uleb128 0xb
+ 611 0044 3B       		.uleb128 0x3b
+ 612 0045 0B       		.uleb128 0xb
+ 613 0046 01       		.uleb128 0x1
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 22
 
 
- 572 0072 3B       		.uleb128 0x3b
- 573 0073 0B       		.uleb128 0xb
- 574 0074 49       		.uleb128 0x49
- 575 0075 13       		.uleb128 0x13
- 576 0076 00       		.byte	0
- 577 0077 00       		.byte	0
- 578 0078 0B       		.uleb128 0xb
- 579 0079 2E       		.uleb128 0x2e
- 580 007a 01       		.byte	0x1
- 581 007b 3F       		.uleb128 0x3f
- 582 007c 19       		.uleb128 0x19
- 583 007d 03       		.uleb128 0x3
- 584 007e 0E       		.uleb128 0xe
- 585 007f 3A       		.uleb128 0x3a
- 586 0080 0B       		.uleb128 0xb
- 587 0081 3B       		.uleb128 0x3b
- 588 0082 05       		.uleb128 0x5
- 589 0083 27       		.uleb128 0x27
- 590 0084 19       		.uleb128 0x19
- 591 0085 11       		.uleb128 0x11
- 592 0086 01       		.uleb128 0x1
- 593 0087 12       		.uleb128 0x12
- 594 0088 06       		.uleb128 0x6
- 595 0089 40       		.uleb128 0x40
- 596 008a 18       		.uleb128 0x18
- 597 008b 9742     		.uleb128 0x2117
- 598 008d 19       		.uleb128 0x19
- 599 008e 01       		.uleb128 0x1
- 600 008f 13       		.uleb128 0x13
- 601 0090 00       		.byte	0
- 602 0091 00       		.byte	0
- 603 0092 0C       		.uleb128 0xc
- 604 0093 898201   		.uleb128 0x4109
- 605 0096 00       		.byte	0
- 606 0097 11       		.uleb128 0x11
- 607 0098 01       		.uleb128 0x1
- 608 0099 31       		.uleb128 0x31
- 609 009a 13       		.uleb128 0x13
- 610 009b 00       		.byte	0
- 611 009c 00       		.byte	0
- 612 009d 0D       		.uleb128 0xd
- 613 009e 34       		.uleb128 0x34
- 614 009f 00       		.byte	0
- 615 00a0 03       		.uleb128 0x3
- 616 00a1 0E       		.uleb128 0xe
- 617 00a2 3A       		.uleb128 0x3a
- 618 00a3 0B       		.uleb128 0xb
- 619 00a4 3B       		.uleb128 0x3b
- 620 00a5 05       		.uleb128 0x5
- 621 00a6 49       		.uleb128 0x49
- 622 00a7 13       		.uleb128 0x13
- 623 00a8 02       		.uleb128 0x2
- 624 00a9 17       		.uleb128 0x17
- 625 00aa 00       		.byte	0
- 626 00ab 00       		.byte	0
- 627 00ac 0E       		.uleb128 0xe
- 628 00ad 898201   		.uleb128 0x4109
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 22
+ 614 0047 13       		.uleb128 0x13
+ 615 0048 00       		.byte	0
+ 616 0049 00       		.byte	0
+ 617 004a 07       		.uleb128 0x7
+ 618 004b 0D       		.uleb128 0xd
+ 619 004c 00       		.byte	0
+ 620 004d 03       		.uleb128 0x3
+ 621 004e 0E       		.uleb128 0xe
+ 622 004f 3A       		.uleb128 0x3a
+ 623 0050 0B       		.uleb128 0xb
+ 624 0051 3B       		.uleb128 0x3b
+ 625 0052 0B       		.uleb128 0xb
+ 626 0053 49       		.uleb128 0x49
+ 627 0054 13       		.uleb128 0x13
+ 628 0055 38       		.uleb128 0x38
+ 629 0056 0B       		.uleb128 0xb
+ 630 0057 00       		.byte	0
+ 631 0058 00       		.byte	0
+ 632 0059 08       		.uleb128 0x8
+ 633 005a 01       		.uleb128 0x1
+ 634 005b 01       		.byte	0x1
+ 635 005c 49       		.uleb128 0x49
+ 636 005d 13       		.uleb128 0x13
+ 637 005e 01       		.uleb128 0x1
+ 638 005f 13       		.uleb128 0x13
+ 639 0060 00       		.byte	0
+ 640 0061 00       		.byte	0
+ 641 0062 09       		.uleb128 0x9
+ 642 0063 21       		.uleb128 0x21
+ 643 0064 00       		.byte	0
+ 644 0065 49       		.uleb128 0x49
+ 645 0066 13       		.uleb128 0x13
+ 646 0067 2F       		.uleb128 0x2f
+ 647 0068 0B       		.uleb128 0xb
+ 648 0069 00       		.byte	0
+ 649 006a 00       		.byte	0
+ 650 006b 0A       		.uleb128 0xa
+ 651 006c 16       		.uleb128 0x16
+ 652 006d 00       		.byte	0
+ 653 006e 03       		.uleb128 0x3
+ 654 006f 0E       		.uleb128 0xe
+ 655 0070 3A       		.uleb128 0x3a
+ 656 0071 0B       		.uleb128 0xb
+ 657 0072 3B       		.uleb128 0x3b
+ 658 0073 0B       		.uleb128 0xb
+ 659 0074 49       		.uleb128 0x49
+ 660 0075 13       		.uleb128 0x13
+ 661 0076 00       		.byte	0
+ 662 0077 00       		.byte	0
+ 663 0078 0B       		.uleb128 0xb
+ 664 0079 2E       		.uleb128 0x2e
+ 665 007a 01       		.byte	0x1
+ 666 007b 3F       		.uleb128 0x3f
+ 667 007c 19       		.uleb128 0x19
+ 668 007d 03       		.uleb128 0x3
+ 669 007e 0E       		.uleb128 0xe
+ 670 007f 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 23
 
 
- 629 00b0 01       		.byte	0x1
- 630 00b1 11       		.uleb128 0x11
- 631 00b2 01       		.uleb128 0x1
- 632 00b3 31       		.uleb128 0x31
- 633 00b4 13       		.uleb128 0x13
- 634 00b5 00       		.byte	0
- 635 00b6 00       		.byte	0
- 636 00b7 0F       		.uleb128 0xf
- 637 00b8 8A8201   		.uleb128 0x410a
- 638 00bb 00       		.byte	0
- 639 00bc 02       		.uleb128 0x2
- 640 00bd 18       		.uleb128 0x18
- 641 00be 9142     		.uleb128 0x2111
- 642 00c0 18       		.uleb128 0x18
- 643 00c1 00       		.byte	0
- 644 00c2 00       		.byte	0
- 645 00c3 10       		.uleb128 0x10
- 646 00c4 2E       		.uleb128 0x2e
- 647 00c5 00       		.byte	0
- 648 00c6 3F       		.uleb128 0x3f
- 649 00c7 19       		.uleb128 0x19
- 650 00c8 3C       		.uleb128 0x3c
- 651 00c9 19       		.uleb128 0x19
- 652 00ca 6E       		.uleb128 0x6e
- 653 00cb 0E       		.uleb128 0xe
- 654 00cc 03       		.uleb128 0x3
- 655 00cd 0E       		.uleb128 0xe
- 656 00ce 3A       		.uleb128 0x3a
- 657 00cf 0B       		.uleb128 0xb
- 658 00d0 3B       		.uleb128 0x3b
- 659 00d1 0B       		.uleb128 0xb
- 660 00d2 00       		.byte	0
- 661 00d3 00       		.byte	0
- 662 00d4 11       		.uleb128 0x11
- 663 00d5 2E       		.uleb128 0x2e
- 664 00d6 00       		.byte	0
- 665 00d7 3F       		.uleb128 0x3f
- 666 00d8 19       		.uleb128 0x19
- 667 00d9 3C       		.uleb128 0x3c
- 668 00da 19       		.uleb128 0x19
- 669 00db 6E       		.uleb128 0x6e
- 670 00dc 0E       		.uleb128 0xe
- 671 00dd 03       		.uleb128 0x3
- 672 00de 0E       		.uleb128 0xe
- 673 00df 3A       		.uleb128 0x3a
- 674 00e0 0B       		.uleb128 0xb
- 675 00e1 3B       		.uleb128 0x3b
- 676 00e2 05       		.uleb128 0x5
- 677 00e3 00       		.byte	0
- 678 00e4 00       		.byte	0
- 679 00e5 00       		.byte	0
- 680              		.section	.debug_loc,"",%progbits
- 681              	.Ldebug_loc0:
- 682              	.LLST0:
- 683 0000 08000000 		.4byte	.LVL3
- 684 0004 0E000000 		.4byte	.LVL4
- 685 0008 0200     		.2byte	0x2
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 23
+ 671 0080 0B       		.uleb128 0xb
+ 672 0081 3B       		.uleb128 0x3b
+ 673 0082 05       		.uleb128 0x5
+ 674 0083 27       		.uleb128 0x27
+ 675 0084 19       		.uleb128 0x19
+ 676 0085 11       		.uleb128 0x11
+ 677 0086 01       		.uleb128 0x1
+ 678 0087 12       		.uleb128 0x12
+ 679 0088 06       		.uleb128 0x6
+ 680 0089 40       		.uleb128 0x40
+ 681 008a 18       		.uleb128 0x18
+ 682 008b 9742     		.uleb128 0x2117
+ 683 008d 19       		.uleb128 0x19
+ 684 008e 01       		.uleb128 0x1
+ 685 008f 13       		.uleb128 0x13
+ 686 0090 00       		.byte	0
+ 687 0091 00       		.byte	0
+ 688 0092 0C       		.uleb128 0xc
+ 689 0093 898201   		.uleb128 0x4109
+ 690 0096 00       		.byte	0
+ 691 0097 11       		.uleb128 0x11
+ 692 0098 01       		.uleb128 0x1
+ 693 0099 31       		.uleb128 0x31
+ 694 009a 13       		.uleb128 0x13
+ 695 009b 00       		.byte	0
+ 696 009c 00       		.byte	0
+ 697 009d 0D       		.uleb128 0xd
+ 698 009e 34       		.uleb128 0x34
+ 699 009f 00       		.byte	0
+ 700 00a0 03       		.uleb128 0x3
+ 701 00a1 0E       		.uleb128 0xe
+ 702 00a2 3A       		.uleb128 0x3a
+ 703 00a3 0B       		.uleb128 0xb
+ 704 00a4 3B       		.uleb128 0x3b
+ 705 00a5 05       		.uleb128 0x5
+ 706 00a6 49       		.uleb128 0x49
+ 707 00a7 13       		.uleb128 0x13
+ 708 00a8 02       		.uleb128 0x2
+ 709 00a9 17       		.uleb128 0x17
+ 710 00aa 00       		.byte	0
+ 711 00ab 00       		.byte	0
+ 712 00ac 0E       		.uleb128 0xe
+ 713 00ad 898201   		.uleb128 0x4109
+ 714 00b0 01       		.byte	0x1
+ 715 00b1 11       		.uleb128 0x11
+ 716 00b2 01       		.uleb128 0x1
+ 717 00b3 31       		.uleb128 0x31
+ 718 00b4 13       		.uleb128 0x13
+ 719 00b5 00       		.byte	0
+ 720 00b6 00       		.byte	0
+ 721 00b7 0F       		.uleb128 0xf
+ 722 00b8 8A8201   		.uleb128 0x410a
+ 723 00bb 00       		.byte	0
+ 724 00bc 02       		.uleb128 0x2
+ 725 00bd 18       		.uleb128 0x18
+ 726 00be 9142     		.uleb128 0x2111
+ 727 00c0 18       		.uleb128 0x18
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 24
 
 
- 686 000a 30       		.byte	0x30
- 687 000b 9F       		.byte	0x9f
- 688 000c 0E000000 		.4byte	.LVL4
- 689 0010 2E000000 		.4byte	.LVL8
- 690 0014 0100     		.2byte	0x1
- 691 0016 54       		.byte	0x54
- 692 0017 30000000 		.4byte	.LVL9
- 693 001b 36000000 		.4byte	.LVL10
- 694 001f 0100     		.2byte	0x1
- 695 0021 54       		.byte	0x54
- 696 0022 00000000 		.4byte	0
- 697 0026 00000000 		.4byte	0
- 698              	.LLST1:
- 699 002a 02000000 		.4byte	.LVL2
- 700 002e 0E000000 		.4byte	.LVL4
- 701 0032 0200     		.2byte	0x2
- 702 0034 31       		.byte	0x31
- 703 0035 9F       		.byte	0x9f
- 704 0036 0E000000 		.4byte	.LVL4
- 705 003a 2A000000 		.4byte	.LVL6
- 706 003e 0100     		.2byte	0x1
- 707 0040 55       		.byte	0x55
- 708 0041 2C000000 		.4byte	.LVL7
- 709 0045 36000000 		.4byte	.LVL10
- 710 0049 0100     		.2byte	0x1
- 711 004b 55       		.byte	0x55
- 712 004c 00000000 		.4byte	0
- 713 0050 00000000 		.4byte	0
- 714              		.section	.debug_aranges,"",%progbits
- 715 0000 2C000000 		.4byte	0x2c
- 716 0004 0200     		.2byte	0x2
- 717 0006 00000000 		.4byte	.Ldebug_info0
- 718 000a 04       		.byte	0x4
- 719 000b 00       		.byte	0
- 720 000c 0000     		.2byte	0
- 721 000e 0000     		.2byte	0
- 722 0010 00000000 		.4byte	.LFB0
- 723 0014 18000000 		.4byte	.LFE0-.LFB0
- 724 0018 00000000 		.4byte	.LFB1
- 725 001c 44000000 		.4byte	.LFE1-.LFB1
- 726 0020 00000000 		.4byte	.LFB2
- 727 0024 24000000 		.4byte	.LFE2-.LFB2
- 728 0028 00000000 		.4byte	0
- 729 002c 00000000 		.4byte	0
- 730              		.section	.debug_ranges,"",%progbits
- 731              	.Ldebug_ranges0:
- 732 0000 00000000 		.4byte	.LFB0
- 733 0004 18000000 		.4byte	.LFE0
- 734 0008 00000000 		.4byte	.LFB1
- 735 000c 44000000 		.4byte	.LFE1
- 736 0010 00000000 		.4byte	.LFB2
- 737 0014 24000000 		.4byte	.LFE2
- 738 0018 00000000 		.4byte	0
- 739 001c 00000000 		.4byte	0
- 740              		.section	.debug_line,"",%progbits
- 741              	.Ldebug_line0:
- 742 0000 C1000000 		.section	.debug_str,"MS",%progbits,1
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 24
+ 728 00c1 00       		.byte	0
+ 729 00c2 00       		.byte	0
+ 730 00c3 10       		.uleb128 0x10
+ 731 00c4 2E       		.uleb128 0x2e
+ 732 00c5 00       		.byte	0
+ 733 00c6 3F       		.uleb128 0x3f
+ 734 00c7 19       		.uleb128 0x19
+ 735 00c8 3C       		.uleb128 0x3c
+ 736 00c9 19       		.uleb128 0x19
+ 737 00ca 6E       		.uleb128 0x6e
+ 738 00cb 0E       		.uleb128 0xe
+ 739 00cc 03       		.uleb128 0x3
+ 740 00cd 0E       		.uleb128 0xe
+ 741 00ce 3A       		.uleb128 0x3a
+ 742 00cf 0B       		.uleb128 0xb
+ 743 00d0 3B       		.uleb128 0x3b
+ 744 00d1 0B       		.uleb128 0xb
+ 745 00d2 00       		.byte	0
+ 746 00d3 00       		.byte	0
+ 747 00d4 11       		.uleb128 0x11
+ 748 00d5 2E       		.uleb128 0x2e
+ 749 00d6 00       		.byte	0
+ 750 00d7 3F       		.uleb128 0x3f
+ 751 00d8 19       		.uleb128 0x19
+ 752 00d9 3C       		.uleb128 0x3c
+ 753 00da 19       		.uleb128 0x19
+ 754 00db 6E       		.uleb128 0x6e
+ 755 00dc 0E       		.uleb128 0xe
+ 756 00dd 03       		.uleb128 0x3
+ 757 00de 0E       		.uleb128 0xe
+ 758 00df 3A       		.uleb128 0x3a
+ 759 00e0 0B       		.uleb128 0xb
+ 760 00e1 3B       		.uleb128 0x3b
+ 761 00e2 05       		.uleb128 0x5
+ 762 00e3 00       		.byte	0
+ 763 00e4 00       		.byte	0
+ 764 00e5 00       		.byte	0
+ 765              		.section	.debug_loc,"",%progbits
+ 766              	.Ldebug_loc0:
+ 767              	.LLST0:
+ 768 0000 08000000 		.4byte	.LVL3
+ 769 0004 0E000000 		.4byte	.LVL4
+ 770 0008 0200     		.2byte	0x2
+ 771 000a 30       		.byte	0x30
+ 772 000b 9F       		.byte	0x9f
+ 773 000c 0E000000 		.4byte	.LVL4
+ 774 0010 60000000 		.4byte	.LVL13
+ 775 0014 0100     		.2byte	0x1
+ 776 0016 54       		.byte	0x54
+ 777 0017 62000000 		.4byte	.LVL14
+ 778 001b 68000000 		.4byte	.LVL15
+ 779 001f 0100     		.2byte	0x1
+ 780 0021 54       		.byte	0x54
+ 781 0022 00000000 		.4byte	0
+ 782 0026 00000000 		.4byte	0
+ 783              	.LLST1:
+ 784 002a 02000000 		.4byte	.LVL2
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 25
 
 
- 742      02005D00 
- 742      00000201 
- 742      FB0E0D00 
- 742      01010101 
- 743              	.LASF15:
- 744 0000 72656731 		.ascii	"reg16\000"
- 744      3600
- 745              	.LASF32:
- 746 0006 73686966 		.ascii	"shift\000"
- 746      7400
- 747              	.LASF24:
- 748 000c 7278616D 		.ascii	"rxamr\000"
- 748      7200
- 749              	.LASF18:
- 750 0012 56656869 		.ascii	"Vehicle_CAN_DATA_BYTES\000"
- 750      636C655F 
- 750      43414E5F 
- 750      44415441 
- 750      5F425954 
- 751              	.LASF31:
- 752 0029 6D61696C 		.ascii	"mailboxNumber\000"
- 752      626F784E 
- 752      756D6265 
- 752      7200
- 753              	.LASF3:
- 754 0037 73686F72 		.ascii	"short unsigned int\000"
- 754      7420756E 
- 754      7369676E 
- 754      65642069 
- 754      6E7400
- 755              	.LASF35:
- 756 004a 56656869 		.ascii	"Vehicle_CAN_Stop\000"
- 756      636C655F 
- 756      43414E5F 
- 756      53746F70 
- 756      00
- 757              	.LASF19:
- 758 005b 62797465 		.ascii	"byte\000"
- 758      00
- 759              	.LASF23:
- 760 0060 72786461 		.ascii	"rxdata\000"
- 760      746100
- 761              	.LASF27:
- 762 0067 72786163 		.ascii	"rxacrd\000"
- 762      726400
- 763              	.LASF33:
- 764 006e 56656869 		.ascii	"Vehicle_CAN_ISR\000"
- 764      636C655F 
- 764      43414E5F 
- 764      49535200 
- 765              	.LASF11:
- 766 007e 666C6F61 		.ascii	"float\000"
- 766      7400
- 767              	.LASF1:
- 768 0084 756E7369 		.ascii	"unsigned char\000"
- 768      676E6564 
- 768      20636861 
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 25
+ 785 002e 0E000000 		.4byte	.LVL4
+ 786 0032 0200     		.2byte	0x2
+ 787 0034 31       		.byte	0x31
+ 788 0035 9F       		.byte	0x9f
+ 789 0036 0E000000 		.4byte	.LVL4
+ 790 003a 5C000000 		.4byte	.LVL11
+ 791 003e 0100     		.2byte	0x1
+ 792 0040 55       		.byte	0x55
+ 793 0041 5E000000 		.4byte	.LVL12
+ 794 0045 68000000 		.4byte	.LVL15
+ 795 0049 0100     		.2byte	0x1
+ 796 004b 55       		.byte	0x55
+ 797 004c 00000000 		.4byte	0
+ 798 0050 00000000 		.4byte	0
+ 799              		.section	.debug_aranges,"",%progbits
+ 800 0000 2C000000 		.4byte	0x2c
+ 801 0004 0200     		.2byte	0x2
+ 802 0006 00000000 		.4byte	.Ldebug_info0
+ 803 000a 04       		.byte	0x4
+ 804 000b 00       		.byte	0
+ 805 000c 0000     		.2byte	0
+ 806 000e 0000     		.2byte	0
+ 807 0010 00000000 		.4byte	.LFB0
+ 808 0014 18000000 		.4byte	.LFE0-.LFB0
+ 809 0018 00000000 		.4byte	.LFB1
+ 810 001c 74000000 		.4byte	.LFE1-.LFB1
+ 811 0020 00000000 		.4byte	.LFB2
+ 812 0024 24000000 		.4byte	.LFE2-.LFB2
+ 813 0028 00000000 		.4byte	0
+ 814 002c 00000000 		.4byte	0
+ 815              		.section	.debug_ranges,"",%progbits
+ 816              	.Ldebug_ranges0:
+ 817 0000 00000000 		.4byte	.LFB0
+ 818 0004 18000000 		.4byte	.LFE0
+ 819 0008 00000000 		.4byte	.LFB1
+ 820 000c 74000000 		.4byte	.LFE1
+ 821 0010 00000000 		.4byte	.LFB2
+ 822 0014 24000000 		.4byte	.LFE2
+ 823 0018 00000000 		.4byte	0
+ 824 001c 00000000 		.4byte	0
+ 825              		.section	.debug_line,"",%progbits
+ 826              	.Ldebug_line0:
+ 827 0000 CB000000 		.section	.debug_str,"MS",%progbits,1
+ 827      02005D00 
+ 827      00000201 
+ 827      FB0E0D00 
+ 827      01010101 
+ 828              	.LASF15:
+ 829 0000 72656731 		.ascii	"reg16\000"
+ 829      3600
+ 830              	.LASF32:
+ 831 0006 73686966 		.ascii	"shift\000"
+ 831      7400
+ 832              	.LASF40:
+ 833 000c 56656869 		.ascii	"Vehicle_CAN_ReceiveMsg4\000"
+ 833      636C655F 
+ 833      43414E5F 
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 26
 
 
- 768      7200
- 769              	.LASF22:
- 770 0092 72786964 		.ascii	"rxid\000"
- 770      00
- 771              	.LASF14:
- 772 0097 72656738 		.ascii	"reg8\000"
- 772      00
- 773              	.LASF34:
- 774 009c 56656869 		.ascii	"Vehicle_CAN_GlobalIntDisable\000"
- 774      636C655F 
- 774      43414E5F 
- 774      476C6F62 
- 774      616C496E 
- 775              	.LASF5:
- 776 00b9 6C6F6E67 		.ascii	"long unsigned int\000"
- 776      20756E73 
- 776      69676E65 
- 776      6420696E 
- 776      7400
- 777              	.LASF9:
- 778 00cb 75696E74 		.ascii	"uint8\000"
- 778      3800
- 779              	.LASF12:
- 780 00d1 646F7562 		.ascii	"double\000"
- 780      6C6500
- 781              	.LASF10:
- 782 00d8 75696E74 		.ascii	"uint16\000"
- 782      313600
- 783              	.LASF8:
- 784 00df 756E7369 		.ascii	"unsigned int\000"
- 784      676E6564 
- 784      20696E74 
- 784      00
- 785              	.LASF29:
- 786 00ec 56656869 		.ascii	"Vehicle_CAN_BusOffIsr\000"
- 786      636C655F 
- 786      43414E5F 
- 786      4275734F 
- 786      66664973 
- 787              	.LASF7:
- 788 0102 6C6F6E67 		.ascii	"long long unsigned int\000"
- 788      206C6F6E 
- 788      6720756E 
- 788      7369676E 
- 788      65642069 
- 789              	.LASF30:
- 790 0119 56656869 		.ascii	"Vehicle_CAN_MsgRXIsr\000"
- 790      636C655F 
- 790      43414E5F 
- 790      4D736752 
- 790      58497372 
- 791              	.LASF20:
- 792 012e 56656869 		.ascii	"Vehicle_CAN_REG_32\000"
- 792      636C655F 
- 792      43414E5F 
- 792      5245475F 
- 792      333200
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 26
+ 833      52656365 
+ 833      6976654D 
+ 834              	.LASF24:
+ 835 0024 7278616D 		.ascii	"rxamr\000"
+ 835      7200
+ 836              	.LASF18:
+ 837 002a 56656869 		.ascii	"Vehicle_CAN_DATA_BYTES\000"
+ 837      636C655F 
+ 837      43414E5F 
+ 837      44415441 
+ 837      5F425954 
+ 838              	.LASF31:
+ 839 0041 6D61696C 		.ascii	"mailboxNumber\000"
+ 839      626F784E 
+ 839      756D6265 
+ 839      7200
+ 840              	.LASF3:
+ 841 004f 73686F72 		.ascii	"short unsigned int\000"
+ 841      7420756E 
+ 841      7369676E 
+ 841      65642069 
+ 841      6E7400
+ 842              	.LASF35:
+ 843 0062 56656869 		.ascii	"Vehicle_CAN_Stop\000"
+ 843      636C655F 
+ 843      43414E5F 
+ 843      53746F70 
+ 843      00
+ 844              	.LASF19:
+ 845 0073 62797465 		.ascii	"byte\000"
+ 845      00
+ 846              	.LASF23:
+ 847 0078 72786461 		.ascii	"rxdata\000"
+ 847      746100
+ 848              	.LASF27:
+ 849 007f 72786163 		.ascii	"rxacrd\000"
+ 849      726400
+ 850              	.LASF33:
+ 851 0086 56656869 		.ascii	"Vehicle_CAN_ISR\000"
+ 851      636C655F 
+ 851      43414E5F 
+ 851      49535200 
+ 852              	.LASF11:
+ 853 0096 666C6F61 		.ascii	"float\000"
+ 853      7400
+ 854              	.LASF1:
+ 855 009c 756E7369 		.ascii	"unsigned char\000"
+ 855      676E6564 
+ 855      20636861 
+ 855      7200
+ 856              	.LASF22:
+ 857 00aa 72786964 		.ascii	"rxid\000"
+ 857      00
+ 858              	.LASF14:
+ 859 00af 72656738 		.ascii	"reg8\000"
+ 859      00
+ 860              	.LASF34:
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 27
 
 
- 793              	.LASF21:
- 794 0141 7278636D 		.ascii	"rxcmd\000"
- 794      6400
- 795              	.LASF37:
- 796 0147 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 796      43313120 
- 796      352E342E 
- 796      31203230 
- 796      31363036 
- 797 017a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 797      20726576 
- 797      6973696F 
- 797      6E203233 
- 797      37373135 
- 798 01ad 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 798      66756E63 
- 798      74696F6E 
- 798      2D736563 
- 798      74696F6E 
- 799              	.LASF17:
- 800 01d5 73697A65 		.ascii	"sizetype\000"
- 800      74797065 
- 800      00
- 801              	.LASF26:
- 802 01de 7278616D 		.ascii	"rxamrd\000"
- 802      726400
- 803              	.LASF6:
- 804 01e5 6C6F6E67 		.ascii	"long long int\000"
- 804      206C6F6E 
- 804      6720696E 
- 804      7400
- 805              	.LASF13:
- 806 01f3 63686172 		.ascii	"char\000"
- 806      00
- 807              	.LASF36:
- 808 01f8 56656869 		.ascii	"Vehicle_CAN_ReceiveMsg\000"
- 808      636C655F 
- 808      43414E5F 
- 808      52656365 
- 808      6976654D 
- 809              	.LASF28:
- 810 020f 56656869 		.ascii	"Vehicle_CAN_RX_STRUCT\000"
- 810      636C655F 
- 810      43414E5F 
- 810      52585F53 
- 810      54525543 
- 811              	.LASF2:
- 812 0225 73686F72 		.ascii	"short int\000"
- 812      7420696E 
- 812      7400
- 813              	.LASF25:
- 814 022f 72786163 		.ascii	"rxacr\000"
- 814      7200
- 815              	.LASF4:
- 816 0235 6C6F6E67 		.ascii	"long int\000"
- 816      20696E74 
- 816      00
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccI12O7h.s 			page 27
+ 861 00b4 56656869 		.ascii	"Vehicle_CAN_GlobalIntDisable\000"
+ 861      636C655F 
+ 861      43414E5F 
+ 861      476C6F62 
+ 861      616C496E 
+ 862              	.LASF5:
+ 863 00d1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 863      20756E73 
+ 863      69676E65 
+ 863      6420696E 
+ 863      7400
+ 864              	.LASF9:
+ 865 00e3 75696E74 		.ascii	"uint8\000"
+ 865      3800
+ 866              	.LASF12:
+ 867 00e9 646F7562 		.ascii	"double\000"
+ 867      6C6500
+ 868              	.LASF10:
+ 869 00f0 75696E74 		.ascii	"uint16\000"
+ 869      313600
+ 870              	.LASF8:
+ 871 00f7 756E7369 		.ascii	"unsigned int\000"
+ 871      676E6564 
+ 871      20696E74 
+ 871      00
+ 872              	.LASF29:
+ 873 0104 56656869 		.ascii	"Vehicle_CAN_BusOffIsr\000"
+ 873      636C655F 
+ 873      43414E5F 
+ 873      4275734F 
+ 873      66664973 
+ 874              	.LASF7:
+ 875 011a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 875      206C6F6E 
+ 875      6720756E 
+ 875      7369676E 
+ 875      65642069 
+ 876              	.LASF30:
+ 877 0131 56656869 		.ascii	"Vehicle_CAN_MsgRXIsr\000"
+ 877      636C655F 
+ 877      43414E5F 
+ 877      4D736752 
+ 877      58497372 
+ 878              	.LASF20:
+ 879 0146 56656869 		.ascii	"Vehicle_CAN_REG_32\000"
+ 879      636C655F 
+ 879      43414E5F 
+ 879      5245475F 
+ 879      333200
+ 880              	.LASF21:
+ 881 0159 7278636D 		.ascii	"rxcmd\000"
+ 881      6400
+ 882              	.LASF42:
+ 883 015f 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 883      43313120 
+ 883      352E342E 
+ 883      31203230 
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 28
 
 
- 817              	.LASF16:
- 818 023e 6C6F6E67 		.ascii	"long double\000"
- 818      20646F75 
- 818      626C6500 
- 819              	.LASF38:
- 820 024a 47656E65 		.ascii	"Generated_Source\\PSoC5\\Vehicle_CAN_INT.c\000"
- 820      72617465 
- 820      645F536F 
- 820      75726365 
- 820      5C50536F 
- 821              	.LASF0:
- 822 0273 7369676E 		.ascii	"signed char\000"
- 822      65642063 
- 822      68617200 
- 823              	.LASF39:
- 824 027f 433A5C55 		.ascii	"C:\\Users\\Timmo\\Documents\\GitHub\\Software\\BMS\\"
- 824      73657273 
- 824      5C54696D 
- 824      6D6F5C44 
- 824      6F63756D 
- 825 02ac 424D535F 		.ascii	"BMS_Workspace\\BMS_Master.cydsn\000"
- 825      576F726B 
- 825      73706163 
- 825      655C424D 
- 825      535F4D61 
- 826              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 883      31363036 
+ 884 0192 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 884      20726576 
+ 884      6973696F 
+ 884      6E203233 
+ 884      37373135 
+ 885 01c5 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 885      66756E63 
+ 885      74696F6E 
+ 885      2D736563 
+ 885      74696F6E 
+ 886              	.LASF17:
+ 887 01ed 73697A65 		.ascii	"sizetype\000"
+ 887      74797065 
+ 887      00
+ 888              	.LASF26:
+ 889 01f6 7278616D 		.ascii	"rxamrd\000"
+ 889      726400
+ 890              	.LASF6:
+ 891 01fd 6C6F6E67 		.ascii	"long long int\000"
+ 891      206C6F6E 
+ 891      6720696E 
+ 891      7400
+ 892              	.LASF13:
+ 893 020b 63686172 		.ascii	"char\000"
+ 893      00
+ 894              	.LASF41:
+ 895 0210 56656869 		.ascii	"Vehicle_CAN_ReceiveMsg\000"
+ 895      636C655F 
+ 895      43414E5F 
+ 895      52656365 
+ 895      6976654D 
+ 896              	.LASF28:
+ 897 0227 56656869 		.ascii	"Vehicle_CAN_RX_STRUCT\000"
+ 897      636C655F 
+ 897      43414E5F 
+ 897      52585F53 
+ 897      54525543 
+ 898              	.LASF2:
+ 899 023d 73686F72 		.ascii	"short int\000"
+ 899      7420696E 
+ 899      7400
+ 900              	.LASF25:
+ 901 0247 72786163 		.ascii	"rxacr\000"
+ 901      7200
+ 902              	.LASF4:
+ 903 024d 6C6F6E67 		.ascii	"long int\000"
+ 903      20696E74 
+ 903      00
+ 904              	.LASF16:
+ 905 0256 6C6F6E67 		.ascii	"long double\000"
+ 905      20646F75 
+ 905      626C6500 
+ 906              	.LASF43:
+ 907 0262 47656E65 		.ascii	"Generated_Source\\PSoC5\\Vehicle_CAN_INT.c\000"
+ 907      72617465 
+ 907      645F536F 
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccQ60YhJ.s 			page 29
+
+
+ 907      75726365 
+ 907      5C50536F 
+ 908              	.LASF0:
+ 909 028b 7369676E 		.ascii	"signed char\000"
+ 909      65642063 
+ 909      68617200 
+ 910              	.LASF44:
+ 911 0297 433A5C55 		.ascii	"C:\\Users\\Timmo\\Documents\\GitHub\\Software\\BMS\\"
+ 911      73657273 
+ 911      5C54696D 
+ 911      6D6F5C44 
+ 911      6F63756D 
+ 912 02c4 424D535F 		.ascii	"BMS_Workspace\\BMS_Master.cydsn\000"
+ 912      576F726B 
+ 912      73706163 
+ 912      655C424D 
+ 912      535F4D61 
+ 913              	.LASF36:
+ 914 02e3 56656869 		.ascii	"Vehicle_CAN_ReceiveMsg0\000"
+ 914      636C655F 
+ 914      43414E5F 
+ 914      52656365 
+ 914      6976654D 
+ 915              	.LASF37:
+ 916 02fb 56656869 		.ascii	"Vehicle_CAN_ReceiveMsg1\000"
+ 916      636C655F 
+ 916      43414E5F 
+ 916      52656365 
+ 916      6976654D 
+ 917              	.LASF38:
+ 918 0313 56656869 		.ascii	"Vehicle_CAN_ReceiveMsg2\000"
+ 918      636C655F 
+ 918      43414E5F 
+ 918      52656365 
+ 918      6976654D 
+ 919              	.LASF39:
+ 920 032b 56656869 		.ascii	"Vehicle_CAN_ReceiveMsg3\000"
+ 920      636C655F 
+ 920      43414E5F 
+ 920      52656365 
+ 920      6976654D 
+ 921              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

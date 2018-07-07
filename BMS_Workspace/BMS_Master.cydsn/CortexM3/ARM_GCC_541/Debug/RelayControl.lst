@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 1
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 1
 
 
    1              		.syntax unified
@@ -41,851 +41,1505 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 1
   11:RelayControl.c **** */
   12:RelayControl.c **** 
   13:RelayControl.c **** #include "RelayControl.h"
-  14:RelayControl.c **** #include "DTC.h"
-  15:RelayControl.c **** #include "mainState.h"
-  16:RelayControl.c **** 
+  14:RelayControl.c **** #include "global.h"
+  15:RelayControl.c **** #include "DTC.h"
+  16:RelayControl.c **** #include "mainState.h"
   17:RelayControl.c **** 
-  18:RelayControl.c **** //init Relays as type RelayState
-  19:RelayControl.c **** enum RelayState_E PosRelay = RELAY_UNKNOWN;
-  20:RelayControl.c **** enum RelayState_E NegRelay = RELAY_UNKNOWN;
-  21:RelayControl.c **** enum RelayState_E PrechargeRelay = RELAY_UNKNOWN;
-  22:RelayControl.c **** 
+  18:RelayControl.c **** 
+  19:RelayControl.c **** //init Relays as type RelayState
+  20:RelayControl.c **** enum RelayState_E PosRelay = RELAY_UNKNOWN;
+  21:RelayControl.c **** enum RelayState_E NegRelay = RELAY_UNKNOWN;
+  22:RelayControl.c **** enum RelayState_E PrechargeRelay = RELAY_UNKNOWN;
   23:RelayControl.c **** 
-  24:RelayControl.c **** ClosePosRelay()
-  25:RelayControl.c **** {
-  26:RelayControl.c ****     //Dont close if BMS has faulted
-  27:RelayControl.c ****     if( BMS_STATE_FAULT != BMS_State)
-  28:RelayControl.c ****     {
-  29:RelayControl.c ****         doBMS_RelayPosDrive_write(1);
-  30:RelayControl.c ****         PosRelay = RELAY_CLOSING;
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 2
+  24:RelayControl.c **** 
+  25:RelayControl.c **** ClosePosRelay()
+  26:RelayControl.c **** {
+  27:RelayControl.c ****     //Dont close if BMS has faulted
+  28:RelayControl.c ****     if( BMS_STATE_FAULT != BMS_State)
+  29:RelayControl.c ****     {
+  30:RelayControl.c ****         doBMS_RelayPosDrive_write(CLOSE);
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 2
 
 
-  31:RelayControl.c ****         //implement delay to wait for closing
-  32:RelayControl.c ****         
-  33:RelayControl.c ****         if( RELAY_CLOSED == PosRelayFeedback() )
-  34:RelayControl.c ****         {
-  35:RelayControl.c ****             PosRelay = RELAY_CLOSED;
-  36:RelayControl.c ****             ClearDTC_f010_PosRelayWeldedClosed();
-  37:RelayControl.c ****         }
-  38:RelayControl.c ****         else
-  39:RelayControl.c ****         {
-  40:RelayControl.c ****             SetDTC_f010_PosRelayWeldedClosed();
-  41:RelayControl.c ****         }        
-  42:RelayControl.c ****     }
-  43:RelayControl.c ****     else
-  44:RelayControl.c ****     {
-  45:RelayControl.c ****         //send message to display?
-  46:RelayControl.c ****         SetDTC_a010_RelayWontCloseInFault();
-  47:RelayControl.c ****     }
-  48:RelayControl.c **** }
-  49:RelayControl.c **** 
-  50:RelayControl.c **** // -------------------------------------------------------//
+  31:RelayControl.c ****         PosRelay = RELAY_CLOSING;
+  32:RelayControl.c ****         //implement delay to wait for closing
+  33:RelayControl.c ****         
+  34:RelayControl.c ****         if( RELAY_CLOSED == PosRelayFeedback() )
+  35:RelayControl.c ****         {
+  36:RelayControl.c ****             PosRelay = RELAY_CLOSED;
+  37:RelayControl.c ****             ClearDTC_f010_PosRelayWeldedClosed();
+  38:RelayControl.c ****         }
+  39:RelayControl.c ****         else
+  40:RelayControl.c ****         {
+  41:RelayControl.c ****             PosRelay = RELAY_FAULT;
+  42:RelayControl.c ****             SetDTC_f010_PosRelayWeldedClosed();
+  43:RelayControl.c ****         }        
+  44:RelayControl.c ****     }
+  45:RelayControl.c ****     else
+  46:RelayControl.c ****     {
+  47:RelayControl.c ****         //send message to display?
+  48:RelayControl.c ****         SetDTC_a010_RelayWontCloseInFault();
+  49:RelayControl.c ****     }
+  50:RelayControl.c **** }
   51:RelayControl.c **** 
-  52:RelayControl.c **** enum RelayState_E PosRelayFeedback()
-  53:RelayControl.c **** {
-  28              		.loc 1 53 0
+  52:RelayControl.c **** // -------------------------------------------------------//
+  53:RelayControl.c **** 
+  54:RelayControl.c **** enum RelayState_E PosRelayFeedback()
+  55:RelayControl.c **** {
+  28              		.loc 1 55 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32              		@ link register save eliminated.
-  54:RelayControl.c ****     //Insert Code here
-  55:RelayControl.c ****     
-  56:RelayControl.c **** }
-  33              		.loc 1 56 0
-  34 0000 7047     		bx	lr
-  35              		.cfi_endproc
-  36              	.LFE1:
-  37              		.size	PosRelayFeedback, .-PosRelayFeedback
-  38 0002 00BF     		.section	.text.ClosePosRelay,"ax",%progbits
-  39              		.align	2
-  40              		.global	ClosePosRelay
-  41              		.thumb
-  42              		.thumb_func
-  43              		.type	ClosePosRelay, %function
-  44              	ClosePosRelay:
-  45              	.LFB0:
-  25:RelayControl.c ****     //Dont close if BMS has faulted
-  46              		.loc 1 25 0
-  47              		.cfi_startproc
-  48              		@ args = 0, pretend = 0, frame = 0
-  49              		@ frame_needed = 0, uses_anonymous_args = 0
-  50 0000 08B5     		push	{r3, lr}
-  51              		.cfi_def_cfa_offset 8
-  52              		.cfi_offset 3, -8
-  53              		.cfi_offset 14, -4
-  27:RelayControl.c ****     {
-  54              		.loc 1 27 0
-  55 0002 0C4B     		ldr	r3, .L7
-  56 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 3
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  56:RelayControl.c ****     //Confirm Timer has elapsed?
+  57:RelayControl.c ****     return diBMS_RelayPosFdbk_read();
+  36              		.loc 1 57 0
+  37 0002 FFF7FEFF 		bl	diBMS_RelayPosFdbk_read
+  38              	.LVL0:
+  58:RelayControl.c **** }
+  39              		.loc 1 58 0
+  40 0006 C0B2     		uxtb	r0, r0
+  41 0008 08BD     		pop	{r3, pc}
+  42              		.cfi_endproc
+  43              	.LFE1:
+  44              		.size	PosRelayFeedback, .-PosRelayFeedback
+  45 000a 00BF     		.section	.text.ClosePosRelay,"ax",%progbits
+  46              		.align	2
+  47              		.global	ClosePosRelay
+  48              		.thumb
+  49              		.thumb_func
+  50              		.type	ClosePosRelay, %function
+  51              	ClosePosRelay:
+  52              	.LFB0:
+  26:RelayControl.c ****     //Dont close if BMS has faulted
+  53              		.loc 1 26 0
+  54              		.cfi_startproc
+  55              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 3
 
 
-  57 0006 072B     		cmp	r3, #7
-  58 0008 11D0     		beq	.L3
-  59              	.LBB2:
-  29:RelayControl.c ****         PosRelay = RELAY_CLOSING;
-  60              		.loc 1 29 0
-  61 000a 0120     		movs	r0, #1
-  62 000c FFF7FEFF 		bl	doBMS_RelayPosDrive_write
-  63              	.LVL0:
-  30:RelayControl.c ****         //implement delay to wait for closing
-  64              		.loc 1 30 0
-  65 0010 0122     		movs	r2, #1
-  66 0012 094B     		ldr	r3, .L7+4
-  67 0014 1A70     		strb	r2, [r3]
-  33:RelayControl.c ****         {
-  68              		.loc 1 33 0
-  69 0016 FFF7FEFF 		bl	PosRelayFeedback
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57 0000 08B5     		push	{r3, lr}
+  58              		.cfi_def_cfa_offset 8
+  59              		.cfi_offset 3, -8
+  60              		.cfi_offset 14, -4
+  28:RelayControl.c ****     {
+  61              		.loc 1 28 0
+  62 0002 0E4B     		ldr	r3, .L8
+  63 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  64 0006 072B     		cmp	r3, #7
+  65 0008 14D0     		beq	.L4
+  66              	.LBB2:
+  30:RelayControl.c ****         PosRelay = RELAY_CLOSING;
+  67              		.loc 1 30 0
+  68 000a 0120     		movs	r0, #1
+  69 000c FFF7FEFF 		bl	doBMS_RelayPosDrive_write
   70              	.LVL1:
-  71 001a 28B9     		cbnz	r0, .L4
-  72              	.LBB3:
-  35:RelayControl.c ****             ClearDTC_f010_PosRelayWeldedClosed();
-  73              		.loc 1 35 0
-  74 001c 0022     		movs	r2, #0
-  75 001e 064B     		ldr	r3, .L7+4
-  76 0020 1A70     		strb	r2, [r3]
-  36:RelayControl.c ****         }
-  77              		.loc 1 36 0
-  78 0022 FFF7FEFF 		bl	ClearDTC_f010_PosRelayWeldedClosed
-  79              	.LVL2:
-  80              	.LBE3:
-  81 0026 08BD     		pop	{r3, pc}
-  82              	.L4:
-  83              	.LBB4:
-  40:RelayControl.c ****         }        
-  84              		.loc 1 40 0
-  85 0028 FFF7FEFF 		bl	SetDTC_f010_PosRelayWeldedClosed
+  31:RelayControl.c ****         //implement delay to wait for closing
+  71              		.loc 1 31 0
+  72 0010 0122     		movs	r2, #1
+  73 0012 0B4B     		ldr	r3, .L8+4
+  74 0014 1A70     		strb	r2, [r3]
+  34:RelayControl.c ****         {
+  75              		.loc 1 34 0
+  76 0016 FFF7FEFF 		bl	PosRelayFeedback
+  77              	.LVL2:
+  78 001a 28B9     		cbnz	r0, .L5
+  79              	.LBB3:
+  36:RelayControl.c ****             ClearDTC_f010_PosRelayWeldedClosed();
+  80              		.loc 1 36 0
+  81 001c 0022     		movs	r2, #0
+  82 001e 084B     		ldr	r3, .L8+4
+  83 0020 1A70     		strb	r2, [r3]
+  37:RelayControl.c ****         }
+  84              		.loc 1 37 0
+  85 0022 FFF7FEFF 		bl	ClearDTC_f010_PosRelayWeldedClosed
   86              	.LVL3:
-  87 002c 08BD     		pop	{r3, pc}
-  88              	.L3:
-  89              	.LBE4:
-  90              	.LBE2:
-  91              	.LBB5:
-  46:RelayControl.c ****     }
-  92              		.loc 1 46 0
-  93 002e FFF7FEFF 		bl	SetDTC_a010_RelayWontCloseInFault
-  94              	.LVL4:
-  95 0032 08BD     		pop	{r3, pc}
-  96              	.L8:
-  97              		.align	2
-  98              	.L7:
-  99 0034 00000000 		.word	.LANCHOR0
- 100 0038 00000000 		.word	.LANCHOR1
- 101              	.LBE5:
- 102              		.cfi_endproc
- 103              	.LFE0:
- 104              		.size	ClosePosRelay, .-ClosePosRelay
- 105              		.global	PrechargeRelay
- 106              		.global	NegRelay
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 4
+  87              	.LBE3:
+  88 0026 08BD     		pop	{r3, pc}
+  89              	.L5:
+  90              	.LBB4:
+  41:RelayControl.c ****             SetDTC_f010_PosRelayWeldedClosed();
+  91              		.loc 1 41 0
+  92 0028 0422     		movs	r2, #4
+  93 002a 054B     		ldr	r3, .L8+4
+  94 002c 1A70     		strb	r2, [r3]
+  42:RelayControl.c ****         }        
+  95              		.loc 1 42 0
+  96 002e FFF7FEFF 		bl	SetDTC_f010_PosRelayWeldedClosed
+  97              	.LVL4:
+  98 0032 08BD     		pop	{r3, pc}
+  99              	.L4:
+ 100              	.LBE4:
+ 101              	.LBE2:
+ 102              	.LBB5:
+  48:RelayControl.c ****     }
+ 103              		.loc 1 48 0
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 4
 
 
- 107              		.global	PosRelay
- 108              		.global	BMS_State
- 109              		.data
- 110              		.set	.LANCHOR1,. + 0
- 111              		.type	PosRelay, %object
- 112              		.size	PosRelay, 1
- 113              	PosRelay:
- 114 0000 04       		.byte	4
- 115              		.type	PrechargeRelay, %object
- 116              		.size	PrechargeRelay, 1
- 117              	PrechargeRelay:
- 118 0001 04       		.byte	4
- 119              		.type	NegRelay, %object
- 120              		.size	NegRelay, 1
- 121              	NegRelay:
- 122 0002 04       		.byte	4
- 123              		.bss
- 124              		.set	.LANCHOR0,. + 0
- 125              		.type	BMS_State, %object
- 126              		.size	BMS_State, 1
- 127              	BMS_State:
- 128 0000 00       		.space	1
- 129              		.text
- 130              	.Letext0:
- 131              		.file 2 "RelayControl.h"
- 132              		.file 3 "mainState.h"
- 133              		.section	.debug_info,"",%progbits
- 134              	.Ldebug_info0:
- 135 0000 F0010000 		.4byte	0x1f0
- 136 0004 0400     		.2byte	0x4
- 137 0006 00000000 		.4byte	.Ldebug_abbrev0
- 138 000a 04       		.byte	0x4
- 139 000b 01       		.uleb128 0x1
- 140 000c 93000000 		.4byte	.LASF25
- 141 0010 0C       		.byte	0xc
- 142 0011 FE010000 		.4byte	.LASF26
- 143 0015 40010000 		.4byte	.LASF27
- 144 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 145 001d 00000000 		.4byte	0
- 146 0021 00000000 		.4byte	.Ldebug_line0
- 147 0025 02       		.uleb128 0x2
- 148 0026 3B020000 		.4byte	.LASF5
- 149 002a 01       		.byte	0x1
- 150 002b 54000000 		.4byte	0x54
- 151 002f 02       		.byte	0x2
- 152 0030 0E       		.byte	0xe
- 153 0031 54000000 		.4byte	0x54
- 154 0035 03       		.uleb128 0x3
- 155 0036 3B000000 		.4byte	.LASF0
- 156 003a 00       		.byte	0
- 157 003b 03       		.uleb128 0x3
- 158 003c 85000000 		.4byte	.LASF1
- 159 0040 01       		.byte	0x1
- 160 0041 03       		.uleb128 0x3
- 161 0042 A3020000 		.4byte	.LASF2
- 162 0046 02       		.byte	0x2
- 163 0047 03       		.uleb128 0x3
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 5
+ 104 0034 FFF7FEFF 		bl	SetDTC_a010_RelayWontCloseInFault
+ 105              	.LVL5:
+ 106 0038 08BD     		pop	{r3, pc}
+ 107              	.L9:
+ 108 003a 00BF     		.align	2
+ 109              	.L8:
+ 110 003c 00000000 		.word	.LANCHOR0
+ 111 0040 00000000 		.word	.LANCHOR1
+ 112              	.LBE5:
+ 113              		.cfi_endproc
+ 114              	.LFE0:
+ 115              		.size	ClosePosRelay, .-ClosePosRelay
+ 116              		.section	.text.NegRelayFeedback,"ax",%progbits
+ 117              		.align	2
+ 118              		.global	NegRelayFeedback
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.type	NegRelayFeedback, %function
+ 122              	NegRelayFeedback:
+ 123              	.LFB3:
+  59:RelayControl.c **** 
+  60:RelayControl.c **** // -------------------------------------------------------//
+  61:RelayControl.c **** 
+  62:RelayControl.c **** CloseNegRelay()
+  63:RelayControl.c **** {
+  64:RelayControl.c ****     //Dont close if BMS has faulted
+  65:RelayControl.c ****     if( BMS_STATE_FAULT != BMS_State)
+  66:RelayControl.c ****     {
+  67:RelayControl.c ****         doBMS_RelayNegDrive_write(CLOSE);
+  68:RelayControl.c ****         NegRelay = RELAY_CLOSING;
+  69:RelayControl.c ****         //implement delay to wait for closing
+  70:RelayControl.c ****         
+  71:RelayControl.c ****         if( RELAY_CLOSED == NegRelayFeedback() )
+  72:RelayControl.c ****         {
+  73:RelayControl.c ****             NegRelay = RELAY_CLOSED;
+  74:RelayControl.c ****             ClearDTC_f010_NegRelayWeldedClosed();
+  75:RelayControl.c ****         }
+  76:RelayControl.c ****         else
+  77:RelayControl.c ****         {
+  78:RelayControl.c ****             NegRelay = RELAY_FAULT;
+  79:RelayControl.c ****             SetDTC_f010_NegRelayWeldedClosed();
+  80:RelayControl.c ****         }        
+  81:RelayControl.c ****     }
+  82:RelayControl.c ****     else
+  83:RelayControl.c ****     {
+  84:RelayControl.c ****         //send message to display?
+  85:RelayControl.c ****         SetDTC_a010_NegRelayWontCloseInFault();
+  86:RelayControl.c ****     }
+  87:RelayControl.c **** }
+  88:RelayControl.c **** 
+  89:RelayControl.c **** // -------------------------------------------------------//
+  90:RelayControl.c **** 
+  91:RelayControl.c **** enum RelayState_E NegRelayFeedback()
+  92:RelayControl.c **** {
+ 124              		.loc 1 92 0
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 5
 
 
- 164 0048 2D020000 		.4byte	.LASF3
- 165 004c 03       		.byte	0x3
- 166 004d 03       		.uleb128 0x3
- 167 004e 32010000 		.4byte	.LASF4
- 168 0052 04       		.byte	0x4
- 169 0053 00       		.byte	0
- 170 0054 04       		.uleb128 0x4
- 171 0055 01       		.byte	0x1
- 172 0056 08       		.byte	0x8
- 173 0057 AD010000 		.4byte	.LASF20
- 174 005b 02       		.uleb128 0x2
- 175 005c 7B020000 		.4byte	.LASF6
- 176 0060 01       		.byte	0x1
- 177 0061 54000000 		.4byte	0x54
- 178 0065 03       		.byte	0x3
- 179 0066 0D       		.byte	0xd
- 180 0067 A2000000 		.4byte	0xa2
- 181 006b 03       		.uleb128 0x3
- 182 006c AE020000 		.4byte	.LASF7
- 183 0070 00       		.byte	0
- 184 0071 03       		.uleb128 0x3
- 185 0072 9D010000 		.4byte	.LASF8
- 186 0076 01       		.byte	0x1
- 187 0077 03       		.uleb128 0x3
- 188 0078 62020000 		.4byte	.LASF9
- 189 007c 02       		.byte	0x2
- 190 007d 03       		.uleb128 0x3
- 191 007e 21010000 		.4byte	.LASF10
- 192 0082 03       		.byte	0x3
- 193 0083 03       		.uleb128 0x3
- 194 0084 D4010000 		.4byte	.LASF11
- 195 0088 04       		.byte	0x4
- 196 0089 03       		.uleb128 0x3
- 197 008a 00000000 		.4byte	.LASF12
- 198 008e 05       		.byte	0x5
- 199 008f 03       		.uleb128 0x3
- 200 0090 0D020000 		.4byte	.LASF13
- 201 0094 06       		.byte	0x6
- 202 0095 03       		.uleb128 0x3
- 203 0096 1D020000 		.4byte	.LASF14
- 204 009a 07       		.byte	0x7
- 205 009b 03       		.uleb128 0x3
- 206 009c 51000000 		.4byte	.LASF15
- 207 00a0 08       		.byte	0x8
- 208 00a1 00       		.byte	0
- 209 00a2 05       		.uleb128 0x5
- 210 00a3 8C010000 		.4byte	.LASF28
- 211 00a7 01       		.byte	0x1
- 212 00a8 34       		.byte	0x34
- 213 00a9 25000000 		.4byte	0x25
- 214 00ad 00000000 		.4byte	.LFB1
- 215 00b1 02000000 		.4byte	.LFE1-.LFB1
- 216 00b5 01       		.uleb128 0x1
- 217 00b6 9C       		.byte	0x9c
- 218 00b7 06       		.uleb128 0x6
- 219 00b8 F0010000 		.4byte	.LASF29
- 220 00bc 01       		.byte	0x1
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 6
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128 0000 08B5     		push	{r3, lr}
+ 129              		.cfi_def_cfa_offset 8
+ 130              		.cfi_offset 3, -8
+ 131              		.cfi_offset 14, -4
+  93:RelayControl.c ****     //Confirm Timer has elapsed?
+  94:RelayControl.c ****     return diBMS_RelayNegFdbk_read();
+ 132              		.loc 1 94 0
+ 133 0002 FFF7FEFF 		bl	diBMS_RelayNegFdbk_read
+ 134              	.LVL6:
+  95:RelayControl.c **** }
+ 135              		.loc 1 95 0
+ 136 0006 C0B2     		uxtb	r0, r0
+ 137 0008 08BD     		pop	{r3, pc}
+ 138              		.cfi_endproc
+ 139              	.LFE3:
+ 140              		.size	NegRelayFeedback, .-NegRelayFeedback
+ 141              		.section	.text.CloseNegRelay,"ax",%progbits
+ 142              		.align	2
+ 143              		.global	CloseNegRelay
+ 144              		.thumb
+ 145              		.thumb_func
+ 146              		.type	CloseNegRelay, %function
+ 147              	CloseNegRelay:
+ 148              	.LFB2:
+  63:RelayControl.c ****     //Dont close if BMS has faulted
+ 149              		.loc 1 63 0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153 0000 08B5     		push	{r3, lr}
+ 154              		.cfi_def_cfa_offset 8
+ 155              		.cfi_offset 3, -8
+ 156              		.cfi_offset 14, -4
+  65:RelayControl.c ****     {
+ 157              		.loc 1 65 0
+ 158 0002 0E4B     		ldr	r3, .L17
+ 159 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 160 0006 072B     		cmp	r3, #7
+ 161 0008 14D0     		beq	.L13
+ 162              	.LBB6:
+  67:RelayControl.c ****         NegRelay = RELAY_CLOSING;
+ 163              		.loc 1 67 0
+ 164 000a 0120     		movs	r0, #1
+ 165 000c FFF7FEFF 		bl	doBMS_RelayNegDrive_write
+ 166              	.LVL7:
+  68:RelayControl.c ****         //implement delay to wait for closing
+ 167              		.loc 1 68 0
+ 168 0010 0122     		movs	r2, #1
+ 169 0012 0B4B     		ldr	r3, .L17+4
+ 170 0014 5A70     		strb	r2, [r3, #1]
+  71:RelayControl.c ****         {
+ 171              		.loc 1 71 0
+ 172 0016 FFF7FEFF 		bl	NegRelayFeedback
+ 173              	.LVL8:
+ 174 001a 28B9     		cbnz	r0, .L14
+ 175              	.LBB7:
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 6
 
 
- 221 00bd 18       		.byte	0x18
- 222 00be 00000000 		.4byte	.LFB0
- 223 00c2 3C000000 		.4byte	.LFE0-.LFB0
- 224 00c6 01       		.uleb128 0x1
- 225 00c7 9C       		.byte	0x9c
- 226 00c8 7C010000 		.4byte	0x17c
- 227 00cc 07       		.uleb128 0x7
- 228 00cd 0A000000 		.4byte	.LBB2
- 229 00d1 24000000 		.4byte	.LBE2-.LBB2
- 230 00d5 57010000 		.4byte	0x157
- 231 00d9 08       		.uleb128 0x8
- 232 00da 48020000 		.4byte	.LASF16
- 233 00de 01       		.byte	0x1
- 234 00df 1D       		.byte	0x1d
- 235 00e0 7C010000 		.4byte	0x17c
- 236 00e4 EA000000 		.4byte	0xea
- 237 00e8 09       		.uleb128 0x9
- 238 00e9 00       		.byte	0
- 239 00ea 07       		.uleb128 0x7
- 240 00eb 1C000000 		.4byte	.LBB3
- 241 00ef 0A000000 		.4byte	.LBE3-.LBB3
- 242 00f3 12010000 		.4byte	0x112
- 243 00f7 08       		.uleb128 0x8
- 244 00f8 18000000 		.4byte	.LASF17
- 245 00fc 01       		.byte	0x1
- 246 00fd 24       		.byte	0x24
- 247 00fe 7C010000 		.4byte	0x17c
- 248 0102 08010000 		.4byte	0x108
- 249 0106 09       		.uleb128 0x9
- 250 0107 00       		.byte	0
- 251 0108 0A       		.uleb128 0xa
- 252 0109 26000000 		.4byte	.LVL2
- 253 010d C7010000 		.4byte	0x1c7
- 254 0111 00       		.byte	0
- 255 0112 07       		.uleb128 0x7
- 256 0113 28000000 		.4byte	.LBB4
- 257 0117 06000000 		.4byte	.LBE4-.LBB4
- 258 011b 3A010000 		.4byte	0x13a
- 259 011f 08       		.uleb128 0x8
- 260 0120 64000000 		.4byte	.LASF18
- 261 0124 01       		.byte	0x1
- 262 0125 28       		.byte	0x28
- 263 0126 7C010000 		.4byte	0x17c
- 264 012a 30010000 		.4byte	0x130
- 265 012e 09       		.uleb128 0x9
- 266 012f 00       		.byte	0
- 267 0130 0A       		.uleb128 0xa
- 268 0131 2C000000 		.4byte	.LVL3
- 269 0135 D2010000 		.4byte	0x1d2
- 270 0139 00       		.byte	0
- 271 013a 0B       		.uleb128 0xb
- 272 013b 10000000 		.4byte	.LVL0
- 273 013f DD010000 		.4byte	0x1dd
- 274 0143 4D010000 		.4byte	0x14d
- 275 0147 0C       		.uleb128 0xc
- 276 0148 01       		.uleb128 0x1
- 277 0149 50       		.byte	0x50
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 7
+  73:RelayControl.c ****             ClearDTC_f010_NegRelayWeldedClosed();
+ 176              		.loc 1 73 0
+ 177 001c 0022     		movs	r2, #0
+ 178 001e 084B     		ldr	r3, .L17+4
+ 179 0020 5A70     		strb	r2, [r3, #1]
+  74:RelayControl.c ****         }
+ 180              		.loc 1 74 0
+ 181 0022 FFF7FEFF 		bl	ClearDTC_f010_NegRelayWeldedClosed
+ 182              	.LVL9:
+ 183              	.LBE7:
+ 184 0026 08BD     		pop	{r3, pc}
+ 185              	.L14:
+ 186              	.LBB8:
+  78:RelayControl.c ****             SetDTC_f010_NegRelayWeldedClosed();
+ 187              		.loc 1 78 0
+ 188 0028 0422     		movs	r2, #4
+ 189 002a 054B     		ldr	r3, .L17+4
+ 190 002c 5A70     		strb	r2, [r3, #1]
+  79:RelayControl.c ****         }        
+ 191              		.loc 1 79 0
+ 192 002e FFF7FEFF 		bl	SetDTC_f010_NegRelayWeldedClosed
+ 193              	.LVL10:
+ 194 0032 08BD     		pop	{r3, pc}
+ 195              	.L13:
+ 196              	.LBE8:
+ 197              	.LBE6:
+ 198              	.LBB9:
+  85:RelayControl.c ****     }
+ 199              		.loc 1 85 0
+ 200 0034 FFF7FEFF 		bl	SetDTC_a010_NegRelayWontCloseInFault
+ 201              	.LVL11:
+ 202 0038 08BD     		pop	{r3, pc}
+ 203              	.L18:
+ 204 003a 00BF     		.align	2
+ 205              	.L17:
+ 206 003c 00000000 		.word	.LANCHOR0
+ 207 0040 00000000 		.word	.LANCHOR1
+ 208              	.LBE9:
+ 209              		.cfi_endproc
+ 210              	.LFE2:
+ 211              		.size	CloseNegRelay, .-CloseNegRelay
+ 212              		.section	.text.PerformPrecharge,"ax",%progbits
+ 213              		.align	2
+ 214              		.global	PerformPrecharge
+ 215              		.thumb
+ 216              		.thumb_func
+ 217              		.type	PerformPrecharge, %function
+ 218              	PerformPrecharge:
+ 219              	.LFB4:
+  96:RelayControl.c **** 
+  97:RelayControl.c ****     
+  98:RelayControl.c ****     
+  99:RelayControl.c ****     
+ 100:RelayControl.c **** void PerformPrecharge()
+ 101:RelayControl.c **** {
+ 220              		.loc 1 101 0
+ 221              		.cfi_startproc
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 7
 
 
- 278 014a 01       		.uleb128 0x1
- 279 014b 31       		.byte	0x31
- 280 014c 00       		.byte	0
- 281 014d 0A       		.uleb128 0xa
- 282 014e 1A000000 		.4byte	.LVL1
- 283 0152 A2000000 		.4byte	0xa2
- 284 0156 00       		.byte	0
- 285 0157 0D       		.uleb128 0xd
- 286 0158 2E000000 		.4byte	.LBB5
- 287 015c 0E000000 		.4byte	.LBE5-.LBB5
- 288 0160 08       		.uleb128 0x8
- 289 0161 81020000 		.4byte	.LASF19
- 290 0165 01       		.byte	0x1
- 291 0166 2E       		.byte	0x2e
- 292 0167 7C010000 		.4byte	0x17c
- 293 016b 71010000 		.4byte	0x171
- 294 016f 09       		.uleb128 0x9
- 295 0170 00       		.byte	0
- 296 0171 0A       		.uleb128 0xa
- 297 0172 32000000 		.4byte	.LVL4
- 298 0176 E8010000 		.4byte	0x1e8
- 299 017a 00       		.byte	0
- 300 017b 00       		.byte	0
- 301 017c 0E       		.uleb128 0xe
- 302 017d 04       		.byte	0x4
- 303 017e 05       		.byte	0x5
- 304 017f 696E7400 		.ascii	"int\000"
- 305 0183 0F       		.uleb128 0xf
- 306 0184 CA010000 		.4byte	.LASF21
- 307 0188 03       		.byte	0x3
- 308 0189 19       		.byte	0x19
- 309 018a 5B000000 		.4byte	0x5b
- 310 018e 05       		.uleb128 0x5
- 311 018f 03       		.byte	0x3
- 312 0190 00000000 		.4byte	BMS_State
- 313 0194 0F       		.uleb128 0xf
- 314 0195 E7010000 		.4byte	.LASF22
- 315 0199 01       		.byte	0x1
- 316 019a 13       		.byte	0x13
- 317 019b 25000000 		.4byte	0x25
- 318 019f 05       		.uleb128 0x5
- 319 01a0 03       		.byte	0x3
- 320 01a1 00000000 		.4byte	PosRelay
- 321 01a5 0F       		.uleb128 0xf
- 322 01a6 48000000 		.4byte	.LASF23
- 323 01aa 01       		.byte	0x1
- 324 01ab 14       		.byte	0x14
- 325 01ac 25000000 		.4byte	0x25
- 326 01b0 05       		.uleb128 0x5
- 327 01b1 03       		.byte	0x3
- 328 01b2 00000000 		.4byte	NegRelay
- 329 01b6 0F       		.uleb128 0xf
- 330 01b7 BB010000 		.4byte	.LASF24
- 331 01bb 01       		.byte	0x1
- 332 01bc 15       		.byte	0x15
- 333 01bd 25000000 		.4byte	0x25
- 334 01c1 05       		.uleb128 0x5
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 8
+ 222              		@ args = 0, pretend = 0, frame = 0
+ 223              		@ frame_needed = 0, uses_anonymous_args = 0
+ 102:RelayControl.c ****     //Check Negative Relay is already Closed
+ 103:RelayControl.c ****     if( RELAY_CLOSED == NegRelay )
+ 224              		.loc 1 103 0
+ 225 0000 0A4B     		ldr	r3, .L24
+ 226 0002 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 227 0004 8BB9     		cbnz	r3, .L23
+ 101:RelayControl.c ****     //Check Negative Relay is already Closed
+ 228              		.loc 1 101 0
+ 229 0006 10B5     		push	{r4, lr}
+ 230              		.cfi_def_cfa_offset 8
+ 231              		.cfi_offset 4, -8
+ 232              		.cfi_offset 14, -4
+ 233              	.LBB10:
+ 104:RelayControl.c ****     {
+ 105:RelayControl.c ****         //Confirm that the negative relay is already closed        
+ 106:RelayControl.c ****         doBMS_RelayPreCharge_write(CLOSE);
+ 234              		.loc 1 106 0
+ 235 0008 0120     		movs	r0, #1
+ 236 000a FFF7FEFF 		bl	doBMS_RelayPreCharge_write
+ 237              	.LVL12:
+ 238              	.LBB11:
+ 107:RelayControl.c ****         //Wait Precharge RC time
+ 108:RelayControl.c ****         //
+ 109:RelayControl.c ****         //Check Voltage delta is below threshold <--! ToDo: Ensure that this is made ABS delta
+ 110:RelayControl.c ****         if ( (aiBMS_outputVoltage_read() - aiBMS_packVoltage_read()) < PRECHARGE_DELTA_V )
+ 239              		.loc 1 110 0
+ 240 000e FFF7FEFF 		bl	aiBMS_outputVoltage_read
+ 241              	.LVL13:
+ 242 0012 0446     		mov	r4, r0
+ 243 0014 FFF7FEFF 		bl	aiBMS_packVoltage_read
+ 244              	.LVL14:
+ 245 0018 201A     		subs	r0, r4, r0
+ 246 001a 0928     		cmp	r0, #9
+ 247 001c 02DC     		bgt	.L21
+ 248              	.LBB12:
+ 111:RelayControl.c ****         {
+ 112:RelayControl.c ****             ClearDTC_f014_PrechareFailure();
+ 249              		.loc 1 112 0
+ 250 001e FFF7FEFF 		bl	ClearDTC_f014_PrechareFailure
+ 251              	.LVL15:
+ 113:RelayControl.c ****             //What are we returning to flag success?
+ 114:RelayControl.c ****             return;
+ 252              		.loc 1 114 0
+ 253 0022 10BD     		pop	{r4, pc}
+ 254              	.L21:
+ 255              	.LBE12:
+ 256              	.LBB13:
+ 115:RelayControl.c ****         }
+ 116:RelayControl.c ****         else
+ 117:RelayControl.c ****         {
+ 118:RelayControl.c ****             SetDTC_f014_PrechareFailure();
+ 257              		.loc 1 118 0
+ 258 0024 FFF7FEFF 		bl	SetDTC_f014_PrechareFailure
+ 259              	.LVL16:
+ 260 0028 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 8
 
 
- 335 01c2 03       		.byte	0x3
- 336 01c3 00000000 		.4byte	PrechargeRelay
- 337 01c7 10       		.uleb128 0x10
- 338 01c8 18000000 		.4byte	.LASF17
- 339 01cc 18000000 		.4byte	.LASF17
- 340 01d0 01       		.byte	0x1
- 341 01d1 24       		.byte	0x24
- 342 01d2 10       		.uleb128 0x10
- 343 01d3 64000000 		.4byte	.LASF18
- 344 01d7 64000000 		.4byte	.LASF18
- 345 01db 01       		.byte	0x1
- 346 01dc 28       		.byte	0x28
- 347 01dd 10       		.uleb128 0x10
- 348 01de 48020000 		.4byte	.LASF16
- 349 01e2 48020000 		.4byte	.LASF16
- 350 01e6 01       		.byte	0x1
- 351 01e7 1D       		.byte	0x1d
- 352 01e8 10       		.uleb128 0x10
- 353 01e9 81020000 		.4byte	.LASF19
- 354 01ed 81020000 		.4byte	.LASF19
- 355 01f1 01       		.byte	0x1
- 356 01f2 2E       		.byte	0x2e
- 357 01f3 00       		.byte	0
- 358              		.section	.debug_abbrev,"",%progbits
- 359              	.Ldebug_abbrev0:
- 360 0000 01       		.uleb128 0x1
- 361 0001 11       		.uleb128 0x11
- 362 0002 01       		.byte	0x1
- 363 0003 25       		.uleb128 0x25
- 364 0004 0E       		.uleb128 0xe
- 365 0005 13       		.uleb128 0x13
- 366 0006 0B       		.uleb128 0xb
- 367 0007 03       		.uleb128 0x3
- 368 0008 0E       		.uleb128 0xe
- 369 0009 1B       		.uleb128 0x1b
- 370 000a 0E       		.uleb128 0xe
- 371 000b 55       		.uleb128 0x55
- 372 000c 17       		.uleb128 0x17
- 373 000d 11       		.uleb128 0x11
- 374 000e 01       		.uleb128 0x1
- 375 000f 10       		.uleb128 0x10
- 376 0010 17       		.uleb128 0x17
- 377 0011 00       		.byte	0
- 378 0012 00       		.byte	0
- 379 0013 02       		.uleb128 0x2
- 380 0014 04       		.uleb128 0x4
- 381 0015 01       		.byte	0x1
- 382 0016 03       		.uleb128 0x3
- 383 0017 0E       		.uleb128 0xe
- 384 0018 0B       		.uleb128 0xb
- 385 0019 0B       		.uleb128 0xb
- 386 001a 49       		.uleb128 0x49
- 387 001b 13       		.uleb128 0x13
- 388 001c 3A       		.uleb128 0x3a
- 389 001d 0B       		.uleb128 0xb
- 390 001e 3B       		.uleb128 0x3b
- 391 001f 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 9
+ 261              	.L23:
+ 262              		.cfi_def_cfa_offset 0
+ 263              		.cfi_restore 4
+ 264              		.cfi_restore 14
+ 265 002a 7047     		bx	lr
+ 266              	.L25:
+ 267              		.align	2
+ 268              	.L24:
+ 269 002c 00000000 		.word	.LANCHOR1
+ 270              	.LBE13:
+ 271              	.LBE11:
+ 272              	.LBE10:
+ 273              		.cfi_endproc
+ 274              	.LFE4:
+ 275              		.size	PerformPrecharge, .-PerformPrecharge
+ 276              		.global	PrechargeRelay
+ 277              		.global	NegRelay
+ 278              		.global	PosRelay
+ 279              		.global	BMS_State
+ 280              		.data
+ 281              		.set	.LANCHOR1,. + 0
+ 282              		.type	PosRelay, %object
+ 283              		.size	PosRelay, 1
+ 284              	PosRelay:
+ 285 0000 05       		.byte	5
+ 286              		.type	NegRelay, %object
+ 287              		.size	NegRelay, 1
+ 288              	NegRelay:
+ 289 0001 05       		.byte	5
+ 290              		.type	PrechargeRelay, %object
+ 291              		.size	PrechargeRelay, 1
+ 292              	PrechargeRelay:
+ 293 0002 05       		.byte	5
+ 294              		.bss
+ 295              		.set	.LANCHOR0,. + 0
+ 296              		.type	BMS_State, %object
+ 297              		.size	BMS_State, 1
+ 298              	BMS_State:
+ 299 0000 00       		.space	1
+ 300              		.text
+ 301              	.Letext0:
+ 302              		.file 2 "RelayControl.h"
+ 303              		.file 3 "mainState.h"
+ 304              		.section	.debug_info,"",%progbits
+ 305              	.Ldebug_info0:
+ 306 0000 59040000 		.4byte	0x459
+ 307 0004 0400     		.2byte	0x4
+ 308 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 309 000a 04       		.byte	0x4
+ 310 000b 01       		.uleb128 0x1
+ 311 000c F6000000 		.4byte	.LASF42
+ 312 0010 0C       		.byte	0xc
+ 313 0011 63030000 		.4byte	.LASF43
+ 314 0015 C2030000 		.4byte	.LASF44
+ 315 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 316 001d 00000000 		.4byte	0
+ 317 0021 00000000 		.4byte	.Ldebug_line0
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 9
 
 
- 392 0020 01       		.uleb128 0x1
- 393 0021 13       		.uleb128 0x13
- 394 0022 00       		.byte	0
- 395 0023 00       		.byte	0
- 396 0024 03       		.uleb128 0x3
- 397 0025 28       		.uleb128 0x28
- 398 0026 00       		.byte	0
- 399 0027 03       		.uleb128 0x3
- 400 0028 0E       		.uleb128 0xe
- 401 0029 1C       		.uleb128 0x1c
- 402 002a 0B       		.uleb128 0xb
- 403 002b 00       		.byte	0
- 404 002c 00       		.byte	0
- 405 002d 04       		.uleb128 0x4
- 406 002e 24       		.uleb128 0x24
- 407 002f 00       		.byte	0
- 408 0030 0B       		.uleb128 0xb
- 409 0031 0B       		.uleb128 0xb
- 410 0032 3E       		.uleb128 0x3e
- 411 0033 0B       		.uleb128 0xb
- 412 0034 03       		.uleb128 0x3
- 413 0035 0E       		.uleb128 0xe
- 414 0036 00       		.byte	0
- 415 0037 00       		.byte	0
- 416 0038 05       		.uleb128 0x5
- 417 0039 2E       		.uleb128 0x2e
- 418 003a 00       		.byte	0
- 419 003b 3F       		.uleb128 0x3f
- 420 003c 19       		.uleb128 0x19
- 421 003d 03       		.uleb128 0x3
- 422 003e 0E       		.uleb128 0xe
- 423 003f 3A       		.uleb128 0x3a
- 424 0040 0B       		.uleb128 0xb
- 425 0041 3B       		.uleb128 0x3b
- 426 0042 0B       		.uleb128 0xb
- 427 0043 49       		.uleb128 0x49
- 428 0044 13       		.uleb128 0x13
- 429 0045 11       		.uleb128 0x11
- 430 0046 01       		.uleb128 0x1
- 431 0047 12       		.uleb128 0x12
- 432 0048 06       		.uleb128 0x6
- 433 0049 40       		.uleb128 0x40
- 434 004a 18       		.uleb128 0x18
- 435 004b 9742     		.uleb128 0x2117
- 436 004d 19       		.uleb128 0x19
- 437 004e 00       		.byte	0
- 438 004f 00       		.byte	0
- 439 0050 06       		.uleb128 0x6
- 440 0051 2E       		.uleb128 0x2e
- 441 0052 01       		.byte	0x1
- 442 0053 3F       		.uleb128 0x3f
- 443 0054 19       		.uleb128 0x19
- 444 0055 03       		.uleb128 0x3
- 445 0056 0E       		.uleb128 0xe
- 446 0057 3A       		.uleb128 0x3a
- 447 0058 0B       		.uleb128 0xb
- 448 0059 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 10
+ 318 0025 02       		.uleb128 0x2
+ 319 0026 57000000 		.4byte	.LASF6
+ 320 002a 01       		.byte	0x1
+ 321 002b 5A000000 		.4byte	0x5a
+ 322 002f 02       		.byte	0x2
+ 323 0030 11       		.byte	0x11
+ 324 0031 5A000000 		.4byte	0x5a
+ 325 0035 03       		.uleb128 0x3
+ 326 0036 D9020000 		.4byte	.LASF0
+ 327 003a 00       		.byte	0
+ 328 003b 03       		.uleb128 0x3
+ 329 003c 06030000 		.4byte	.LASF1
+ 330 0040 01       		.byte	0x1
+ 331 0041 03       		.uleb128 0x3
+ 332 0042 A4000000 		.4byte	.LASF2
+ 333 0046 02       		.byte	0x2
+ 334 0047 03       		.uleb128 0x3
+ 335 0048 08020000 		.4byte	.LASF3
+ 336 004c 03       		.byte	0x3
+ 337 004d 03       		.uleb128 0x3
+ 338 004e FC010000 		.4byte	.LASF4
+ 339 0052 04       		.byte	0x4
+ 340 0053 03       		.uleb128 0x3
+ 341 0054 96020000 		.4byte	.LASF5
+ 342 0058 05       		.byte	0x5
+ 343 0059 00       		.byte	0
+ 344 005a 04       		.uleb128 0x4
+ 345 005b 01       		.byte	0x1
+ 346 005c 08       		.byte	0x8
+ 347 005d E8000000 		.4byte	.LASF17
+ 348 0061 02       		.uleb128 0x2
+ 349 0062 84010000 		.4byte	.LASF7
+ 350 0066 01       		.byte	0x1
+ 351 0067 5A000000 		.4byte	0x5a
+ 352 006b 03       		.byte	0x3
+ 353 006c 0D       		.byte	0xd
+ 354 006d A8000000 		.4byte	0xa8
+ 355 0071 03       		.uleb128 0x3
+ 356 0072 8A030000 		.4byte	.LASF8
+ 357 0076 00       		.byte	0
+ 358 0077 03       		.uleb128 0x3
+ 359 0078 F6020000 		.4byte	.LASF9
+ 360 007c 01       		.byte	0x1
+ 361 007d 03       		.uleb128 0x3
+ 362 007e AF000000 		.4byte	.LASF10
+ 363 0082 02       		.byte	0x2
+ 364 0083 03       		.uleb128 0x3
+ 365 0084 8A010000 		.4byte	.LASF11
+ 366 0088 03       		.byte	0x3
+ 367 0089 03       		.uleb128 0x3
+ 368 008a 00000000 		.4byte	.LASF12
+ 369 008e 04       		.byte	0x4
+ 370 008f 03       		.uleb128 0x3
+ 371 0090 AA030000 		.4byte	.LASF13
+ 372 0094 05       		.byte	0x5
+ 373 0095 03       		.uleb128 0x3
+ 374 0096 0E040000 		.4byte	.LASF14
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 10
 
 
- 449 005a 0B       		.uleb128 0xb
- 450 005b 11       		.uleb128 0x11
- 451 005c 01       		.uleb128 0x1
- 452 005d 12       		.uleb128 0x12
- 453 005e 06       		.uleb128 0x6
- 454 005f 40       		.uleb128 0x40
- 455 0060 18       		.uleb128 0x18
- 456 0061 9742     		.uleb128 0x2117
- 457 0063 19       		.uleb128 0x19
- 458 0064 01       		.uleb128 0x1
- 459 0065 13       		.uleb128 0x13
- 460 0066 00       		.byte	0
- 461 0067 00       		.byte	0
- 462 0068 07       		.uleb128 0x7
- 463 0069 0B       		.uleb128 0xb
- 464 006a 01       		.byte	0x1
- 465 006b 11       		.uleb128 0x11
- 466 006c 01       		.uleb128 0x1
- 467 006d 12       		.uleb128 0x12
- 468 006e 06       		.uleb128 0x6
- 469 006f 01       		.uleb128 0x1
- 470 0070 13       		.uleb128 0x13
- 471 0071 00       		.byte	0
- 472 0072 00       		.byte	0
- 473 0073 08       		.uleb128 0x8
- 474 0074 2E       		.uleb128 0x2e
- 475 0075 01       		.byte	0x1
- 476 0076 3F       		.uleb128 0x3f
- 477 0077 19       		.uleb128 0x19
- 478 0078 03       		.uleb128 0x3
- 479 0079 0E       		.uleb128 0xe
- 480 007a 3A       		.uleb128 0x3a
- 481 007b 0B       		.uleb128 0xb
- 482 007c 3B       		.uleb128 0x3b
- 483 007d 0B       		.uleb128 0xb
- 484 007e 49       		.uleb128 0x49
- 485 007f 13       		.uleb128 0x13
- 486 0080 3C       		.uleb128 0x3c
- 487 0081 19       		.uleb128 0x19
- 488 0082 01       		.uleb128 0x1
- 489 0083 13       		.uleb128 0x13
- 490 0084 00       		.byte	0
- 491 0085 00       		.byte	0
- 492 0086 09       		.uleb128 0x9
- 493 0087 18       		.uleb128 0x18
- 494 0088 00       		.byte	0
- 495 0089 00       		.byte	0
- 496 008a 00       		.byte	0
- 497 008b 0A       		.uleb128 0xa
- 498 008c 898201   		.uleb128 0x4109
- 499 008f 00       		.byte	0
- 500 0090 11       		.uleb128 0x11
- 501 0091 01       		.uleb128 0x1
- 502 0092 31       		.uleb128 0x31
- 503 0093 13       		.uleb128 0x13
- 504 0094 00       		.byte	0
- 505 0095 00       		.byte	0
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 11
+ 375 009a 06       		.byte	0x6
+ 376 009b 03       		.uleb128 0x3
+ 377 009c E6020000 		.4byte	.LASF15
+ 378 00a0 07       		.byte	0x7
+ 379 00a1 03       		.uleb128 0x3
+ 380 00a2 1E040000 		.4byte	.LASF16
+ 381 00a6 08       		.byte	0x8
+ 382 00a7 00       		.byte	0
+ 383 00a8 05       		.uleb128 0x5
+ 384 00a9 36030000 		.4byte	.LASF23
+ 385 00ad 01       		.byte	0x1
+ 386 00ae 36       		.byte	0x36
+ 387 00af 25000000 		.4byte	0x25
+ 388 00b3 00000000 		.4byte	.LFB1
+ 389 00b7 0A000000 		.4byte	.LFE1-.LFB1
+ 390 00bb 01       		.uleb128 0x1
+ 391 00bc 9C       		.byte	0x9c
+ 392 00bd DC000000 		.4byte	0xdc
+ 393 00c1 06       		.uleb128 0x6
+ 394 00c2 C3010000 		.4byte	.LASF18
+ 395 00c6 01       		.byte	0x1
+ 396 00c7 39       		.byte	0x39
+ 397 00c8 DC000000 		.4byte	0xdc
+ 398 00cc D2000000 		.4byte	0xd2
+ 399 00d0 07       		.uleb128 0x7
+ 400 00d1 00       		.byte	0
+ 401 00d2 08       		.uleb128 0x8
+ 402 00d3 06000000 		.4byte	.LVL0
+ 403 00d7 B7030000 		.4byte	0x3b7
+ 404 00db 00       		.byte	0
+ 405 00dc 09       		.uleb128 0x9
+ 406 00dd 04       		.byte	0x4
+ 407 00de 05       		.byte	0x5
+ 408 00df 696E7400 		.ascii	"int\000"
+ 409 00e3 0A       		.uleb128 0xa
+ 410 00e4 31000000 		.4byte	.LASF26
+ 411 00e8 01       		.byte	0x1
+ 412 00e9 19       		.byte	0x19
+ 413 00ea 00000000 		.4byte	.LFB0
+ 414 00ee 44000000 		.4byte	.LFE0-.LFB0
+ 415 00f2 01       		.uleb128 0x1
+ 416 00f3 9C       		.byte	0x9c
+ 417 00f4 A8010000 		.4byte	0x1a8
+ 418 00f8 0B       		.uleb128 0xb
+ 419 00f9 0A000000 		.4byte	.LBB2
+ 420 00fd 2A000000 		.4byte	.LBE2-.LBB2
+ 421 0101 83010000 		.4byte	0x183
+ 422 0105 06       		.uleb128 0x6
+ 423 0106 B5020000 		.4byte	.LASF19
+ 424 010a 01       		.byte	0x1
+ 425 010b 1E       		.byte	0x1e
+ 426 010c DC000000 		.4byte	0xdc
+ 427 0110 16010000 		.4byte	0x116
+ 428 0114 07       		.uleb128 0x7
+ 429 0115 00       		.byte	0
+ 430 0116 0B       		.uleb128 0xb
+ 431 0117 1C000000 		.4byte	.LBB3
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 11
 
 
- 506 0096 0B       		.uleb128 0xb
- 507 0097 898201   		.uleb128 0x4109
- 508 009a 01       		.byte	0x1
- 509 009b 11       		.uleb128 0x11
- 510 009c 01       		.uleb128 0x1
- 511 009d 31       		.uleb128 0x31
- 512 009e 13       		.uleb128 0x13
- 513 009f 01       		.uleb128 0x1
- 514 00a0 13       		.uleb128 0x13
- 515 00a1 00       		.byte	0
- 516 00a2 00       		.byte	0
- 517 00a3 0C       		.uleb128 0xc
- 518 00a4 8A8201   		.uleb128 0x410a
- 519 00a7 00       		.byte	0
- 520 00a8 02       		.uleb128 0x2
- 521 00a9 18       		.uleb128 0x18
- 522 00aa 9142     		.uleb128 0x2111
- 523 00ac 18       		.uleb128 0x18
- 524 00ad 00       		.byte	0
- 525 00ae 00       		.byte	0
- 526 00af 0D       		.uleb128 0xd
- 527 00b0 0B       		.uleb128 0xb
- 528 00b1 01       		.byte	0x1
- 529 00b2 11       		.uleb128 0x11
- 530 00b3 01       		.uleb128 0x1
- 531 00b4 12       		.uleb128 0x12
- 532 00b5 06       		.uleb128 0x6
- 533 00b6 00       		.byte	0
- 534 00b7 00       		.byte	0
- 535 00b8 0E       		.uleb128 0xe
- 536 00b9 24       		.uleb128 0x24
- 537 00ba 00       		.byte	0
- 538 00bb 0B       		.uleb128 0xb
- 539 00bc 0B       		.uleb128 0xb
- 540 00bd 3E       		.uleb128 0x3e
- 541 00be 0B       		.uleb128 0xb
- 542 00bf 03       		.uleb128 0x3
- 543 00c0 08       		.uleb128 0x8
- 544 00c1 00       		.byte	0
- 545 00c2 00       		.byte	0
- 546 00c3 0F       		.uleb128 0xf
- 547 00c4 34       		.uleb128 0x34
- 548 00c5 00       		.byte	0
- 549 00c6 03       		.uleb128 0x3
- 550 00c7 0E       		.uleb128 0xe
- 551 00c8 3A       		.uleb128 0x3a
- 552 00c9 0B       		.uleb128 0xb
- 553 00ca 3B       		.uleb128 0x3b
- 554 00cb 0B       		.uleb128 0xb
- 555 00cc 49       		.uleb128 0x49
- 556 00cd 13       		.uleb128 0x13
- 557 00ce 3F       		.uleb128 0x3f
- 558 00cf 19       		.uleb128 0x19
- 559 00d0 02       		.uleb128 0x2
- 560 00d1 18       		.uleb128 0x18
- 561 00d2 00       		.byte	0
- 562 00d3 00       		.byte	0
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 12
+ 432 011b 0A000000 		.4byte	.LBE3-.LBB3
+ 433 011f 3E010000 		.4byte	0x13e
+ 434 0123 06       		.uleb128 0x6
+ 435 0124 16020000 		.4byte	.LASF20
+ 436 0128 01       		.byte	0x1
+ 437 0129 25       		.byte	0x25
+ 438 012a DC000000 		.4byte	0xdc
+ 439 012e 34010000 		.4byte	0x134
+ 440 0132 07       		.uleb128 0x7
+ 441 0133 00       		.byte	0
+ 442 0134 08       		.uleb128 0x8
+ 443 0135 26000000 		.4byte	.LVL3
+ 444 0139 C2030000 		.4byte	0x3c2
+ 445 013d 00       		.byte	0
+ 446 013e 0B       		.uleb128 0xb
+ 447 013f 28000000 		.4byte	.LBB4
+ 448 0143 0C000000 		.4byte	.LBE4-.LBB4
+ 449 0147 66010000 		.4byte	0x166
+ 450 014b 06       		.uleb128 0x6
+ 451 014c DB010000 		.4byte	.LASF21
+ 452 0150 01       		.byte	0x1
+ 453 0151 2A       		.byte	0x2a
+ 454 0152 DC000000 		.4byte	0xdc
+ 455 0156 5C010000 		.4byte	0x15c
+ 456 015a 07       		.uleb128 0x7
+ 457 015b 00       		.byte	0
+ 458 015c 08       		.uleb128 0x8
+ 459 015d 32000000 		.4byte	.LVL4
+ 460 0161 CD030000 		.4byte	0x3cd
+ 461 0165 00       		.byte	0
+ 462 0166 0C       		.uleb128 0xc
+ 463 0167 10000000 		.4byte	.LVL1
+ 464 016b D8030000 		.4byte	0x3d8
+ 465 016f 79010000 		.4byte	0x179
+ 466 0173 0D       		.uleb128 0xd
+ 467 0174 01       		.uleb128 0x1
+ 468 0175 50       		.byte	0x50
+ 469 0176 01       		.uleb128 0x1
+ 470 0177 31       		.byte	0x31
+ 471 0178 00       		.byte	0
+ 472 0179 08       		.uleb128 0x8
+ 473 017a 1A000000 		.4byte	.LVL2
+ 474 017e A8000000 		.4byte	0xa8
+ 475 0182 00       		.byte	0
+ 476 0183 0E       		.uleb128 0xe
+ 477 0184 34000000 		.4byte	.LBB5
+ 478 0188 10000000 		.4byte	.LBE5-.LBB5
+ 479 018c 06       		.uleb128 0x6
+ 480 018d 14030000 		.4byte	.LASF22
+ 481 0191 01       		.byte	0x1
+ 482 0192 30       		.byte	0x30
+ 483 0193 DC000000 		.4byte	0xdc
+ 484 0197 9D010000 		.4byte	0x19d
+ 485 019b 07       		.uleb128 0x7
+ 486 019c 00       		.byte	0
+ 487 019d 08       		.uleb128 0x8
+ 488 019e 38000000 		.4byte	.LVL5
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 12
 
 
- 563 00d4 10       		.uleb128 0x10
- 564 00d5 2E       		.uleb128 0x2e
- 565 00d6 00       		.byte	0
- 566 00d7 3F       		.uleb128 0x3f
- 567 00d8 19       		.uleb128 0x19
- 568 00d9 3C       		.uleb128 0x3c
- 569 00da 19       		.uleb128 0x19
- 570 00db 6E       		.uleb128 0x6e
- 571 00dc 0E       		.uleb128 0xe
- 572 00dd 03       		.uleb128 0x3
- 573 00de 0E       		.uleb128 0xe
- 574 00df 3A       		.uleb128 0x3a
- 575 00e0 0B       		.uleb128 0xb
- 576 00e1 3B       		.uleb128 0x3b
- 577 00e2 0B       		.uleb128 0xb
- 578 00e3 00       		.byte	0
- 579 00e4 00       		.byte	0
- 580 00e5 00       		.byte	0
- 581              		.section	.debug_aranges,"",%progbits
- 582 0000 24000000 		.4byte	0x24
- 583 0004 0200     		.2byte	0x2
- 584 0006 00000000 		.4byte	.Ldebug_info0
- 585 000a 04       		.byte	0x4
- 586 000b 00       		.byte	0
- 587 000c 0000     		.2byte	0
- 588 000e 0000     		.2byte	0
- 589 0010 00000000 		.4byte	.LFB1
- 590 0014 02000000 		.4byte	.LFE1-.LFB1
- 591 0018 00000000 		.4byte	.LFB0
- 592 001c 3C000000 		.4byte	.LFE0-.LFB0
- 593 0020 00000000 		.4byte	0
- 594 0024 00000000 		.4byte	0
- 595              		.section	.debug_ranges,"",%progbits
- 596              	.Ldebug_ranges0:
- 597 0000 00000000 		.4byte	.LFB1
- 598 0004 02000000 		.4byte	.LFE1
- 599 0008 00000000 		.4byte	.LFB0
- 600 000c 3C000000 		.4byte	.LFE0
- 601 0010 00000000 		.4byte	0
- 602 0014 00000000 		.4byte	0
- 603              		.section	.debug_line,"",%progbits
- 604              	.Ldebug_line0:
- 605 0000 73000000 		.section	.debug_str,"MS",%progbits,1
- 605      02004600 
- 605      00000201 
- 605      FB0E0D00 
- 605      01010101 
- 606              	.LASF12:
- 607 0000 424D535F 		.ascii	"BMS_STATE_SHUTTING_DOWN\000"
- 607      53544154 
- 607      455F5348 
- 607      55545449 
- 607      4E475F44 
- 608              	.LASF17:
- 609 0018 436C6561 		.ascii	"ClearDTC_f010_PosRelayWeldedClosed\000"
- 609      72445443 
- 609      5F663031 
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 13
+ 489 01a2 E3030000 		.4byte	0x3e3
+ 490 01a6 00       		.byte	0
+ 491 01a7 00       		.byte	0
+ 492 01a8 05       		.uleb128 0x5
+ 493 01a9 99030000 		.4byte	.LASF24
+ 494 01ad 01       		.byte	0x1
+ 495 01ae 5B       		.byte	0x5b
+ 496 01af 25000000 		.4byte	0x25
+ 497 01b3 00000000 		.4byte	.LFB3
+ 498 01b7 0A000000 		.4byte	.LFE3-.LFB3
+ 499 01bb 01       		.uleb128 0x1
+ 500 01bc 9C       		.byte	0x9c
+ 501 01bd DC010000 		.4byte	0x1dc
+ 502 01c1 06       		.uleb128 0x6
+ 503 01c2 72030000 		.4byte	.LASF25
+ 504 01c6 01       		.byte	0x1
+ 505 01c7 5E       		.byte	0x5e
+ 506 01c8 DC000000 		.4byte	0xdc
+ 507 01cc D2010000 		.4byte	0x1d2
+ 508 01d0 07       		.uleb128 0x7
+ 509 01d1 00       		.byte	0
+ 510 01d2 08       		.uleb128 0x8
+ 511 01d3 06000000 		.4byte	.LVL6
+ 512 01d7 EE030000 		.4byte	0x3ee
+ 513 01db 00       		.byte	0
+ 514 01dc 0A       		.uleb128 0xa
+ 515 01dd 9B010000 		.4byte	.LASF27
+ 516 01e1 01       		.byte	0x1
+ 517 01e2 3E       		.byte	0x3e
+ 518 01e3 00000000 		.4byte	.LFB2
+ 519 01e7 44000000 		.4byte	.LFE2-.LFB2
+ 520 01eb 01       		.uleb128 0x1
+ 521 01ec 9C       		.byte	0x9c
+ 522 01ed A1020000 		.4byte	0x2a1
+ 523 01f1 0B       		.uleb128 0xb
+ 524 01f2 0A000000 		.4byte	.LBB6
+ 525 01f6 2A000000 		.4byte	.LBE6-.LBB6
+ 526 01fa 7C020000 		.4byte	0x27c
+ 527 01fe 06       		.uleb128 0x6
+ 528 01ff A9010000 		.4byte	.LASF28
+ 529 0203 01       		.byte	0x1
+ 530 0204 43       		.byte	0x43
+ 531 0205 DC000000 		.4byte	0xdc
+ 532 0209 0F020000 		.4byte	0x20f
+ 533 020d 07       		.uleb128 0x7
+ 534 020e 00       		.byte	0
+ 535 020f 0B       		.uleb128 0xb
+ 536 0210 1C000000 		.4byte	.LBB7
+ 537 0214 0A000000 		.4byte	.LBE7-.LBB7
+ 538 0218 37020000 		.4byte	0x237
+ 539 021c 06       		.uleb128 0x6
+ 540 021d 39020000 		.4byte	.LASF29
+ 541 0221 01       		.byte	0x1
+ 542 0222 4A       		.byte	0x4a
+ 543 0223 DC000000 		.4byte	0xdc
+ 544 0227 2D020000 		.4byte	0x22d
+ 545 022b 07       		.uleb128 0x7
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 13
 
 
- 609      305F506F 
- 609      7352656C 
- 610              	.LASF0:
- 611 003b 52454C41 		.ascii	"RELAY_CLOSED\000"
- 611      595F434C 
- 611      4F534544 
- 611      00
- 612              	.LASF23:
- 613 0048 4E656752 		.ascii	"NegRelay\000"
- 613      656C6179 
- 613      00
- 614              	.LASF15:
- 615 0051 424D535F 		.ascii	"BMS_STATE_UPDATING\000"
- 615      53544154 
- 615      455F5550 
- 615      44415449 
- 615      4E4700
- 616              	.LASF18:
- 617 0064 53657444 		.ascii	"SetDTC_f010_PosRelayWeldedClosed\000"
- 617      54435F66 
- 617      3031305F 
- 617      506F7352 
- 617      656C6179 
- 618              	.LASF1:
- 619 0085 52454C41 		.ascii	"RELAY_CLOSING\000"
- 619      595F434C 
- 619      4F53494E 
- 619      4700
- 620              	.LASF25:
- 621 0093 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 621      43313120 
- 621      352E342E 
- 621      31203230 
- 621      31363036 
- 622 00c6 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 622      20726576 
- 622      6973696F 
- 622      6E203233 
- 622      37373135 
- 623 00f9 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 623      66756E63 
- 623      74696F6E 
- 623      2D736563 
- 623      74696F6E 
- 624              	.LASF10:
- 625 0121 424D535F 		.ascii	"BMS_STATE_ACTIVE\000"
- 625      53544154 
- 625      455F4143 
- 625      54495645 
- 625      00
- 626              	.LASF4:
- 627 0132 52454C41 		.ascii	"RELAY_UNKNOWN\000"
- 627      595F554E 
- 627      4B4E4F57 
- 627      4E00
- 628              	.LASF27:
- 629 0140 433A5C55 		.ascii	"C:\\Users\\Timmo\\Documents\\GitHub\\Software\\BMS\\"
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 14
+ 546 022c 00       		.byte	0
+ 547 022d 08       		.uleb128 0x8
+ 548 022e 26000000 		.4byte	.LVL9
+ 549 0232 F9030000 		.4byte	0x3f9
+ 550 0236 00       		.byte	0
+ 551 0237 0B       		.uleb128 0xb
+ 552 0238 28000000 		.4byte	.LBB8
+ 553 023c 0C000000 		.4byte	.LBE8-.LBB8
+ 554 0240 5F020000 		.4byte	0x25f
+ 555 0244 06       		.uleb128 0x6
+ 556 0245 5C020000 		.4byte	.LASF30
+ 557 0249 01       		.byte	0x1
+ 558 024a 4F       		.byte	0x4f
+ 559 024b DC000000 		.4byte	0xdc
+ 560 024f 55020000 		.4byte	0x255
+ 561 0253 07       		.uleb128 0x7
+ 562 0254 00       		.byte	0
+ 563 0255 08       		.uleb128 0x8
+ 564 0256 32000000 		.4byte	.LVL10
+ 565 025a 04040000 		.4byte	0x404
+ 566 025e 00       		.byte	0
+ 567 025f 0C       		.uleb128 0xc
+ 568 0260 10000000 		.4byte	.LVL7
+ 569 0264 0F040000 		.4byte	0x40f
+ 570 0268 72020000 		.4byte	0x272
+ 571 026c 0D       		.uleb128 0xd
+ 572 026d 01       		.uleb128 0x1
+ 573 026e 50       		.byte	0x50
+ 574 026f 01       		.uleb128 0x1
+ 575 0270 31       		.byte	0x31
+ 576 0271 00       		.byte	0
+ 577 0272 08       		.uleb128 0x8
+ 578 0273 1A000000 		.4byte	.LVL8
+ 579 0277 A8010000 		.4byte	0x1a8
+ 580 027b 00       		.byte	0
+ 581 027c 0E       		.uleb128 0xe
+ 582 027d 34000000 		.4byte	.LBB9
+ 583 0281 10000000 		.4byte	.LBE9-.LBB9
+ 584 0285 06       		.uleb128 0x6
+ 585 0286 64000000 		.4byte	.LASF31
+ 586 028a 01       		.byte	0x1
+ 587 028b 55       		.byte	0x55
+ 588 028c DC000000 		.4byte	0xdc
+ 589 0290 96020000 		.4byte	0x296
+ 590 0294 07       		.uleb128 0x7
+ 591 0295 00       		.byte	0
+ 592 0296 08       		.uleb128 0x8
+ 593 0297 38000000 		.4byte	.LVL11
+ 594 029b 1A040000 		.4byte	0x41a
+ 595 029f 00       		.byte	0
+ 596 02a0 00       		.byte	0
+ 597 02a1 0A       		.uleb128 0xa
+ 598 02a2 A4020000 		.4byte	.LASF32
+ 599 02a6 01       		.byte	0x1
+ 600 02a7 64       		.byte	0x64
+ 601 02a8 00000000 		.4byte	.LFB4
+ 602 02ac 30000000 		.4byte	.LFE4-.LFB4
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 14
 
 
- 629      73657273 
- 629      5C54696D 
- 629      6D6F5C44 
- 629      6F63756D 
- 630 016d 424D535F 		.ascii	"BMS_Workspace\\BMS_Master.cydsn\000"
- 630      576F726B 
- 630      73706163 
- 630      655C424D 
- 630      535F4D61 
- 631              	.LASF28:
- 632 018c 506F7352 		.ascii	"PosRelayFeedback\000"
- 632      656C6179 
- 632      46656564 
- 632      6261636B 
- 632      00
- 633              	.LASF8:
- 634 019d 424D535F 		.ascii	"BMS_STATE_READY\000"
- 634      53544154 
- 634      455F5245 
- 634      41445900 
- 635              	.LASF20:
- 636 01ad 756E7369 		.ascii	"unsigned char\000"
- 636      676E6564 
- 636      20636861 
- 636      7200
- 637              	.LASF24:
- 638 01bb 50726563 		.ascii	"PrechargeRelay\000"
- 638      68617267 
- 638      6552656C 
- 638      617900
- 639              	.LASF21:
- 640 01ca 424D535F 		.ascii	"BMS_State\000"
- 640      53746174 
- 640      6500
- 641              	.LASF11:
- 642 01d4 424D535F 		.ascii	"BMS_STATE_CHARGING\000"
- 642      53544154 
- 642      455F4348 
- 642      41524749 
- 642      4E4700
- 643              	.LASF22:
- 644 01e7 506F7352 		.ascii	"PosRelay\000"
- 644      656C6179 
- 644      00
- 645              	.LASF29:
- 646 01f0 436C6F73 		.ascii	"ClosePosRelay\000"
- 646      65506F73 
- 646      52656C61 
- 646      7900
- 647              	.LASF26:
- 648 01fe 52656C61 		.ascii	"RelayControl.c\000"
- 648      79436F6E 
- 648      74726F6C 
- 648      2E6300
- 649              	.LASF13:
- 650 020d 424D535F 		.ascii	"BMS_STATE_SLEEP\000"
- 650      53544154 
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc6oPGbT.s 			page 15
+ 603 02b0 01       		.uleb128 0x1
+ 604 02b1 9C       		.byte	0x9c
+ 605 02b2 73030000 		.4byte	0x373
+ 606 02b6 0E       		.uleb128 0xe
+ 607 02b7 08000000 		.4byte	.LBB10
+ 608 02bb 28000000 		.4byte	.LBE10-.LBB10
+ 609 02bf 06       		.uleb128 0x6
+ 610 02c0 89000000 		.4byte	.LASF33
+ 611 02c4 01       		.byte	0x1
+ 612 02c5 6A       		.byte	0x6a
+ 613 02c6 DC000000 		.4byte	0xdc
+ 614 02ca D0020000 		.4byte	0x2d0
+ 615 02ce 07       		.uleb128 0x7
+ 616 02cf 00       		.byte	0
+ 617 02d0 0B       		.uleb128 0xb
+ 618 02d1 0E000000 		.4byte	.LBB11
+ 619 02d5 22000000 		.4byte	.LBE11-.LBB11
+ 620 02d9 62030000 		.4byte	0x362
+ 621 02dd 06       		.uleb128 0x6
+ 622 02de 7D020000 		.4byte	.LASF34
+ 623 02e2 01       		.byte	0x1
+ 624 02e3 6E       		.byte	0x6e
+ 625 02e4 DC000000 		.4byte	0xdc
+ 626 02e8 EE020000 		.4byte	0x2ee
+ 627 02ec 07       		.uleb128 0x7
+ 628 02ed 00       		.byte	0
+ 629 02ee 06       		.uleb128 0x6
+ 630 02ef C8000000 		.4byte	.LASF35
+ 631 02f3 01       		.byte	0x1
+ 632 02f4 6E       		.byte	0x6e
+ 633 02f5 DC000000 		.4byte	0xdc
+ 634 02f9 FF020000 		.4byte	0x2ff
+ 635 02fd 07       		.uleb128 0x7
+ 636 02fe 00       		.byte	0
+ 637 02ff 0B       		.uleb128 0xb
+ 638 0300 1E000000 		.4byte	.LBB12
+ 639 0304 06000000 		.4byte	.LBE12-.LBB12
+ 640 0308 27030000 		.4byte	0x327
+ 641 030c 06       		.uleb128 0x6
+ 642 030d 13000000 		.4byte	.LASF36
+ 643 0311 01       		.byte	0x1
+ 644 0312 70       		.byte	0x70
+ 645 0313 DC000000 		.4byte	0xdc
+ 646 0317 1D030000 		.4byte	0x31d
+ 647 031b 07       		.uleb128 0x7
+ 648 031c 00       		.byte	0
+ 649 031d 08       		.uleb128 0x8
+ 650 031e 22000000 		.4byte	.LVL15
+ 651 0322 25040000 		.4byte	0x425
+ 652 0326 00       		.byte	0
+ 653 0327 0B       		.uleb128 0xb
+ 654 0328 24000000 		.4byte	.LBB13
+ 655 032c 0C000000 		.4byte	.LBE13-.LBB13
+ 656 0330 4F030000 		.4byte	0x34f
+ 657 0334 06       		.uleb128 0x6
+ 658 0335 47030000 		.4byte	.LASF37
+ 659 0339 01       		.byte	0x1
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 15
 
 
- 650      455F534C 
- 650      45455000 
- 651              	.LASF14:
- 652 021d 424D535F 		.ascii	"BMS_STATE_FAULT\000"
- 652      53544154 
- 652      455F4641 
- 652      554C5400 
- 653              	.LASF3:
- 654 022d 52454C41 		.ascii	"RELAY_OPENING\000"
- 654      595F4F50 
- 654      454E494E 
- 654      4700
- 655              	.LASF5:
- 656 023b 52656C61 		.ascii	"RelayState_E\000"
- 656      79537461 
- 656      74655F45 
- 656      00
- 657              	.LASF16:
- 658 0248 646F424D 		.ascii	"doBMS_RelayPosDrive_write\000"
- 658      535F5265 
- 658      6C617950 
- 658      6F734472 
- 658      6976655F 
- 659              	.LASF9:
- 660 0262 424D535F 		.ascii	"BMS_STATE_CLOSING_RELAYS\000"
- 660      53544154 
- 660      455F434C 
- 660      4F53494E 
- 660      475F5245 
- 661              	.LASF6:
- 662 027b 53746174 		.ascii	"State\000"
- 662      6500
- 663              	.LASF19:
- 664 0281 53657444 		.ascii	"SetDTC_a010_RelayWontCloseInFault\000"
- 664      54435F61 
- 664      3031305F 
- 664      52656C61 
- 664      79576F6E 
- 665              	.LASF2:
- 666 02a3 52454C41 		.ascii	"RELAY_OPEN\000"
- 666      595F4F50 
- 666      454E00
- 667              	.LASF7:
- 668 02ae 424D535F 		.ascii	"BMS_STATE_INIT\000"
- 668      53544154 
- 668      455F494E 
- 668      495400
- 669              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 660 033a 76       		.byte	0x76
+ 661 033b DC000000 		.4byte	0xdc
+ 662 033f 45030000 		.4byte	0x345
+ 663 0343 07       		.uleb128 0x7
+ 664 0344 00       		.byte	0
+ 665 0345 08       		.uleb128 0x8
+ 666 0346 28000000 		.4byte	.LVL16
+ 667 034a 30040000 		.4byte	0x430
+ 668 034e 00       		.byte	0
+ 669 034f 08       		.uleb128 0x8
+ 670 0350 12000000 		.4byte	.LVL13
+ 671 0354 3B040000 		.4byte	0x43b
+ 672 0358 08       		.uleb128 0x8
+ 673 0359 18000000 		.4byte	.LVL14
+ 674 035d 46040000 		.4byte	0x446
+ 675 0361 00       		.byte	0
+ 676 0362 0F       		.uleb128 0xf
+ 677 0363 0E000000 		.4byte	.LVL12
+ 678 0367 51040000 		.4byte	0x451
+ 679 036b 0D       		.uleb128 0xd
+ 680 036c 01       		.uleb128 0x1
+ 681 036d 50       		.byte	0x50
+ 682 036e 01       		.uleb128 0x1
+ 683 036f 31       		.byte	0x31
+ 684 0370 00       		.byte	0
+ 685 0371 00       		.byte	0
+ 686 0372 00       		.byte	0
+ 687 0373 10       		.uleb128 0x10
+ 688 0374 CF020000 		.4byte	.LASF38
+ 689 0378 03       		.byte	0x3
+ 690 0379 19       		.byte	0x19
+ 691 037a 61000000 		.4byte	0x61
+ 692 037e 05       		.uleb128 0x5
+ 693 037f 03       		.byte	0x3
+ 694 0380 00000000 		.4byte	BMS_State
+ 695 0384 10       		.uleb128 0x10
+ 696 0385 4E000000 		.4byte	.LASF39
+ 697 0389 01       		.byte	0x1
+ 698 038a 14       		.byte	0x14
+ 699 038b 25000000 		.4byte	0x25
+ 700 038f 05       		.uleb128 0x5
+ 701 0390 03       		.byte	0x3
+ 702 0391 00000000 		.4byte	PosRelay
+ 703 0395 10       		.uleb128 0x10
+ 704 0396 DF000000 		.4byte	.LASF40
+ 705 039a 01       		.byte	0x1
+ 706 039b 15       		.byte	0x15
+ 707 039c 25000000 		.4byte	0x25
+ 708 03a0 05       		.uleb128 0x5
+ 709 03a1 03       		.byte	0x3
+ 710 03a2 00000000 		.4byte	NegRelay
+ 711 03a6 10       		.uleb128 0x10
+ 712 03a7 3F000000 		.4byte	.LASF41
+ 713 03ab 01       		.byte	0x1
+ 714 03ac 16       		.byte	0x16
+ 715 03ad 25000000 		.4byte	0x25
+ 716 03b1 05       		.uleb128 0x5
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 16
+
+
+ 717 03b2 03       		.byte	0x3
+ 718 03b3 00000000 		.4byte	PrechargeRelay
+ 719 03b7 11       		.uleb128 0x11
+ 720 03b8 C3010000 		.4byte	.LASF18
+ 721 03bc C3010000 		.4byte	.LASF18
+ 722 03c0 01       		.byte	0x1
+ 723 03c1 39       		.byte	0x39
+ 724 03c2 11       		.uleb128 0x11
+ 725 03c3 16020000 		.4byte	.LASF20
+ 726 03c7 16020000 		.4byte	.LASF20
+ 727 03cb 01       		.byte	0x1
+ 728 03cc 25       		.byte	0x25
+ 729 03cd 11       		.uleb128 0x11
+ 730 03ce DB010000 		.4byte	.LASF21
+ 731 03d2 DB010000 		.4byte	.LASF21
+ 732 03d6 01       		.byte	0x1
+ 733 03d7 2A       		.byte	0x2a
+ 734 03d8 11       		.uleb128 0x11
+ 735 03d9 B5020000 		.4byte	.LASF19
+ 736 03dd B5020000 		.4byte	.LASF19
+ 737 03e1 01       		.byte	0x1
+ 738 03e2 1E       		.byte	0x1e
+ 739 03e3 11       		.uleb128 0x11
+ 740 03e4 14030000 		.4byte	.LASF22
+ 741 03e8 14030000 		.4byte	.LASF22
+ 742 03ec 01       		.byte	0x1
+ 743 03ed 30       		.byte	0x30
+ 744 03ee 11       		.uleb128 0x11
+ 745 03ef 72030000 		.4byte	.LASF25
+ 746 03f3 72030000 		.4byte	.LASF25
+ 747 03f7 01       		.byte	0x1
+ 748 03f8 5E       		.byte	0x5e
+ 749 03f9 11       		.uleb128 0x11
+ 750 03fa 39020000 		.4byte	.LASF29
+ 751 03fe 39020000 		.4byte	.LASF29
+ 752 0402 01       		.byte	0x1
+ 753 0403 4A       		.byte	0x4a
+ 754 0404 11       		.uleb128 0x11
+ 755 0405 5C020000 		.4byte	.LASF30
+ 756 0409 5C020000 		.4byte	.LASF30
+ 757 040d 01       		.byte	0x1
+ 758 040e 4F       		.byte	0x4f
+ 759 040f 11       		.uleb128 0x11
+ 760 0410 A9010000 		.4byte	.LASF28
+ 761 0414 A9010000 		.4byte	.LASF28
+ 762 0418 01       		.byte	0x1
+ 763 0419 43       		.byte	0x43
+ 764 041a 11       		.uleb128 0x11
+ 765 041b 64000000 		.4byte	.LASF31
+ 766 041f 64000000 		.4byte	.LASF31
+ 767 0423 01       		.byte	0x1
+ 768 0424 55       		.byte	0x55
+ 769 0425 11       		.uleb128 0x11
+ 770 0426 13000000 		.4byte	.LASF36
+ 771 042a 13000000 		.4byte	.LASF36
+ 772 042e 01       		.byte	0x1
+ 773 042f 70       		.byte	0x70
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 17
+
+
+ 774 0430 11       		.uleb128 0x11
+ 775 0431 47030000 		.4byte	.LASF37
+ 776 0435 47030000 		.4byte	.LASF37
+ 777 0439 01       		.byte	0x1
+ 778 043a 76       		.byte	0x76
+ 779 043b 11       		.uleb128 0x11
+ 780 043c 7D020000 		.4byte	.LASF34
+ 781 0440 7D020000 		.4byte	.LASF34
+ 782 0444 01       		.byte	0x1
+ 783 0445 6E       		.byte	0x6e
+ 784 0446 11       		.uleb128 0x11
+ 785 0447 C8000000 		.4byte	.LASF35
+ 786 044b C8000000 		.4byte	.LASF35
+ 787 044f 01       		.byte	0x1
+ 788 0450 6E       		.byte	0x6e
+ 789 0451 11       		.uleb128 0x11
+ 790 0452 89000000 		.4byte	.LASF33
+ 791 0456 89000000 		.4byte	.LASF33
+ 792 045a 01       		.byte	0x1
+ 793 045b 6A       		.byte	0x6a
+ 794 045c 00       		.byte	0
+ 795              		.section	.debug_abbrev,"",%progbits
+ 796              	.Ldebug_abbrev0:
+ 797 0000 01       		.uleb128 0x1
+ 798 0001 11       		.uleb128 0x11
+ 799 0002 01       		.byte	0x1
+ 800 0003 25       		.uleb128 0x25
+ 801 0004 0E       		.uleb128 0xe
+ 802 0005 13       		.uleb128 0x13
+ 803 0006 0B       		.uleb128 0xb
+ 804 0007 03       		.uleb128 0x3
+ 805 0008 0E       		.uleb128 0xe
+ 806 0009 1B       		.uleb128 0x1b
+ 807 000a 0E       		.uleb128 0xe
+ 808 000b 55       		.uleb128 0x55
+ 809 000c 17       		.uleb128 0x17
+ 810 000d 11       		.uleb128 0x11
+ 811 000e 01       		.uleb128 0x1
+ 812 000f 10       		.uleb128 0x10
+ 813 0010 17       		.uleb128 0x17
+ 814 0011 00       		.byte	0
+ 815 0012 00       		.byte	0
+ 816 0013 02       		.uleb128 0x2
+ 817 0014 04       		.uleb128 0x4
+ 818 0015 01       		.byte	0x1
+ 819 0016 03       		.uleb128 0x3
+ 820 0017 0E       		.uleb128 0xe
+ 821 0018 0B       		.uleb128 0xb
+ 822 0019 0B       		.uleb128 0xb
+ 823 001a 49       		.uleb128 0x49
+ 824 001b 13       		.uleb128 0x13
+ 825 001c 3A       		.uleb128 0x3a
+ 826 001d 0B       		.uleb128 0xb
+ 827 001e 3B       		.uleb128 0x3b
+ 828 001f 0B       		.uleb128 0xb
+ 829 0020 01       		.uleb128 0x1
+ 830 0021 13       		.uleb128 0x13
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 18
+
+
+ 831 0022 00       		.byte	0
+ 832 0023 00       		.byte	0
+ 833 0024 03       		.uleb128 0x3
+ 834 0025 28       		.uleb128 0x28
+ 835 0026 00       		.byte	0
+ 836 0027 03       		.uleb128 0x3
+ 837 0028 0E       		.uleb128 0xe
+ 838 0029 1C       		.uleb128 0x1c
+ 839 002a 0B       		.uleb128 0xb
+ 840 002b 00       		.byte	0
+ 841 002c 00       		.byte	0
+ 842 002d 04       		.uleb128 0x4
+ 843 002e 24       		.uleb128 0x24
+ 844 002f 00       		.byte	0
+ 845 0030 0B       		.uleb128 0xb
+ 846 0031 0B       		.uleb128 0xb
+ 847 0032 3E       		.uleb128 0x3e
+ 848 0033 0B       		.uleb128 0xb
+ 849 0034 03       		.uleb128 0x3
+ 850 0035 0E       		.uleb128 0xe
+ 851 0036 00       		.byte	0
+ 852 0037 00       		.byte	0
+ 853 0038 05       		.uleb128 0x5
+ 854 0039 2E       		.uleb128 0x2e
+ 855 003a 01       		.byte	0x1
+ 856 003b 3F       		.uleb128 0x3f
+ 857 003c 19       		.uleb128 0x19
+ 858 003d 03       		.uleb128 0x3
+ 859 003e 0E       		.uleb128 0xe
+ 860 003f 3A       		.uleb128 0x3a
+ 861 0040 0B       		.uleb128 0xb
+ 862 0041 3B       		.uleb128 0x3b
+ 863 0042 0B       		.uleb128 0xb
+ 864 0043 49       		.uleb128 0x49
+ 865 0044 13       		.uleb128 0x13
+ 866 0045 11       		.uleb128 0x11
+ 867 0046 01       		.uleb128 0x1
+ 868 0047 12       		.uleb128 0x12
+ 869 0048 06       		.uleb128 0x6
+ 870 0049 40       		.uleb128 0x40
+ 871 004a 18       		.uleb128 0x18
+ 872 004b 9742     		.uleb128 0x2117
+ 873 004d 19       		.uleb128 0x19
+ 874 004e 01       		.uleb128 0x1
+ 875 004f 13       		.uleb128 0x13
+ 876 0050 00       		.byte	0
+ 877 0051 00       		.byte	0
+ 878 0052 06       		.uleb128 0x6
+ 879 0053 2E       		.uleb128 0x2e
+ 880 0054 01       		.byte	0x1
+ 881 0055 3F       		.uleb128 0x3f
+ 882 0056 19       		.uleb128 0x19
+ 883 0057 03       		.uleb128 0x3
+ 884 0058 0E       		.uleb128 0xe
+ 885 0059 3A       		.uleb128 0x3a
+ 886 005a 0B       		.uleb128 0xb
+ 887 005b 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 19
+
+
+ 888 005c 0B       		.uleb128 0xb
+ 889 005d 49       		.uleb128 0x49
+ 890 005e 13       		.uleb128 0x13
+ 891 005f 3C       		.uleb128 0x3c
+ 892 0060 19       		.uleb128 0x19
+ 893 0061 01       		.uleb128 0x1
+ 894 0062 13       		.uleb128 0x13
+ 895 0063 00       		.byte	0
+ 896 0064 00       		.byte	0
+ 897 0065 07       		.uleb128 0x7
+ 898 0066 18       		.uleb128 0x18
+ 899 0067 00       		.byte	0
+ 900 0068 00       		.byte	0
+ 901 0069 00       		.byte	0
+ 902 006a 08       		.uleb128 0x8
+ 903 006b 898201   		.uleb128 0x4109
+ 904 006e 00       		.byte	0
+ 905 006f 11       		.uleb128 0x11
+ 906 0070 01       		.uleb128 0x1
+ 907 0071 31       		.uleb128 0x31
+ 908 0072 13       		.uleb128 0x13
+ 909 0073 00       		.byte	0
+ 910 0074 00       		.byte	0
+ 911 0075 09       		.uleb128 0x9
+ 912 0076 24       		.uleb128 0x24
+ 913 0077 00       		.byte	0
+ 914 0078 0B       		.uleb128 0xb
+ 915 0079 0B       		.uleb128 0xb
+ 916 007a 3E       		.uleb128 0x3e
+ 917 007b 0B       		.uleb128 0xb
+ 918 007c 03       		.uleb128 0x3
+ 919 007d 08       		.uleb128 0x8
+ 920 007e 00       		.byte	0
+ 921 007f 00       		.byte	0
+ 922 0080 0A       		.uleb128 0xa
+ 923 0081 2E       		.uleb128 0x2e
+ 924 0082 01       		.byte	0x1
+ 925 0083 3F       		.uleb128 0x3f
+ 926 0084 19       		.uleb128 0x19
+ 927 0085 03       		.uleb128 0x3
+ 928 0086 0E       		.uleb128 0xe
+ 929 0087 3A       		.uleb128 0x3a
+ 930 0088 0B       		.uleb128 0xb
+ 931 0089 3B       		.uleb128 0x3b
+ 932 008a 0B       		.uleb128 0xb
+ 933 008b 11       		.uleb128 0x11
+ 934 008c 01       		.uleb128 0x1
+ 935 008d 12       		.uleb128 0x12
+ 936 008e 06       		.uleb128 0x6
+ 937 008f 40       		.uleb128 0x40
+ 938 0090 18       		.uleb128 0x18
+ 939 0091 9742     		.uleb128 0x2117
+ 940 0093 19       		.uleb128 0x19
+ 941 0094 01       		.uleb128 0x1
+ 942 0095 13       		.uleb128 0x13
+ 943 0096 00       		.byte	0
+ 944 0097 00       		.byte	0
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 20
+
+
+ 945 0098 0B       		.uleb128 0xb
+ 946 0099 0B       		.uleb128 0xb
+ 947 009a 01       		.byte	0x1
+ 948 009b 11       		.uleb128 0x11
+ 949 009c 01       		.uleb128 0x1
+ 950 009d 12       		.uleb128 0x12
+ 951 009e 06       		.uleb128 0x6
+ 952 009f 01       		.uleb128 0x1
+ 953 00a0 13       		.uleb128 0x13
+ 954 00a1 00       		.byte	0
+ 955 00a2 00       		.byte	0
+ 956 00a3 0C       		.uleb128 0xc
+ 957 00a4 898201   		.uleb128 0x4109
+ 958 00a7 01       		.byte	0x1
+ 959 00a8 11       		.uleb128 0x11
+ 960 00a9 01       		.uleb128 0x1
+ 961 00aa 31       		.uleb128 0x31
+ 962 00ab 13       		.uleb128 0x13
+ 963 00ac 01       		.uleb128 0x1
+ 964 00ad 13       		.uleb128 0x13
+ 965 00ae 00       		.byte	0
+ 966 00af 00       		.byte	0
+ 967 00b0 0D       		.uleb128 0xd
+ 968 00b1 8A8201   		.uleb128 0x410a
+ 969 00b4 00       		.byte	0
+ 970 00b5 02       		.uleb128 0x2
+ 971 00b6 18       		.uleb128 0x18
+ 972 00b7 9142     		.uleb128 0x2111
+ 973 00b9 18       		.uleb128 0x18
+ 974 00ba 00       		.byte	0
+ 975 00bb 00       		.byte	0
+ 976 00bc 0E       		.uleb128 0xe
+ 977 00bd 0B       		.uleb128 0xb
+ 978 00be 01       		.byte	0x1
+ 979 00bf 11       		.uleb128 0x11
+ 980 00c0 01       		.uleb128 0x1
+ 981 00c1 12       		.uleb128 0x12
+ 982 00c2 06       		.uleb128 0x6
+ 983 00c3 00       		.byte	0
+ 984 00c4 00       		.byte	0
+ 985 00c5 0F       		.uleb128 0xf
+ 986 00c6 898201   		.uleb128 0x4109
+ 987 00c9 01       		.byte	0x1
+ 988 00ca 11       		.uleb128 0x11
+ 989 00cb 01       		.uleb128 0x1
+ 990 00cc 31       		.uleb128 0x31
+ 991 00cd 13       		.uleb128 0x13
+ 992 00ce 00       		.byte	0
+ 993 00cf 00       		.byte	0
+ 994 00d0 10       		.uleb128 0x10
+ 995 00d1 34       		.uleb128 0x34
+ 996 00d2 00       		.byte	0
+ 997 00d3 03       		.uleb128 0x3
+ 998 00d4 0E       		.uleb128 0xe
+ 999 00d5 3A       		.uleb128 0x3a
+ 1000 00d6 0B       		.uleb128 0xb
+ 1001 00d7 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 21
+
+
+ 1002 00d8 0B       		.uleb128 0xb
+ 1003 00d9 49       		.uleb128 0x49
+ 1004 00da 13       		.uleb128 0x13
+ 1005 00db 3F       		.uleb128 0x3f
+ 1006 00dc 19       		.uleb128 0x19
+ 1007 00dd 02       		.uleb128 0x2
+ 1008 00de 18       		.uleb128 0x18
+ 1009 00df 00       		.byte	0
+ 1010 00e0 00       		.byte	0
+ 1011 00e1 11       		.uleb128 0x11
+ 1012 00e2 2E       		.uleb128 0x2e
+ 1013 00e3 00       		.byte	0
+ 1014 00e4 3F       		.uleb128 0x3f
+ 1015 00e5 19       		.uleb128 0x19
+ 1016 00e6 3C       		.uleb128 0x3c
+ 1017 00e7 19       		.uleb128 0x19
+ 1018 00e8 6E       		.uleb128 0x6e
+ 1019 00e9 0E       		.uleb128 0xe
+ 1020 00ea 03       		.uleb128 0x3
+ 1021 00eb 0E       		.uleb128 0xe
+ 1022 00ec 3A       		.uleb128 0x3a
+ 1023 00ed 0B       		.uleb128 0xb
+ 1024 00ee 3B       		.uleb128 0x3b
+ 1025 00ef 0B       		.uleb128 0xb
+ 1026 00f0 00       		.byte	0
+ 1027 00f1 00       		.byte	0
+ 1028 00f2 00       		.byte	0
+ 1029              		.section	.debug_aranges,"",%progbits
+ 1030 0000 3C000000 		.4byte	0x3c
+ 1031 0004 0200     		.2byte	0x2
+ 1032 0006 00000000 		.4byte	.Ldebug_info0
+ 1033 000a 04       		.byte	0x4
+ 1034 000b 00       		.byte	0
+ 1035 000c 0000     		.2byte	0
+ 1036 000e 0000     		.2byte	0
+ 1037 0010 00000000 		.4byte	.LFB1
+ 1038 0014 0A000000 		.4byte	.LFE1-.LFB1
+ 1039 0018 00000000 		.4byte	.LFB0
+ 1040 001c 44000000 		.4byte	.LFE0-.LFB0
+ 1041 0020 00000000 		.4byte	.LFB3
+ 1042 0024 0A000000 		.4byte	.LFE3-.LFB3
+ 1043 0028 00000000 		.4byte	.LFB2
+ 1044 002c 44000000 		.4byte	.LFE2-.LFB2
+ 1045 0030 00000000 		.4byte	.LFB4
+ 1046 0034 30000000 		.4byte	.LFE4-.LFB4
+ 1047 0038 00000000 		.4byte	0
+ 1048 003c 00000000 		.4byte	0
+ 1049              		.section	.debug_ranges,"",%progbits
+ 1050              	.Ldebug_ranges0:
+ 1051 0000 00000000 		.4byte	.LFB1
+ 1052 0004 0A000000 		.4byte	.LFE1
+ 1053 0008 00000000 		.4byte	.LFB0
+ 1054 000c 44000000 		.4byte	.LFE0
+ 1055 0010 00000000 		.4byte	.LFB3
+ 1056 0014 0A000000 		.4byte	.LFE3
+ 1057 0018 00000000 		.4byte	.LFB2
+ 1058 001c 44000000 		.4byte	.LFE2
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 22
+
+
+ 1059 0020 00000000 		.4byte	.LFB4
+ 1060 0024 30000000 		.4byte	.LFE4
+ 1061 0028 00000000 		.4byte	0
+ 1062 002c 00000000 		.4byte	0
+ 1063              		.section	.debug_line,"",%progbits
+ 1064              	.Ldebug_line0:
+ 1065 0000 B6000000 		.section	.debug_str,"MS",%progbits,1
+ 1065      02004600 
+ 1065      00000201 
+ 1065      FB0E0D00 
+ 1065      01010101 
+ 1066              	.LASF12:
+ 1067 0000 424D535F 		.ascii	"BMS_STATE_CHARGING\000"
+ 1067      53544154 
+ 1067      455F4348 
+ 1067      41524749 
+ 1067      4E4700
+ 1068              	.LASF36:
+ 1069 0013 436C6561 		.ascii	"ClearDTC_f014_PrechareFailure\000"
+ 1069      72445443 
+ 1069      5F663031 
+ 1069      345F5072 
+ 1069      65636861 
+ 1070              	.LASF26:
+ 1071 0031 436C6F73 		.ascii	"ClosePosRelay\000"
+ 1071      65506F73 
+ 1071      52656C61 
+ 1071      7900
+ 1072              	.LASF41:
+ 1073 003f 50726563 		.ascii	"PrechargeRelay\000"
+ 1073      68617267 
+ 1073      6552656C 
+ 1073      617900
+ 1074              	.LASF39:
+ 1075 004e 506F7352 		.ascii	"PosRelay\000"
+ 1075      656C6179 
+ 1075      00
+ 1076              	.LASF6:
+ 1077 0057 52656C61 		.ascii	"RelayState_E\000"
+ 1077      79537461 
+ 1077      74655F45 
+ 1077      00
+ 1078              	.LASF31:
+ 1079 0064 53657444 		.ascii	"SetDTC_a010_NegRelayWontCloseInFault\000"
+ 1079      54435F61 
+ 1079      3031305F 
+ 1079      4E656752 
+ 1079      656C6179 
+ 1080              	.LASF33:
+ 1081 0089 646F424D 		.ascii	"doBMS_RelayPreCharge_write\000"
+ 1081      535F5265 
+ 1081      6C617950 
+ 1081      72654368 
+ 1081      61726765 
+ 1082              	.LASF2:
+ 1083 00a4 52454C41 		.ascii	"RELAY_OPEN\000"
+ 1083      595F4F50 
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 23
+
+
+ 1083      454E00
+ 1084              	.LASF10:
+ 1085 00af 424D535F 		.ascii	"BMS_STATE_CLOSING_RELAYS\000"
+ 1085      53544154 
+ 1085      455F434C 
+ 1085      4F53494E 
+ 1085      475F5245 
+ 1086              	.LASF35:
+ 1087 00c8 6169424D 		.ascii	"aiBMS_packVoltage_read\000"
+ 1087      535F7061 
+ 1087      636B566F 
+ 1087      6C746167 
+ 1087      655F7265 
+ 1088              	.LASF40:
+ 1089 00df 4E656752 		.ascii	"NegRelay\000"
+ 1089      656C6179 
+ 1089      00
+ 1090              	.LASF17:
+ 1091 00e8 756E7369 		.ascii	"unsigned char\000"
+ 1091      676E6564 
+ 1091      20636861 
+ 1091      7200
+ 1092              	.LASF42:
+ 1093 00f6 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1093      43313120 
+ 1093      352E342E 
+ 1093      31203230 
+ 1093      31363036 
+ 1094 0129 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1094      20726576 
+ 1094      6973696F 
+ 1094      6E203233 
+ 1094      37373135 
+ 1095 015c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1095      66756E63 
+ 1095      74696F6E 
+ 1095      2D736563 
+ 1095      74696F6E 
+ 1096              	.LASF7:
+ 1097 0184 53746174 		.ascii	"State\000"
+ 1097      6500
+ 1098              	.LASF11:
+ 1099 018a 424D535F 		.ascii	"BMS_STATE_ACTIVE\000"
+ 1099      53544154 
+ 1099      455F4143 
+ 1099      54495645 
+ 1099      00
+ 1100              	.LASF27:
+ 1101 019b 436C6F73 		.ascii	"CloseNegRelay\000"
+ 1101      654E6567 
+ 1101      52656C61 
+ 1101      7900
+ 1102              	.LASF28:
+ 1103 01a9 646F424D 		.ascii	"doBMS_RelayNegDrive_write\000"
+ 1103      535F5265 
+ 1103      6C61794E 
+ 1103      65674472 
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 24
+
+
+ 1103      6976655F 
+ 1104              	.LASF18:
+ 1105 01c3 6469424D 		.ascii	"diBMS_RelayPosFdbk_read\000"
+ 1105      535F5265 
+ 1105      6C617950 
+ 1105      6F734664 
+ 1105      626B5F72 
+ 1106              	.LASF21:
+ 1107 01db 53657444 		.ascii	"SetDTC_f010_PosRelayWeldedClosed\000"
+ 1107      54435F66 
+ 1107      3031305F 
+ 1107      506F7352 
+ 1107      656C6179 
+ 1108              	.LASF4:
+ 1109 01fc 52454C41 		.ascii	"RELAY_FAULT\000"
+ 1109      595F4641 
+ 1109      554C5400 
+ 1110              	.LASF3:
+ 1111 0208 52454C41 		.ascii	"RELAY_OPENING\000"
+ 1111      595F4F50 
+ 1111      454E494E 
+ 1111      4700
+ 1112              	.LASF20:
+ 1113 0216 436C6561 		.ascii	"ClearDTC_f010_PosRelayWeldedClosed\000"
+ 1113      72445443 
+ 1113      5F663031 
+ 1113      305F506F 
+ 1113      7352656C 
+ 1114              	.LASF29:
+ 1115 0239 436C6561 		.ascii	"ClearDTC_f010_NegRelayWeldedClosed\000"
+ 1115      72445443 
+ 1115      5F663031 
+ 1115      305F4E65 
+ 1115      6752656C 
+ 1116              	.LASF30:
+ 1117 025c 53657444 		.ascii	"SetDTC_f010_NegRelayWeldedClosed\000"
+ 1117      54435F66 
+ 1117      3031305F 
+ 1117      4E656752 
+ 1117      656C6179 
+ 1118              	.LASF34:
+ 1119 027d 6169424D 		.ascii	"aiBMS_outputVoltage_read\000"
+ 1119      535F6F75 
+ 1119      74707574 
+ 1119      566F6C74 
+ 1119      6167655F 
+ 1120              	.LASF5:
+ 1121 0296 52454C41 		.ascii	"RELAY_UNKNOWN\000"
+ 1121      595F554E 
+ 1121      4B4E4F57 
+ 1121      4E00
+ 1122              	.LASF32:
+ 1123 02a4 50657266 		.ascii	"PerformPrecharge\000"
+ 1123      6F726D50 
+ 1123      72656368 
+ 1123      61726765 
+ 1123      00
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 25
+
+
+ 1124              	.LASF19:
+ 1125 02b5 646F424D 		.ascii	"doBMS_RelayPosDrive_write\000"
+ 1125      535F5265 
+ 1125      6C617950 
+ 1125      6F734472 
+ 1125      6976655F 
+ 1126              	.LASF38:
+ 1127 02cf 424D535F 		.ascii	"BMS_State\000"
+ 1127      53746174 
+ 1127      6500
+ 1128              	.LASF0:
+ 1129 02d9 52454C41 		.ascii	"RELAY_CLOSED\000"
+ 1129      595F434C 
+ 1129      4F534544 
+ 1129      00
+ 1130              	.LASF15:
+ 1131 02e6 424D535F 		.ascii	"BMS_STATE_FAULT\000"
+ 1131      53544154 
+ 1131      455F4641 
+ 1131      554C5400 
+ 1132              	.LASF9:
+ 1133 02f6 424D535F 		.ascii	"BMS_STATE_READY\000"
+ 1133      53544154 
+ 1133      455F5245 
+ 1133      41445900 
+ 1134              	.LASF1:
+ 1135 0306 52454C41 		.ascii	"RELAY_CLOSING\000"
+ 1135      595F434C 
+ 1135      4F53494E 
+ 1135      4700
+ 1136              	.LASF22:
+ 1137 0314 53657444 		.ascii	"SetDTC_a010_RelayWontCloseInFault\000"
+ 1137      54435F61 
+ 1137      3031305F 
+ 1137      52656C61 
+ 1137      79576F6E 
+ 1138              	.LASF23:
+ 1139 0336 506F7352 		.ascii	"PosRelayFeedback\000"
+ 1139      656C6179 
+ 1139      46656564 
+ 1139      6261636B 
+ 1139      00
+ 1140              	.LASF37:
+ 1141 0347 53657444 		.ascii	"SetDTC_f014_PrechareFailure\000"
+ 1141      54435F66 
+ 1141      3031345F 
+ 1141      50726563 
+ 1141      68617265 
+ 1142              	.LASF43:
+ 1143 0363 52656C61 		.ascii	"RelayControl.c\000"
+ 1143      79436F6E 
+ 1143      74726F6C 
+ 1143      2E6300
+ 1144              	.LASF25:
+ 1145 0372 6469424D 		.ascii	"diBMS_RelayNegFdbk_read\000"
+ 1145      535F5265 
+ 1145      6C61794E 
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccbk2SVt.s 			page 26
+
+
+ 1145      65674664 
+ 1145      626B5F72 
+ 1146              	.LASF8:
+ 1147 038a 424D535F 		.ascii	"BMS_STATE_INIT\000"
+ 1147      53544154 
+ 1147      455F494E 
+ 1147      495400
+ 1148              	.LASF24:
+ 1149 0399 4E656752 		.ascii	"NegRelayFeedback\000"
+ 1149      656C6179 
+ 1149      46656564 
+ 1149      6261636B 
+ 1149      00
+ 1150              	.LASF13:
+ 1151 03aa 424D535F 		.ascii	"BMS_STATE_SHUTTING_DOWN\000"
+ 1151      53544154 
+ 1151      455F5348 
+ 1151      55545449 
+ 1151      4E475F44 
+ 1152              	.LASF44:
+ 1153 03c2 433A5C55 		.ascii	"C:\\Users\\Timmo\\Documents\\GitHub\\Software\\BMS\\"
+ 1153      73657273 
+ 1153      5C54696D 
+ 1153      6D6F5C44 
+ 1153      6F63756D 
+ 1154 03ef 424D535F 		.ascii	"BMS_Workspace\\BMS_Master.cydsn\000"
+ 1154      576F726B 
+ 1154      73706163 
+ 1154      655C424D 
+ 1154      535F4D61 
+ 1155              	.LASF14:
+ 1156 040e 424D535F 		.ascii	"BMS_STATE_SLEEP\000"
+ 1156      53544154 
+ 1156      455F534C 
+ 1156      45455000 
+ 1157              	.LASF16:
+ 1158 041e 424D535F 		.ascii	"BMS_STATE_UPDATING\000"
+ 1158      53544154 
+ 1158      455F5550 
+ 1158      44415449 
+ 1158      4E4700
+ 1159              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

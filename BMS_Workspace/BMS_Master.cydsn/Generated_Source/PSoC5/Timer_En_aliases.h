@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: aiECU_BrakePressureFront.h  
+* File Name: Timer_En.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_aiECU_BrakePressureFront_ALIASES_H) /* Pins aiECU_BrakePressureFront_ALIASES_H */
-#define CY_PINS_aiECU_BrakePressureFront_ALIASES_H
+#if !defined(CY_PINS_Timer_En_ALIASES_H) /* Pins Timer_En_ALIASES_H */
+#define CY_PINS_Timer_En_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -25,12 +25,12 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define aiECU_BrakePressureFront_0			(aiECU_BrakePressureFront__0__PC)
-#define aiECU_BrakePressureFront_0_INTR	((uint16)((uint16)0x0001u << aiECU_BrakePressureFront__0__SHIFT))
+#define Timer_En_0			(Timer_En__0__PC)
+#define Timer_En_0_INTR	((uint16)((uint16)0x0001u << Timer_En__0__SHIFT))
 
-#define aiECU_BrakePressureFront_INTR_ALL	 ((uint16)(aiECU_BrakePressureFront_0_INTR))
+#define Timer_En_INTR_ALL	 ((uint16)(Timer_En_0_INTR))
 
-#endif /* End Pins aiECU_BrakePressureFront_ALIASES_H */
+#endif /* End Pins Timer_En_ALIASES_H */
 
 
 /* [] END OF FILE */

@@ -10,4 +10,25 @@
  * ========================================
 */
 
+#include "CAN.h"
+
+
+/*
+Get_CAN.Message()
+{
+    Get_Signal01();
+    Get_Signal02();
+}
+
+Set_CAN.Message()
+{
+    Set_Signal01;
+}
+
+
+*/
+
+
+
+
 /* [] END OF FILE */

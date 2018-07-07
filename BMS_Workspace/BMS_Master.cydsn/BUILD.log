@@ -1,88 +1,136 @@
---------------- Build Started: 06/24/2018 11:38:10 Project: BMS_Master, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-The code generation step is up to date.
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/RelayControl.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c RelayControl.c -o .\CortexM3\ARM_GCC_541\Debug\RelayControl.o
-RelayControl.c:24:1: warning: return type defaults to 'int' [-Wimplicit-int]
- ClosePosRelay()
+--------------- Build Started: 07/06/2018 15:11:33 Project: BMS_Master, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\Timmo\AppData\Local\Cypress Semiconductor\PSoC Creator\4.2" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\BMS_Master.cyprj -d CY8C5888LTI-LP097 -s C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0065: information: Analog terminal "aiBMS_PackVoltage.analog_0" on TopDesign is unconnected.
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Signal: Net_95)
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Shape_55.1)
+ADD: sdb.M0065: information: Analog terminal "aiBMS_OutputVoltage.analog_0" on TopDesign is unconnected.
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Signal: Net_94)
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Shape_54.1)
+ADD: sdb.M0065: information: Analog terminal "aiECU_PyroFront.analog_0" on TopDesign is unconnected.
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Signal: Net_68)
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Shape_32.1)
+ADD: sdb.M0065: information: Analog terminal "aiECU_PyroRear.analog_0" on TopDesign is unconnected.
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Signal: Net_69)
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Shape_33.1)
+ADD: sdb.M0065: information: Analog terminal "aiBMS_VoltageSense.analog_0" on TopDesign is unconnected.
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Signal: Net_58)
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Shape_31.1)
+ADD: sdb.M0065: information: Analog terminal "aiTHM_CoolantInlet.analog_0" on TopDesign is unconnected.
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Signal: Net_70)
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Shape_29.1)
+ADD: sdb.M0065: information: Analog terminal "aiTHM_CoolantOutlet.analog_0" on TopDesign is unconnected.
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Signal: Net_71)
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Shape_30.1)
+ADD: sdb.M0060: warning: Warning in component: Vehicle_CAN. The BUS_CLK clock accuracy should be 0.5% or better. Please, use an external XTAL or external clock source to meet the CAN accurate clocking requirements.
+ * C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch (Instance:Vehicle_CAN)
+HDL Generation...
+Synthesis...
+Tech Mapping...
+ADD: pft.M0040: information: The following 20 pin(s) will be assigned a location by the fitter: aiBMS_OutputVoltage(0), aiBMS_PackVoltage(0), aiBMS_VoltageSense(0), aiECU_PyroFront(0), aiECU_PyroRear(0), aiTHM_CoolantInlet(0), aiTHM_CoolantOutlet(0), diBMS_RelayNegFdbk(0), diBMS_RelayPosFdbk(0), doBMS_RelayNegDrive(0), doBMS_RelayPosDrive(0), doBMS_RelayPreCharge(0), doTHM_FanEn(0), doTHM_PumpEn(0), Pin_1(0), RX_CAN(0), RxUART(0), Timer_En(0), TX_CAN(0), TxUART(0)
+Analog Placement...
+Analog Routing...
+Analog Code Generation...
+Digital Placement...
+Digital Routing...
+Bitstream Generation...
+Bitstream Verification...
+Static timing analysis...
+API Generation...
+Dependency Generation...
+Cleanup...
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Timer.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Timer.c -o .\CortexM3\ARM_GCC_541\Debug\Timer.o
+Timer.c:24:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ GlobalTimer_Init()
  ^
-RelayControl.c:24:1: warning: conflicting types for 'ClosePosRelay'
-In file included from RelayControl.c:13:0:
-RelayControl.h:25:6: note: previous declaration of 'ClosePosRelay' was here
- void ClosePosRelay();
+Timer.c:24:1: warning: conflicting types for 'GlobalTimer_Init'
+In file included from Timer.c:13:0:
+Timer.h:20:6: note: previous declaration of 'GlobalTimer_Init' was here
+ void GlobalTimer_Init(void);
       ^
-RelayControl.c: In function 'ClosePosRelay':
-RelayControl.c:29:9: warning: implicit declaration of function 'doBMS_RelayPosDrive_write' [-Wimplicit-function-declaration]
-         doBMS_RelayPosDrive_write(1);
-         ^
-RelayControl.c:36:13: warning: implicit declaration of function 'ClearDTC_f010_PosRelayWeldedClosed' [-Wimplicit-function-declaration]
-             ClearDTC_f010_PosRelayWeldedClosed();
-             ^
-RelayControl.c:40:13: warning: implicit declaration of function 'SetDTC_f010_PosRelayWeldedClosed' [-Wimplicit-function-declaration]
-             SetDTC_f010_PosRelayWeldedClosed();
-             ^
-RelayControl.c:46:9: warning: implicit declaration of function 'SetDTC_a010_RelayWontCloseInFault' [-Wimplicit-function-declaration]
-         SetDTC_a010_RelayWontCloseInFault();
-         ^
-RelayControl.c: In function 'PosRelayFeedback':
-RelayControl.c:56:1: warning: control reaches end of non-void function [-Wreturn-type]
+Timer.c: In function 'GlobalTimer_Init':
+Timer.c:27:5: warning: implicit declaration of function 'Global_Timer_start' [-Wimplicit-function-declaration]
+     Global_Timer_start();
+     ^
+Timer.c: At top level:
+Timer.c:34:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ GetGlobalTime()
+ ^
+Timer.c: In function 'GetGlobalTime':
+Timer.c:36:12: warning: implicit declaration of function 'Global_Timer_ReadCounter' [-Wimplicit-function-declaration]
+     return Global_Timer_ReadCounter();
+            ^
+Timer.c: In function 'CAN_MIA_Expired':
+Timer.c:45:49: warning: implicit declaration of function 'CAN_MIA_GetStartTime' [-Wimplicit-function-declaration]
+     unsigned int deltaTime = (GetGlobalTime() - CAN_MIA_GetStartTime())*BUSCLOCK_BASE;
+                                                 ^
+Timer.c: At top level:
+Timer.c:53:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ CAN_MIA_SetStartTime()
+ ^
+Timer.c: In function 'CAN_MIA_SetStartTime':
+Timer.c:55:19: warning: unused variable 'StartTime' [-Wunused-variable]
+     unsigned long StartTime = GetGlobalTime();
+                   ^
+Timer.c:56:1: warning: control reaches end of non-void function [-Wreturn-type]
  }
  ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/IVT-S.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c IVT-S.c -o .\CortexM3\ARM_GCC_541\Debug\IVT-S.o
+IVT-S.c:23:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ Configure_IVT()
+ ^
+IVT-S.c:23:1: warning: conflicting types for 'Configure_IVT'
+In file included from IVT-S.c:13:0:
+IVT-S.h:46:6: note: previous declaration of 'Configure_IVT' was here
+ void Configure_IVT();
+      ^
+IVT-S.c:32:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ GetCurrent()
+ ^
+IVT-S.c: In function 'GetCurrent':
+IVT-S.c:35:9: warning: implicit declaration of function 'Get_IVT_I' [-Wimplicit-function-declaration]
+  iBat = Get_IVT_I();
+         ^
+IVT-S.c:39:3: warning: implicit declaration of function 'SetDTC_f030_PackPosOvercurrent' [-Wimplicit-function-declaration]
+   SetDTC_f030_PackPosOvercurrent();
+   ^
+IVT-S.c:43:3: warning: implicit declaration of function 'SetDTC_f031_PackNegOvercurrent' [-Wimplicit-function-declaration]
+   SetDTC_f031_PackNegOvercurrent();
+   ^
+IVT-S.c:47:3: warning: implicit declaration of function 'ClearDTC_f030_PackPosOvercurrent' [-Wimplicit-function-declaration]
+   ClearDTC_f030_PackPosOvercurrent();
+   ^
+IVT-S.c:48:3: warning: implicit declaration of function 'ClearDTC_f031_PackNegOvercurrent' [-Wimplicit-function-declaration]
+   ClearDTC_f031_PackNegOvercurrent();
+   ^
+IVT-S.c: At top level:
+IVT-S.c:57:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ GetVoltage()
+ ^
+IVT-S.c: In function 'GetVoltage':
+IVT-S.c:59:9: warning: implicit declaration of function 'Get_IVT_Vbat' [-Wimplicit-function-declaration]
+  vBat = Get_IVT_Vbat();
+         ^
+IVT-S.c:63:3: warning: implicit declaration of function 'SetDTC_a040_PackOverV' [-Wimplicit-function-declaration]
+   SetDTC_a040_PackOverV();
+   ^
+IVT-S.c:67:3: warning: implicit declaration of function 'SetDTC_a041_PackUnderV' [-Wimplicit-function-declaration]
+   SetDTC_a041_PackUnderV();
+   ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CAN.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c CAN.c -o .\CortexM3\ARM_GCC_541\Debug\CAN.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyfitter_cfg.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyfitter_cfg.c -o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cymetadata.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cymetadata.c -o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/RX_CAN.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\RX_CAN.c -o .\CortexM3\ARM_GCC_541\Debug\RX_CAN.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/TX_CAN.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\TX_CAN.c -o .\CortexM3\ARM_GCC_541\Debug\TX_CAN.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Vehicle_CAN.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Vehicle_CAN.c -o .\CortexM3\ARM_GCC_541\Debug\Vehicle_CAN.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Vehicle_CAN_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Vehicle_CAN_INT.c -o .\CortexM3\ARM_GCC_541\Debug\Vehicle_CAN_INT.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Vehicle_CAN_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Vehicle_CAN_PM.c -o .\CortexM3\ARM_GCC_541\Debug\Vehicle_CAN_PM.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Vehicle_CAN_TX_RX_func.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Vehicle_CAN_TX_RX_func.c -o .\CortexM3\ARM_GCC_541\Debug\Vehicle_CAN_TX_RX_func.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/SPICAN.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\SPICAN.c -o .\CortexM3\ARM_GCC_541\Debug\SPICAN.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/SPICAN_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\SPICAN_PM.c -o .\CortexM3\ARM_GCC_541\Debug\SPICAN_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/SPICAN_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\SPICAN_INT.c -o .\CortexM3\ARM_GCC_541\Debug\SPICAN_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_DBG.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_DBG.c -o .\CortexM3\ARM_GCC_541\Debug\UART_DBG.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_DBG_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_DBG_PM.c -o .\CortexM3\ARM_GCC_541\Debug\UART_DBG_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_DBG_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_DBG_INT.c -o .\CortexM3\ARM_GCC_541\Debug\UART_DBG_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_DBG_BOOT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_DBG_BOOT.c -o .\CortexM3\ARM_GCC_541\Debug\UART_DBG_BOOT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Clock_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Clock_1.c -o .\CortexM3\ARM_GCC_541\Debug\Clock_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_1.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_DBG_IntClock.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_DBG_IntClock.c -o .\CortexM3\ARM_GCC_541\Debug\UART_DBG_IntClock.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Cm3Start.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Cm3Start.c -o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyDmac.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyDmac.c -o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyFlash.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyFlash.c -o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyLib.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyLib.c -o .\CortexM3\ARM_GCC_541\Debug\CyLib.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyPm.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyPm.c -o .\CortexM3\ARM_GCC_541\Debug\cyPm.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CySpc.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CySpc.c -o .\CortexM3\ARM_GCC_541\Debug\CySpc.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyutils.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyutils.c -o .\CortexM3\ARM_GCC_541\Debug\cyutils.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cy_em_eeprom.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cy_em_eeprom.c -o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/aiECU_BrakePressureFront.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\aiECU_BrakePressureFront.c -o .\CortexM3\ARM_GCC_541\Debug\aiECU_BrakePressureFront.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/aiECU_BrakePressureRear.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\aiECU_BrakePressureRear.c -o .\CortexM3\ARM_GCC_541\Debug\aiECU_BrakePressureRear.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/aiECU_Throttle2.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\aiECU_Throttle2.c -o .\CortexM3\ARM_GCC_541\Debug\aiECU_Throttle2.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/aiECU_Throttle1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\aiECU_Throttle1.c -o .\CortexM3\ARM_GCC_541\Debug\aiECU_Throttle1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/aiBMS_VoltageSense.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\aiBMS_VoltageSense.c -o .\CortexM3\ARM_GCC_541\Debug\aiBMS_VoltageSense.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/aiECU_PyroFront.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\aiECU_PyroFront.c -o .\CortexM3\ARM_GCC_541\Debug\aiECU_PyroFront.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/aiECU_PyroRear.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\aiECU_PyroRear.c -o .\CortexM3\ARM_GCC_541\Debug\aiECU_PyroRear.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/aiECU_BrakeInput1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\aiECU_BrakeInput1.c -o .\CortexM3\ARM_GCC_541\Debug\aiECU_BrakeInput1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/aiECU_BrakeInput2.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\aiECU_BrakeInput2.c -o .\CortexM3\ARM_GCC_541\Debug\aiECU_BrakeInput2.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/aiTHM_CoolantOutlet.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\aiTHM_CoolantOutlet.c -o .\CortexM3\ARM_GCC_541\Debug\aiTHM_CoolantOutlet.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/aiTHM_CoolantInlet.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\aiTHM_CoolantInlet.c -o .\CortexM3\ARM_GCC_541\Debug\aiTHM_CoolantInlet.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/doTHM_PumpEn.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\doTHM_PumpEn.c -o .\CortexM3\ARM_GCC_541\Debug\doTHM_PumpEn.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/doTHM_FanEn.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\doTHM_FanEn.c -o .\CortexM3\ARM_GCC_541\Debug\doTHM_FanEn.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/doECU_BrakeLight.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\doECU_BrakeLight.c -o .\CortexM3\ARM_GCC_541\Debug\doECU_BrakeLight.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/diBMS_RelayPosFdbk.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\diBMS_RelayPosFdbk.c -o .\CortexM3\ARM_GCC_541\Debug\diBMS_RelayPosFdbk.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/doBMS_RelayPosDrive.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\doBMS_RelayPosDrive.c -o .\CortexM3\ARM_GCC_541\Debug\doBMS_RelayPosDrive.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/diBMS_RelayNegFdbk.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\diBMS_RelayNegFdbk.c -o .\CortexM3\ARM_GCC_541\Debug\diBMS_RelayNegFdbk.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/doBMS_RelayNegDrive.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\doBMS_RelayNegDrive.c -o .\CortexM3\ARM_GCC_541\Debug\doBMS_RelayNegDrive.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/aiBMS_OutputVoltage.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\aiBMS_OutputVoltage.c -o .\CortexM3\ARM_GCC_541\Debug\aiBMS_OutputVoltage.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/aiBMS_PackVoltage.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\aiBMS_PackVoltage.c -o .\CortexM3\ARM_GCC_541\Debug\aiBMS_PackVoltage.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/doBMS_RelayPreCharge.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\doBMS_RelayPreCharge.c -o .\CortexM3\ARM_GCC_541\Debug\doBMS_RelayPreCharge.o
-arm-none-eabi-as.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -alh=.\CortexM3\ARM_GCC_541\Debug/CyBootAsmGnu.lst -g -W -o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o Generated_Source\PSoC5\CyBootAsmGnu.s
-arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\BMS_Master.a .\CortexM3\ARM_GCC_541\Debug\RX_CAN.o .\CortexM3\ARM_GCC_541\Debug\TX_CAN.o .\CortexM3\ARM_GCC_541\Debug\Vehicle_CAN.o .\CortexM3\ARM_GCC_541\Debug\Vehicle_CAN_INT.o .\CortexM3\ARM_GCC_541\Debug\Vehicle_CAN_PM.o .\CortexM3\ARM_GCC_541\Debug\Vehicle_CAN_TX_RX_func.o .\CortexM3\ARM_GCC_541\Debug\SPICAN.o .\CortexM3\ARM_GCC_541\Debug\SPICAN_PM.o .\CortexM3\ARM_GCC_541\Debug\SPICAN_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_DBG.o .\CortexM3\ARM_GCC_541\Debug\UART_DBG_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_DBG_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_DBG_BOOT.o .\CortexM3\ARM_GCC_541\Debug\Clock_1.o .\CortexM3\ARM_GCC_541\Debug\Pin_1.o .\CortexM3\ARM_GCC_541\Debug\UART_DBG_IntClock.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\aiECU_BrakePressureFront.o .\CortexM3\ARM_GCC_541\Debug\aiECU_BrakePressureRear.o .\CortexM3\ARM_GCC_541\Debug\aiECU_Throttle2.o .\CortexM3\ARM_GCC_541\Debug\aiECU_Throttle1.o .\CortexM3\ARM_GCC_541\Debug\aiBMS_VoltageSense.o .\CortexM3\ARM_GCC_541\Debug\aiECU_PyroFront.o .\CortexM3\ARM_GCC_541\Debug\aiECU_PyroRear.o .\CortexM3\ARM_GCC_541\Debug\aiECU_BrakeInput1.o .\CortexM3\ARM_GCC_541\Debug\aiECU_BrakeInput2.o .\CortexM3\ARM_GCC_541\Debug\aiTHM_CoolantOutlet.o .\CortexM3\ARM_GCC_541\Debug\aiTHM_CoolantInlet.o .\CortexM3\ARM_GCC_541\Debug\doTHM_PumpEn.o .\CortexM3\ARM_GCC_541\Debug\doTHM_FanEn.o .\CortexM3\ARM_GCC_541\Debug\doECU_BrakeLight.o .\CortexM3\ARM_GCC_541\Debug\diBMS_RelayPosFdbk.o .\CortexM3\ARM_GCC_541\Debug\doBMS_RelayPosDrive.o .\CortexM3\ARM_GCC_541\Debug\diBMS_RelayNegFdbk.o .\CortexM3\ARM_GCC_541\Debug\doBMS_RelayNegDrive.o .\CortexM3\ARM_GCC_541\Debug\aiBMS_OutputVoltage.o .\CortexM3\ARM_GCC_541\Debug\aiBMS_PackVoltage.o .\CortexM3\ARM_GCC_541\Debug\doBMS_RelayPreCharge.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\BMS_Master.a .\CortexM3\ARM_GCC_541\Debug\RX_CAN.o .\CortexM3\ARM_GCC_541\Debug\TX_CAN.o .\CortexM3\ARM_GCC_541\Debug\Vehicle_CAN.o .\CortexM3\ARM_GCC_541\Debug\Vehicle_CAN_INT.o .\CortexM3\ARM_GCC_541\Debug\Vehicle_CAN_PM.o .\CortexM3\ARM_GCC_541\Debug\Vehicle_CAN_TX_RX_func.o .\CortexM3\ARM_GCC_541\Debug\SPICAN.o .\CortexM3\ARM_GCC_541\Debug\SPICAN_PM.o .\CortexM3\ARM_GCC_541\Debug\SPICAN_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_DBG.o .\CortexM3\ARM_GCC_541\Debug\UART_DBG_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_DBG_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_DBG_BOOT.o .\CortexM3\ARM_GCC_541\Debug\Clock_1.o .\CortexM3\ARM_GCC_541\Debug\Pin_1.o .\CortexM3\ARM_GCC_541\Debug\UART_DBG_IntClock.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\aiBMS_VoltageSense.o .\CortexM3\ARM_GCC_541\Debug\aiECU_PyroFront.o .\CortexM3\ARM_GCC_541\Debug\aiECU_PyroRear.o .\CortexM3\ARM_GCC_541\Debug\aiTHM_CoolantOutlet.o .\CortexM3\ARM_GCC_541\Debug\aiTHM_CoolantInlet.o .\CortexM3\ARM_GCC_541\Debug\doTHM_PumpEn.o .\CortexM3\ARM_GCC_541\Debug\doTHM_FanEn.o .\CortexM3\ARM_GCC_541\Debug\diBMS_RelayPosFdbk.o .\CortexM3\ARM_GCC_541\Debug\doBMS_RelayPosDrive.o .\CortexM3\ARM_GCC_541\Debug\diBMS_RelayNegFdbk.o .\CortexM3\ARM_GCC_541\Debug\doBMS_RelayNegDrive.o .\CortexM3\ARM_GCC_541\Debug\aiBMS_OutputVoltage.o .\CortexM3\ARM_GCC_541\Debug\aiBMS_PackVoltage.o .\CortexM3\ARM_GCC_541\Debug\doBMS_RelayPreCharge.o .\CortexM3\ARM_GCC_541\Debug\Timer_En.o .\CortexM3\ARM_GCC_541\Debug\Global_Timer.o .\CortexM3\ARM_GCC_541\Debug\Global_Timer_PM.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\BMS_Master.a
-arm-none-eabi-gcc.exe -Wl,--start-group -o C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\CortexM3\ARM_GCC_541\Debug\BMS_Master.elf .\CortexM3\ARM_GCC_541\Debug\mainState.o .\CortexM3\ARM_GCC_541\Debug\DriverControls.o .\CortexM3\ARM_GCC_541\Debug\DTC.o .\CortexM3\ARM_GCC_541\Debug\RelayControl.o .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\BMS_Master.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/BMS_Master.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+arm-none-eabi-gcc.exe -Wl,--start-group -o C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\CortexM3\ARM_GCC_541\Debug\BMS_Master.elf .\CortexM3\ARM_GCC_541\Debug\DriverControls.o .\CortexM3\ARM_GCC_541\Debug\DTC.o .\CortexM3\ARM_GCC_541\Debug\RelayControl.o .\CortexM3\ARM_GCC_541\Debug\mainState.o .\CortexM3\ARM_GCC_541\Debug\SOC.o .\CortexM3\ARM_GCC_541\Debug\Thermal.o .\CortexM3\ARM_GCC_541\Debug\PowerLimit.o .\CortexM3\ARM_GCC_541\Debug\IsolationMonitor.o .\CortexM3\ARM_GCC_541\Debug\TempSense.o .\CortexM3\ARM_GCC_541\Debug\Timer.o .\CortexM3\ARM_GCC_541\Debug\BMS_to_Vehicle.o .\CortexM3\ARM_GCC_541\Debug\BMS_to_Slave.o .\CortexM3\ARM_GCC_541\Debug\IVT-S.o .\CortexM3\ARM_GCC_541\Debug\CAN.o .\CortexM3\ARM_GCC_541\Debug\SPI.o .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\BMS_Master.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/BMS_Master.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
 cyelftool.exe -C C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\CortexM3\ARM_GCC_541\Debug\BMS_Master.elf --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
 No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\CortexM3\ARM_GCC_541\Debug\BMS_Master.elf
-Flash used: 1350 of 262144 bytes (0.5%).
+Flash used: 1358 of 262144 bytes (0.5%).
 SRAM used: 2505 of 65536 bytes (3.8%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 06/24/2018 11:38:21 ---------------
+--------------- Build Succeeded: 07/06/2018 15:12:14 ---------------

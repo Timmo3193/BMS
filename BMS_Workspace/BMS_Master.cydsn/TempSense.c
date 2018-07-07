@@ -10,37 +10,34 @@
  * ========================================
 */
 //PUT THESE INTO TEMPSENSE.H
-#define NTC_MaxPlausable		100 //degrees <-Convert to data seen on SPI
-int tempMax = 0;
-int tempMaxLocation[] = {0, 0};
-int tempMin = 0;
-int tempMinLocation[] = {0, 0};
-int tempAverage = 0;
+
+#include "TempSense.h"
+#include "SPI.h"
 
 
-void ReadTempSensors()
+ReadTempSensors()
 {
 	//Initializing Variables to 0.
 	int temp = 0;
 	tempMax = 0;
-	tempMaxLocation[] = {0, 0};
+	tempMaxLocation = 0;
 	tempMin = 0;
-	tempMinLocation[] = {0, 0};
+	tempMinLocation = 0;
 	tempAverage = 0;
 	numValidSensors = 0;
 
     //For Loop
-	for(int i = 0, NUM_LTC_CHIPS, i++)
+	for(int i = 0; NUM_LTC_CHIPS; i++)
 	{
-		for(int j = 0; NUM_NTC_PER_LTC, j++)
+		for(int j = 0; NUM_NTC_PER_LTC; j++)
 		{
 			//Do a plausability check
 			temp = GetNTCFromSPI();
-			if (temp > NTC_MaxPlausable)
+			if (temp > NTC_MAXPLAUSABLE)
 			{
 				SetDTC_a020_invalidTempHigh(i,j);
 			}
-			else if (temp < NTC_MinPlausable)
+			else if (temp < NTC_MINPLAUSABLE)
 			{
 				SetDTC_a021_invalidTempLow(i,j);
 			}
@@ -53,12 +50,12 @@ void ReadTempSensors()
 				if( temp > tempMax)
 				{
 					tempMax = temp;
-					tempMaxLocation[] = {i,j};
+					tempMaxLocation = (i * NUM_LTC_CHIPS) + j;
 				}
 				else if( temp < tempMin)
 				{
 					tempMin = temp;
-					tempMinLocation[] = {i,j};
+					tempMinLocation = (i * NUM_LTC_CHIPS) + j;
 				}
 
 				//Update the average Temp
@@ -76,7 +73,7 @@ void ReadTempSensors()
 }
 
 
-void SetMessage_CellTemps()
+SetMessage_CellTemps()
 {
 	// min temp
 	// min location

@@ -1,0 +1,988 @@
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"TempSense.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.ReadTempSensors,"ax",%progbits
+  20              		.align	2
+  21              		.global	ReadTempSensors
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	ReadTempSensors, %function
+  25              	ReadTempSensors:
+  26              	.LFB0:
+  27              		.file 1 "TempSense.c"
+   1:TempSense.c   **** /* ========================================
+   2:TempSense.c   ****  *
+   3:TempSense.c   ****  * Copyright YOUR COMPANY, THE YEAR
+   4:TempSense.c   ****  * All Rights Reserved
+   5:TempSense.c   ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:TempSense.c   ****  *
+   7:TempSense.c   ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:TempSense.c   ****  * WHICH IS THE PROPERTY OF your company.
+   9:TempSense.c   ****  *
+  10:TempSense.c   ****  * ========================================
+  11:TempSense.c   **** */
+  12:TempSense.c   **** //PUT THESE INTO TEMPSENSE.H
+  13:TempSense.c   **** 
+  14:TempSense.c   **** #include "TempSense.h"
+  15:TempSense.c   **** #include "SPI.h"
+  16:TempSense.c   **** 
+  17:TempSense.c   **** 
+  18:TempSense.c   **** ReadTempSensors()
+  19:TempSense.c   **** {
+  28              		.loc 1 19 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 38B5     		push	{r3, r4, r5, lr}
+  33              		.cfi_def_cfa_offset 16
+  34              		.cfi_offset 3, -16
+  35              		.cfi_offset 4, -12
+  36              		.cfi_offset 5, -8
+  37              		.cfi_offset 14, -4
+  38              	.LVL0:
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 2
+
+
+  20:TempSense.c   **** 	//Initializing Variables to 0.
+  21:TempSense.c   **** 	int temp = 0;
+  22:TempSense.c   **** 	tempMax = 0;
+  39              		.loc 1 22 0
+  40 0002 1C4B     		ldr	r3, .L9
+  41 0004 0025     		movs	r5, #0
+  42 0006 1D60     		str	r5, [r3]
+  23:TempSense.c   **** 	tempMaxLocation = 0;
+  43              		.loc 1 23 0
+  44 0008 5D60     		str	r5, [r3, #4]
+  24:TempSense.c   **** 	tempMin = 0;
+  45              		.loc 1 24 0
+  46 000a 9D60     		str	r5, [r3, #8]
+  25:TempSense.c   **** 	tempMinLocation = 0;
+  47              		.loc 1 25 0
+  48 000c DD60     		str	r5, [r3, #12]
+  26:TempSense.c   **** 	tempAverage = 0;
+  49              		.loc 1 26 0
+  50 000e 1D61     		str	r5, [r3, #16]
+  27:TempSense.c   **** 	numValidSensors = 0;
+  51              		.loc 1 27 0
+  52 0010 5D61     		str	r5, [r3, #20]
+  53              	.LVL1:
+  54              	.L7:
+  55              	.LBB2:
+  56              	.LBB3:
+  28:TempSense.c   **** 
+  29:TempSense.c   ****     //For Loop
+  30:TempSense.c   **** 	for(int i = 0; NUM_LTC_CHIPS; i++)
+  31:TempSense.c   **** 	{
+  32:TempSense.c   **** 		for(int j = 0; NUM_NTC_PER_LTC; j++)
+  33:TempSense.c   **** 		{
+  34:TempSense.c   **** 			//Do a plausability check
+  35:TempSense.c   **** 			temp = GetNTCFromSPI();
+  57              		.loc 1 35 0
+  58 0012 FFF7FEFF 		bl	GetNTCFromSPI
+  59              	.LVL2:
+  60 0016 0446     		mov	r4, r0
+  61              	.LVL3:
+  36:TempSense.c   **** 			if (temp > NTC_MAXPLAUSABLE)
+  62              		.loc 1 36 0
+  63 0018 6428     		cmp	r0, #100
+  64 001a 04DD     		ble	.L2
+  65              	.LBB4:
+  37:TempSense.c   **** 			{
+  38:TempSense.c   **** 				SetDTC_a020_invalidTempHigh(i,j);
+  66              		.loc 1 38 0
+  67 001c 2946     		mov	r1, r5
+  68 001e 0020     		movs	r0, #0
+  69              	.LVL4:
+  70 0020 FFF7FEFF 		bl	SetDTC_a020_invalidTempHigh
+  71              	.LVL5:
+  72              	.LBE4:
+  73 0024 24E0     		b	.L3
+  74              	.LVL6:
+  75              	.L2:
+  39:TempSense.c   **** 			}
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 3
+
+
+  40:TempSense.c   **** 			else if (temp < NTC_MINPLAUSABLE)
+  76              		.loc 1 40 0
+  77 0026 6328     		cmp	r0, #99
+  78 0028 04DC     		bgt	.L4
+  79              	.LBB5:
+  41:TempSense.c   **** 			{
+  42:TempSense.c   **** 				SetDTC_a021_invalidTempLow(i,j);
+  80              		.loc 1 42 0
+  81 002a 2946     		mov	r1, r5
+  82 002c 0020     		movs	r0, #0
+  83              	.LVL7:
+  84 002e FFF7FEFF 		bl	SetDTC_a021_invalidTempLow
+  85              	.LVL8:
+  86              	.LBE5:
+  87 0032 1DE0     		b	.L3
+  88              	.LVL9:
+  89              	.L4:
+  90              	.LBB6:
+  43:TempSense.c   **** 			}
+  44:TempSense.c   **** 			else
+  45:TempSense.c   **** 			{
+  46:TempSense.c   **** 				ClearDTC_a020_invalidTempHigh(i,j);
+  91              		.loc 1 46 0
+  92 0034 2946     		mov	r1, r5
+  93 0036 0020     		movs	r0, #0
+  94              	.LVL10:
+  95 0038 FFF7FEFF 		bl	ClearDTC_a020_invalidTempHigh
+  96              	.LVL11:
+  47:TempSense.c   **** 				ClearDTC_a021_invalidTempLow(i,j);
+  97              		.loc 1 47 0
+  98 003c 2946     		mov	r1, r5
+  99 003e 0020     		movs	r0, #0
+ 100 0040 FFF7FEFF 		bl	ClearDTC_a021_invalidTempLow
+ 101              	.LVL12:
+  48:TempSense.c   **** 
+  49:TempSense.c   **** 				//Update max and min values
+  50:TempSense.c   **** 				if( temp > tempMax)
+ 102              		.loc 1 50 0
+ 103 0044 0B4B     		ldr	r3, .L9
+ 104 0046 1B68     		ldr	r3, [r3]
+ 105 0048 9C42     		cmp	r4, r3
+ 106 004a 03DD     		ble	.L5
+  51:TempSense.c   **** 				{
+  52:TempSense.c   **** 					tempMax = temp;
+ 107              		.loc 1 52 0
+ 108 004c 094B     		ldr	r3, .L9
+ 109 004e 1C60     		str	r4, [r3]
+  53:TempSense.c   **** 					tempMaxLocation = (i * NUM_LTC_CHIPS) + j;
+ 110              		.loc 1 53 0
+ 111 0050 5D60     		str	r5, [r3, #4]
+ 112 0052 06E0     		b	.L6
+ 113              	.L5:
+  54:TempSense.c   **** 				}
+  55:TempSense.c   **** 				else if( temp < tempMin)
+ 114              		.loc 1 55 0
+ 115 0054 074B     		ldr	r3, .L9
+ 116 0056 9B68     		ldr	r3, [r3, #8]
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 4
+
+
+ 117 0058 9C42     		cmp	r4, r3
+ 118 005a 02DA     		bge	.L6
+  56:TempSense.c   **** 				{
+  57:TempSense.c   **** 					tempMin = temp;
+ 119              		.loc 1 57 0
+ 120 005c 054B     		ldr	r3, .L9
+ 121 005e 9C60     		str	r4, [r3, #8]
+  58:TempSense.c   **** 					tempMinLocation = (i * NUM_LTC_CHIPS) + j;
+ 122              		.loc 1 58 0
+ 123 0060 DD60     		str	r5, [r3, #12]
+ 124              	.L6:
+  59:TempSense.c   **** 				}
+  60:TempSense.c   **** 
+  61:TempSense.c   **** 				//Update the average Temp
+  62:TempSense.c   **** 				tempAverage += temp;
+ 125              		.loc 1 62 0
+ 126 0062 044B     		ldr	r3, .L9
+ 127 0064 1A69     		ldr	r2, [r3, #16]
+ 128 0066 1444     		add	r4, r4, r2
+ 129              	.LVL13:
+ 130 0068 1C61     		str	r4, [r3, #16]
+  63:TempSense.c   **** 				numValidSensors++;
+ 131              		.loc 1 63 0
+ 132 006a 5A69     		ldr	r2, [r3, #20]
+ 133 006c 0132     		adds	r2, r2, #1
+ 134 006e 5A61     		str	r2, [r3, #20]
+ 135              	.L3:
+ 136              	.LBE6:
+  32:TempSense.c   **** 		{
+ 137              		.loc 1 32 0
+ 138 0070 0135     		adds	r5, r5, #1
+ 139              	.LVL14:
+  64:TempSense.c   **** 			}
+  65:TempSense.c   **** 
+  66:TempSense.c   **** 		}//end j loop
+ 140              		.loc 1 66 0
+ 141 0072 CEE7     		b	.L7
+ 142              	.L10:
+ 143              		.align	2
+ 144              	.L9:
+ 145 0074 00000000 		.word	.LANCHOR0
+ 146              	.LBE3:
+ 147              	.LBE2:
+ 148              		.cfi_endproc
+ 149              	.LFE0:
+ 150              		.size	ReadTempSensors, .-ReadTempSensors
+ 151              		.section	.text.SetMessage_CellTemps,"ax",%progbits
+ 152              		.align	2
+ 153              		.global	SetMessage_CellTemps
+ 154              		.thumb
+ 155              		.thumb_func
+ 156              		.type	SetMessage_CellTemps, %function
+ 157              	SetMessage_CellTemps:
+ 158              	.LFB1:
+  67:TempSense.c   **** 	}//end i loop
+  68:TempSense.c   **** 
+  69:TempSense.c   **** 	tempAverage = tempAverage/numValidSensors;  
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 5
+
+
+  70:TempSense.c   ****     
+  71:TempSense.c   ****     SetMessage_CellTemps();    
+  72:TempSense.c   ****     
+  73:TempSense.c   **** }
+  74:TempSense.c   **** 
+  75:TempSense.c   **** 
+  76:TempSense.c   **** SetMessage_CellTemps()
+  77:TempSense.c   **** {
+ 159              		.loc 1 77 0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163              		@ link register save eliminated.
+ 164 0000 7047     		bx	lr
+ 165              		.cfi_endproc
+ 166              	.LFE1:
+ 167              		.size	SetMessage_CellTemps, .-SetMessage_CellTemps
+ 168              		.global	numValidSensors
+ 169              		.global	tempAverage
+ 170              		.global	tempMinLocation
+ 171              		.global	tempMin
+ 172              		.global	tempMaxLocation
+ 173              		.global	tempMax
+ 174 0002 00BF     		.bss
+ 175              		.align	2
+ 176              		.set	.LANCHOR0,. + 0
+ 177              		.type	tempMax, %object
+ 178              		.size	tempMax, 4
+ 179              	tempMax:
+ 180 0000 00000000 		.space	4
+ 181              		.type	tempMaxLocation, %object
+ 182              		.size	tempMaxLocation, 4
+ 183              	tempMaxLocation:
+ 184 0004 00000000 		.space	4
+ 185              		.type	tempMin, %object
+ 186              		.size	tempMin, 4
+ 187              	tempMin:
+ 188 0008 00000000 		.space	4
+ 189              		.type	tempMinLocation, %object
+ 190              		.size	tempMinLocation, 4
+ 191              	tempMinLocation:
+ 192 000c 00000000 		.space	4
+ 193              		.type	tempAverage, %object
+ 194              		.size	tempAverage, 4
+ 195              	tempAverage:
+ 196 0010 00000000 		.space	4
+ 197              		.type	numValidSensors, %object
+ 198              		.size	numValidSensors, 4
+ 199              	numValidSensors:
+ 200 0014 00000000 		.space	4
+ 201              		.text
+ 202              	.Letext0:
+ 203              		.file 2 "TempSense.h"
+ 204              		.file 3 "SPI.h"
+ 205              		.section	.debug_info,"",%progbits
+ 206              	.Ldebug_info0:
+ 207 0000 F4010000 		.4byte	0x1f4
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 6
+
+
+ 208 0004 0400     		.2byte	0x4
+ 209 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 210 000a 04       		.byte	0x4
+ 211 000b 01       		.uleb128 0x1
+ 212 000c 42010000 		.4byte	.LASF12
+ 213 0010 0C       		.byte	0xc
+ 214 0011 50000000 		.4byte	.LASF13
+ 215 0015 64000000 		.4byte	.LASF14
+ 216 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 217 001d 00000000 		.4byte	0
+ 218 0021 00000000 		.4byte	.Ldebug_line0
+ 219 0025 02       		.uleb128 0x2
+ 220 0026 CC000000 		.4byte	.LASF15
+ 221 002a 01       		.byte	0x1
+ 222 002b 12       		.byte	0x12
+ 223 002c 00000000 		.4byte	.LFB0
+ 224 0030 78000000 		.4byte	.LFE0-.LFB0
+ 225 0034 01       		.uleb128 0x1
+ 226 0035 9C       		.byte	0x9c
+ 227 0036 42010000 		.4byte	0x142
+ 228 003a 03       		.uleb128 0x3
+ 229 003b FF000000 		.4byte	.LASF0
+ 230 003f 01       		.byte	0x1
+ 231 0040 15       		.byte	0x15
+ 232 0041 42010000 		.4byte	0x142
+ 233 0045 00000000 		.4byte	.LLST0
+ 234 0049 04       		.uleb128 0x4
+ 235 004a 12000000 		.4byte	.LBB2
+ 236 004e 66000000 		.4byte	.LBE2-.LBB2
+ 237 0052 05       		.uleb128 0x5
+ 238 0053 6900     		.ascii	"i\000"
+ 239 0055 01       		.byte	0x1
+ 240 0056 1E       		.byte	0x1e
+ 241 0057 42010000 		.4byte	0x142
+ 242 005b 00       		.byte	0
+ 243 005c 04       		.uleb128 0x4
+ 244 005d 12000000 		.4byte	.LBB3
+ 245 0061 66000000 		.4byte	.LBE3-.LBB3
+ 246 0065 06       		.uleb128 0x6
+ 247 0066 6A00     		.ascii	"j\000"
+ 248 0068 01       		.byte	0x1
+ 249 0069 20       		.byte	0x20
+ 250 006a 42010000 		.4byte	0x142
+ 251 006e 01       		.uleb128 0x1
+ 252 006f 55       		.byte	0x55
+ 253 0070 07       		.uleb128 0x7
+ 254 0071 1C000000 		.4byte	.LBB4
+ 255 0075 08000000 		.4byte	.LBE4-.LBB4
+ 256 0079 A4000000 		.4byte	0xa4
+ 257 007d 08       		.uleb128 0x8
+ 258 007e B0000000 		.4byte	.LASF1
+ 259 0082 01       		.byte	0x1
+ 260 0083 26       		.byte	0x26
+ 261 0084 42010000 		.4byte	0x142
+ 262 0088 8E000000 		.4byte	0x8e
+ 263 008c 09       		.uleb128 0x9
+ 264 008d 00       		.byte	0
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 7
+
+
+ 265 008e 0A       		.uleb128 0xa
+ 266 008f 24000000 		.4byte	.LVL5
+ 267 0093 C0010000 		.4byte	0x1c0
+ 268 0097 0B       		.uleb128 0xb
+ 269 0098 01       		.uleb128 0x1
+ 270 0099 50       		.byte	0x50
+ 271 009a 01       		.uleb128 0x1
+ 272 009b 30       		.byte	0x30
+ 273 009c 0B       		.uleb128 0xb
+ 274 009d 01       		.uleb128 0x1
+ 275 009e 51       		.byte	0x51
+ 276 009f 02       		.uleb128 0x2
+ 277 00a0 75       		.byte	0x75
+ 278 00a1 00       		.sleb128 0
+ 279 00a2 00       		.byte	0
+ 280 00a3 00       		.byte	0
+ 281 00a4 07       		.uleb128 0x7
+ 282 00a5 2A000000 		.4byte	.LBB5
+ 283 00a9 08000000 		.4byte	.LBE5-.LBB5
+ 284 00ad D8000000 		.4byte	0xd8
+ 285 00b1 08       		.uleb128 0x8
+ 286 00b2 DC000000 		.4byte	.LASF2
+ 287 00b6 01       		.byte	0x1
+ 288 00b7 2A       		.byte	0x2a
+ 289 00b8 42010000 		.4byte	0x142
+ 290 00bc C2000000 		.4byte	0xc2
+ 291 00c0 09       		.uleb128 0x9
+ 292 00c1 00       		.byte	0
+ 293 00c2 0A       		.uleb128 0xa
+ 294 00c3 32000000 		.4byte	.LVL8
+ 295 00c7 CB010000 		.4byte	0x1cb
+ 296 00cb 0B       		.uleb128 0xb
+ 297 00cc 01       		.uleb128 0x1
+ 298 00cd 50       		.byte	0x50
+ 299 00ce 01       		.uleb128 0x1
+ 300 00cf 30       		.byte	0x30
+ 301 00d0 0B       		.uleb128 0xb
+ 302 00d1 01       		.uleb128 0x1
+ 303 00d2 51       		.byte	0x51
+ 304 00d3 02       		.uleb128 0x2
+ 305 00d4 75       		.byte	0x75
+ 306 00d5 00       		.sleb128 0
+ 307 00d6 00       		.byte	0
+ 308 00d7 00       		.byte	0
+ 309 00d8 07       		.uleb128 0x7
+ 310 00d9 34000000 		.4byte	.LBB6
+ 311 00dd 3C000000 		.4byte	.LBE6-.LBB6
+ 312 00e1 36010000 		.4byte	0x136
+ 313 00e5 08       		.uleb128 0x8
+ 314 00e6 04010000 		.4byte	.LASF3
+ 315 00ea 01       		.byte	0x1
+ 316 00eb 2E       		.byte	0x2e
+ 317 00ec 42010000 		.4byte	0x142
+ 318 00f0 F6000000 		.4byte	0xf6
+ 319 00f4 09       		.uleb128 0x9
+ 320 00f5 00       		.byte	0
+ 321 00f6 08       		.uleb128 0x8
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 8
+
+
+ 322 00f7 00000000 		.4byte	.LASF4
+ 323 00fb 01       		.byte	0x1
+ 324 00fc 2F       		.byte	0x2f
+ 325 00fd 42010000 		.4byte	0x142
+ 326 0101 07010000 		.4byte	0x107
+ 327 0105 09       		.uleb128 0x9
+ 328 0106 00       		.byte	0
+ 329 0107 0C       		.uleb128 0xc
+ 330 0108 3C000000 		.4byte	.LVL11
+ 331 010c D6010000 		.4byte	0x1d6
+ 332 0110 20010000 		.4byte	0x120
+ 333 0114 0B       		.uleb128 0xb
+ 334 0115 01       		.uleb128 0x1
+ 335 0116 50       		.byte	0x50
+ 336 0117 01       		.uleb128 0x1
+ 337 0118 30       		.byte	0x30
+ 338 0119 0B       		.uleb128 0xb
+ 339 011a 01       		.uleb128 0x1
+ 340 011b 51       		.byte	0x51
+ 341 011c 02       		.uleb128 0x2
+ 342 011d 75       		.byte	0x75
+ 343 011e 00       		.sleb128 0
+ 344 011f 00       		.byte	0
+ 345 0120 0A       		.uleb128 0xa
+ 346 0121 44000000 		.4byte	.LVL12
+ 347 0125 E1010000 		.4byte	0x1e1
+ 348 0129 0B       		.uleb128 0xb
+ 349 012a 01       		.uleb128 0x1
+ 350 012b 50       		.byte	0x50
+ 351 012c 01       		.uleb128 0x1
+ 352 012d 30       		.byte	0x30
+ 353 012e 0B       		.uleb128 0xb
+ 354 012f 01       		.uleb128 0x1
+ 355 0130 51       		.byte	0x51
+ 356 0131 02       		.uleb128 0x2
+ 357 0132 75       		.byte	0x75
+ 358 0133 00       		.sleb128 0
+ 359 0134 00       		.byte	0
+ 360 0135 00       		.byte	0
+ 361 0136 0D       		.uleb128 0xd
+ 362 0137 16000000 		.4byte	.LVL2
+ 363 013b EC010000 		.4byte	0x1ec
+ 364 013f 00       		.byte	0
+ 365 0140 00       		.byte	0
+ 366 0141 00       		.byte	0
+ 367 0142 0E       		.uleb128 0xe
+ 368 0143 04       		.byte	0x4
+ 369 0144 05       		.byte	0x5
+ 370 0145 696E7400 		.ascii	"int\000"
+ 371 0149 0F       		.uleb128 0xf
+ 372 014a 3B000000 		.4byte	.LASF16
+ 373 014e 01       		.byte	0x1
+ 374 014f 4C       		.byte	0x4c
+ 375 0150 00000000 		.4byte	.LFB1
+ 376 0154 02000000 		.4byte	.LFE1-.LFB1
+ 377 0158 01       		.uleb128 0x1
+ 378 0159 9C       		.byte	0x9c
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 9
+
+
+ 379 015a 10       		.uleb128 0x10
+ 380 015b 5C000000 		.4byte	.LASF5
+ 381 015f 02       		.byte	0x2
+ 382 0160 13       		.byte	0x13
+ 383 0161 42010000 		.4byte	0x142
+ 384 0165 05       		.uleb128 0x5
+ 385 0166 03       		.byte	0x3
+ 386 0167 00000000 		.4byte	tempMax
+ 387 016b 10       		.uleb128 0x10
+ 388 016c 2B000000 		.4byte	.LASF6
+ 389 0170 02       		.byte	0x2
+ 390 0171 14       		.byte	0x14
+ 391 0172 42010000 		.4byte	0x142
+ 392 0176 05       		.uleb128 0x5
+ 393 0177 03       		.byte	0x3
+ 394 0178 00000000 		.4byte	tempMaxLocation
+ 395 017c 10       		.uleb128 0x10
+ 396 017d F7000000 		.4byte	.LASF7
+ 397 0181 02       		.byte	0x2
+ 398 0182 15       		.byte	0x15
+ 399 0183 42010000 		.4byte	0x142
+ 400 0187 05       		.uleb128 0x5
+ 401 0188 03       		.byte	0x3
+ 402 0189 00000000 		.4byte	tempMin
+ 403 018d 10       		.uleb128 0x10
+ 404 018e 22010000 		.4byte	.LASF8
+ 405 0192 02       		.byte	0x2
+ 406 0193 16       		.byte	0x16
+ 407 0194 42010000 		.4byte	0x142
+ 408 0198 05       		.uleb128 0x5
+ 409 0199 03       		.byte	0x3
+ 410 019a 00000000 		.4byte	tempMinLocation
+ 411 019e 10       		.uleb128 0x10
+ 412 019f D0010000 		.4byte	.LASF9
+ 413 01a3 02       		.byte	0x2
+ 414 01a4 17       		.byte	0x17
+ 415 01a5 42010000 		.4byte	0x142
+ 416 01a9 05       		.uleb128 0x5
+ 417 01aa 03       		.byte	0x3
+ 418 01ab 00000000 		.4byte	tempAverage
+ 419 01af 10       		.uleb128 0x10
+ 420 01b0 32010000 		.4byte	.LASF10
+ 421 01b4 02       		.byte	0x2
+ 422 01b5 18       		.byte	0x18
+ 423 01b6 42010000 		.4byte	0x142
+ 424 01ba 05       		.uleb128 0x5
+ 425 01bb 03       		.byte	0x3
+ 426 01bc 00000000 		.4byte	numValidSensors
+ 427 01c0 11       		.uleb128 0x11
+ 428 01c1 B0000000 		.4byte	.LASF1
+ 429 01c5 B0000000 		.4byte	.LASF1
+ 430 01c9 01       		.byte	0x1
+ 431 01ca 26       		.byte	0x26
+ 432 01cb 11       		.uleb128 0x11
+ 433 01cc DC000000 		.4byte	.LASF2
+ 434 01d0 DC000000 		.4byte	.LASF2
+ 435 01d4 01       		.byte	0x1
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 10
+
+
+ 436 01d5 2A       		.byte	0x2a
+ 437 01d6 11       		.uleb128 0x11
+ 438 01d7 04010000 		.4byte	.LASF3
+ 439 01db 04010000 		.4byte	.LASF3
+ 440 01df 01       		.byte	0x1
+ 441 01e0 2E       		.byte	0x2e
+ 442 01e1 11       		.uleb128 0x11
+ 443 01e2 00000000 		.4byte	.LASF4
+ 444 01e6 00000000 		.4byte	.LASF4
+ 445 01ea 01       		.byte	0x1
+ 446 01eb 2F       		.byte	0x2f
+ 447 01ec 11       		.uleb128 0x11
+ 448 01ed 1D000000 		.4byte	.LASF11
+ 449 01f1 1D000000 		.4byte	.LASF11
+ 450 01f5 03       		.byte	0x3
+ 451 01f6 0D       		.byte	0xd
+ 452 01f7 00       		.byte	0
+ 453              		.section	.debug_abbrev,"",%progbits
+ 454              	.Ldebug_abbrev0:
+ 455 0000 01       		.uleb128 0x1
+ 456 0001 11       		.uleb128 0x11
+ 457 0002 01       		.byte	0x1
+ 458 0003 25       		.uleb128 0x25
+ 459 0004 0E       		.uleb128 0xe
+ 460 0005 13       		.uleb128 0x13
+ 461 0006 0B       		.uleb128 0xb
+ 462 0007 03       		.uleb128 0x3
+ 463 0008 0E       		.uleb128 0xe
+ 464 0009 1B       		.uleb128 0x1b
+ 465 000a 0E       		.uleb128 0xe
+ 466 000b 55       		.uleb128 0x55
+ 467 000c 17       		.uleb128 0x17
+ 468 000d 11       		.uleb128 0x11
+ 469 000e 01       		.uleb128 0x1
+ 470 000f 10       		.uleb128 0x10
+ 471 0010 17       		.uleb128 0x17
+ 472 0011 00       		.byte	0
+ 473 0012 00       		.byte	0
+ 474 0013 02       		.uleb128 0x2
+ 475 0014 2E       		.uleb128 0x2e
+ 476 0015 01       		.byte	0x1
+ 477 0016 3F       		.uleb128 0x3f
+ 478 0017 19       		.uleb128 0x19
+ 479 0018 03       		.uleb128 0x3
+ 480 0019 0E       		.uleb128 0xe
+ 481 001a 3A       		.uleb128 0x3a
+ 482 001b 0B       		.uleb128 0xb
+ 483 001c 3B       		.uleb128 0x3b
+ 484 001d 0B       		.uleb128 0xb
+ 485 001e 27       		.uleb128 0x27
+ 486 001f 19       		.uleb128 0x19
+ 487 0020 8701     		.uleb128 0x87
+ 488 0022 19       		.uleb128 0x19
+ 489 0023 11       		.uleb128 0x11
+ 490 0024 01       		.uleb128 0x1
+ 491 0025 12       		.uleb128 0x12
+ 492 0026 06       		.uleb128 0x6
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 11
+
+
+ 493 0027 40       		.uleb128 0x40
+ 494 0028 18       		.uleb128 0x18
+ 495 0029 9742     		.uleb128 0x2117
+ 496 002b 19       		.uleb128 0x19
+ 497 002c 01       		.uleb128 0x1
+ 498 002d 13       		.uleb128 0x13
+ 499 002e 00       		.byte	0
+ 500 002f 00       		.byte	0
+ 501 0030 03       		.uleb128 0x3
+ 502 0031 34       		.uleb128 0x34
+ 503 0032 00       		.byte	0
+ 504 0033 03       		.uleb128 0x3
+ 505 0034 0E       		.uleb128 0xe
+ 506 0035 3A       		.uleb128 0x3a
+ 507 0036 0B       		.uleb128 0xb
+ 508 0037 3B       		.uleb128 0x3b
+ 509 0038 0B       		.uleb128 0xb
+ 510 0039 49       		.uleb128 0x49
+ 511 003a 13       		.uleb128 0x13
+ 512 003b 02       		.uleb128 0x2
+ 513 003c 17       		.uleb128 0x17
+ 514 003d 00       		.byte	0
+ 515 003e 00       		.byte	0
+ 516 003f 04       		.uleb128 0x4
+ 517 0040 0B       		.uleb128 0xb
+ 518 0041 01       		.byte	0x1
+ 519 0042 11       		.uleb128 0x11
+ 520 0043 01       		.uleb128 0x1
+ 521 0044 12       		.uleb128 0x12
+ 522 0045 06       		.uleb128 0x6
+ 523 0046 00       		.byte	0
+ 524 0047 00       		.byte	0
+ 525 0048 05       		.uleb128 0x5
+ 526 0049 34       		.uleb128 0x34
+ 527 004a 00       		.byte	0
+ 528 004b 03       		.uleb128 0x3
+ 529 004c 08       		.uleb128 0x8
+ 530 004d 3A       		.uleb128 0x3a
+ 531 004e 0B       		.uleb128 0xb
+ 532 004f 3B       		.uleb128 0x3b
+ 533 0050 0B       		.uleb128 0xb
+ 534 0051 49       		.uleb128 0x49
+ 535 0052 13       		.uleb128 0x13
+ 536 0053 1C       		.uleb128 0x1c
+ 537 0054 0B       		.uleb128 0xb
+ 538 0055 00       		.byte	0
+ 539 0056 00       		.byte	0
+ 540 0057 06       		.uleb128 0x6
+ 541 0058 34       		.uleb128 0x34
+ 542 0059 00       		.byte	0
+ 543 005a 03       		.uleb128 0x3
+ 544 005b 08       		.uleb128 0x8
+ 545 005c 3A       		.uleb128 0x3a
+ 546 005d 0B       		.uleb128 0xb
+ 547 005e 3B       		.uleb128 0x3b
+ 548 005f 0B       		.uleb128 0xb
+ 549 0060 49       		.uleb128 0x49
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 12
+
+
+ 550 0061 13       		.uleb128 0x13
+ 551 0062 02       		.uleb128 0x2
+ 552 0063 18       		.uleb128 0x18
+ 553 0064 00       		.byte	0
+ 554 0065 00       		.byte	0
+ 555 0066 07       		.uleb128 0x7
+ 556 0067 0B       		.uleb128 0xb
+ 557 0068 01       		.byte	0x1
+ 558 0069 11       		.uleb128 0x11
+ 559 006a 01       		.uleb128 0x1
+ 560 006b 12       		.uleb128 0x12
+ 561 006c 06       		.uleb128 0x6
+ 562 006d 01       		.uleb128 0x1
+ 563 006e 13       		.uleb128 0x13
+ 564 006f 00       		.byte	0
+ 565 0070 00       		.byte	0
+ 566 0071 08       		.uleb128 0x8
+ 567 0072 2E       		.uleb128 0x2e
+ 568 0073 01       		.byte	0x1
+ 569 0074 3F       		.uleb128 0x3f
+ 570 0075 19       		.uleb128 0x19
+ 571 0076 03       		.uleb128 0x3
+ 572 0077 0E       		.uleb128 0xe
+ 573 0078 3A       		.uleb128 0x3a
+ 574 0079 0B       		.uleb128 0xb
+ 575 007a 3B       		.uleb128 0x3b
+ 576 007b 0B       		.uleb128 0xb
+ 577 007c 49       		.uleb128 0x49
+ 578 007d 13       		.uleb128 0x13
+ 579 007e 3C       		.uleb128 0x3c
+ 580 007f 19       		.uleb128 0x19
+ 581 0080 01       		.uleb128 0x1
+ 582 0081 13       		.uleb128 0x13
+ 583 0082 00       		.byte	0
+ 584 0083 00       		.byte	0
+ 585 0084 09       		.uleb128 0x9
+ 586 0085 18       		.uleb128 0x18
+ 587 0086 00       		.byte	0
+ 588 0087 00       		.byte	0
+ 589 0088 00       		.byte	0
+ 590 0089 0A       		.uleb128 0xa
+ 591 008a 898201   		.uleb128 0x4109
+ 592 008d 01       		.byte	0x1
+ 593 008e 11       		.uleb128 0x11
+ 594 008f 01       		.uleb128 0x1
+ 595 0090 31       		.uleb128 0x31
+ 596 0091 13       		.uleb128 0x13
+ 597 0092 00       		.byte	0
+ 598 0093 00       		.byte	0
+ 599 0094 0B       		.uleb128 0xb
+ 600 0095 8A8201   		.uleb128 0x410a
+ 601 0098 00       		.byte	0
+ 602 0099 02       		.uleb128 0x2
+ 603 009a 18       		.uleb128 0x18
+ 604 009b 9142     		.uleb128 0x2111
+ 605 009d 18       		.uleb128 0x18
+ 606 009e 00       		.byte	0
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 13
+
+
+ 607 009f 00       		.byte	0
+ 608 00a0 0C       		.uleb128 0xc
+ 609 00a1 898201   		.uleb128 0x4109
+ 610 00a4 01       		.byte	0x1
+ 611 00a5 11       		.uleb128 0x11
+ 612 00a6 01       		.uleb128 0x1
+ 613 00a7 31       		.uleb128 0x31
+ 614 00a8 13       		.uleb128 0x13
+ 615 00a9 01       		.uleb128 0x1
+ 616 00aa 13       		.uleb128 0x13
+ 617 00ab 00       		.byte	0
+ 618 00ac 00       		.byte	0
+ 619 00ad 0D       		.uleb128 0xd
+ 620 00ae 898201   		.uleb128 0x4109
+ 621 00b1 00       		.byte	0
+ 622 00b2 11       		.uleb128 0x11
+ 623 00b3 01       		.uleb128 0x1
+ 624 00b4 31       		.uleb128 0x31
+ 625 00b5 13       		.uleb128 0x13
+ 626 00b6 00       		.byte	0
+ 627 00b7 00       		.byte	0
+ 628 00b8 0E       		.uleb128 0xe
+ 629 00b9 24       		.uleb128 0x24
+ 630 00ba 00       		.byte	0
+ 631 00bb 0B       		.uleb128 0xb
+ 632 00bc 0B       		.uleb128 0xb
+ 633 00bd 3E       		.uleb128 0x3e
+ 634 00be 0B       		.uleb128 0xb
+ 635 00bf 03       		.uleb128 0x3
+ 636 00c0 08       		.uleb128 0x8
+ 637 00c1 00       		.byte	0
+ 638 00c2 00       		.byte	0
+ 639 00c3 0F       		.uleb128 0xf
+ 640 00c4 2E       		.uleb128 0x2e
+ 641 00c5 00       		.byte	0
+ 642 00c6 3F       		.uleb128 0x3f
+ 643 00c7 19       		.uleb128 0x19
+ 644 00c8 03       		.uleb128 0x3
+ 645 00c9 0E       		.uleb128 0xe
+ 646 00ca 3A       		.uleb128 0x3a
+ 647 00cb 0B       		.uleb128 0xb
+ 648 00cc 3B       		.uleb128 0x3b
+ 649 00cd 0B       		.uleb128 0xb
+ 650 00ce 27       		.uleb128 0x27
+ 651 00cf 19       		.uleb128 0x19
+ 652 00d0 11       		.uleb128 0x11
+ 653 00d1 01       		.uleb128 0x1
+ 654 00d2 12       		.uleb128 0x12
+ 655 00d3 06       		.uleb128 0x6
+ 656 00d4 40       		.uleb128 0x40
+ 657 00d5 18       		.uleb128 0x18
+ 658 00d6 9742     		.uleb128 0x2117
+ 659 00d8 19       		.uleb128 0x19
+ 660 00d9 00       		.byte	0
+ 661 00da 00       		.byte	0
+ 662 00db 10       		.uleb128 0x10
+ 663 00dc 34       		.uleb128 0x34
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 14
+
+
+ 664 00dd 00       		.byte	0
+ 665 00de 03       		.uleb128 0x3
+ 666 00df 0E       		.uleb128 0xe
+ 667 00e0 3A       		.uleb128 0x3a
+ 668 00e1 0B       		.uleb128 0xb
+ 669 00e2 3B       		.uleb128 0x3b
+ 670 00e3 0B       		.uleb128 0xb
+ 671 00e4 49       		.uleb128 0x49
+ 672 00e5 13       		.uleb128 0x13
+ 673 00e6 3F       		.uleb128 0x3f
+ 674 00e7 19       		.uleb128 0x19
+ 675 00e8 02       		.uleb128 0x2
+ 676 00e9 18       		.uleb128 0x18
+ 677 00ea 00       		.byte	0
+ 678 00eb 00       		.byte	0
+ 679 00ec 11       		.uleb128 0x11
+ 680 00ed 2E       		.uleb128 0x2e
+ 681 00ee 00       		.byte	0
+ 682 00ef 3F       		.uleb128 0x3f
+ 683 00f0 19       		.uleb128 0x19
+ 684 00f1 3C       		.uleb128 0x3c
+ 685 00f2 19       		.uleb128 0x19
+ 686 00f3 6E       		.uleb128 0x6e
+ 687 00f4 0E       		.uleb128 0xe
+ 688 00f5 03       		.uleb128 0x3
+ 689 00f6 0E       		.uleb128 0xe
+ 690 00f7 3A       		.uleb128 0x3a
+ 691 00f8 0B       		.uleb128 0xb
+ 692 00f9 3B       		.uleb128 0x3b
+ 693 00fa 0B       		.uleb128 0xb
+ 694 00fb 00       		.byte	0
+ 695 00fc 00       		.byte	0
+ 696 00fd 00       		.byte	0
+ 697              		.section	.debug_loc,"",%progbits
+ 698              	.Ldebug_loc0:
+ 699              	.LLST0:
+ 700 0000 02000000 		.4byte	.LVL0
+ 701 0004 12000000 		.4byte	.LVL1
+ 702 0008 0200     		.2byte	0x2
+ 703 000a 30       		.byte	0x30
+ 704 000b 9F       		.byte	0x9f
+ 705 000c 18000000 		.4byte	.LVL3
+ 706 0010 20000000 		.4byte	.LVL4
+ 707 0014 0100     		.2byte	0x1
+ 708 0016 50       		.byte	0x50
+ 709 0017 20000000 		.4byte	.LVL4
+ 710 001b 26000000 		.4byte	.LVL6
+ 711 001f 0100     		.2byte	0x1
+ 712 0021 54       		.byte	0x54
+ 713 0022 26000000 		.4byte	.LVL6
+ 714 0026 2E000000 		.4byte	.LVL7
+ 715 002a 0100     		.2byte	0x1
+ 716 002c 50       		.byte	0x50
+ 717 002d 2E000000 		.4byte	.LVL7
+ 718 0031 34000000 		.4byte	.LVL9
+ 719 0035 0100     		.2byte	0x1
+ 720 0037 54       		.byte	0x54
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 15
+
+
+ 721 0038 34000000 		.4byte	.LVL9
+ 722 003c 38000000 		.4byte	.LVL10
+ 723 0040 0100     		.2byte	0x1
+ 724 0042 50       		.byte	0x50
+ 725 0043 38000000 		.4byte	.LVL10
+ 726 0047 68000000 		.4byte	.LVL13
+ 727 004b 0100     		.2byte	0x1
+ 728 004d 54       		.byte	0x54
+ 729 004e 00000000 		.4byte	0
+ 730 0052 00000000 		.4byte	0
+ 731              		.section	.debug_aranges,"",%progbits
+ 732 0000 24000000 		.4byte	0x24
+ 733 0004 0200     		.2byte	0x2
+ 734 0006 00000000 		.4byte	.Ldebug_info0
+ 735 000a 04       		.byte	0x4
+ 736 000b 00       		.byte	0
+ 737 000c 0000     		.2byte	0
+ 738 000e 0000     		.2byte	0
+ 739 0010 00000000 		.4byte	.LFB0
+ 740 0014 78000000 		.4byte	.LFE0-.LFB0
+ 741 0018 00000000 		.4byte	.LFB1
+ 742 001c 02000000 		.4byte	.LFE1-.LFB1
+ 743 0020 00000000 		.4byte	0
+ 744 0024 00000000 		.4byte	0
+ 745              		.section	.debug_ranges,"",%progbits
+ 746              	.Ldebug_ranges0:
+ 747 0000 00000000 		.4byte	.LFB0
+ 748 0004 78000000 		.4byte	.LFE0
+ 749 0008 00000000 		.4byte	.LFB1
+ 750 000c 02000000 		.4byte	.LFE1
+ 751 0010 00000000 		.4byte	0
+ 752 0014 00000000 		.4byte	0
+ 753              		.section	.debug_line,"",%progbits
+ 754              	.Ldebug_line0:
+ 755 0000 7A000000 		.section	.debug_str,"MS",%progbits,1
+ 755      02003A00 
+ 755      00000201 
+ 755      FB0E0D00 
+ 755      01010101 
+ 756              	.LASF4:
+ 757 0000 436C6561 		.ascii	"ClearDTC_a021_invalidTempLow\000"
+ 757      72445443 
+ 757      5F613032 
+ 757      315F696E 
+ 757      76616C69 
+ 758              	.LASF11:
+ 759 001d 4765744E 		.ascii	"GetNTCFromSPI\000"
+ 759      54434672 
+ 759      6F6D5350 
+ 759      4900
+ 760              	.LASF6:
+ 761 002b 74656D70 		.ascii	"tempMaxLocation\000"
+ 761      4D61784C 
+ 761      6F636174 
+ 761      696F6E00 
+ 762              	.LASF16:
+ 763 003b 5365744D 		.ascii	"SetMessage_CellTemps\000"
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 16
+
+
+ 763      65737361 
+ 763      67655F43 
+ 763      656C6C54 
+ 763      656D7073 
+ 764              	.LASF13:
+ 765 0050 54656D70 		.ascii	"TempSense.c\000"
+ 765      53656E73 
+ 765      652E6300 
+ 766              	.LASF5:
+ 767 005c 74656D70 		.ascii	"tempMax\000"
+ 767      4D617800 
+ 768              	.LASF14:
+ 769 0064 433A5C55 		.ascii	"C:\\Users\\Timmo\\Documents\\GitHub\\Software\\BMS\\"
+ 769      73657273 
+ 769      5C54696D 
+ 769      6D6F5C44 
+ 769      6F63756D 
+ 770 0091 424D535F 		.ascii	"BMS_Workspace\\BMS_Master.cydsn\000"
+ 770      576F726B 
+ 770      73706163 
+ 770      655C424D 
+ 770      535F4D61 
+ 771              	.LASF1:
+ 772 00b0 53657444 		.ascii	"SetDTC_a020_invalidTempHigh\000"
+ 772      54435F61 
+ 772      3032305F 
+ 772      696E7661 
+ 772      6C696454 
+ 773              	.LASF15:
+ 774 00cc 52656164 		.ascii	"ReadTempSensors\000"
+ 774      54656D70 
+ 774      53656E73 
+ 774      6F727300 
+ 775              	.LASF2:
+ 776 00dc 53657444 		.ascii	"SetDTC_a021_invalidTempLow\000"
+ 776      54435F61 
+ 776      3032315F 
+ 776      696E7661 
+ 776      6C696454 
+ 777              	.LASF7:
+ 778 00f7 74656D70 		.ascii	"tempMin\000"
+ 778      4D696E00 
+ 779              	.LASF0:
+ 780 00ff 74656D70 		.ascii	"temp\000"
+ 780      00
+ 781              	.LASF3:
+ 782 0104 436C6561 		.ascii	"ClearDTC_a020_invalidTempHigh\000"
+ 782      72445443 
+ 782      5F613032 
+ 782      305F696E 
+ 782      76616C69 
+ 783              	.LASF8:
+ 784 0122 74656D70 		.ascii	"tempMinLocation\000"
+ 784      4D696E4C 
+ 784      6F636174 
+ 784      696F6E00 
+ 785              	.LASF10:
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccqfcyxc.s 			page 17
+
+
+ 786 0132 6E756D56 		.ascii	"numValidSensors\000"
+ 786      616C6964 
+ 786      53656E73 
+ 786      6F727300 
+ 787              	.LASF12:
+ 788 0142 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 788      43313120 
+ 788      352E342E 
+ 788      31203230 
+ 788      31363036 
+ 789 0175 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 789      20726576 
+ 789      6973696F 
+ 789      6E203233 
+ 789      37373135 
+ 790 01a8 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 790      66756E63 
+ 790      74696F6E 
+ 790      2D736563 
+ 790      74696F6E 
+ 791              	.LASF9:
+ 792 01d0 74656D70 		.ascii	"tempAverage\000"
+ 792      41766572 
+ 792      61676500 
+ 793              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

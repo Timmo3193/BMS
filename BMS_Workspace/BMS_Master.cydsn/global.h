@@ -17,7 +17,7 @@
 #define OPEN        0
 #define CLOSE       1
 
-
+#define ENDIANESS	0 // BIG ENDIANESS
 
 
 

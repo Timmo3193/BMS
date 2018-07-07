@@ -37,14 +37,36 @@
       <Folder BuildType="STRICT" Path="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn">
         <Files Root="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn">
           <File BuildType="BUILD" Toolchain="">main.c</File>
-          <File BuildType="BUILD" Toolchain="">mainState.h</File>
-          <File BuildType="BUILD" Toolchain="">mainState.c</File>
           <File BuildType="BUILD" Toolchain="">DriverControls.c</File>
           <File BuildType="BUILD" Toolchain="">DriverControls.h</File>
           <File BuildType="BUILD" Toolchain="">DTC.c</File>
           <File BuildType="BUILD" Toolchain="">DTC.h</File>
           <File BuildType="BUILD" Toolchain="">RelayControl.c</File>
           <File BuildType="BUILD" Toolchain="">RelayControl.h</File>
+          <File BuildType="BUILD" Toolchain="">mainState.c</File>
+          <File BuildType="BUILD" Toolchain="">mainState.h</File>
+          <File BuildType="BUILD" Toolchain="">SOC.c</File>
+          <File BuildType="BUILD" Toolchain="">SOC.h</File>
+          <File BuildType="BUILD" Toolchain="">Thermal.c</File>
+          <File BuildType="BUILD" Toolchain="">Thermal.h</File>
+          <File BuildType="BUILD" Toolchain="">PowerLimit.c</File>
+          <File BuildType="BUILD" Toolchain="">PowerLimit.h</File>
+          <File BuildType="BUILD" Toolchain="">IsolationMonitor.c</File>
+          <File BuildType="BUILD" Toolchain="">IsolationMonitor.h</File>
+          <File BuildType="BUILD" Toolchain="">TempSense.c</File>
+          <File BuildType="BUILD" Toolchain="">TempSense.h</File>
+          <File BuildType="BUILD" Toolchain="">Timer.c</File>
+          <File BuildType="BUILD" Toolchain="">Timer.h</File>
+          <File BuildType="BUILD" Toolchain="">BMS_to_Vehicle.c</File>
+          <File BuildType="BUILD" Toolchain="">BMS_to_Vehicle.h</File>
+          <File BuildType="BUILD" Toolchain="">BMS_to_Slave.c</File>
+          <File BuildType="BUILD" Toolchain="">BMS_to_Slave.h</File>
+          <File BuildType="BUILD" Toolchain="">IVT-S.c</File>
+          <File BuildType="BUILD" Toolchain="">IVT-S.h</File>
+          <File BuildType="BUILD" Toolchain="">CAN.c</File>
+          <File BuildType="BUILD" Toolchain="">CAN.h</File>
+          <File BuildType="BUILD" Toolchain="">SPI.c</File>
+          <File BuildType="BUILD" Toolchain="">SPI.h</File>
           <File BuildType="BUILD" Toolchain="">global.h</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
         </Files>
@@ -128,18 +150,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareexport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.scat</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_BrakePressureFront_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_BrakePressureFront.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_BrakePressureFront.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_BrakePressureRear_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_BrakePressureRear.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_BrakePressureRear.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_Throttle2_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_Throttle2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_Throttle2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_Throttle1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_Throttle1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_Throttle1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiBMS_VoltageSense_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiBMS_VoltageSense.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiBMS_VoltageSense.h</File>
@@ -149,12 +159,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_PyroRear_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_PyroRear.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_PyroRear.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_BrakeInput1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_BrakeInput1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_BrakeInput1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_BrakeInput2_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_BrakeInput2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiECU_BrakeInput2.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiTHM_CoolantOutlet_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiTHM_CoolantOutlet.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\aiTHM_CoolantOutlet.h</File>
@@ -167,9 +171,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doTHM_FanEn_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doTHM_FanEn.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doTHM_FanEn.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doECU_BrakeLight_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doECU_BrakeLight.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doECU_BrakeLight.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\diBMS_RelayPosFdbk_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\diBMS_RelayPosFdbk.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\diBMS_RelayPosFdbk.h</File>
@@ -191,6 +192,12 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doBMS_RelayPreCharge_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doBMS_RelayPreCharge.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\doBMS_RelayPreCharge.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_En_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_En.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_En.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Global_Timer.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Global_Timer.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Global_Timer_PM.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\Export\ARM_GCC_Generic">

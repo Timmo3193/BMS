@@ -1,0 +1,778 @@
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccXA0r1e.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Timer.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.GlobalTimer_Init,"ax",%progbits
+  20              		.align	2
+  21              		.global	GlobalTimer_Init
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	GlobalTimer_Init, %function
+  25              	GlobalTimer_Init:
+  26              	.LFB0:
+  27              		.file 1 "Timer.c"
+   1:Timer.c       **** /* ========================================
+   2:Timer.c       ****  *
+   3:Timer.c       ****  * Copyright YOUR COMPANY, THE YEAR
+   4:Timer.c       ****  * All Rights Reserved
+   5:Timer.c       ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:Timer.c       ****  *
+   7:Timer.c       ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:Timer.c       ****  * WHICH IS THE PROPERTY OF your company.
+   9:Timer.c       ****  *
+  10:Timer.c       ****  * ========================================
+  11:Timer.c       **** */
+  12:Timer.c       **** 
+  13:Timer.c       **** #include "Timer.h"
+  14:Timer.c       **** #include "global.h"
+  15:Timer.c       **** 
+  16:Timer.c       **** //Global Variables
+  17:Timer.c       **** unsigned long CAN_MIA_StartTime =0;
+  18:Timer.c       **** 
+  19:Timer.c       **** 
+  20:Timer.c       **** 
+  21:Timer.c       **** //-------------------------------------------
+  22:Timer.c       **** 
+  23:Timer.c       **** //
+  24:Timer.c       **** GlobalTimer_Init()
+  25:Timer.c       **** {
+  28              		.loc 1 25 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccXA0r1e.s 			page 2
+
+
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  26:Timer.c       ****     //Start Clock
+  27:Timer.c       ****     Global_Timer_start();
+  36              		.loc 1 27 0
+  37 0002 FFF7FEFF 		bl	Global_Timer_start
+  38              	.LVL0:
+  39 0006 08BD     		pop	{r3, pc}
+  40              		.cfi_endproc
+  41              	.LFE0:
+  42              		.size	GlobalTimer_Init, .-GlobalTimer_Init
+  43              		.section	.text.GetGlobalTime,"ax",%progbits
+  44              		.align	2
+  45              		.global	GetGlobalTime
+  46              		.thumb
+  47              		.thumb_func
+  48              		.type	GetGlobalTime, %function
+  49              	GetGlobalTime:
+  50              	.LFB1:
+  28:Timer.c       ****     
+  29:Timer.c       **** }
+  30:Timer.c       **** 
+  31:Timer.c       **** //-------------------------------------------
+  32:Timer.c       **** 
+  33:Timer.c       **** //setup timer functions
+  34:Timer.c       **** GetGlobalTime()
+  35:Timer.c       **** {
+  51              		.loc 1 35 0
+  52              		.cfi_startproc
+  53              		@ args = 0, pretend = 0, frame = 0
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+  55 0000 08B5     		push	{r3, lr}
+  56              		.cfi_def_cfa_offset 8
+  57              		.cfi_offset 3, -8
+  58              		.cfi_offset 14, -4
+  36:Timer.c       ****     return Global_Timer_ReadCounter();
+  59              		.loc 1 36 0
+  60 0002 FFF7FEFF 		bl	Global_Timer_ReadCounter
+  61              	.LVL1:
+  37:Timer.c       **** }
+  62              		.loc 1 37 0
+  63 0006 08BD     		pop	{r3, pc}
+  64              		.cfi_endproc
+  65              	.LFE1:
+  66              		.size	GetGlobalTime, .-GetGlobalTime
+  67              		.section	.text.CAN_MIA_Expired,"ax",%progbits
+  68              		.align	2
+  69              		.global	CAN_MIA_Expired
+  70              		.thumb
+  71              		.thumb_func
+  72              		.type	CAN_MIA_Expired, %function
+  73              	CAN_MIA_Expired:
+  74              	.LFB2:
+  38:Timer.c       **** 
+  39:Timer.c       **** //-------------------------------------------
+  40:Timer.c       **** 
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccXA0r1e.s 			page 3
+
+
+  41:Timer.c       **** 
+  42:Timer.c       **** _Bool CAN_MIA_Expired()
+  43:Timer.c       **** {
+  75              		.loc 1 43 0
+  76              		.cfi_startproc
+  77              		@ args = 0, pretend = 0, frame = 0
+  78              		@ frame_needed = 0, uses_anonymous_args = 0
+  79 0000 10B5     		push	{r4, lr}
+  80              		.cfi_def_cfa_offset 8
+  81              		.cfi_offset 4, -8
+  82              		.cfi_offset 14, -4
+  83              	.LVL2:
+  44:Timer.c       ****     _Bool result = FALSE;
+  45:Timer.c       ****     unsigned int deltaTime = (GetGlobalTime() - CAN_MIA_GetStartTime())*BUSCLOCK_BASE;
+  84              		.loc 1 45 0
+  85 0002 FFF7FEFF 		bl	GetGlobalTime
+  86              	.LVL3:
+  87 0006 0446     		mov	r4, r0
+  88 0008 FFF7FEFF 		bl	CAN_MIA_GetStartTime
+  89              	.LVL4:
+  90 000c 201A     		subs	r0, r4, r0
+  91 000e 064B     		ldr	r3, .L9
+  92 0010 83FB0023 		smull	r2, r3, r3, r0
+  93 0014 C017     		asrs	r0, r0, #31
+  94 0016 C0EB6310 		rsb	r0, r0, r3, asr #5
+  95              	.LVL5:
+  46:Timer.c       ****     if ( deltaTime > CAN_MIA_TIMEOUT)
+  96              		.loc 1 46 0
+  97 001a 1428     		cmp	r0, #20
+  98 001c 01D8     		bhi	.L7
+  44:Timer.c       ****     _Bool result = FALSE;
+  99              		.loc 1 44 0
+ 100 001e 0020     		movs	r0, #0
+ 101              	.LVL6:
+ 102 0020 10BD     		pop	{r4, pc}
+ 103              	.LVL7:
+ 104              	.L7:
+  47:Timer.c       ****     {
+  48:Timer.c       ****         result = TRUE;
+ 105              		.loc 1 48 0
+ 106 0022 0120     		movs	r0, #1
+ 107              	.LVL8:
+  49:Timer.c       ****     }
+  50:Timer.c       ****     return result;
+  51:Timer.c       **** }
+ 108              		.loc 1 51 0
+ 109 0024 10BD     		pop	{r4, pc}
+ 110              	.L10:
+ 111 0026 00BF     		.align	2
+ 112              	.L9:
+ 113 0028 15024D21 		.word	558694933
+ 114              		.cfi_endproc
+ 115              	.LFE2:
+ 116              		.size	CAN_MIA_Expired, .-CAN_MIA_Expired
+ 117              		.section	.text.CAN_MIA_SetStartTime,"ax",%progbits
+ 118              		.align	2
+ 119              		.global	CAN_MIA_SetStartTime
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccXA0r1e.s 			page 4
+
+
+ 120              		.thumb
+ 121              		.thumb_func
+ 122              		.type	CAN_MIA_SetStartTime, %function
+ 123              	CAN_MIA_SetStartTime:
+ 124              	.LFB3:
+  52:Timer.c       **** 
+  53:Timer.c       **** CAN_MIA_SetStartTime()
+  54:Timer.c       **** {
+ 125              		.loc 1 54 0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129 0000 08B5     		push	{r3, lr}
+ 130              		.cfi_def_cfa_offset 8
+ 131              		.cfi_offset 3, -8
+ 132              		.cfi_offset 14, -4
+  55:Timer.c       ****     unsigned long StartTime = GetGlobalTime();
+ 133              		.loc 1 55 0
+ 134 0002 FFF7FEFF 		bl	GetGlobalTime
+ 135              	.LVL9:
+  56:Timer.c       **** }
+ 136              		.loc 1 56 0
+ 137 0006 08BD     		pop	{r3, pc}
+ 138              		.cfi_endproc
+ 139              	.LFE3:
+ 140              		.size	CAN_MIA_SetStartTime, .-CAN_MIA_SetStartTime
+ 141              		.global	CAN_MIA_StartTime
+ 142              		.bss
+ 143              		.align	2
+ 144              		.type	CAN_MIA_StartTime, %object
+ 145              		.size	CAN_MIA_StartTime, 4
+ 146              	CAN_MIA_StartTime:
+ 147 0000 00000000 		.space	4
+ 148              		.text
+ 149              	.Letext0:
+ 150              		.section	.debug_info,"",%progbits
+ 151              	.Ldebug_info0:
+ 152 0000 5D010000 		.4byte	0x15d
+ 153 0004 0400     		.2byte	0x4
+ 154 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 155 000a 04       		.byte	0x4
+ 156 000b 01       		.uleb128 0x1
+ 157 000c 04010000 		.4byte	.LASF11
+ 158 0010 0C       		.byte	0xc
+ 159 0011 4F000000 		.4byte	.LASF12
+ 160 0015 61000000 		.4byte	.LASF13
+ 161 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 162 001d 00000000 		.4byte	0
+ 163 0021 00000000 		.4byte	.Ldebug_line0
+ 164 0025 02       		.uleb128 0x2
+ 165 0026 3E000000 		.4byte	.LASF0
+ 166 002a 01       		.byte	0x1
+ 167 002b 18       		.byte	0x18
+ 168 002c 00000000 		.4byte	.LFB0
+ 169 0030 08000000 		.4byte	.LFE0-.LFB0
+ 170 0034 01       		.uleb128 0x1
+ 171 0035 9C       		.byte	0x9c
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccXA0r1e.s 			page 5
+
+
+ 172 0036 55000000 		.4byte	0x55
+ 173 003a 03       		.uleb128 0x3
+ 174 003b CF000000 		.4byte	.LASF2
+ 175 003f 01       		.byte	0x1
+ 176 0040 1B       		.byte	0x1b
+ 177 0041 55000000 		.4byte	0x55
+ 178 0045 4B000000 		.4byte	0x4b
+ 179 0049 04       		.uleb128 0x4
+ 180 004a 00       		.byte	0
+ 181 004b 05       		.uleb128 0x5
+ 182 004c 06000000 		.4byte	.LVL0
+ 183 0050 3F010000 		.4byte	0x13f
+ 184 0054 00       		.byte	0
+ 185 0055 06       		.uleb128 0x6
+ 186 0056 04       		.byte	0x4
+ 187 0057 05       		.byte	0x5
+ 188 0058 696E7400 		.ascii	"int\000"
+ 189 005c 07       		.uleb128 0x7
+ 190 005d 92010000 		.4byte	.LASF1
+ 191 0061 01       		.byte	0x1
+ 192 0062 22       		.byte	0x22
+ 193 0063 55000000 		.4byte	0x55
+ 194 0067 00000000 		.4byte	.LFB1
+ 195 006b 08000000 		.4byte	.LFE1-.LFB1
+ 196 006f 01       		.uleb128 0x1
+ 197 0070 9C       		.byte	0x9c
+ 198 0071 90000000 		.4byte	0x90
+ 199 0075 03       		.uleb128 0x3
+ 200 0076 A0010000 		.4byte	.LASF3
+ 201 007a 01       		.byte	0x1
+ 202 007b 24       		.byte	0x24
+ 203 007c 55000000 		.4byte	0x55
+ 204 0080 86000000 		.4byte	0x86
+ 205 0084 04       		.uleb128 0x4
+ 206 0085 00       		.byte	0
+ 207 0086 05       		.uleb128 0x5
+ 208 0087 06000000 		.4byte	.LVL1
+ 209 008b 4A010000 		.4byte	0x14a
+ 210 008f 00       		.byte	0
+ 211 0090 08       		.uleb128 0x8
+ 212 0091 F4000000 		.4byte	.LASF14
+ 213 0095 01       		.byte	0x1
+ 214 0096 2A       		.byte	0x2a
+ 215 0097 EB000000 		.4byte	0xeb
+ 216 009b 00000000 		.4byte	.LFB2
+ 217 009f 2C000000 		.4byte	.LFE2-.LFB2
+ 218 00a3 01       		.uleb128 0x1
+ 219 00a4 9C       		.byte	0x9c
+ 220 00a5 EB000000 		.4byte	0xeb
+ 221 00a9 09       		.uleb128 0x9
+ 222 00aa AD000000 		.4byte	.LASF4
+ 223 00ae 01       		.byte	0x1
+ 224 00af 2C       		.byte	0x2c
+ 225 00b0 EB000000 		.4byte	0xeb
+ 226 00b4 00000000 		.4byte	.LLST0
+ 227 00b8 09       		.uleb128 0x9
+ 228 00b9 57000000 		.4byte	.LASF5
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccXA0r1e.s 			page 6
+
+
+ 229 00bd 01       		.byte	0x1
+ 230 00be 2D       		.byte	0x2d
+ 231 00bf F2000000 		.4byte	0xf2
+ 232 00c3 1F000000 		.4byte	.LLST1
+ 233 00c7 03       		.uleb128 0x3
+ 234 00c8 B4000000 		.4byte	.LASF6
+ 235 00cc 01       		.byte	0x1
+ 236 00cd 2D       		.byte	0x2d
+ 237 00ce 55000000 		.4byte	0x55
+ 238 00d2 D8000000 		.4byte	0xd8
+ 239 00d6 04       		.uleb128 0x4
+ 240 00d7 00       		.byte	0
+ 241 00d8 05       		.uleb128 0x5
+ 242 00d9 06000000 		.4byte	.LVL3
+ 243 00dd 5C000000 		.4byte	0x5c
+ 244 00e1 05       		.uleb128 0x5
+ 245 00e2 0C000000 		.4byte	.LVL4
+ 246 00e6 55010000 		.4byte	0x155
+ 247 00ea 00       		.byte	0
+ 248 00eb 0A       		.uleb128 0xa
+ 249 00ec 01       		.byte	0x1
+ 250 00ed 02       		.byte	0x2
+ 251 00ee C9000000 		.4byte	.LASF7
+ 252 00f2 0A       		.uleb128 0xa
+ 253 00f3 04       		.byte	0x4
+ 254 00f4 07       		.byte	0x7
+ 255 00f5 00000000 		.4byte	.LASF8
+ 256 00f9 07       		.uleb128 0x7
+ 257 00fa 29000000 		.4byte	.LASF9
+ 258 00fe 01       		.byte	0x1
+ 259 00ff 35       		.byte	0x35
+ 260 0100 55000000 		.4byte	0x55
+ 261 0104 00000000 		.4byte	.LFB3
+ 262 0108 08000000 		.4byte	.LFE3-.LFB3
+ 263 010c 01       		.uleb128 0x1
+ 264 010d 9C       		.byte	0x9c
+ 265 010e 27010000 		.4byte	0x127
+ 266 0112 0B       		.uleb128 0xb
+ 267 0113 1F000000 		.4byte	.LASF15
+ 268 0117 01       		.byte	0x1
+ 269 0118 37       		.byte	0x37
+ 270 0119 27010000 		.4byte	0x127
+ 271 011d 05       		.uleb128 0x5
+ 272 011e 06000000 		.4byte	.LVL9
+ 273 0122 5C000000 		.4byte	0x5c
+ 274 0126 00       		.byte	0
+ 275 0127 0A       		.uleb128 0xa
+ 276 0128 04       		.byte	0x4
+ 277 0129 07       		.byte	0x7
+ 278 012a E2000000 		.4byte	.LASF10
+ 279 012e 0C       		.uleb128 0xc
+ 280 012f 0D000000 		.4byte	.LASF16
+ 281 0133 01       		.byte	0x1
+ 282 0134 11       		.byte	0x11
+ 283 0135 27010000 		.4byte	0x127
+ 284 0139 05       		.uleb128 0x5
+ 285 013a 03       		.byte	0x3
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccXA0r1e.s 			page 7
+
+
+ 286 013b 00000000 		.4byte	CAN_MIA_StartTime
+ 287 013f 0D       		.uleb128 0xd
+ 288 0140 CF000000 		.4byte	.LASF2
+ 289 0144 CF000000 		.4byte	.LASF2
+ 290 0148 01       		.byte	0x1
+ 291 0149 1B       		.byte	0x1b
+ 292 014a 0D       		.uleb128 0xd
+ 293 014b A0010000 		.4byte	.LASF3
+ 294 014f A0010000 		.4byte	.LASF3
+ 295 0153 01       		.byte	0x1
+ 296 0154 24       		.byte	0x24
+ 297 0155 0D       		.uleb128 0xd
+ 298 0156 B4000000 		.4byte	.LASF6
+ 299 015a B4000000 		.4byte	.LASF6
+ 300 015e 01       		.byte	0x1
+ 301 015f 2D       		.byte	0x2d
+ 302 0160 00       		.byte	0
+ 303              		.section	.debug_abbrev,"",%progbits
+ 304              	.Ldebug_abbrev0:
+ 305 0000 01       		.uleb128 0x1
+ 306 0001 11       		.uleb128 0x11
+ 307 0002 01       		.byte	0x1
+ 308 0003 25       		.uleb128 0x25
+ 309 0004 0E       		.uleb128 0xe
+ 310 0005 13       		.uleb128 0x13
+ 311 0006 0B       		.uleb128 0xb
+ 312 0007 03       		.uleb128 0x3
+ 313 0008 0E       		.uleb128 0xe
+ 314 0009 1B       		.uleb128 0x1b
+ 315 000a 0E       		.uleb128 0xe
+ 316 000b 55       		.uleb128 0x55
+ 317 000c 17       		.uleb128 0x17
+ 318 000d 11       		.uleb128 0x11
+ 319 000e 01       		.uleb128 0x1
+ 320 000f 10       		.uleb128 0x10
+ 321 0010 17       		.uleb128 0x17
+ 322 0011 00       		.byte	0
+ 323 0012 00       		.byte	0
+ 324 0013 02       		.uleb128 0x2
+ 325 0014 2E       		.uleb128 0x2e
+ 326 0015 01       		.byte	0x1
+ 327 0016 3F       		.uleb128 0x3f
+ 328 0017 19       		.uleb128 0x19
+ 329 0018 03       		.uleb128 0x3
+ 330 0019 0E       		.uleb128 0xe
+ 331 001a 3A       		.uleb128 0x3a
+ 332 001b 0B       		.uleb128 0xb
+ 333 001c 3B       		.uleb128 0x3b
+ 334 001d 0B       		.uleb128 0xb
+ 335 001e 27       		.uleb128 0x27
+ 336 001f 19       		.uleb128 0x19
+ 337 0020 11       		.uleb128 0x11
+ 338 0021 01       		.uleb128 0x1
+ 339 0022 12       		.uleb128 0x12
+ 340 0023 06       		.uleb128 0x6
+ 341 0024 40       		.uleb128 0x40
+ 342 0025 18       		.uleb128 0x18
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccXA0r1e.s 			page 8
+
+
+ 343 0026 9742     		.uleb128 0x2117
+ 344 0028 19       		.uleb128 0x19
+ 345 0029 01       		.uleb128 0x1
+ 346 002a 13       		.uleb128 0x13
+ 347 002b 00       		.byte	0
+ 348 002c 00       		.byte	0
+ 349 002d 03       		.uleb128 0x3
+ 350 002e 2E       		.uleb128 0x2e
+ 351 002f 01       		.byte	0x1
+ 352 0030 3F       		.uleb128 0x3f
+ 353 0031 19       		.uleb128 0x19
+ 354 0032 03       		.uleb128 0x3
+ 355 0033 0E       		.uleb128 0xe
+ 356 0034 3A       		.uleb128 0x3a
+ 357 0035 0B       		.uleb128 0xb
+ 358 0036 3B       		.uleb128 0x3b
+ 359 0037 0B       		.uleb128 0xb
+ 360 0038 49       		.uleb128 0x49
+ 361 0039 13       		.uleb128 0x13
+ 362 003a 3C       		.uleb128 0x3c
+ 363 003b 19       		.uleb128 0x19
+ 364 003c 01       		.uleb128 0x1
+ 365 003d 13       		.uleb128 0x13
+ 366 003e 00       		.byte	0
+ 367 003f 00       		.byte	0
+ 368 0040 04       		.uleb128 0x4
+ 369 0041 18       		.uleb128 0x18
+ 370 0042 00       		.byte	0
+ 371 0043 00       		.byte	0
+ 372 0044 00       		.byte	0
+ 373 0045 05       		.uleb128 0x5
+ 374 0046 898201   		.uleb128 0x4109
+ 375 0049 00       		.byte	0
+ 376 004a 11       		.uleb128 0x11
+ 377 004b 01       		.uleb128 0x1
+ 378 004c 31       		.uleb128 0x31
+ 379 004d 13       		.uleb128 0x13
+ 380 004e 00       		.byte	0
+ 381 004f 00       		.byte	0
+ 382 0050 06       		.uleb128 0x6
+ 383 0051 24       		.uleb128 0x24
+ 384 0052 00       		.byte	0
+ 385 0053 0B       		.uleb128 0xb
+ 386 0054 0B       		.uleb128 0xb
+ 387 0055 3E       		.uleb128 0x3e
+ 388 0056 0B       		.uleb128 0xb
+ 389 0057 03       		.uleb128 0x3
+ 390 0058 08       		.uleb128 0x8
+ 391 0059 00       		.byte	0
+ 392 005a 00       		.byte	0
+ 393 005b 07       		.uleb128 0x7
+ 394 005c 2E       		.uleb128 0x2e
+ 395 005d 01       		.byte	0x1
+ 396 005e 3F       		.uleb128 0x3f
+ 397 005f 19       		.uleb128 0x19
+ 398 0060 03       		.uleb128 0x3
+ 399 0061 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccXA0r1e.s 			page 9
+
+
+ 400 0062 3A       		.uleb128 0x3a
+ 401 0063 0B       		.uleb128 0xb
+ 402 0064 3B       		.uleb128 0x3b
+ 403 0065 0B       		.uleb128 0xb
+ 404 0066 49       		.uleb128 0x49
+ 405 0067 13       		.uleb128 0x13
+ 406 0068 11       		.uleb128 0x11
+ 407 0069 01       		.uleb128 0x1
+ 408 006a 12       		.uleb128 0x12
+ 409 006b 06       		.uleb128 0x6
+ 410 006c 40       		.uleb128 0x40
+ 411 006d 18       		.uleb128 0x18
+ 412 006e 9742     		.uleb128 0x2117
+ 413 0070 19       		.uleb128 0x19
+ 414 0071 01       		.uleb128 0x1
+ 415 0072 13       		.uleb128 0x13
+ 416 0073 00       		.byte	0
+ 417 0074 00       		.byte	0
+ 418 0075 08       		.uleb128 0x8
+ 419 0076 2E       		.uleb128 0x2e
+ 420 0077 01       		.byte	0x1
+ 421 0078 3F       		.uleb128 0x3f
+ 422 0079 19       		.uleb128 0x19
+ 423 007a 03       		.uleb128 0x3
+ 424 007b 0E       		.uleb128 0xe
+ 425 007c 3A       		.uleb128 0x3a
+ 426 007d 0B       		.uleb128 0xb
+ 427 007e 3B       		.uleb128 0x3b
+ 428 007f 0B       		.uleb128 0xb
+ 429 0080 27       		.uleb128 0x27
+ 430 0081 19       		.uleb128 0x19
+ 431 0082 49       		.uleb128 0x49
+ 432 0083 13       		.uleb128 0x13
+ 433 0084 11       		.uleb128 0x11
+ 434 0085 01       		.uleb128 0x1
+ 435 0086 12       		.uleb128 0x12
+ 436 0087 06       		.uleb128 0x6
+ 437 0088 40       		.uleb128 0x40
+ 438 0089 18       		.uleb128 0x18
+ 439 008a 9742     		.uleb128 0x2117
+ 440 008c 19       		.uleb128 0x19
+ 441 008d 01       		.uleb128 0x1
+ 442 008e 13       		.uleb128 0x13
+ 443 008f 00       		.byte	0
+ 444 0090 00       		.byte	0
+ 445 0091 09       		.uleb128 0x9
+ 446 0092 34       		.uleb128 0x34
+ 447 0093 00       		.byte	0
+ 448 0094 03       		.uleb128 0x3
+ 449 0095 0E       		.uleb128 0xe
+ 450 0096 3A       		.uleb128 0x3a
+ 451 0097 0B       		.uleb128 0xb
+ 452 0098 3B       		.uleb128 0x3b
+ 453 0099 0B       		.uleb128 0xb
+ 454 009a 49       		.uleb128 0x49
+ 455 009b 13       		.uleb128 0x13
+ 456 009c 02       		.uleb128 0x2
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccXA0r1e.s 			page 10
+
+
+ 457 009d 17       		.uleb128 0x17
+ 458 009e 00       		.byte	0
+ 459 009f 00       		.byte	0
+ 460 00a0 0A       		.uleb128 0xa
+ 461 00a1 24       		.uleb128 0x24
+ 462 00a2 00       		.byte	0
+ 463 00a3 0B       		.uleb128 0xb
+ 464 00a4 0B       		.uleb128 0xb
+ 465 00a5 3E       		.uleb128 0x3e
+ 466 00a6 0B       		.uleb128 0xb
+ 467 00a7 03       		.uleb128 0x3
+ 468 00a8 0E       		.uleb128 0xe
+ 469 00a9 00       		.byte	0
+ 470 00aa 00       		.byte	0
+ 471 00ab 0B       		.uleb128 0xb
+ 472 00ac 34       		.uleb128 0x34
+ 473 00ad 00       		.byte	0
+ 474 00ae 03       		.uleb128 0x3
+ 475 00af 0E       		.uleb128 0xe
+ 476 00b0 3A       		.uleb128 0x3a
+ 477 00b1 0B       		.uleb128 0xb
+ 478 00b2 3B       		.uleb128 0x3b
+ 479 00b3 0B       		.uleb128 0xb
+ 480 00b4 49       		.uleb128 0x49
+ 481 00b5 13       		.uleb128 0x13
+ 482 00b6 00       		.byte	0
+ 483 00b7 00       		.byte	0
+ 484 00b8 0C       		.uleb128 0xc
+ 485 00b9 34       		.uleb128 0x34
+ 486 00ba 00       		.byte	0
+ 487 00bb 03       		.uleb128 0x3
+ 488 00bc 0E       		.uleb128 0xe
+ 489 00bd 3A       		.uleb128 0x3a
+ 490 00be 0B       		.uleb128 0xb
+ 491 00bf 3B       		.uleb128 0x3b
+ 492 00c0 0B       		.uleb128 0xb
+ 493 00c1 49       		.uleb128 0x49
+ 494 00c2 13       		.uleb128 0x13
+ 495 00c3 3F       		.uleb128 0x3f
+ 496 00c4 19       		.uleb128 0x19
+ 497 00c5 02       		.uleb128 0x2
+ 498 00c6 18       		.uleb128 0x18
+ 499 00c7 00       		.byte	0
+ 500 00c8 00       		.byte	0
+ 501 00c9 0D       		.uleb128 0xd
+ 502 00ca 2E       		.uleb128 0x2e
+ 503 00cb 00       		.byte	0
+ 504 00cc 3F       		.uleb128 0x3f
+ 505 00cd 19       		.uleb128 0x19
+ 506 00ce 3C       		.uleb128 0x3c
+ 507 00cf 19       		.uleb128 0x19
+ 508 00d0 6E       		.uleb128 0x6e
+ 509 00d1 0E       		.uleb128 0xe
+ 510 00d2 03       		.uleb128 0x3
+ 511 00d3 0E       		.uleb128 0xe
+ 512 00d4 3A       		.uleb128 0x3a
+ 513 00d5 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccXA0r1e.s 			page 11
+
+
+ 514 00d6 3B       		.uleb128 0x3b
+ 515 00d7 0B       		.uleb128 0xb
+ 516 00d8 00       		.byte	0
+ 517 00d9 00       		.byte	0
+ 518 00da 00       		.byte	0
+ 519              		.section	.debug_loc,"",%progbits
+ 520              	.Ldebug_loc0:
+ 521              	.LLST0:
+ 522 0000 02000000 		.4byte	.LVL2
+ 523 0004 24000000 		.4byte	.LVL8
+ 524 0008 0200     		.2byte	0x2
+ 525 000a 30       		.byte	0x30
+ 526 000b 9F       		.byte	0x9f
+ 527 000c 24000000 		.4byte	.LVL8
+ 528 0010 2C000000 		.4byte	.LFE2
+ 529 0014 0100     		.2byte	0x1
+ 530 0016 50       		.byte	0x50
+ 531 0017 00000000 		.4byte	0
+ 532 001b 00000000 		.4byte	0
+ 533              	.LLST1:
+ 534 001f 1A000000 		.4byte	.LVL5
+ 535 0023 20000000 		.4byte	.LVL6
+ 536 0027 0100     		.2byte	0x1
+ 537 0029 50       		.byte	0x50
+ 538 002a 22000000 		.4byte	.LVL7
+ 539 002e 24000000 		.4byte	.LVL8
+ 540 0032 0100     		.2byte	0x1
+ 541 0034 50       		.byte	0x50
+ 542 0035 00000000 		.4byte	0
+ 543 0039 00000000 		.4byte	0
+ 544              		.section	.debug_aranges,"",%progbits
+ 545 0000 34000000 		.4byte	0x34
+ 546 0004 0200     		.2byte	0x2
+ 547 0006 00000000 		.4byte	.Ldebug_info0
+ 548 000a 04       		.byte	0x4
+ 549 000b 00       		.byte	0
+ 550 000c 0000     		.2byte	0
+ 551 000e 0000     		.2byte	0
+ 552 0010 00000000 		.4byte	.LFB0
+ 553 0014 08000000 		.4byte	.LFE0-.LFB0
+ 554 0018 00000000 		.4byte	.LFB1
+ 555 001c 08000000 		.4byte	.LFE1-.LFB1
+ 556 0020 00000000 		.4byte	.LFB2
+ 557 0024 2C000000 		.4byte	.LFE2-.LFB2
+ 558 0028 00000000 		.4byte	.LFB3
+ 559 002c 08000000 		.4byte	.LFE3-.LFB3
+ 560 0030 00000000 		.4byte	0
+ 561 0034 00000000 		.4byte	0
+ 562              		.section	.debug_ranges,"",%progbits
+ 563              	.Ldebug_ranges0:
+ 564 0000 00000000 		.4byte	.LFB0
+ 565 0004 08000000 		.4byte	.LFE0
+ 566 0008 00000000 		.4byte	.LFB1
+ 567 000c 08000000 		.4byte	.LFE1
+ 568 0010 00000000 		.4byte	.LFB2
+ 569 0014 2C000000 		.4byte	.LFE2
+ 570 0018 00000000 		.4byte	.LFB3
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccXA0r1e.s 			page 12
+
+
+ 571 001c 08000000 		.4byte	.LFE3
+ 572 0020 00000000 		.4byte	0
+ 573 0024 00000000 		.4byte	0
+ 574              		.section	.debug_line,"",%progbits
+ 575              	.Ldebug_line0:
+ 576 0000 6A000000 		.section	.debug_str,"MS",%progbits,1
+ 576      02001E00 
+ 576      00000201 
+ 576      FB0E0D00 
+ 576      01010101 
+ 577              	.LASF8:
+ 578 0000 756E7369 		.ascii	"unsigned int\000"
+ 578      676E6564 
+ 578      20696E74 
+ 578      00
+ 579              	.LASF16:
+ 580 000d 43414E5F 		.ascii	"CAN_MIA_StartTime\000"
+ 580      4D49415F 
+ 580      53746172 
+ 580      7454696D 
+ 580      6500
+ 581              	.LASF15:
+ 582 001f 53746172 		.ascii	"StartTime\000"
+ 582      7454696D 
+ 582      6500
+ 583              	.LASF9:
+ 584 0029 43414E5F 		.ascii	"CAN_MIA_SetStartTime\000"
+ 584      4D49415F 
+ 584      53657453 
+ 584      74617274 
+ 584      54696D65 
+ 585              	.LASF0:
+ 586 003e 476C6F62 		.ascii	"GlobalTimer_Init\000"
+ 586      616C5469 
+ 586      6D65725F 
+ 586      496E6974 
+ 586      00
+ 587              	.LASF12:
+ 588 004f 54696D65 		.ascii	"Timer.c\000"
+ 588      722E6300 
+ 589              	.LASF5:
+ 590 0057 64656C74 		.ascii	"deltaTime\000"
+ 590      6154696D 
+ 590      6500
+ 591              	.LASF13:
+ 592 0061 433A5C55 		.ascii	"C:\\Users\\Timmo\\Documents\\GitHub\\Software\\BMS\\"
+ 592      73657273 
+ 592      5C54696D 
+ 592      6D6F5C44 
+ 592      6F63756D 
+ 593 008e 424D535F 		.ascii	"BMS_Workspace\\BMS_Master.cydsn\000"
+ 593      576F726B 
+ 593      73706163 
+ 593      655C424D 
+ 593      535F4D61 
+ 594              	.LASF4:
+ 595 00ad 72657375 		.ascii	"result\000"
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccXA0r1e.s 			page 13
+
+
+ 595      6C7400
+ 596              	.LASF6:
+ 597 00b4 43414E5F 		.ascii	"CAN_MIA_GetStartTime\000"
+ 597      4D49415F 
+ 597      47657453 
+ 597      74617274 
+ 597      54696D65 
+ 598              	.LASF7:
+ 599 00c9 5F426F6F 		.ascii	"_Bool\000"
+ 599      6C00
+ 600              	.LASF2:
+ 601 00cf 476C6F62 		.ascii	"Global_Timer_start\000"
+ 601      616C5F54 
+ 601      696D6572 
+ 601      5F737461 
+ 601      727400
+ 602              	.LASF10:
+ 603 00e2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 603      20756E73 
+ 603      69676E65 
+ 603      6420696E 
+ 603      7400
+ 604              	.LASF14:
+ 605 00f4 43414E5F 		.ascii	"CAN_MIA_Expired\000"
+ 605      4D49415F 
+ 605      45787069 
+ 605      72656400 
+ 606              	.LASF11:
+ 607 0104 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 607      43313120 
+ 607      352E342E 
+ 607      31203230 
+ 607      31363036 
+ 608 0137 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 608      20726576 
+ 608      6973696F 
+ 608      6E203233 
+ 608      37373135 
+ 609 016a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 609      66756E63 
+ 609      74696F6E 
+ 609      2D736563 
+ 609      74696F6E 
+ 610              	.LASF1:
+ 611 0192 47657447 		.ascii	"GetGlobalTime\000"
+ 611      6C6F6261 
+ 611      6C54696D 
+ 611      6500
+ 612              	.LASF3:
+ 613 01a0 476C6F62 		.ascii	"Global_Timer_ReadCounter\000"
+ 613      616C5F54 
+ 613      696D6572 
+ 613      5F526561 
+ 613      64436F75 
+ 614              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -10,20 +10,22 @@
  * ========================================
 */
 
-#define NTC_MaxPlausable		100 //degrees <-Convert to data seen on SPI
-#define NTC_MinPlausable		100 //degrees <-Convert to data seen on SPI
-
+#define NTC_MAXPLAUSABLE		100 //degrees <-Convert to data seen on SPI
+#define NTC_MINPLAUSABLE		100 //degrees <-Convert to data seen on SPI
+#define NUM_LTC_CHIPS           5   //5 Segments, 1 LTC chip each
+#define NUM_NTC_PER_LTC         3   //NTC's per chip
 
 
 int tempMax = 0;
-int tempMaxLocation[] = {0, 0};
+int tempMaxLocation = 0;
 int tempMin = 0;
-int tempMinLocation[] = {0, 0};
+int tempMinLocation = 0;
 int tempAverage = 0;
+int numValidSensors = 0;
 
 
-void ReadTempSensors();
-void SetMessage_CellTemps();
+void ReadTempSensors(void);
+void SetMessage_CellTemps(void);
 
 
 

@@ -1,5 +1,5 @@
 -- Project:   C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\BMS_Master.cyprj
--- Generated: 06/24/2018 11:37:43
+-- Generated: 07/06/2018 15:11:57
 -- PSoC Creator  4.2
 
 ENTITY BMS_Master IS
@@ -9,10 +9,7 @@ ENTITY BMS_Master IS
         RxUART(0)_PAD : IN std_ulogic;
         TxUART(0)_PAD : OUT std_ulogic;
         Pin_1(0)_PAD : INOUT std_ulogic;
-        aiECU_BrakePressureRear(0)_PAD : INOUT std_ulogic;
-        aiECU_BrakePressureFront(0)_PAD : INOUT std_ulogic;
-        aiECU_BrakeInput1(0)_PAD : INOUT std_ulogic;
-        aiECU_BrakeInput2(0)_PAD : INOUT std_ulogic;
+        Timer_En(0)_PAD : IN std_ulogic;
         aiTHM_CoolantOutlet(0)_PAD : INOUT std_ulogic;
         aiTHM_CoolantInlet(0)_PAD : INOUT std_ulogic;
         aiBMS_VoltageSense(0)_PAD : INOUT std_ulogic;
@@ -20,9 +17,6 @@ ENTITY BMS_Master IS
         aiECU_PyroFront(0)_PAD : INOUT std_ulogic;
         doTHM_PumpEn(0)_PAD : OUT std_ulogic;
         doTHM_FanEn(0)_PAD : OUT std_ulogic;
-        doECU_BrakeLight(0)_PAD : OUT std_ulogic;
-        aiECU_Throttle2(0)_PAD : INOUT std_ulogic;
-        aiECU_Throttle1(0)_PAD : INOUT std_ulogic;
         diBMS_RelayPosFdbk(0)_PAD : IN std_ulogic;
         doBMS_RelayPosDrive(0)_PAD : OUT std_ulogic;
         diBMS_RelayNegFdbk(0)_PAD : IN std_ulogic;
@@ -45,6 +39,7 @@ ARCHITECTURE __DEFAULT__ OF BMS_Master IS
     SIGNAL ClockBlock_1k : bit;
     SIGNAL ClockBlock_32k : bit;
     SIGNAL ClockBlock_BUS_CLK : bit;
+    ATTRIBUTE udbclken_assigned OF ClockBlock_BUS_CLK : SIGNAL IS "True";
     ATTRIBUTE global_signal OF ClockBlock_BUS_CLK : SIGNAL IS true;
     SIGNAL ClockBlock_BUS_CLK_local : bit;
     SIGNAL ClockBlock_ILO : bit;
@@ -57,13 +52,14 @@ ARCHITECTURE __DEFAULT__ OF BMS_Master IS
     SIGNAL Net_11 : bit;
     SIGNAL Net_12 : bit;
     SIGNAL Net_15 : bit;
-    ATTRIBUTE placement_force OF Net_15 : SIGNAL IS "U(3,0,A)2";
+    ATTRIBUTE placement_force OF Net_15 : SIGNAL IS "U(3,3,B)1";
+    SIGNAL Net_167 : bit;
     SIGNAL Net_2 : bit;
     SIGNAL Net_20 : bit;
     SIGNAL Net_32 : bit;
-    ATTRIBUTE placement_force OF Net_32 : SIGNAL IS "U(3,2,B)0";
+    ATTRIBUTE placement_force OF Net_32 : SIGNAL IS "U(2,5,A)1";
     SIGNAL Net_33 : bit;
-    ATTRIBUTE placement_force OF Net_33 : SIGNAL IS "U(3,2,B)1";
+    ATTRIBUTE placement_force OF Net_33 : SIGNAL IS "U(3,1,B)1";
     SIGNAL Net_34 : bit;
     SIGNAL Net_35 : bit;
     ATTRIBUTE udbclken_assigned OF Net_35 : SIGNAL IS "True";
@@ -73,9 +69,17 @@ ARCHITECTURE __DEFAULT__ OF BMS_Master IS
     SIGNAL RX_CAN(0)__PA : bit;
     SIGNAL RxUART(0)__PA : bit;
     SIGNAL TX_CAN(0)__PA : bit;
+    SIGNAL Timer_En(0)__PA : bit;
     SIGNAL TxUART(0)__PA : bit;
+    SIGNAL \Global_Timer:TimerUDB:per_zero\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u1.ce0__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u2.ce0__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:status_2\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:status_3\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:status_tc\ : bit;
+    ATTRIBUTE placement_force OF \Global_Timer:TimerUDB:status_tc\ : SIGNAL IS "U(3,2,A)3";
     SIGNAL \SPICAN:BSPIM:cnt_enable\ : bit;
-    ATTRIBUTE placement_force OF \SPICAN:BSPIM:cnt_enable\ : SIGNAL IS "U(2,2,A)0";
+    ATTRIBUTE placement_force OF \SPICAN:BSPIM:cnt_enable\ : SIGNAL IS "U(2,5,A)0";
     SIGNAL \SPICAN:BSPIM:cnt_tc\ : bit;
     SIGNAL \SPICAN:BSPIM:count_0\ : bit;
     SIGNAL \SPICAN:BSPIM:count_1\ : bit;
@@ -85,38 +89,38 @@ ARCHITECTURE __DEFAULT__ OF BMS_Master IS
     SIGNAL \SPICAN:BSPIM:count_5\ : bit;
     SIGNAL \SPICAN:BSPIM:count_6\ : bit;
     SIGNAL \SPICAN:BSPIM:ld_ident\ : bit;
-    ATTRIBUTE placement_force OF \SPICAN:BSPIM:ld_ident\ : SIGNAL IS "U(2,1,B)2";
+    ATTRIBUTE placement_force OF \SPICAN:BSPIM:ld_ident\ : SIGNAL IS "U(3,5,A)2";
     SIGNAL \SPICAN:BSPIM:load_cond\ : bit;
-    ATTRIBUTE placement_force OF \SPICAN:BSPIM:load_cond\ : SIGNAL IS "U(2,0,A)0";
+    ATTRIBUTE placement_force OF \SPICAN:BSPIM:load_cond\ : SIGNAL IS "U(2,4,A)0";
     SIGNAL \SPICAN:BSPIM:load_rx_data\ : bit;
-    ATTRIBUTE placement_force OF \SPICAN:BSPIM:load_rx_data\ : SIGNAL IS "U(2,1,A)1";
+    ATTRIBUTE placement_force OF \SPICAN:BSPIM:load_rx_data\ : SIGNAL IS "U(2,5,B)1";
     SIGNAL \SPICAN:BSPIM:mosi_from_dp\ : bit;
     SIGNAL \SPICAN:BSPIM:mosi_reg\ : bit;
-    ATTRIBUTE placement_force OF \SPICAN:BSPIM:mosi_reg\ : SIGNAL IS "U(2,1,A)0";
+    ATTRIBUTE placement_force OF \SPICAN:BSPIM:mosi_reg\ : SIGNAL IS "U(3,5,B)3";
     SIGNAL \SPICAN:BSPIM:rx_status_4\ : bit;
     SIGNAL \SPICAN:BSPIM:rx_status_5\ : bit;
     SIGNAL \SPICAN:BSPIM:rx_status_6\ : bit;
-    ATTRIBUTE placement_force OF \SPICAN:BSPIM:rx_status_6\ : SIGNAL IS "U(2,0,A)2";
+    ATTRIBUTE placement_force OF \SPICAN:BSPIM:rx_status_6\ : SIGNAL IS "U(2,4,A)2";
     SIGNAL \SPICAN:BSPIM:state_0\ : bit;
-    ATTRIBUTE placement_force OF \SPICAN:BSPIM:state_0\ : SIGNAL IS "U(2,0,A)1";
+    ATTRIBUTE placement_force OF \SPICAN:BSPIM:state_0\ : SIGNAL IS "U(3,3,A)1";
     SIGNAL \SPICAN:BSPIM:state_1\ : bit;
-    ATTRIBUTE placement_force OF \SPICAN:BSPIM:state_1\ : SIGNAL IS "U(2,1,B)0";
+    ATTRIBUTE placement_force OF \SPICAN:BSPIM:state_1\ : SIGNAL IS "U(3,5,A)0";
     SIGNAL \SPICAN:BSPIM:state_2\ : bit;
-    ATTRIBUTE placement_force OF \SPICAN:BSPIM:state_2\ : SIGNAL IS "U(2,1,B)1";
+    ATTRIBUTE placement_force OF \SPICAN:BSPIM:state_2\ : SIGNAL IS "U(3,5,A)1";
     SIGNAL \SPICAN:BSPIM:tx_status_0\ : bit;
-    ATTRIBUTE placement_force OF \SPICAN:BSPIM:tx_status_0\ : SIGNAL IS "U(2,2,A)1";
+    ATTRIBUTE placement_force OF \SPICAN:BSPIM:tx_status_0\ : SIGNAL IS "U(3,1,A)1";
     SIGNAL \SPICAN:BSPIM:tx_status_1\ : bit;
     SIGNAL \SPICAN:BSPIM:tx_status_2\ : bit;
     SIGNAL \SPICAN:BSPIM:tx_status_4\ : bit;
-    ATTRIBUTE placement_force OF \SPICAN:BSPIM:tx_status_4\ : SIGNAL IS "U(2,2,A)2";
+    ATTRIBUTE placement_force OF \SPICAN:BSPIM:tx_status_4\ : SIGNAL IS "U(3,4,B)0";
     SIGNAL \UART_DBG:BUART:counter_load_not\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:counter_load_not\ : SIGNAL IS "U(3,0,B)2";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:counter_load_not\ : SIGNAL IS "U(3,1,A)2";
     SIGNAL \UART_DBG:BUART:pollcount_0\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:pollcount_0\ : SIGNAL IS "U(2,2,B)2";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:pollcount_0\ : SIGNAL IS "U(2,3,B)2";
     SIGNAL \UART_DBG:BUART:pollcount_1\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:pollcount_1\ : SIGNAL IS "U(2,2,B)0";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:pollcount_1\ : SIGNAL IS "U(2,3,B)1";
     SIGNAL \UART_DBG:BUART:rx_bitclk_enable\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_bitclk_enable\ : SIGNAL IS "U(2,2,B)3";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_bitclk_enable\ : SIGNAL IS "U(2,1,B)1";
     SIGNAL \UART_DBG:BUART:rx_count7_tc\ : bit;
     SIGNAL \UART_DBG:BUART:rx_count_0\ : bit;
     SIGNAL \UART_DBG:BUART:rx_count_1\ : bit;
@@ -126,50 +130,50 @@ ARCHITECTURE __DEFAULT__ OF BMS_Master IS
     SIGNAL \UART_DBG:BUART:rx_count_5\ : bit;
     SIGNAL \UART_DBG:BUART:rx_count_6\ : bit;
     SIGNAL \UART_DBG:BUART:rx_counter_load\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_counter_load\ : SIGNAL IS "U(2,3,A)1";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_counter_load\ : SIGNAL IS "U(2,3,A)3";
     SIGNAL \UART_DBG:BUART:rx_fifofull\ : bit;
     SIGNAL \UART_DBG:BUART:rx_fifonotempty\ : bit;
     SIGNAL \UART_DBG:BUART:rx_last\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_last\ : SIGNAL IS "U(2,3,B)0";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_last\ : SIGNAL IS "U(2,5,B)0";
     SIGNAL \UART_DBG:BUART:rx_load_fifo\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_load_fifo\ : SIGNAL IS "U(3,3,A)1";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_load_fifo\ : SIGNAL IS "U(2,2,B)1";
     SIGNAL \UART_DBG:BUART:rx_postpoll\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_postpoll\ : SIGNAL IS "U(2,2,B)1";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_postpoll\ : SIGNAL IS "U(2,4,B)3";
     SIGNAL \UART_DBG:BUART:rx_state_0\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_state_0\ : SIGNAL IS "U(2,3,A)0";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_state_0\ : SIGNAL IS "U(2,4,B)0";
     SIGNAL \UART_DBG:BUART:rx_state_2\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_state_2\ : SIGNAL IS "U(2,3,B)2";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_state_2\ : SIGNAL IS "U(2,2,B)0";
     SIGNAL \UART_DBG:BUART:rx_state_3\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_state_3\ : SIGNAL IS "U(2,3,A)2";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_state_3\ : SIGNAL IS "U(2,2,A)2";
     SIGNAL \UART_DBG:BUART:rx_state_stop1_reg\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_state_stop1_reg\ : SIGNAL IS "U(3,2,A)0";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_state_stop1_reg\ : SIGNAL IS "U(2,3,A)0";
     SIGNAL \UART_DBG:BUART:rx_status_3\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_status_3\ : SIGNAL IS "U(2,3,B)1";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_status_3\ : SIGNAL IS "U(2,3,B)0";
     SIGNAL \UART_DBG:BUART:rx_status_4\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_status_4\ : SIGNAL IS "U(3,3,A)2";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_status_4\ : SIGNAL IS "U(3,4,A)2";
     SIGNAL \UART_DBG:BUART:rx_status_5\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_status_5\ : SIGNAL IS "U(3,2,A)1";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:rx_status_5\ : SIGNAL IS "U(2,3,B)3";
     SIGNAL \UART_DBG:BUART:tx_bitclk\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_bitclk\ : SIGNAL IS "U(2,0,B)1";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_bitclk\ : SIGNAL IS "U(2,1,B)2";
     SIGNAL \UART_DBG:BUART:tx_bitclk_enable_pre\ : bit;
     SIGNAL \UART_DBG:BUART:tx_counter_dp\ : bit;
     SIGNAL \UART_DBG:BUART:tx_ctrl_mark_last\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_ctrl_mark_last\ : SIGNAL IS "U(3,3,A)3";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_ctrl_mark_last\ : SIGNAL IS "U(2,2,A)1";
     SIGNAL \UART_DBG:BUART:tx_fifo_empty\ : bit;
     SIGNAL \UART_DBG:BUART:tx_fifo_notfull\ : bit;
     SIGNAL \UART_DBG:BUART:tx_shift_out\ : bit;
     SIGNAL \UART_DBG:BUART:tx_state_0\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_state_0\ : SIGNAL IS "U(3,0,B)0";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_state_0\ : SIGNAL IS "U(2,1,A)0";
     SIGNAL \UART_DBG:BUART:tx_state_1\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_state_1\ : SIGNAL IS "U(2,0,B)2";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_state_1\ : SIGNAL IS "U(3,2,B)0";
     SIGNAL \UART_DBG:BUART:tx_state_2\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_state_2\ : SIGNAL IS "U(2,0,B)0";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_state_2\ : SIGNAL IS "U(3,3,B)2";
     SIGNAL \UART_DBG:BUART:tx_status_0\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_status_0\ : SIGNAL IS "U(3,0,B)1";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_status_0\ : SIGNAL IS "U(2,1,A)1";
     SIGNAL \UART_DBG:BUART:tx_status_2\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_status_2\ : SIGNAL IS "U(3,2,A)3";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:tx_status_2\ : SIGNAL IS "U(2,4,A)1";
     SIGNAL \UART_DBG:BUART:txn\ : bit;
-    ATTRIBUTE placement_force OF \UART_DBG:BUART:txn\ : SIGNAL IS "U(3,0,A)0";
+    ATTRIBUTE placement_force OF \UART_DBG:BUART:txn\ : SIGNAL IS "U(3,1,A)0";
     SIGNAL \UART_DBG:Net_9\ : bit;
     ATTRIBUTE udbclken_assigned OF \UART_DBG:Net_9\ : SIGNAL IS "True";
     ATTRIBUTE global_signal OF \UART_DBG:Net_9\ : SIGNAL IS true;
@@ -181,14 +185,8 @@ ARCHITECTURE __DEFAULT__ OF BMS_Master IS
     SIGNAL aiBMS_OutputVoltage(0)__PA : bit;
     SIGNAL aiBMS_PackVoltage(0)__PA : bit;
     SIGNAL aiBMS_VoltageSense(0)__PA : bit;
-    SIGNAL aiECU_BrakeInput1(0)__PA : bit;
-    SIGNAL aiECU_BrakeInput2(0)__PA : bit;
-    SIGNAL aiECU_BrakePressureFront(0)__PA : bit;
-    SIGNAL aiECU_BrakePressureRear(0)__PA : bit;
     SIGNAL aiECU_PyroFront(0)__PA : bit;
     SIGNAL aiECU_PyroRear(0)__PA : bit;
-    SIGNAL aiECU_Throttle1(0)__PA : bit;
-    SIGNAL aiECU_Throttle2(0)__PA : bit;
     SIGNAL aiTHM_CoolantInlet(0)__PA : bit;
     SIGNAL aiTHM_CoolantOutlet(0)__PA : bit;
     SIGNAL diBMS_RelayNegFdbk(0)__PA : bit;
@@ -196,7 +194,6 @@ ARCHITECTURE __DEFAULT__ OF BMS_Master IS
     SIGNAL doBMS_RelayNegDrive(0)__PA : bit;
     SIGNAL doBMS_RelayPosDrive(0)__PA : bit;
     SIGNAL doBMS_RelayPreCharge(0)__PA : bit;
-    SIGNAL doECU_BrakeLight(0)__PA : bit;
     SIGNAL doTHM_FanEn(0)__PA : bit;
     SIGNAL doTHM_PumpEn(0)__PA : bit;
     SIGNAL tmpOE__RX_CAN_net_0 : bit;
@@ -204,153 +201,190 @@ ARCHITECTURE __DEFAULT__ OF BMS_Master IS
     SIGNAL zero : bit;
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
     SIGNAL \ClockBlock.clk_bus_glb_ff__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u0.ce0__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u0.cl0__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u0.z0__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u0.ff0__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u0.ce1__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u0.cl1__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u0.z1__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u0.ff1__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u0.co_msb__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u0.sol_msb__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u0.cfbo__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u1.sor__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u1.cmsbo__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u1.cl0__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u1.z0__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u1.ff0__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u1.ce1__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u1.cl1__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u1.z1__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u1.ff1__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u1.co_msb__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u1.sol_msb__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u1.cfbo__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u2.sor__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u2.cmsbo__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u2.cl0__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u2.z0__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u2.ff0__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u2.ce1__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u2.cl1__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u2.z1__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u2.ff1__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u2.co_msb__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u2.sol_msb__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u2.cfbo__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u3.sor__sig\ : bit;
+    SIGNAL \Global_Timer:TimerUDB:sT32:timerdp:u3.cmsbo__sig\ : bit;
     ATTRIBUTE Location OF ClockBlock : LABEL IS "F(Clock,0)";
     ATTRIBUTE lib_model OF RX_CAN(0) : LABEL IS "iocell1";
-    ATTRIBUTE Location OF RX_CAN(0) : LABEL IS "P0[4]";
+    ATTRIBUTE Location OF RX_CAN(0) : LABEL IS "P12[3]";
     ATTRIBUTE lib_model OF TX_CAN(0) : LABEL IS "iocell2";
-    ATTRIBUTE Location OF TX_CAN(0) : LABEL IS "P2[7]";
+    ATTRIBUTE Location OF TX_CAN(0) : LABEL IS "P2[2]";
     ATTRIBUTE lib_model OF RxUART(0) : LABEL IS "iocell3";
-    ATTRIBUTE Location OF RxUART(0) : LABEL IS "P12[3]";
+    ATTRIBUTE Location OF RxUART(0) : LABEL IS "P0[2]";
     ATTRIBUTE lib_model OF TxUART(0) : LABEL IS "iocell4";
-    ATTRIBUTE Location OF TxUART(0) : LABEL IS "P1[6]";
+    ATTRIBUTE Location OF TxUART(0) : LABEL IS "P0[1]";
     ATTRIBUTE lib_model OF Pin_1(0) : LABEL IS "iocell5";
-    ATTRIBUTE Location OF Pin_1(0) : LABEL IS "P1[5]";
-    ATTRIBUTE lib_model OF aiECU_BrakePressureRear(0) : LABEL IS "iocell6";
-    ATTRIBUTE Location OF aiECU_BrakePressureRear(0) : LABEL IS "P15[1]";
-    ATTRIBUTE lib_model OF aiECU_BrakePressureFront(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF aiECU_BrakePressureFront(0) : LABEL IS "P0[7]";
-    ATTRIBUTE lib_model OF aiECU_BrakeInput1(0) : LABEL IS "iocell8";
-    ATTRIBUTE Location OF aiECU_BrakeInput1(0) : LABEL IS "P2[6]";
-    ATTRIBUTE lib_model OF aiECU_BrakeInput2(0) : LABEL IS "iocell9";
-    ATTRIBUTE Location OF aiECU_BrakeInput2(0) : LABEL IS "P2[0]";
-    ATTRIBUTE lib_model OF aiTHM_CoolantOutlet(0) : LABEL IS "iocell10";
-    ATTRIBUTE Location OF aiTHM_CoolantOutlet(0) : LABEL IS "P1[4]";
-    ATTRIBUTE lib_model OF aiTHM_CoolantInlet(0) : LABEL IS "iocell11";
-    ATTRIBUTE Location OF aiTHM_CoolantInlet(0) : LABEL IS "P0[5]";
-    ATTRIBUTE lib_model OF aiBMS_VoltageSense(0) : LABEL IS "iocell12";
-    ATTRIBUTE Location OF aiBMS_VoltageSense(0) : LABEL IS "P0[1]";
-    ATTRIBUTE lib_model OF aiECU_PyroRear(0) : LABEL IS "iocell13";
-    ATTRIBUTE Location OF aiECU_PyroRear(0) : LABEL IS "P15[3]";
-    ATTRIBUTE lib_model OF aiECU_PyroFront(0) : LABEL IS "iocell14";
-    ATTRIBUTE Location OF aiECU_PyroFront(0) : LABEL IS "P3[3]";
-    ATTRIBUTE lib_model OF doTHM_PumpEn(0) : LABEL IS "iocell15";
-    ATTRIBUTE Location OF doTHM_PumpEn(0) : LABEL IS "P1[7]";
-    ATTRIBUTE lib_model OF doTHM_FanEn(0) : LABEL IS "iocell16";
-    ATTRIBUTE Location OF doTHM_FanEn(0) : LABEL IS "P2[1]";
-    ATTRIBUTE lib_model OF doECU_BrakeLight(0) : LABEL IS "iocell17";
-    ATTRIBUTE Location OF doECU_BrakeLight(0) : LABEL IS "P2[2]";
-    ATTRIBUTE lib_model OF aiECU_Throttle2(0) : LABEL IS "iocell18";
-    ATTRIBUTE Location OF aiECU_Throttle2(0) : LABEL IS "P3[7]";
-    ATTRIBUTE lib_model OF aiECU_Throttle1(0) : LABEL IS "iocell19";
-    ATTRIBUTE Location OF aiECU_Throttle1(0) : LABEL IS "P0[0]";
-    ATTRIBUTE lib_model OF diBMS_RelayPosFdbk(0) : LABEL IS "iocell20";
-    ATTRIBUTE Location OF diBMS_RelayPosFdbk(0) : LABEL IS "P1[2]";
-    ATTRIBUTE lib_model OF doBMS_RelayPosDrive(0) : LABEL IS "iocell21";
-    ATTRIBUTE Location OF doBMS_RelayPosDrive(0) : LABEL IS "P2[3]";
-    ATTRIBUTE lib_model OF diBMS_RelayNegFdbk(0) : LABEL IS "iocell22";
-    ATTRIBUTE Location OF diBMS_RelayNegFdbk(0) : LABEL IS "P0[6]";
-    ATTRIBUTE lib_model OF doBMS_RelayNegDrive(0) : LABEL IS "iocell23";
-    ATTRIBUTE Location OF doBMS_RelayNegDrive(0) : LABEL IS "P2[4]";
-    ATTRIBUTE lib_model OF aiBMS_OutputVoltage(0) : LABEL IS "iocell24";
-    ATTRIBUTE Location OF aiBMS_OutputVoltage(0) : LABEL IS "P0[2]";
-    ATTRIBUTE lib_model OF aiBMS_PackVoltage(0) : LABEL IS "iocell25";
-    ATTRIBUTE Location OF aiBMS_PackVoltage(0) : LABEL IS "P3[0]";
-    ATTRIBUTE lib_model OF doBMS_RelayPreCharge(0) : LABEL IS "iocell26";
-    ATTRIBUTE Location OF doBMS_RelayPreCharge(0) : LABEL IS "P2[5]";
+    ATTRIBUTE Location OF Pin_1(0) : LABEL IS "P0[6]";
+    ATTRIBUTE lib_model OF Timer_En(0) : LABEL IS "iocell6";
+    ATTRIBUTE Location OF Timer_En(0) : LABEL IS "P12[2]";
+    ATTRIBUTE lib_model OF aiTHM_CoolantOutlet(0) : LABEL IS "iocell7";
+    ATTRIBUTE Location OF aiTHM_CoolantOutlet(0) : LABEL IS "P2[6]";
+    ATTRIBUTE lib_model OF aiTHM_CoolantInlet(0) : LABEL IS "iocell8";
+    ATTRIBUTE Location OF aiTHM_CoolantInlet(0) : LABEL IS "P0[7]";
+    ATTRIBUTE lib_model OF aiBMS_VoltageSense(0) : LABEL IS "iocell9";
+    ATTRIBUTE Location OF aiBMS_VoltageSense(0) : LABEL IS "P1[6]";
+    ATTRIBUTE lib_model OF aiECU_PyroRear(0) : LABEL IS "iocell10";
+    ATTRIBUTE Location OF aiECU_PyroRear(0) : LABEL IS "P2[0]";
+    ATTRIBUTE lib_model OF aiECU_PyroFront(0) : LABEL IS "iocell11";
+    ATTRIBUTE Location OF aiECU_PyroFront(0) : LABEL IS "P3[0]";
+    ATTRIBUTE lib_model OF doTHM_PumpEn(0) : LABEL IS "iocell12";
+    ATTRIBUTE Location OF doTHM_PumpEn(0) : LABEL IS "P1[2]";
+    ATTRIBUTE lib_model OF doTHM_FanEn(0) : LABEL IS "iocell13";
+    ATTRIBUTE Location OF doTHM_FanEn(0) : LABEL IS "P1[4]";
+    ATTRIBUTE lib_model OF diBMS_RelayPosFdbk(0) : LABEL IS "iocell14";
+    ATTRIBUTE Location OF diBMS_RelayPosFdbk(0) : LABEL IS "P0[4]";
+    ATTRIBUTE lib_model OF doBMS_RelayPosDrive(0) : LABEL IS "iocell15";
+    ATTRIBUTE Location OF doBMS_RelayPosDrive(0) : LABEL IS "P1[5]";
+    ATTRIBUTE lib_model OF diBMS_RelayNegFdbk(0) : LABEL IS "iocell16";
+    ATTRIBUTE Location OF diBMS_RelayNegFdbk(0) : LABEL IS "P0[3]";
+    ATTRIBUTE lib_model OF doBMS_RelayNegDrive(0) : LABEL IS "iocell17";
+    ATTRIBUTE Location OF doBMS_RelayNegDrive(0) : LABEL IS "P1[7]";
+    ATTRIBUTE lib_model OF aiBMS_OutputVoltage(0) : LABEL IS "iocell18";
+    ATTRIBUTE Location OF aiBMS_OutputVoltage(0) : LABEL IS "P3[3]";
+    ATTRIBUTE lib_model OF aiBMS_PackVoltage(0) : LABEL IS "iocell19";
+    ATTRIBUTE Location OF aiBMS_PackVoltage(0) : LABEL IS "P3[4]";
+    ATTRIBUTE lib_model OF doBMS_RelayPreCharge(0) : LABEL IS "iocell20";
+    ATTRIBUTE Location OF doBMS_RelayPreCharge(0) : LABEL IS "P2[1]";
     ATTRIBUTE lib_model OF \SPICAN:BSPIM:load_rx_data\ : LABEL IS "macrocell1";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:load_rx_data\ : LABEL IS "U(2,1)";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:load_rx_data\ : LABEL IS "U(2,5)";
     ATTRIBUTE lib_model OF \SPICAN:BSPIM:tx_status_0\ : LABEL IS "macrocell2";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:tx_status_0\ : LABEL IS "U(2,2)";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:tx_status_0\ : LABEL IS "U(3,1)";
     ATTRIBUTE lib_model OF \SPICAN:BSPIM:tx_status_4\ : LABEL IS "macrocell3";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:tx_status_4\ : LABEL IS "U(2,2)";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:tx_status_4\ : LABEL IS "U(3,4)";
     ATTRIBUTE lib_model OF \SPICAN:BSPIM:rx_status_6\ : LABEL IS "macrocell4";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:rx_status_6\ : LABEL IS "U(2,0)";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:rx_status_6\ : LABEL IS "U(2,4)";
     ATTRIBUTE lib_model OF Net_15 : LABEL IS "macrocell5";
-    ATTRIBUTE Location OF Net_15 : LABEL IS "U(3,0)";
+    ATTRIBUTE Location OF Net_15 : LABEL IS "U(3,3)";
     ATTRIBUTE lib_model OF \UART_DBG:BUART:counter_load_not\ : LABEL IS "macrocell6";
-    ATTRIBUTE Location OF \UART_DBG:BUART:counter_load_not\ : LABEL IS "U(3,0)";
+    ATTRIBUTE Location OF \UART_DBG:BUART:counter_load_not\ : LABEL IS "U(3,1)";
     ATTRIBUTE lib_model OF \UART_DBG:BUART:tx_status_0\ : LABEL IS "macrocell7";
-    ATTRIBUTE Location OF \UART_DBG:BUART:tx_status_0\ : LABEL IS "U(3,0)";
+    ATTRIBUTE Location OF \UART_DBG:BUART:tx_status_0\ : LABEL IS "U(2,1)";
     ATTRIBUTE lib_model OF \UART_DBG:BUART:tx_status_2\ : LABEL IS "macrocell8";
-    ATTRIBUTE Location OF \UART_DBG:BUART:tx_status_2\ : LABEL IS "U(3,2)";
+    ATTRIBUTE Location OF \UART_DBG:BUART:tx_status_2\ : LABEL IS "U(2,4)";
     ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_counter_load\ : LABEL IS "macrocell9";
     ATTRIBUTE Location OF \UART_DBG:BUART:rx_counter_load\ : LABEL IS "U(2,3)";
     ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_postpoll\ : LABEL IS "macrocell10";
-    ATTRIBUTE Location OF \UART_DBG:BUART:rx_postpoll\ : LABEL IS "U(2,2)";
+    ATTRIBUTE Location OF \UART_DBG:BUART:rx_postpoll\ : LABEL IS "U(2,4)";
     ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_status_4\ : LABEL IS "macrocell11";
-    ATTRIBUTE Location OF \UART_DBG:BUART:rx_status_4\ : LABEL IS "U(3,3)";
+    ATTRIBUTE Location OF \UART_DBG:BUART:rx_status_4\ : LABEL IS "U(3,4)";
     ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_status_5\ : LABEL IS "macrocell12";
-    ATTRIBUTE Location OF \UART_DBG:BUART:rx_status_5\ : LABEL IS "U(3,2)";
+    ATTRIBUTE Location OF \UART_DBG:BUART:rx_status_5\ : LABEL IS "U(2,3)";
+    ATTRIBUTE lib_model OF \Global_Timer:TimerUDB:status_tc\ : LABEL IS "macrocell13";
+    ATTRIBUTE Location OF \Global_Timer:TimerUDB:status_tc\ : LABEL IS "U(3,2)";
     ATTRIBUTE Location OF \Vehicle_CAN:CanIP\ : LABEL IS "F(CAN,0)";
     ATTRIBUTE Location OF \Vehicle_CAN:isr\ : LABEL IS "[IntrContainer=(0)][IntrId=(16)]";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:BitCounter\ : LABEL IS "U(2,1)";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:BitCounter\ : LABEL IS "U(2,3)";
     ATTRIBUTE lib_model OF \SPICAN:BSPIM:TxStsReg\ : LABEL IS "statusicell1";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:TxStsReg\ : LABEL IS "U(2,2)";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:TxStsReg\ : LABEL IS "U(3,4)";
     ATTRIBUTE lib_model OF \SPICAN:BSPIM:RxStsReg\ : LABEL IS "statusicell2";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:RxStsReg\ : LABEL IS "U(2,0)";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:RxStsReg\ : LABEL IS "U(2,4)";
     ATTRIBUTE lib_model OF \SPICAN:BSPIM:sR8:Dp:u0\ : LABEL IS "datapathcell1";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:sR8:Dp:u0\ : LABEL IS "U(2,1)";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:sR8:Dp:u0\ : LABEL IS "U(3,5)";
     ATTRIBUTE lib_model OF \UART_DBG:BUART:sTX:TxShifter:u0\ : LABEL IS "datapathcell2";
-    ATTRIBUTE Location OF \UART_DBG:BUART:sTX:TxShifter:u0\ : LABEL IS "U(3,0)";
+    ATTRIBUTE Location OF \UART_DBG:BUART:sTX:TxShifter:u0\ : LABEL IS "U(2,1)";
     ATTRIBUTE lib_model OF \UART_DBG:BUART:sTX:sCLOCK:TxBitClkGen\ : LABEL IS "datapathcell3";
     ATTRIBUTE Location OF \UART_DBG:BUART:sTX:sCLOCK:TxBitClkGen\ : LABEL IS "U(3,1)";
     ATTRIBUTE lib_model OF \UART_DBG:BUART:sTX:TxSts\ : LABEL IS "statusicell3";
-    ATTRIBUTE Location OF \UART_DBG:BUART:sTX:TxSts\ : LABEL IS "U(3,1)";
+    ATTRIBUTE Location OF \UART_DBG:BUART:sTX:TxSts\ : LABEL IS "U(2,1)";
     ATTRIBUTE lib_model OF \UART_DBG:BUART:sRX:RxShifter:u0\ : LABEL IS "datapathcell4";
-    ATTRIBUTE Location OF \UART_DBG:BUART:sRX:RxShifter:u0\ : LABEL IS "U(3,2)";
-    ATTRIBUTE Location OF \UART_DBG:BUART:sRX:RxBitCounter\ : LABEL IS "U(2,3)";
+    ATTRIBUTE Location OF \UART_DBG:BUART:sRX:RxShifter:u0\ : LABEL IS "U(2,4)";
+    ATTRIBUTE Location OF \UART_DBG:BUART:sRX:RxBitCounter\ : LABEL IS "U(2,2)";
     ATTRIBUTE lib_model OF \UART_DBG:BUART:sRX:RxSts\ : LABEL IS "statusicell4";
-    ATTRIBUTE Location OF \UART_DBG:BUART:sRX:RxSts\ : LABEL IS "U(3,2)";
-    ATTRIBUTE lib_model OF \SPICAN:BSPIM:mosi_reg\ : LABEL IS "macrocell13";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:mosi_reg\ : LABEL IS "U(2,1)";
-    ATTRIBUTE lib_model OF \SPICAN:BSPIM:state_2\ : LABEL IS "macrocell14";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:state_2\ : LABEL IS "U(2,1)";
-    ATTRIBUTE lib_model OF \SPICAN:BSPIM:state_1\ : LABEL IS "macrocell15";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:state_1\ : LABEL IS "U(2,1)";
-    ATTRIBUTE lib_model OF \SPICAN:BSPIM:state_0\ : LABEL IS "macrocell16";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:state_0\ : LABEL IS "U(2,0)";
-    ATTRIBUTE lib_model OF Net_33 : LABEL IS "macrocell17";
-    ATTRIBUTE Location OF Net_33 : LABEL IS "U(3,2)";
-    ATTRIBUTE lib_model OF \SPICAN:BSPIM:load_cond\ : LABEL IS "macrocell18";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:load_cond\ : LABEL IS "U(2,0)";
-    ATTRIBUTE lib_model OF \SPICAN:BSPIM:ld_ident\ : LABEL IS "macrocell19";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:ld_ident\ : LABEL IS "U(2,1)";
-    ATTRIBUTE lib_model OF \SPICAN:BSPIM:cnt_enable\ : LABEL IS "macrocell20";
-    ATTRIBUTE Location OF \SPICAN:BSPIM:cnt_enable\ : LABEL IS "U(2,2)";
-    ATTRIBUTE lib_model OF Net_32 : LABEL IS "macrocell21";
-    ATTRIBUTE Location OF Net_32 : LABEL IS "U(3,2)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:txn\ : LABEL IS "macrocell22";
-    ATTRIBUTE Location OF \UART_DBG:BUART:txn\ : LABEL IS "U(3,0)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:tx_state_1\ : LABEL IS "macrocell23";
-    ATTRIBUTE Location OF \UART_DBG:BUART:tx_state_1\ : LABEL IS "U(2,0)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:tx_state_0\ : LABEL IS "macrocell24";
-    ATTRIBUTE Location OF \UART_DBG:BUART:tx_state_0\ : LABEL IS "U(3,0)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:tx_state_2\ : LABEL IS "macrocell25";
-    ATTRIBUTE Location OF \UART_DBG:BUART:tx_state_2\ : LABEL IS "U(2,0)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:tx_bitclk\ : LABEL IS "macrocell26";
-    ATTRIBUTE Location OF \UART_DBG:BUART:tx_bitclk\ : LABEL IS "U(2,0)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:tx_ctrl_mark_last\ : LABEL IS "macrocell27";
-    ATTRIBUTE Location OF \UART_DBG:BUART:tx_ctrl_mark_last\ : LABEL IS "U(3,3)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_state_0\ : LABEL IS "macrocell28";
-    ATTRIBUTE Location OF \UART_DBG:BUART:rx_state_0\ : LABEL IS "U(2,3)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_load_fifo\ : LABEL IS "macrocell29";
-    ATTRIBUTE Location OF \UART_DBG:BUART:rx_load_fifo\ : LABEL IS "U(3,3)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_state_3\ : LABEL IS "macrocell30";
-    ATTRIBUTE Location OF \UART_DBG:BUART:rx_state_3\ : LABEL IS "U(2,3)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_state_2\ : LABEL IS "macrocell31";
-    ATTRIBUTE Location OF \UART_DBG:BUART:rx_state_2\ : LABEL IS "U(2,3)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_bitclk_enable\ : LABEL IS "macrocell32";
-    ATTRIBUTE Location OF \UART_DBG:BUART:rx_bitclk_enable\ : LABEL IS "U(2,2)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_state_stop1_reg\ : LABEL IS "macrocell33";
-    ATTRIBUTE Location OF \UART_DBG:BUART:rx_state_stop1_reg\ : LABEL IS "U(3,2)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:pollcount_1\ : LABEL IS "macrocell34";
-    ATTRIBUTE Location OF \UART_DBG:BUART:pollcount_1\ : LABEL IS "U(2,2)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:pollcount_0\ : LABEL IS "macrocell35";
-    ATTRIBUTE Location OF \UART_DBG:BUART:pollcount_0\ : LABEL IS "U(2,2)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_status_3\ : LABEL IS "macrocell36";
+    ATTRIBUTE Location OF \UART_DBG:BUART:sRX:RxSts\ : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF \Global_Timer:TimerUDB:rstSts:stsreg\ : LABEL IS "statusicell5";
+    ATTRIBUTE Location OF \Global_Timer:TimerUDB:rstSts:stsreg\ : LABEL IS "U(3,2)";
+    ATTRIBUTE lib_model OF \Global_Timer:TimerUDB:sT32:timerdp:u0\ : LABEL IS "datapathcell5";
+    ATTRIBUTE Location OF \Global_Timer:TimerUDB:sT32:timerdp:u0\ : LABEL IS "U(2,3)";
+    ATTRIBUTE lib_model OF \Global_Timer:TimerUDB:sT32:timerdp:u1\ : LABEL IS "datapathcell6";
+    ATTRIBUTE Location OF \Global_Timer:TimerUDB:sT32:timerdp:u1\ : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF \Global_Timer:TimerUDB:sT32:timerdp:u2\ : LABEL IS "datapathcell7";
+    ATTRIBUTE Location OF \Global_Timer:TimerUDB:sT32:timerdp:u2\ : LABEL IS "U(3,2)";
+    ATTRIBUTE lib_model OF \Global_Timer:TimerUDB:sT32:timerdp:u3\ : LABEL IS "datapathcell8";
+    ATTRIBUTE Location OF \Global_Timer:TimerUDB:sT32:timerdp:u3\ : LABEL IS "U(2,2)";
+    ATTRIBUTE lib_model OF \SPICAN:BSPIM:mosi_reg\ : LABEL IS "macrocell14";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:mosi_reg\ : LABEL IS "U(3,5)";
+    ATTRIBUTE lib_model OF \SPICAN:BSPIM:state_2\ : LABEL IS "macrocell15";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:state_2\ : LABEL IS "U(3,5)";
+    ATTRIBUTE lib_model OF \SPICAN:BSPIM:state_1\ : LABEL IS "macrocell16";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:state_1\ : LABEL IS "U(3,5)";
+    ATTRIBUTE lib_model OF \SPICAN:BSPIM:state_0\ : LABEL IS "macrocell17";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:state_0\ : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF Net_33 : LABEL IS "macrocell18";
+    ATTRIBUTE Location OF Net_33 : LABEL IS "U(3,1)";
+    ATTRIBUTE lib_model OF \SPICAN:BSPIM:load_cond\ : LABEL IS "macrocell19";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:load_cond\ : LABEL IS "U(2,4)";
+    ATTRIBUTE lib_model OF \SPICAN:BSPIM:ld_ident\ : LABEL IS "macrocell20";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:ld_ident\ : LABEL IS "U(3,5)";
+    ATTRIBUTE lib_model OF \SPICAN:BSPIM:cnt_enable\ : LABEL IS "macrocell21";
+    ATTRIBUTE Location OF \SPICAN:BSPIM:cnt_enable\ : LABEL IS "U(2,5)";
+    ATTRIBUTE lib_model OF Net_32 : LABEL IS "macrocell22";
+    ATTRIBUTE Location OF Net_32 : LABEL IS "U(2,5)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:txn\ : LABEL IS "macrocell23";
+    ATTRIBUTE Location OF \UART_DBG:BUART:txn\ : LABEL IS "U(3,1)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:tx_state_1\ : LABEL IS "macrocell24";
+    ATTRIBUTE Location OF \UART_DBG:BUART:tx_state_1\ : LABEL IS "U(3,2)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:tx_state_0\ : LABEL IS "macrocell25";
+    ATTRIBUTE Location OF \UART_DBG:BUART:tx_state_0\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:tx_state_2\ : LABEL IS "macrocell26";
+    ATTRIBUTE Location OF \UART_DBG:BUART:tx_state_2\ : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:tx_bitclk\ : LABEL IS "macrocell27";
+    ATTRIBUTE Location OF \UART_DBG:BUART:tx_bitclk\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:tx_ctrl_mark_last\ : LABEL IS "macrocell28";
+    ATTRIBUTE Location OF \UART_DBG:BUART:tx_ctrl_mark_last\ : LABEL IS "U(2,2)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_state_0\ : LABEL IS "macrocell29";
+    ATTRIBUTE Location OF \UART_DBG:BUART:rx_state_0\ : LABEL IS "U(2,4)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_load_fifo\ : LABEL IS "macrocell30";
+    ATTRIBUTE Location OF \UART_DBG:BUART:rx_load_fifo\ : LABEL IS "U(2,2)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_state_3\ : LABEL IS "macrocell31";
+    ATTRIBUTE Location OF \UART_DBG:BUART:rx_state_3\ : LABEL IS "U(2,2)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_state_2\ : LABEL IS "macrocell32";
+    ATTRIBUTE Location OF \UART_DBG:BUART:rx_state_2\ : LABEL IS "U(2,2)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_bitclk_enable\ : LABEL IS "macrocell33";
+    ATTRIBUTE Location OF \UART_DBG:BUART:rx_bitclk_enable\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_state_stop1_reg\ : LABEL IS "macrocell34";
+    ATTRIBUTE Location OF \UART_DBG:BUART:rx_state_stop1_reg\ : LABEL IS "U(2,3)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:pollcount_1\ : LABEL IS "macrocell35";
+    ATTRIBUTE Location OF \UART_DBG:BUART:pollcount_1\ : LABEL IS "U(2,3)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:pollcount_0\ : LABEL IS "macrocell36";
+    ATTRIBUTE Location OF \UART_DBG:BUART:pollcount_0\ : LABEL IS "U(2,3)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_status_3\ : LABEL IS "macrocell37";
     ATTRIBUTE Location OF \UART_DBG:BUART:rx_status_3\ : LABEL IS "U(2,3)";
-    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_last\ : LABEL IS "macrocell37";
-    ATTRIBUTE Location OF \UART_DBG:BUART:rx_last\ : LABEL IS "U(2,3)";
+    ATTRIBUTE lib_model OF \UART_DBG:BUART:rx_last\ : LABEL IS "macrocell38";
+    ATTRIBUTE Location OF \UART_DBG:BUART:rx_last\ : LABEL IS "U(2,5)";
     COMPONENT cancell
         PORT (
             clock : IN std_ulogic;
@@ -1127,15 +1161,15 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    aiECU_BrakePressureRear:logicalport
+    Timer_En:logicalport
         GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
-            id => "b29d81ac-b764-42d1-9bd0-6fc562c48a26",
+            drive_mode => "001",
+            ibuf_enabled => "1",
+            id => "c8bcc409-7239-4a0d-b5dd-491ad38c6231",
             init_dr_st => "0",
             input_buffer_sel => "00",
             input_clk_en => 0,
-            input_sync => "1",
+            input_sync => "0",
             input_sync_mode => "0",
             intr_mode => "00",
             invert_in_clock => 0,
@@ -1165,7 +1199,7 @@ BEGIN
             pa_out_clock_en => -1,
             pa_out_reset => -1,
             pin_aliases => "",
-            pin_mode => "A",
+            pin_mode => "I",
             por_state => 4,
             port_alias_group => "",
             port_alias_required => 0,
@@ -1182,7 +1216,7 @@ BEGIN
             spanning => 0,
             sw_only => 0,
             use_annotation => "0",
-            vtrip => "10",
+            vtrip => "00",
             width => 1,
             in_clk_inv => 0,
             in_clken_inv => 0,
@@ -1198,288 +1232,19 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    aiECU_BrakePressureRear(0):iocell
+    Timer_En(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "aiECU_BrakePressureRear",
+            logicalport => "Timer_En",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
         PORT MAP(
-            pa_out => aiECU_BrakePressureRear(0)__PA,
+            pa_out => Timer_En(0)__PA,
             oe => open,
-            pad_in => aiECU_BrakePressureRear(0)_PAD,
-            in_clock => open,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
-    aiECU_BrakePressureFront:logicalport
-        GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
-            id => "5720e89b-9a9b-4467-aadf-f698efcdac5a",
-            init_dr_st => "0",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "1",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "0",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "A",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "00000000",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "00000000",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "0",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    aiECU_BrakePressureFront(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "aiECU_BrakePressureFront",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
-        PORT MAP(
-            pa_out => aiECU_BrakePressureFront(0)__PA,
-            oe => open,
-            pad_in => aiECU_BrakePressureFront(0)_PAD,
-            in_clock => open,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
-    aiECU_BrakeInput1:logicalport
-        GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
-            id => "e6c97cb8-899a-4176-8243-a2b430f2f83a",
-            init_dr_st => "0",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "1",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "0",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "A",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "00000000",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "00000000",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "0",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    aiECU_BrakeInput1(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "aiECU_BrakeInput1",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
-        PORT MAP(
-            pa_out => aiECU_BrakeInput1(0)__PA,
-            oe => open,
-            pad_in => aiECU_BrakeInput1(0)_PAD,
-            in_clock => open,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
-    aiECU_BrakeInput2:logicalport
-        GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
-            id => "238022d0-979c-444c-b032-5530a60afcf5",
-            init_dr_st => "0",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "1",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "0",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "A",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "00000000",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "00000000",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "0",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    aiECU_BrakeInput2(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "aiECU_BrakeInput2",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
-        PORT MAP(
-            pa_out => aiECU_BrakeInput2(0)__PA,
-            oe => open,
-            pad_in => aiECU_BrakeInput2(0)_PAD,
+            fb => Net_167,
+            pad_in => Timer_En(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -2110,276 +1875,6 @@ BEGIN
             pa_out => doTHM_FanEn(0)__PA,
             oe => open,
             pad_in => doTHM_FanEn(0)_PAD,
-            in_clock => open,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
-    doECU_BrakeLight:logicalport
-        GENERIC MAP(
-            drive_mode => "110",
-            ibuf_enabled => "1",
-            id => "57edbff3-595a-42c0-8ad4-62da1e8a61c8",
-            init_dr_st => "0",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "1",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "0",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "O",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "00000000",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "00000000",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "0",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    doECU_BrakeLight(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "doECU_BrakeLight",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
-        PORT MAP(
-            pa_out => doECU_BrakeLight(0)__PA,
-            oe => open,
-            pad_in => doECU_BrakeLight(0)_PAD,
-            in_clock => open,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
-    aiECU_Throttle2:logicalport
-        GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
-            id => "723ac4b8-1933-4519-9ea9-4a90b3fad39c",
-            init_dr_st => "0",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "1",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "0",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "A",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "00000000",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "00000000",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "0",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    aiECU_Throttle2(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "aiECU_Throttle2",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
-        PORT MAP(
-            pa_out => aiECU_Throttle2(0)__PA,
-            oe => open,
-            pad_in => aiECU_Throttle2(0)_PAD,
-            in_clock => open,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
-    aiECU_Throttle1:logicalport
-        GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
-            id => "77715107-f8d5-47e5-a629-0fb83101ac6b",
-            init_dr_st => "0",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "1",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "0",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "A",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "00000000",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "00000000",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "0",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    aiECU_Throttle1(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "aiECU_Throttle1",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
-        PORT MAP(
-            pa_out => aiECU_Throttle1(0)__PA,
-            oe => open,
-            pad_in => aiECU_Throttle1(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -3152,6 +2647,16 @@ BEGIN
             main_0 => \UART_DBG:BUART:rx_fifonotempty\,
             main_1 => \UART_DBG:BUART:rx_state_stop1_reg\);
 
+    \Global_Timer:TimerUDB:status_tc\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \Global_Timer:TimerUDB:status_tc\,
+            main_0 => Net_167,
+            main_1 => \Global_Timer:TimerUDB:per_zero\);
+
     \Vehicle_CAN:CanIP\:cancell
         GENERIC MAP(
             cy_registers => "")
@@ -3437,6 +2942,236 @@ BEGIN
             status_2 => open,
             status_1 => open,
             status_0 => open);
+
+    \Global_Timer:TimerUDB:rstSts:stsreg\:statusicell
+        GENERIC MAP(
+            cy_force_order => 1,
+            cy_int_mask => "1111111",
+            cy_md_select => "0000011",
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => ClockBlock_BUS_CLK,
+            status_6 => open,
+            status_5 => open,
+            status_4 => open,
+            status_3 => \Global_Timer:TimerUDB:status_3\,
+            status_2 => \Global_Timer:TimerUDB:status_2\,
+            status_1 => open,
+            status_0 => \Global_Timer:TimerUDB:status_tc\);
+
+    \Global_Timer:TimerUDB:sT32:timerdp:u0\:datapathcell
+        GENERIC MAP(
+            a0_init => "00000000",
+            a1_init => "00000000",
+            ce0_sync => 1,
+            ce1_sync => 1,
+            cl0_sync => 1,
+            cl1_sync => 1,
+            cmsb_sync => 1,
+            co_msb_sync => 1,
+            cy_dpconfig => "0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111000000000000000000000001000000000000000000011000",
+            d0_init => "00000000",
+            d1_init => "00000000",
+            f0_blk_sync => 1,
+            f0_bus_sync => 1,
+            f1_blk_sync => 1,
+            f1_bus_sync => 1,
+            ff0_sync => 1,
+            ff1_sync => 1,
+            ov_msb_sync => 1,
+            so_sync => 1,
+            z0_sync => 1,
+            z1_sync => 1,
+            uses_p_in => '0',
+            uses_p_out => '0',
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => ClockBlock_BUS_CLK,
+            cs_addr_1 => Net_167,
+            cs_addr_0 => \Global_Timer:TimerUDB:per_zero\,
+            busclk => ClockBlock_BUS_CLK,
+            ce0 => \Global_Timer:TimerUDB:sT32:timerdp:u0.ce0__sig\,
+            cl0 => \Global_Timer:TimerUDB:sT32:timerdp:u0.cl0__sig\,
+            z0 => \Global_Timer:TimerUDB:sT32:timerdp:u0.z0__sig\,
+            ff0 => \Global_Timer:TimerUDB:sT32:timerdp:u0.ff0__sig\,
+            ce1 => \Global_Timer:TimerUDB:sT32:timerdp:u0.ce1__sig\,
+            cl1 => \Global_Timer:TimerUDB:sT32:timerdp:u0.cl1__sig\,
+            z1 => \Global_Timer:TimerUDB:sT32:timerdp:u0.z1__sig\,
+            ff1 => \Global_Timer:TimerUDB:sT32:timerdp:u0.ff1__sig\,
+            co_msb => \Global_Timer:TimerUDB:sT32:timerdp:u0.co_msb__sig\,
+            sol_msb => \Global_Timer:TimerUDB:sT32:timerdp:u0.sol_msb__sig\,
+            cfbo => \Global_Timer:TimerUDB:sT32:timerdp:u0.cfbo__sig\,
+            sil => \Global_Timer:TimerUDB:sT32:timerdp:u1.sor__sig\,
+            cmsbi => \Global_Timer:TimerUDB:sT32:timerdp:u1.cmsbo__sig\);
+
+    \Global_Timer:TimerUDB:sT32:timerdp:u1\:datapathcell
+        GENERIC MAP(
+            a0_init => "00000000",
+            a1_init => "00000000",
+            ce0_sync => 1,
+            ce1_sync => 1,
+            cl0_sync => 1,
+            cl1_sync => 1,
+            cmsb_sync => 1,
+            co_msb_sync => 1,
+            cy_dpconfig => "0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111100000110000000000000001000000110000000000011000",
+            d0_init => "00000000",
+            d1_init => "00000000",
+            f0_blk_sync => 1,
+            f0_bus_sync => 1,
+            f1_blk_sync => 1,
+            f1_bus_sync => 1,
+            ff0_sync => 1,
+            ff1_sync => 1,
+            ov_msb_sync => 1,
+            so_sync => 1,
+            z0_sync => 1,
+            z1_sync => 1,
+            uses_p_in => '0',
+            uses_p_out => '0',
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => ClockBlock_BUS_CLK,
+            cs_addr_1 => Net_167,
+            cs_addr_0 => \Global_Timer:TimerUDB:per_zero\,
+            busclk => ClockBlock_BUS_CLK,
+            ce0i => \Global_Timer:TimerUDB:sT32:timerdp:u0.ce0__sig\,
+            cl0i => \Global_Timer:TimerUDB:sT32:timerdp:u0.cl0__sig\,
+            z0i => \Global_Timer:TimerUDB:sT32:timerdp:u0.z0__sig\,
+            ff0i => \Global_Timer:TimerUDB:sT32:timerdp:u0.ff0__sig\,
+            ce1i => \Global_Timer:TimerUDB:sT32:timerdp:u0.ce1__sig\,
+            cl1i => \Global_Timer:TimerUDB:sT32:timerdp:u0.cl1__sig\,
+            z1i => \Global_Timer:TimerUDB:sT32:timerdp:u0.z1__sig\,
+            ff1i => \Global_Timer:TimerUDB:sT32:timerdp:u0.ff1__sig\,
+            ci => \Global_Timer:TimerUDB:sT32:timerdp:u0.co_msb__sig\,
+            sir => \Global_Timer:TimerUDB:sT32:timerdp:u0.sol_msb__sig\,
+            cfbi => \Global_Timer:TimerUDB:sT32:timerdp:u0.cfbo__sig\,
+            sor => \Global_Timer:TimerUDB:sT32:timerdp:u1.sor__sig\,
+            cmsbo => \Global_Timer:TimerUDB:sT32:timerdp:u1.cmsbo__sig\,
+            ce0 => \Global_Timer:TimerUDB:sT32:timerdp:u1.ce0__sig\,
+            cl0 => \Global_Timer:TimerUDB:sT32:timerdp:u1.cl0__sig\,
+            z0 => \Global_Timer:TimerUDB:sT32:timerdp:u1.z0__sig\,
+            ff0 => \Global_Timer:TimerUDB:sT32:timerdp:u1.ff0__sig\,
+            ce1 => \Global_Timer:TimerUDB:sT32:timerdp:u1.ce1__sig\,
+            cl1 => \Global_Timer:TimerUDB:sT32:timerdp:u1.cl1__sig\,
+            z1 => \Global_Timer:TimerUDB:sT32:timerdp:u1.z1__sig\,
+            ff1 => \Global_Timer:TimerUDB:sT32:timerdp:u1.ff1__sig\,
+            co_msb => \Global_Timer:TimerUDB:sT32:timerdp:u1.co_msb__sig\,
+            sol_msb => \Global_Timer:TimerUDB:sT32:timerdp:u1.sol_msb__sig\,
+            cfbo => \Global_Timer:TimerUDB:sT32:timerdp:u1.cfbo__sig\,
+            sil => \Global_Timer:TimerUDB:sT32:timerdp:u2.sor__sig\,
+            cmsbi => \Global_Timer:TimerUDB:sT32:timerdp:u2.cmsbo__sig\);
+
+    \Global_Timer:TimerUDB:sT32:timerdp:u2\:datapathcell
+        GENERIC MAP(
+            a0_init => "00000000",
+            a1_init => "00000000",
+            ce0_sync => 1,
+            ce1_sync => 1,
+            cl0_sync => 1,
+            cl1_sync => 1,
+            cmsb_sync => 1,
+            co_msb_sync => 1,
+            cy_dpconfig => "0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111100000110000000000000001000000110000000000011000",
+            d0_init => "00000000",
+            d1_init => "00000000",
+            f0_blk_sync => 1,
+            f0_bus_sync => 1,
+            f1_blk_sync => 1,
+            f1_bus_sync => 1,
+            ff0_sync => 1,
+            ff1_sync => 1,
+            ov_msb_sync => 1,
+            so_sync => 1,
+            z0_sync => 1,
+            z1_sync => 1,
+            uses_p_in => '0',
+            uses_p_out => '0',
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => ClockBlock_BUS_CLK,
+            cs_addr_1 => Net_167,
+            cs_addr_0 => \Global_Timer:TimerUDB:per_zero\,
+            busclk => ClockBlock_BUS_CLK,
+            ce0i => \Global_Timer:TimerUDB:sT32:timerdp:u1.ce0__sig\,
+            cl0i => \Global_Timer:TimerUDB:sT32:timerdp:u1.cl0__sig\,
+            z0i => \Global_Timer:TimerUDB:sT32:timerdp:u1.z0__sig\,
+            ff0i => \Global_Timer:TimerUDB:sT32:timerdp:u1.ff0__sig\,
+            ce1i => \Global_Timer:TimerUDB:sT32:timerdp:u1.ce1__sig\,
+            cl1i => \Global_Timer:TimerUDB:sT32:timerdp:u1.cl1__sig\,
+            z1i => \Global_Timer:TimerUDB:sT32:timerdp:u1.z1__sig\,
+            ff1i => \Global_Timer:TimerUDB:sT32:timerdp:u1.ff1__sig\,
+            ci => \Global_Timer:TimerUDB:sT32:timerdp:u1.co_msb__sig\,
+            sir => \Global_Timer:TimerUDB:sT32:timerdp:u1.sol_msb__sig\,
+            cfbi => \Global_Timer:TimerUDB:sT32:timerdp:u1.cfbo__sig\,
+            sor => \Global_Timer:TimerUDB:sT32:timerdp:u2.sor__sig\,
+            cmsbo => \Global_Timer:TimerUDB:sT32:timerdp:u2.cmsbo__sig\,
+            ce0 => \Global_Timer:TimerUDB:sT32:timerdp:u2.ce0__sig\,
+            cl0 => \Global_Timer:TimerUDB:sT32:timerdp:u2.cl0__sig\,
+            z0 => \Global_Timer:TimerUDB:sT32:timerdp:u2.z0__sig\,
+            ff0 => \Global_Timer:TimerUDB:sT32:timerdp:u2.ff0__sig\,
+            ce1 => \Global_Timer:TimerUDB:sT32:timerdp:u2.ce1__sig\,
+            cl1 => \Global_Timer:TimerUDB:sT32:timerdp:u2.cl1__sig\,
+            z1 => \Global_Timer:TimerUDB:sT32:timerdp:u2.z1__sig\,
+            ff1 => \Global_Timer:TimerUDB:sT32:timerdp:u2.ff1__sig\,
+            co_msb => \Global_Timer:TimerUDB:sT32:timerdp:u2.co_msb__sig\,
+            sol_msb => \Global_Timer:TimerUDB:sT32:timerdp:u2.sol_msb__sig\,
+            cfbo => \Global_Timer:TimerUDB:sT32:timerdp:u2.cfbo__sig\,
+            sil => \Global_Timer:TimerUDB:sT32:timerdp:u3.sor__sig\,
+            cmsbi => \Global_Timer:TimerUDB:sT32:timerdp:u3.cmsbo__sig\);
+
+    \Global_Timer:TimerUDB:sT32:timerdp:u3\:datapathcell
+        GENERIC MAP(
+            a0_init => "00000000",
+            a1_init => "00000000",
+            ce0_sync => 1,
+            ce1_sync => 1,
+            cl0_sync => 1,
+            cl1_sync => 1,
+            cmsb_sync => 1,
+            co_msb_sync => 1,
+            cy_dpconfig => "0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111100000110000000000000001000000110000000000011000",
+            d0_init => "00000000",
+            d1_init => "00000000",
+            f0_blk_sync => 1,
+            f0_bus_sync => 1,
+            f1_blk_sync => 1,
+            f1_bus_sync => 1,
+            ff0_sync => 1,
+            ff1_sync => 1,
+            ov_msb_sync => 1,
+            so_sync => 1,
+            z0_sync => 1,
+            z1_sync => 1,
+            uses_p_in => '0',
+            uses_p_out => '0',
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => ClockBlock_BUS_CLK,
+            cs_addr_1 => Net_167,
+            cs_addr_0 => \Global_Timer:TimerUDB:per_zero\,
+            z0_comb => \Global_Timer:TimerUDB:per_zero\,
+            f0_bus_stat_comb => \Global_Timer:TimerUDB:status_3\,
+            f0_blk_stat_comb => \Global_Timer:TimerUDB:status_2\,
+            busclk => ClockBlock_BUS_CLK,
+            ce0i => \Global_Timer:TimerUDB:sT32:timerdp:u2.ce0__sig\,
+            cl0i => \Global_Timer:TimerUDB:sT32:timerdp:u2.cl0__sig\,
+            z0i => \Global_Timer:TimerUDB:sT32:timerdp:u2.z0__sig\,
+            ff0i => \Global_Timer:TimerUDB:sT32:timerdp:u2.ff0__sig\,
+            ce1i => \Global_Timer:TimerUDB:sT32:timerdp:u2.ce1__sig\,
+            cl1i => \Global_Timer:TimerUDB:sT32:timerdp:u2.cl1__sig\,
+            z1i => \Global_Timer:TimerUDB:sT32:timerdp:u2.z1__sig\,
+            ff1i => \Global_Timer:TimerUDB:sT32:timerdp:u2.ff1__sig\,
+            ci => \Global_Timer:TimerUDB:sT32:timerdp:u2.co_msb__sig\,
+            sir => \Global_Timer:TimerUDB:sT32:timerdp:u2.sol_msb__sig\,
+            cfbi => \Global_Timer:TimerUDB:sT32:timerdp:u2.cfbo__sig\,
+            sor => \Global_Timer:TimerUDB:sT32:timerdp:u3.sor__sig\,
+            cmsbo => \Global_Timer:TimerUDB:sT32:timerdp:u3.cmsbo__sig\);
 
     \SPICAN:BSPIM:mosi_reg\:macrocell
         GENERIC MAP(
