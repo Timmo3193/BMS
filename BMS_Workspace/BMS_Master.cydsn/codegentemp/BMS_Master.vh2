@@ -2,7 +2,7 @@
 --	Conversion of BMS_Master.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Jul 06 15:11:46 2018
+--	Sun Jul 15 09:41:22 2018
 --
 
 USE cypress.cypress.all;

@@ -75,9 +75,9 @@ extern uint8 Vehicle_CAN_initVar;
 #define Vehicle_CAN_ADVANCED_INTERRUPT_CFG         (0u)
 
 /* TX/RX Function Enable */
-#define Vehicle_CAN_TX0_FUNC_ENABLE    (0u)
-#define Vehicle_CAN_TX1_FUNC_ENABLE    (0u)
-#define Vehicle_CAN_TX2_FUNC_ENABLE    (0u)
+#define Vehicle_CAN_TX0_FUNC_ENABLE    (1u)
+#define Vehicle_CAN_TX1_FUNC_ENABLE    (1u)
+#define Vehicle_CAN_TX2_FUNC_ENABLE    (1u)
 #define Vehicle_CAN_TX3_FUNC_ENABLE    (0u)
 #define Vehicle_CAN_TX4_FUNC_ENABLE    (0u)
 #define Vehicle_CAN_TX5_FUNC_ENABLE    (0u)
@@ -100,7 +100,7 @@ extern uint8 Vehicle_CAN_initVar;
 #define Vehicle_CAN_RX14_FUNC_ENABLE   (0u)
 #define Vehicle_CAN_RX15_FUNC_ENABLE   (0u)
 #define Vehicle_CAN_RX_MAILBOX_TYPE    (0x1Fu)
-#define Vehicle_CAN_TX_MAILBOX_TYPE    (0x0u)
+#define Vehicle_CAN_TX_MAILBOX_TYPE    (0x7u)
 
 
 /***************************************
