@@ -13,11 +13,12 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="BMS_Workspace\BMS_Master">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="BMS_Workspace\BMS_Master\Generated_Source\PSoC5\UART_DBG\UART_DBG_INT.c">
 <ExpandedNodeIds>
 <v>BMS_Workspace</v>
 <v>BMS_Workspace\BMS_Master</v>
 <v>BMS_Workspace\BMS_Master\TopDesign</v>
+<v>BMS_Workspace\BMS_Master\BMS_Master.cydwr</v>
 <v>BMS_Workspace\BMS_Master\BMS_Master.cydwr\Pins</v>
 <v>BMS_Workspace\BMS_Master\BMS_Master.cydwr\Analog</v>
 <v>BMS_Workspace\BMS_Master\BMS_Master.cydwr\Clocks</v>
@@ -28,7 +29,6 @@
 <v>BMS_Workspace\BMS_Master\BMS_Master.cydwr\Flash Security</v>
 <v>BMS_Workspace\BMS_Master\BMS_Master.cydwr\EEPROM</v>
 <v>BMS_Workspace\BMS_Master\Header Files\cyapicallbacks.h</v>
-<v>BMS_Workspace\BMS_Master\Source Files</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\IsolationMonitor.c</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\BMS\IsolationMonitor.h</v>
@@ -51,11 +51,12 @@
 <v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\CAN.h</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\SPI.c</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\SPI.h</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\UART.c</v>
+<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\UART.h</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\DIAG\DTC.c</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\DIAG\DTC.h</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\ECU\DriverControls.c</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\ECU\DriverControls.h</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Slave.c</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Slave.h</v>
 <v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Vehicle.c</v>
@@ -68,39 +69,32 @@
 <v>BMS_Workspace\BMS_Master\Source Files\ToDo.txt</v>
 <v>BMS_Workspace\BMS_Master\Generated_Source</v>
 <v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5</v>
-<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\Vehicle_CAN</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\UART_DBG</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>BMS_Workspace</v>
-<v>BMS_Workspace\BMS_Master</v>
-<v>BMS_Workspace\BMS_Master\TopDesign</v>
-<v>BMS_Workspace\BMS_Master\BMS_Master.cydwr</v>
-<v>BMS_Workspace\BMS_Master\Header Files</v>
-<v>BMS_Workspace\BMS_Master\Source Files</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\BMS</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\CAN.c</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\CAN.h</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\SPI.c</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\COMMS\SPI.h</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\DIAG</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\ECU</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Slave.c</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Slave.h</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Vehicle.c</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\BMS_to_Vehicle.h</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\IVT-S.c</v>
-<v>BMS_Workspace\BMS_Master\Source Files\modules\Interfaces\IVT-S.h</v>
-<v>BMS_Workspace\BMS_Master\Source Files\DTC List.txt</v>
-<v>BMS_Workspace\BMS_Master\Source Files\global.h</v>
-<v>BMS_Workspace\BMS_Master\Source Files\main.c</v>
-<v>BMS_Workspace\BMS_Master\Source Files\ToDo.txt</v>
-<v>BMS_Workspace\BMS_Master\Generated_Source</v>
-<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5</v>
-<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\aiBMS_OutputVoltage</v>
-<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\aiBMS_PackVoltage</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\doBMS_RelayPreCharge</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\doTHM_FanEn</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\doTHM_PumpEn</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\Global_Timer</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\isr_RxUart</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\Pin_1</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\RX_CAN</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\SPICAN</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\Timer_En</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\TX_CAN</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\UART_DBG</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\UART_DBG\UART_DBG.c</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\UART_DBG\UART_DBG.h</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\UART_DBG\UART_DBG_BOOT.c</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\UART_DBG\UART_DBG_INT.c</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\UART_DBG\UART_DBG_PM.c</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\UART_DBG_IntClock</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\Vehicle_CAN</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\cycodeshareexport.ld</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\cycodeshareimport.ld</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>BMS_Workspace\BMS_Master\Generated_Source\PSoC5\cydevice.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="BMS_Workspace">
@@ -159,6 +153,7 @@
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\Global_Timer.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\Global_Timer_PM.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\IsolationMonitor.lst</v>
+<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_RxUart.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\IVT-S.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\mainState.lst</v>
@@ -176,6 +171,7 @@
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_En.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\TX_CAN.lst</v>
+<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_DBG.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_DBG_BOOT.lst</v>
 <v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_DBG_INT.lst</v>
@@ -195,34 +191,6 @@
 <VisibleNodeIds>
 <v>BMS_Workspace</v>
 <v>BMS_Workspace\BMS_Master</v>
-<v>BMS_Workspace\BMS_Master\CortexM3</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiBMS_OutputVoltage.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiBMS_PackVoltage.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiBMS_VoltageSense.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiECU_PyroFront.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiECU_PyroRear.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiTHM_CoolantInlet.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\aiTHM_CoolantOutlet.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\BMS_to_Slave.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\BMS_to_Vehicle.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\CAN.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\diBMS_RelayNegFdbk.lst</v>
-<v>BMS_Workspace\BMS_Master\CortexM3\ARM_GCC_541\Debug\Listing Files\diBMS_RelayPosFdbk.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -242,6 +210,7 @@
 <v>BMS_Workspace\BMS_Master\cy_clock_v2_20</v>
 <v>BMS_Workspace\BMS_Master\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
 <v>BMS_Workspace\BMS_Master\cy_constant_v1_0.pdf</v>
+<v>BMS_Workspace\BMS_Master\cy_isr_v1_70.pdf</v>
 <v>BMS_Workspace\BMS_Master\cy_pins_v2_20</v>
 <v>BMS_Workspace\BMS_Master\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>BMS_Workspace\BMS_Master\SPI_Master_v2_50.pdf</v>
@@ -259,6 +228,7 @@
 <v>BMS_Workspace\BMS_Master\cy_clock_v2_20</v>
 <v>BMS_Workspace\BMS_Master\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
 <v>BMS_Workspace\BMS_Master\cy_constant_v1_0.pdf</v>
+<v>BMS_Workspace\BMS_Master\cy_isr_v1_70.pdf</v>
 <v>BMS_Workspace\BMS_Master\cy_pins_v2_20</v>
 <v>BMS_Workspace\BMS_Master\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>BMS_Workspace\BMS_Master\SPI_Master_v2_50.pdf</v>
@@ -273,12 +243,13 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\BMS_Master.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\BMS_Master.cydsn\main.c" />
-<name v=".\BMS_Master.cydsn\Generated_Source\PSoC5\Vehicle_CAN_TX_RX_func.c" />
-<name v=".\BMS_Master.cydsn\Generated_Source\PSoC5\Vehicle_CAN.c" />
-<name v=".\BMS_Master.cydsn\Generated_Source\PSoC5\Vehicle_CAN.h" />
-<name v=".\BMS_Master.cydsn\Generated_Source\PSoC5\Vehicle_CAN_INT.c" />
+<name v=".\BMS_Master.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\BMS_Master.cydsn\BMS_Master.cydwr" />
+<name v=".\BMS_Master.cydsn\Generated_Source\PSoC5\UART_DBG.c" />
+<name v=".\BMS_Master.cydsn\Generated_Source\PSoC5\UART_DBG_INT.c" />
+<name v=".\BMS_Master.cydsn\UART.c" />
+<name v=".\BMS_Master.cydsn\Generated_Source\PSoC5\UART_DBG.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -286,7 +257,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="775, 433" SelectedTabbedMdiWindow="04a492a5-b150-4a8b-bbc5-1b06bc4298b3"><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch" Guid="d7689401-bbd4-4987-8552-6eb7446e6bfc" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\main.c" Guid="c2d16182-77bb-48d4-8e8e-8b03a6a80284" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\Generated_Source\PSoC5\Vehicle_CAN_TX_RX_func.c" Guid="59f1a5ae-06d7-42bd-be8f-5161cfaf6367" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\Generated_Source\PSoC5\Vehicle_CAN.c" Guid="c312a356-77e4-4663-9efe-c60cd72f2654" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\Generated_Source\PSoC5\Vehicle_CAN.h" Guid="de54d5d2-876f-4dbf-87b3-c97501f06001" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\Generated_Source\PSoC5\Vehicle_CAN_INT.c" Guid="04a492a5-b150-4a8b-bbc5-1b06bc4298b3" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="823, 433" SelectedTabbedMdiWindow="b5d0d24d-e6ad-480c-9bbc-a8de6e127f78"><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\main.c" Guid="b5d0d24d-e6ad-480c-9bbc-a8de6e127f78" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\TopDesign\TopDesign.cysch" Guid="590f4b10-a6a9-4b1f-9205-2df17a2f12aa" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\BMS_Master.cydwr" Guid="b49aacc1-114c-4639-855b-c0dea98fe029" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\Generated_Source\PSoC5\UART_DBG.c" Guid="59085278-5204-4b42-bc14-5f7a2e9c844d" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\Generated_Source\PSoC5\UART_DBG_INT.c" Guid="dfd1f360-fa94-436f-8ef5-a39f3ac5f2ce" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\UART.c" Guid="953a2f52-242a-47e1-bd2a-e27d35d8300c" /><DocumentWindow Key="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\Generated_Source\PSoC5\UART_DBG.h" Guid="b0eb4c91-c12c-4c55-935c-6a41a6dbc4ed" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="e233ae64-a9b3-4a50-a2c7-d63774a80943" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

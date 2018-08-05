@@ -92,6 +92,8 @@
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\doBMS_RelayPreCharge_aliases.h" value="HEADER;;;;;doBMS_RelayPreCharge" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\doBMS_RelayPreCharge.c" value="SOURCE_C;CortexM3;;;;doBMS_RelayPreCharge" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\doBMS_RelayPreCharge.h" value="HEADER;;;;;doBMS_RelayPreCharge" />
+  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\isr_RxUart.c" value="SOURCE_C;CortexM3;;;;isr_RxUart" />
+  <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\isr_RxUart.h" value="HEADER;;;;;isr_RxUart" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\UART_DBG_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_DBG_IntClock" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\UART_DBG_IntClock.h" value="HEADER;;;;;UART_DBG_IntClock" />
   <file name="C:\Users\Timmo\Documents\GitHub\Software\BMS\BMS_Workspace\BMS_Master.cydsn\codegentemp\cm3gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />

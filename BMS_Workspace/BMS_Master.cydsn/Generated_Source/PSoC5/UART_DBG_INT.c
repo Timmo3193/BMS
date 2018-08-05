@@ -72,7 +72,7 @@
 
         /* User code required at start of ISR */
         /* `#START UART_DBG_RXISR_START` */
-
+        
         /* `#END` */
 
     #if(CY_PSOC3)   /* Make sure nested interrupt is enabled */
@@ -100,6 +100,24 @@
                                                             UART_DBG_RX_STS_STOP_ERROR | 
                                                             UART_DBG_RX_STS_OVERRUN);
                 /* `#START UART_DBG_RXISR_ERROR` */
+                UART_DBG_PutString("Error Occurred --  ");
+                switch (UART_DBG_errorStatus)
+                {
+                    case UART_DBG_RX_STS_BREAK:
+                        UART_DBG_PutString("UART_DBG_RX_STS_BREAK \n");
+                        break;
+                    case UART_DBG_RX_STS_PAR_ERROR:
+                        UART_DBG_PutString("UART_DBG_RX_STS_PAR_ERROR \n");
+                        break;
+                    case UART_DBG_RX_STS_STOP_ERROR:
+                        UART_DBG_PutString("UART_DBG_RX_STS_STOP_ERROR \n");
+                        break;
+                    case UART_DBG_RX_STS_OVERRUN:
+                        UART_DBG_PutString("UART_DBG_RX_STS_OVERRUN \n");
+                        break;
+                    default:
+                        break;
+                }    
 
                 /* `#END` */
                 
@@ -176,7 +194,9 @@
 
         /* User code required at end of ISR (Optional) */
         /* `#START UART_DBG_RXISR_END` */
-
+        UART_DBG_PutString("Received  \n");
+        UART_DBG_PutCRLF(0);
+        UART_DBG_ClearRxBuffer();
         /* `#END` */
 
     #ifdef UART_DBG_RXISR_EXIT_CALLBACK

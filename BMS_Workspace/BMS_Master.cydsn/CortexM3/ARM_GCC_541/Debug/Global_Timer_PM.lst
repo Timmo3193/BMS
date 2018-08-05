@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
   28:Generated_Source\PSoC5/Global_Timer_PM.c **** * Summary:
   29:Generated_Source\PSoC5/Global_Timer_PM.c **** *     Save the current user configuration
   30:Generated_Source\PSoC5/Global_Timer_PM.c **** *
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 2
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 2
 
 
   31:Generated_Source\PSoC5/Global_Timer_PM.c **** * Parameters:
@@ -100,7 +100,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
   47 0012 00BF     		.align	2
   48              	.L3:
   49 0014 00000000 		.word	.LANCHOR0
-  50 0018 86640040 		.word	1073767558
+  50 0018 84640040 		.word	1073767556
   51              		.cfi_endproc
   52              	.LFE0:
   53              		.size	Global_Timer_SaveConfig, .-Global_Timer_SaveConfig
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
   51:Generated_Source\PSoC5/Global_Timer_PM.c **** 
   52:Generated_Source\PSoC5/Global_Timer_PM.c ****         #if(!Global_Timer_UDB_CONTROL_REG_REMOVED)
   53:Generated_Source\PSoC5/Global_Timer_PM.c ****             Global_Timer_backup.TimerControlRegister = Global_Timer_ReadControlRegister();
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 3
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 3
 
 
   54:Generated_Source\PSoC5/Global_Timer_PM.c ****         #endif /* Backup the enable state of the Timer component */
@@ -172,13 +172,13 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
   81 0012 00BF     		.align	2
   82              	.L7:
   83 0014 00000000 		.word	.LANCHOR0
-  84 0018 86640040 		.word	1073767558
+  84 0018 84640040 		.word	1073767556
   85              		.cfi_endproc
   86              	.LFE1:
   87              		.size	Global_Timer_RestoreConfig, .-Global_Timer_RestoreConfig
   88              		.section	.text.Global_Timer_Sleep,"ax",%progbits
   89              		.align	2
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 4
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 4
 
 
   90              		.global	Global_Timer_Sleep
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
  123:Generated_Source\PSoC5/Global_Timer_PM.c ****             /* Timer is disabled */
  124:Generated_Source\PSoC5/Global_Timer_PM.c ****             Global_Timer_backup.TimerEnableState = 0u;
  125:Generated_Source\PSoC5/Global_Timer_PM.c ****         }
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 5
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 5
 
 
  126:Generated_Source\PSoC5/Global_Timer_PM.c ****     #endif /* Back up enable state from the Timer control register */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
  131 0002 FFF7FEFF 		bl	Global_Timer_RestoreConfig
  132              	.LVL4:
  133 0006 08BD     		pop	{r3, pc}
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 6
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 6
 
 
  134              		.cfi_endproc
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
  186 004f 02       		.uleb128 0x2
  187 0050 08       		.byte	0x8
  188 0051 05       		.byte	0x5
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 7
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 7
 
 
  189 0052 DB010000 		.4byte	.LASF6
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
  243 00bb E4000000 		.4byte	0xe4
  244 00bf 07       		.uleb128 0x7
  245 00c0 1A000000 		.4byte	.LASF17
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 8
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 8
 
 
  246 00c4 03       		.byte	0x3
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
  300 013c 01       		.uleb128 0x1
  301 013d 9C       		.byte	0x9c
  302 013e 55010000 		.4byte	0x155
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 9
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 9
 
 
  303 0142 0A       		.uleb128 0xa
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
  357 0008 0E       		.uleb128 0xe
  358 0009 1B       		.uleb128 0x1b
  359 000a 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 10
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 10
 
 
  360 000b 55       		.uleb128 0x55
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
  414 0041 0B       		.uleb128 0xb
  415 0042 3A       		.uleb128 0x3a
  416 0043 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 11
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 11
 
 
  417 0044 3B       		.uleb128 0x3b
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
  471 007b 19       		.uleb128 0x19
  472 007c 01       		.uleb128 0x1
  473 007d 13       		.uleb128 0x13
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 12
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 12
 
 
  474 007e 00       		.byte	0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
  528 0018 00000000 		.4byte	.LFB1
  529 001c 1C000000 		.4byte	.LFE1-.LFB1
  530 0020 00000000 		.4byte	.LFB2
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 13
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 13
 
 
  531 0024 0C000000 		.4byte	.LFE2-.LFB2
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
  562      7400
  563              	.LASF25:
  564 0061 476C6F62 		.ascii	"Global_Timer_ReadCounter\000"
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 14
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 14
 
 
  564      616C5F54 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
  585              	.LASF26:
  586 0166 476C6F62 		.ascii	"Global_Timer_WriteCounter\000"
  586      616C5F54 
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 15
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 15
 
 
  586      696D6572 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 1
  608 022f 6C6F6E67 		.ascii	"long double\000"
  608      20646F75 
  608      626C6500 
-ARM GAS  C:\Users\Timmo\AppData\Local\Temp\cc9j6gHI.s 			page 16
+ARM GAS  C:\Users\Timmo\AppData\Local\Temp\ccgeSQg5.s 			page 16
 
 
  609              	.LASF0:

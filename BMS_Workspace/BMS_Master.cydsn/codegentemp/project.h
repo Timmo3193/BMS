@@ -61,6 +61,7 @@
 #include "aiBMS_PackVoltage.h"
 #include "doBMS_RelayPreCharge_aliases.h"
 #include "doBMS_RelayPreCharge.h"
+#include "isr_RxUart.h"
 #include "UART_DBG_IntClock.h"
 #include "core_cm3_psoc5.h"
 #include "CyDmac.h"

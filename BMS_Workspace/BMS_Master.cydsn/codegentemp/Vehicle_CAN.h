@@ -88,7 +88,7 @@ extern uint8 Vehicle_CAN_initVar;
 #define Vehicle_CAN_RX2_FUNC_ENABLE    (1u)
 #define Vehicle_CAN_RX3_FUNC_ENABLE    (1u)
 #define Vehicle_CAN_RX4_FUNC_ENABLE    (1u)
-#define Vehicle_CAN_RX5_FUNC_ENABLE    (0u)
+#define Vehicle_CAN_RX5_FUNC_ENABLE    (1u)
 #define Vehicle_CAN_RX6_FUNC_ENABLE    (0u)
 #define Vehicle_CAN_RX7_FUNC_ENABLE    (0u)
 #define Vehicle_CAN_RX8_FUNC_ENABLE    (0u)
@@ -99,7 +99,7 @@ extern uint8 Vehicle_CAN_initVar;
 #define Vehicle_CAN_RX13_FUNC_ENABLE   (0u)
 #define Vehicle_CAN_RX14_FUNC_ENABLE   (0u)
 #define Vehicle_CAN_RX15_FUNC_ENABLE   (0u)
-#define Vehicle_CAN_RX_MAILBOX_TYPE    (0x1Fu)
+#define Vehicle_CAN_RX_MAILBOX_TYPE    (0x3Fu)
 #define Vehicle_CAN_TX_MAILBOX_TYPE    (0x7u)
 
 

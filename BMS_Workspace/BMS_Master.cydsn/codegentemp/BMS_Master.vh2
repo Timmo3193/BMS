@@ -2,7 +2,7 @@
 --	Conversion of BMS_Master.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sun Jul 15 09:41:22 2018
+--	Sun Aug 05 15:36:57 2018
 --
 
 USE cypress.cypress.all;
@@ -173,7 +173,7 @@ SIGNAL Net_15 : bit;
 SIGNAL \UART_DBG:BUART:txn\ : bit;
 SIGNAL Net_21 : bit;
 SIGNAL \UART_DBG:BUART:tx_interrupt_out\ : bit;
-SIGNAL Net_22 : bit;
+SIGNAL Net_240 : bit;
 SIGNAL \UART_DBG:BUART:rx_interrupt_out\ : bit;
 SIGNAL \UART_DBG:BUART:tx_state_1\ : bit;
 SIGNAL \UART_DBG:BUART:tx_state_0\ : bit;
@@ -1062,10 +1062,6 @@ Net_15 <= (not \UART_DBG:BUART:txn\);
 
 \UART_DBG:BUART:tx_status_2\ <= (not \UART_DBG:BUART:tx_fifo_notfull\);
 
-Net_17D <= ((not \UART_DBG:BUART:reset_reg\ and \UART_DBG:BUART:tx_state_2\)
-	OR (not \UART_DBG:BUART:reset_reg\ and \UART_DBG:BUART:tx_state_0\)
-	OR (not \UART_DBG:BUART:reset_reg\ and \UART_DBG:BUART:tx_state_1\));
-
 \UART_DBG:BUART:tx_bitclk\\D\ <= ((not \UART_DBG:BUART:tx_state_2\ and \UART_DBG:BUART:tx_bitclk_enable_pre\)
 	OR (\UART_DBG:BUART:tx_state_0\ and \UART_DBG:BUART:tx_bitclk_enable_pre\)
 	OR (\UART_DBG:BUART:tx_state_1\ and \UART_DBG:BUART:tx_bitclk_enable_pre\));
@@ -1450,7 +1446,7 @@ TX_CAN:cy_psoc3_pins_v1_10
 		id=>"b0162966-0060-4af5-82d1-fcb491ad7619/be0a0e37-ad17-42ca-b5a1-1a654d736358",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"2170138888.88889",
+		period=>"13020833333.3333",
 		is_direct=>'0',
 		is_digital=>'1')
 	PORT MAP(clock_out=>\UART_DBG:Net_9\,
@@ -1749,7 +1745,7 @@ TX_CAN:cy_psoc3_pins_v1_10
 		clock=>\UART_DBG:BUART:clock_op\,
 		status=>(zero, \UART_DBG:BUART:rx_status_5\, \UART_DBG:BUART:rx_status_4\, \UART_DBG:BUART:rx_status_3\,
 			\UART_DBG:BUART:rx_status_2\, zero, zero),
-		interrupt=>\UART_DBG:BUART:rx_interrupt_out\);
+		interrupt=>Net_240);
 RxUART:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"61ccd9dc-0d3d-4987-8bb8-4ad6e3b7c7ae",
 		drive_mode=>"001",
@@ -3388,6 +3384,10 @@ doBMS_RelayPreCharge:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__RX_CAN_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__doBMS_RelayPreCharge_net_0);
+isr_RxUart:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_240);
 \SPICAN:BSPIM:so_send_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\SPICAN:BSPIM:clk_fin\,
@@ -3461,7 +3461,7 @@ Net_32:cy_dff
 		clk=>\UART_DBG:BUART:clock_op\,
 		q=>\UART_DBG:BUART:tx_state_2\);
 Net_17:cy_dff
-	PORT MAP(d=>Net_17D,
+	PORT MAP(d=>zero,
 		clk=>\UART_DBG:BUART:clock_op\,
 		q=>Net_17);
 \UART_DBG:BUART:tx_bitclk\:cy_dff

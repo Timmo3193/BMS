@@ -9,25 +9,28 @@
  *
  * ========================================
 */
+#include "project.h"
 #include "RelayControl.h"
 
+#define ONE_BYTE_OFFSET		8u
 
 
-
-struct debug_S {
+typedef struct debug_S {
 	//Overwrite Enables
-	_bool debugEnable = FALSE;
-	_bool airPlusOvr = FALSE;
-	_bool airMinusOvr = FALSE;
-	_bool prechargeRelayOvr = FALSE;
-	_bool enableLineOvr = FALSE;
+	_Bool debugEnable;
+	_Bool airPlusOvr;
+	_Bool airMinusOvr;
+	_Bool prechargeRelayOvr;
+	_Bool enableLineOvr;
 	//Overwrite Values
-	RelayState_E airPlusValue = RELAY_UNKNOWN;
-	RelayState_E airMinusValue = RELAY_UNKNOWN;
-	RelayState_E prechargeRelayValue = RELAY_UNKNOWN;
-	_bool enableLineValue = FALSE;
-} dbgEnables;
+	enum RelayState_E airPlusValue;
+	enum RelayState_E airMinusValue;
+	enum RelayState_E prechargeRelayValue;
+	_Bool enableLineValue;
+};
 
+
+void Vehicle_CAN_Recieve_DbgMsg(void);
 
 
 

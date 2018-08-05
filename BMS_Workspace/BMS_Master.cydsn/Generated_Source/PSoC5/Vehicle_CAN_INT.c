@@ -438,6 +438,8 @@
                             break;
                             case 4u : Vehicle_CAN_ReceiveMsg4();
                             break;
+                            case 5u : Vehicle_CAN_ReceiveMsg5();
+                            break;
                             default:
                             break;
                         }
